@@ -1,0 +1,11 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /moderation/
+
+    # Redirect requests with apiKey to the URL without the query parameter
+    RewriteCond %{QUERY_STRING} ^apiKey=
+    RewriteRule ^filtertext/$ filtertext.php [NC,QSA,L]
+
+    # Redirect requests for filtertext to filtertext.php
+    RewriteRule ^filtertext$ filtertext.php [L]
+</IfModule>

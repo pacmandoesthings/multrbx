@@ -1,0 +1,11 @@
+RewriteEngine On
+RewriteBase /game/players
+
+# Redirect to index if apiKey is empty
+RewriteCond %{QUERY_STRING} ^apiKey=$ [NC]
+RewriteRule ^(\d+)/$ index.php?id=$1 [L,R=301]
+
+# Rewrite URLs to index.php with id parameter
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(\d+)/?$ index.php?id=$1 [QSA,L]

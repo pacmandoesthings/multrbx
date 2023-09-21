@@ -1,0 +1,164 @@
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mulrbx.com/roblox.xsd" version="4" assettype="animation">
+	<External>null</External>
+	<External>nil</External>
+	<Item class="KeyframeSequence" referent="RBX0">
+		<Properties>
+			<bool name="Loop">false</bool>
+			<string name="Name">KeyframeSequence</string>
+			<token name="Priority">0</token>
+		</Properties>
+		<Item class="Keyframe" referent="RBX1">
+			<Properties>
+				<string name="Name">base</string>
+				<float name="Time">0</float>
+			</Properties>
+			<Item class="Pose" referent="RBX2">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<float name="MaskWeight">0</float>
+					<string name="Name">SkateboardPlatform</string>
+					<float name="Weight">1</float>
+				</Properties>
+				<Item class="Pose" referent="RBX3">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0</X>
+							<Y>0</Y>
+							<Z>-0.359836936</Z>
+							<R00>0.402853727</R00>
+							<R01>0.903147638</R01>
+							<R02>-0.148435637</R02>
+							<R10>-0.915264368</R10>
+							<R11>0.397520542</R11>
+							<R12>-0.0653339624</R12>
+							<R20>0</R20>
+							<R21>0.162177876</R21>
+							<R22>0.98676151</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Torso</string>
+						<float name="Weight">1</float>
+					</Properties>
+					<Item class="Pose" referent="RBX4">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-0.144599125</X>
+								<Y>0</Y>
+								<Z>0.0147949606</Z>
+								<R00>0.929914773</R00>
+								<R01>0</R01>
+								<R02>-0.367775023</R02>
+								<R10>0.077230826</R10>
+								<R11>0.977702498</R11>
+								<R12>0.195277229</R12>
+								<R20>0.359574556</R20>
+								<R21>-0.209994763</R21>
+								<R22>0.909179986</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX5">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-0.109968849</X>
+								<Y>-0.121320896</Y>
+								<Z>0.0157477241</Z>
+								<R00>0.997252703</R00>
+								<R01>0.0601458512</R01>
+								<R02>0.0432370603</R02>
+								<R10>-0.0731551647</R10>
+								<R11>0.891348124</R11>
+								<R12>0.447377801</R12>
+								<R20>-0.0116313696</R20>
+								<R21>-0.449311763</R21>
+								<R22>0.893299282</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Arm</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX6">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-0.0740479529</X>
+								<Y>0.227567956</Y>
+								<Z>0.0205286704</Z>
+								<R00>0.927208364</R00>
+								<R01>0.243936718</R01>
+								<R02>-0.284217387</R02>
+								<R10>-0.158576131</R10>
+								<R11>0.943135977</R11>
+								<R12>0.292143911</R12>
+								<R20>0.339320272</R20>
+								<R21>-0.225808188</R21>
+								<R22>0.913166106</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Right Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX7">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>-0.282842696</X>
+								<Y>0.101337031</Y>
+								<Z>0</Z>
+								<R00>0.977055848</R00>
+								<R01>-0.212983385</R01>
+								<R02>0</R02>
+								<R10>0.208365679</R10>
+								<R11>0.955872238</R11>
+								<R12>0.207104027</R12>
+								<R20>-0.044109717</R20>
+								<R21>-0.202352196</R21>
+								<R22>0.97831893</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Left Leg</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+					<Item class="Pose" referent="RBX8">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>0</X>
+								<Y>0</Y>
+								<Z>0</Z>
+								<R00>0.127883613</R00>
+								<R01>-0.991789222</R01>
+								<R02>0</R02>
+								<R10>0.991789222</R10>
+								<R11>0.127883613</R11>
+								<R12>0</R12>
+								<R20>0</R20>
+								<R21>0</R21>
+								<R22>1</R22>
+							</CoordinateFrame>
+							<float name="MaskWeight">0</float>
+							<string name="Name">Head</string>
+							<float name="Weight">1</float>
+						</Properties>
+					</Item>
+				</Item>
+			</Item>
+		</Item>
+	</Item>
+</roblox>

@@ -1,0 +1,229 @@
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mulrbx.com/roblox.xsd" version="4">
+	<External>null</External>
+	<External>nil</External>
+	<Item class="Tool" referent="RBXA2DFA684DA0D400599D561BEAE1060B6">
+		<Properties>
+			<bool name="CanBeDropped">true</bool>
+			<bool name="Enabled">true</bool>
+			<CoordinateFrame name="Grip">
+				<X>0</X>
+				<Y>-1</Y>
+				<Z>0</Z>
+				<R00>0</R00>
+				<R01>0</R01>
+				<R02>1</R02>
+				<R10>0</R10>
+				<R11>1</R11>
+				<R12>-0</R12>
+				<R20>-1</R20>
+				<R21>0</R21>
+				<R22>0</R22>
+			</CoordinateFrame>
+			<bool name="ManualActivationOnly">false</bool>
+			<string name="Name">NoiseMaker1</string>
+			<bool name="RequiresHandle">true</bool>
+			<Content name="TextureId"><url>http://www.mulrbx.com/asset/?id=20056056</url></Content>
+			<string name="ToolTip"></string>
+		</Properties>
+		<Item class="Part" referent="RBXB944F21AB07640FCB68292E779C3B525">
+			<Properties>
+				<bool name="Anchored">false</bool>
+				<float name="BackParamA">-0.5</float>
+				<float name="BackParamB">0.5</float>
+				<token name="BackSurface">0</token>
+				<token name="BackSurfaceInput">0</token>
+				<float name="BottomParamA">-0.5</float>
+				<float name="BottomParamB">0.5</float>
+				<token name="BottomSurface">0</token>
+				<token name="BottomSurfaceInput">0</token>
+				<int name="BrickColor">1002</int>
+				<CoordinateFrame name="CFrame">
+					<X>0.5</X>
+					<Y>0.800000012</Y>
+					<Z>-0.5</Z>
+					<R00>-1</R00>
+					<R01>0</R01>
+					<R02>0</R02>
+					<R10>0</R10>
+					<R11>1</R11>
+					<R12>0</R12>
+					<R20>0</R20>
+					<R21>0</R21>
+					<R22>-1</R22>
+				</CoordinateFrame>
+				<bool name="CanCollide">true</bool>
+				<PhysicalProperties name="CustomPhysicalProperties">
+					<CustomPhysics>false</CustomPhysics>
+				</PhysicalProperties>
+				<float name="Elasticity">0.5</float>
+				<float name="Friction">0.300000012</float>
+				<float name="FrontParamA">-0.5</float>
+				<float name="FrontParamB">0.5</float>
+				<token name="FrontSurface">0</token>
+				<token name="FrontSurfaceInput">0</token>
+				<float name="LeftParamA">-0.5</float>
+				<float name="LeftParamB">0.5</float>
+				<token name="LeftSurface">0</token>
+				<token name="LeftSurfaceInput">0</token>
+				<bool name="Locked">false</bool>
+				<token name="Material">256</token>
+				<string name="Name">Handle</string>
+				<float name="Reflectance">0</float>
+				<float name="RightParamA">-0.5</float>
+				<float name="RightParamB">0.5</float>
+				<token name="RightSurface">0</token>
+				<token name="RightSurfaceInput">0</token>
+				<Vector3 name="RotVelocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<float name="TopParamA">-0.5</float>
+				<float name="TopParamB">0.5</float>
+				<token name="TopSurface">0</token>
+				<token name="TopSurfaceInput">0</token>
+				<float name="Transparency">0</float>
+				<Vector3 name="Velocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<token name="formFactorRaw">2</token>
+				<token name="shape">1</token>
+				<Vector3 name="size">
+					<X>2</X>
+					<Y>1.60000002</Y>
+					<Z>2</Z>
+				</Vector3>
+			</Properties>
+			<Item class="SpecialMesh" referent="RBX216E72380F09474F88597CECB39B7035">
+				<Properties>
+					<token name="LODX">2</token>
+					<token name="LODY">2</token>
+					<Content name="MeshId"><url>http://www.mulrbx.com/asset/?id=20054978</url></Content>
+					<token name="MeshType">5</token>
+					<string name="Name">Mesh</string>
+					<Vector3 name="Offset">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+					<Vector3 name="Scale">
+						<X>0.25</X>
+						<Y>0.25</Y>
+						<Z>0.25</Z>
+					</Vector3>
+					<Content name="TextureId"><url>http://www.mulrbx.com/asset/?id=20055253</url></Content>
+					<Vector3 name="VertexColor">
+						<X>1</X>
+						<Y>1</Y>
+						<Z>1</Z>
+					</Vector3>
+				</Properties>
+			</Item>
+			<Item class="Sound" referent="RBX470209E2A82B4CD0BCFF837EB2D6619E">
+				<Properties>
+					<float name="EmitterSize">10</float>
+					<bool name="Looped">false</bool>
+					<string name="Name">Noisemaker</string>
+					<bool name="PlayOnRemove">false</bool>
+					<float name="PlaybackSpeed">1</float>
+					<bool name="Playing">false</bool>
+					<token name="RollOffMode">0</token>
+					<Ref name="SoundGroup">null</Ref>
+					<Content name="SoundId"><url>http://www.mulrbx.com/asset/?id=20055651</url></Content>
+					<double name="TimePosition">0</double>
+					<float name="Volume">1</float>
+					<float name="xmlRead_MaxDistance_3">10000</float>
+				</Properties>
+			</Item>
+			<Item class="Attachment" referent="RBX43C595E731824F14B49D89E3CECB87DE">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>-0.75</Y>
+						<Z>0</Z>
+						<R00>-1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>-1</R22>
+					</CoordinateFrame>
+					<string name="Name">RightGripAttachment</string>
+					<bool name="Visible">false</bool>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="Script" referent="RBX54B8082A496A4EBE90830419F455AEC3">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">RattleScript</string>
+				<string name="ScriptGuid">{92E19883-3875-46ED-A6FB-294A918C8A9B}</string>
+				<ProtectedString name="Source"><![CDATA[local Tool = script.Parent;
+
+local DeltaTime = 1/60
+local Speed = 20
+
+Tool.Enabled = true
+function onActivated()
+	if not Tool.Enabled  then
+		return
+	end
+	Tool.Enabled = false
+	
+	Tool.Handle.Noisemaker:Play()
+
+	rattle = Tool.Handle:clone()
+	rattle.Anchored = true
+	rattle.CanCollide = false
+	rattle.Parent = game.Workspace
+	
+	--location = Instance.new("BodyPosition")
+	--location.position = Tool.Handle.Position  --rattle.Position
+	--location.Parent = rattle
+
+	Tool.Handle.Transparency = 1
+	rattle.Transparency = 0
+
+	local startTime = time()
+	local angle = 0
+	
+	while rattle do
+		if time() - startTime > 5 then break end
+		local x, _, z = Tool.Handle.CFrame:toEulerAnglesXYZ()
+		rattle.CFrame = CFrame.new(Tool.Handle.Position) * CFrame.Angles(x, angle, z)
+		angle = (angle + 1) % 360
+		wait(DeltaTime)
+	end
+
+	--if location~=nil then location:Remove() end
+	if rattle then rattle:Destroy() end
+	Tool.Handle.Transparency = 0
+
+	wait(2)
+	Tool.Enabled = true
+
+end
+
+function onEquipped()
+	Tool.Handle.Transparency = 0
+end
+
+function onUnequipped()
+	--if location~= nil then location:Remove() end
+	if rattle then rattle:Destroy() end
+end
+
+script.Parent.Activated:connect(onActivated)
+script.Parent.Equipped:connect(onEquipped)
+script.Parent.Unequipped:connect(onUnequipped)
+]]></ProtectedString>
+			</Properties>
+		</Item>
+	</Item>
+</roblox>

@@ -1,0 +1,20 @@
+<?php
+// Remove all existing headers
+header_remove();
+
+// Set the HTTP response code to 202 Accepted
+http_response_code(202);
+
+// Set the response headers
+header('Date: ' . gmdate('D, d M Y H:i:s') . ' GMT'); // Automatically generates the current date in the required format
+header('Strict-Transport-Security: max-age=3600');
+header('X-Envoy-Upstream-Service-Time: 0');
+header('X-Roblox-Region: us-central');
+header('X-Roblox-Edge: ash1');
+header('Report-To: {"group":"network-errors","max_age":604800,"endpoints":[{"url":"https://ncs.roblox.com/upload"}]}');
+header('NEL: {"report_to":"network-errors","max_age":604800,"success_fraction":0.001,"failure_fraction":1}');
+
+// Set the content length to 0 (optional, as it's already set to 0 in the example)
+header('Content-Length: 0');
+
+?>

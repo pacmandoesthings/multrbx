@@ -1,0 +1,270 @@
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mulrbx.com/roblox.xsd" version="4">
+	<External>null</External>
+	<External>nil</External>
+	<Item class="Hat" referent="RBX0">
+		<Properties>
+			<CoordinateFrame name="AttachmentPoint">
+				<X>0</X>
+				<Y>1.75</Y>
+				<Z>0</Z>
+				<R00>1</R00>
+				<R01>0</R01>
+				<R02>0</R02>
+				<R10>0</R10>
+				<R11>1</R11>
+				<R12>0</R12>
+				<R20>0</R20>
+				<R21>0</R21>
+				<R22>1</R22>
+			</CoordinateFrame>
+			<string name="Name">WantedProp</string>
+		</Properties>
+		<Item class="Part" referent="RBX1">
+			<Properties>
+				<bool name="Anchored">false</bool>
+				<float name="BackParamA">-0.5</float>
+				<float name="BackParamB">0.5</float>
+				<token name="BackSurface">0</token>
+				<token name="BackSurfaceInput">0</token>
+				<float name="BottomParamA">-0.5</float>
+				<float name="BottomParamB">0.5</float>
+				<token name="BottomSurface">4</token>
+				<token name="BottomSurfaceInput">0</token>
+				<int name="BrickColor">153</int>
+				<CoordinateFrame name="CFrame">
+					<X>8.96896648</X>
+					<Y>4.1491785</Y>
+					<Z>-127.246468</Z>
+					<R00>-0.293182135</R00>
+					<R01>0.956056654</R01>
+					<R02>6.95622769e-012</R02>
+					<R10>-2.90446507e-020</R10>
+					<R11>7.27595761e-012</R11>
+					<R12>1</R12>
+					<R20>0.956056654</R20>
+					<R21>0.293182135</R21>
+					<R22>2.13318078e-012</R22>
+				</CoordinateFrame>
+				<bool name="CanCollide">true</bool>
+				<float name="Elasticity">0.5</float>
+				<float name="Friction">0.300000012</float>
+				<float name="FrontParamA">-0.5</float>
+				<float name="FrontParamB">0.5</float>
+				<token name="FrontSurface">0</token>
+				<token name="FrontSurfaceInput">0</token>
+				<float name="LeftParamA">-0.5</float>
+				<float name="LeftParamB">0.5</float>
+				<token name="LeftSurface">0</token>
+				<token name="LeftSurfaceInput">0</token>
+				<bool name="Locked">false</bool>
+				<token name="Material">256</token>
+				<string name="Name">Part</string>
+				<float name="Reflectance">0</float>
+				<float name="RightParamA">-0.5</float>
+				<float name="RightParamB">0.5</float>
+				<token name="RightSurface">0</token>
+				<token name="RightSurfaceInput">0</token>
+				<Vector3 name="RotVelocity">
+					<X>1.00308574e-022</X>
+					<Y>-7.02030609e-021</Y>
+					<Z>-2.76608227e-021</Z>
+				</Vector3>
+				<float name="TopParamA">-0.5</float>
+				<float name="TopParamB">0.5</float>
+				<token name="TopSurface">0</token>
+				<token name="TopSurfaceInput">0</token>
+				<float name="Transparency">0</float>
+				<Vector3 name="Velocity">
+					<X>7.69351576e-020</X>
+					<Y>0.00681278016</Y>
+					<Z>3.76041444e-020</Z>
+				</Vector3>
+				<token name="formFactorRaw">2</token>
+				<token name="shape">1</token>
+				<Vector3 name="size">
+					<X>3</X>
+					<Y>1.20000005</Y>
+					<Z>3</Z>
+				</Vector3>
+			</Properties>
+			<Item class="Decal" referent="RBX2">
+				<Properties>
+					<token name="Face">1</token>
+					<string name="Name">Decal</string>
+					<float name="Shiny">20</float>
+					<float name="Specular">0</float>
+					<Content name="Texture"><url>http://www.mulrbx.com/asset/?id=42128630</url></Content>
+					<float name="Transparency">0</float>
+				</Properties>
+			</Item>
+			<Item class="Weld" referent="RBX3">
+				<Properties>
+					<CoordinateFrame name="C0">
+						<X>-132.5</X>
+						<Y>39.4000015</Y>
+						<Z>-4.0999999</Z>
+						<R00>-0</R00>
+						<R01>-0</R01>
+						<R02>-1</R02>
+						<R10>-1</R10>
+						<R11>-0</R11>
+						<R12>-0</R12>
+						<R20>0</R20>
+						<R21>1</R21>
+						<R22>0</R22>
+					</CoordinateFrame>
+					<CoordinateFrame name="C1">
+						<X>-132.5</X>
+						<Y>-1.39995778</Y>
+						<Z>-39.7000122</Z>
+						<R00>-6.03258971e-011</R00>
+						<R01>0</R01>
+						<R02>-1</R02>
+						<R10>-7.27595761e-012</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>1</R20>
+						<R21>-7.27595761e-012</R21>
+						<R22>6.03258971e-011</R22>
+					</CoordinateFrame>
+					<string name="Name">Weld</string>
+					<Ref name="Part0">RBX1</Ref>
+					<Ref name="Part1">RBX4</Ref>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="Part" referent="RBX4">
+			<Properties>
+				<bool name="Anchored">false</bool>
+				<float name="BackParamA">-0.5</float>
+				<float name="BackParamB">0.5</float>
+				<token name="BackSurface">2</token>
+				<token name="BackSurfaceInput">0</token>
+				<float name="BottomParamA">-0.5</float>
+				<float name="BottomParamB">0.5</float>
+				<token name="BottomSurface">2</token>
+				<token name="BottomSurfaceInput">0</token>
+				<int name="BrickColor">192</int>
+				<CoordinateFrame name="CFrame">
+					<X>8.6821394</X>
+					<Y>1.4491365</Y>
+					<Z>-127.334427</Z>
+					<R00>-0.293182135</R00>
+					<R01>-1.08432664e-019</R01>
+					<R02>-0.956056654</R02>
+					<R10>-2.90446507e-020</R10>
+					<R11>1</R11>
+					<R12>-1.04509811e-019</R12>
+					<R20>0.956056654</R20>
+					<R21>-2.87206479e-021</R21>
+					<R22>-0.293182135</R22>
+				</CoordinateFrame>
+				<bool name="CanCollide">false</bool>
+				<float name="Elasticity">0.5</float>
+				<float name="Friction">0.300000012</float>
+				<float name="FrontParamA">-0.5</float>
+				<float name="FrontParamB">0.5</float>
+				<token name="FrontSurface">0</token>
+				<token name="FrontSurfaceInput">0</token>
+				<float name="LeftParamA">-0.5</float>
+				<float name="LeftParamB">0.5</float>
+				<token name="LeftSurface">0</token>
+				<token name="LeftSurfaceInput">0</token>
+				<bool name="Locked">false</bool>
+				<token name="Material">256</token>
+				<string name="Name">Handle</string>
+				<float name="Reflectance">0</float>
+				<float name="RightParamA">-0.5</float>
+				<float name="RightParamB">0.5</float>
+				<token name="RightSurface">0</token>
+				<token name="RightSurfaceInput">0</token>
+				<Vector3 name="RotVelocity">
+					<X>1.00308574e-022</X>
+					<Y>-7.02030609e-021</Y>
+					<Z>-2.76608227e-021</Z>
+				</Vector3>
+				<float name="TopParamA">-0.5</float>
+				<float name="TopParamB">0.5</float>
+				<token name="TopSurface">0</token>
+				<token name="TopSurfaceInput">0</token>
+				<float name="Transparency">0</float>
+				<Vector3 name="Velocity">
+					<X>7.00841182e-020</X>
+					<Y>0.00681278016</Y>
+					<Z>3.53196945e-020</Z>
+				</Vector3>
+				<token name="formFactorRaw">1</token>
+				<token name="shape">1</token>
+				<Vector3 name="size">
+					<X>1</X>
+					<Y>2.4000001</Y>
+					<Z>1</Z>
+				</Vector3>
+			</Properties>
+		</Item>
+		<Item class="Script" referent="RBX5">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">Weld</string>
+				<ProtectedString name="Source">--Simply put it inside any model with bricks inside
+
+
+local prev 
+local parts = script.Parent:GetChildren() 
+
+for i = 1,#parts do 
+&#9;if parts[i]:IsA(&quot;BasePart&quot;) then
+&#9;&#9;if (prev ~= nil)then 
+&#9;&#9;&#9;local weld = Instance.new(&quot;Weld&quot;) 
+&#9;&#9;&#9;weld.Part0 = prev 
+&#9;&#9;&#9;weld.Part1 = parts[i] 
+&#9;&#9;&#9;weld.C0 = prev.CFrame:inverse() 
+&#9;&#9;&#9;weld.C1 = parts[i].CFrame:inverse() 
+&#9;&#9;&#9;weld.Parent = prev 
+&#9;&#9;end 
+&#9;&#9;prev = parts[i] 
+&#9;end 
+end
+
+--Credits to NyroKoSu and OrientalAura</ProtectedString>
+			</Properties>
+			<Item class="RotateP" referent="RBX6">
+				<Properties>
+					<float name="BaseAngle">0.25</float>
+					<CoordinateFrame name="C0">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<CoordinateFrame name="C1">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<string name="Name">d&#229;&#229;&#229;&#229;&#229;&#229;&#229;&#229;&#229;&#229;&#229;&#229;&#229;&#229;ng.........you got owned...</string>
+					<Ref name="Part0">null</Ref>
+					<Ref name="Part1">null</Ref>
+				</Properties>
+			</Item>
+		</Item>
+	</Item>
+</roblox>

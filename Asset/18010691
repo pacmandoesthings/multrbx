@@ -1,0 +1,417 @@
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mulrbx.com/roblox.xsd" version="4">
+	<External>null</External>
+	<External>nil</External>
+	<Item class="Tool" referent="RBXED62EC7710D4431F8A0901271B9DE291">
+		<Properties>
+			<bool name="CanBeDropped">true</bool>
+			<bool name="Enabled">true</bool>
+			<CoordinateFrame name="Grip">
+				<X>-0.600000024</X>
+				<Y>0</Y>
+				<Z>0.699999988</Z>
+				<R00>-0.00347340619</R00>
+				<R01>0.928545654</R01>
+				<R02>0.371201903</R02>
+				<R10>-0.99995625</R10>
+				<R11>0</R11>
+				<R12>-0.00935677905</R12>
+				<R20>-0.00868819654</R20>
+				<R21>-0.371218145</R21>
+				<R22>0.928505063</R22>
+			</CoordinateFrame>
+			<bool name="ManualActivationOnly">false</bool>
+			<string name="Name">AweStar</string>
+			<bool name="RequiresHandle">true</bool>
+			<Content name="TextureId"><url>http://www.mulrbx.com/asset/?id=18009573</url></Content>
+			<string name="ToolTip"></string>
+		</Properties>
+		<Item class="Part" referent="RBXE6557DA8FAEB4B7BA09B44E7C94B1536">
+			<Properties>
+				<bool name="Anchored">false</bool>
+				<float name="BackParamA">-0.5</float>
+				<float name="BackParamB">0.5</float>
+				<token name="BackSurface">0</token>
+				<token name="BackSurfaceInput">0</token>
+				<float name="BottomParamA">-0.5</float>
+				<float name="BottomParamB">0.5</float>
+				<token name="BottomSurface">0</token>
+				<token name="BottomSurfaceInput">0</token>
+				<int name="BrickColor">194</int>
+				<CoordinateFrame name="CFrame">
+					<X>-0.5</X>
+					<Y>0.194355071</Y>
+					<Z>0.5</Z>
+					<R00>1</R00>
+					<R01>-1.16600587e-017</R01>
+					<R02>6.05396395e-022</R02>
+					<R10>1.16600587e-017</R10>
+					<R11>1</R11>
+					<R12>-1.16603532e-017</R12>
+					<R20>-6.05396395e-022</R20>
+					<R21>1.16603532e-017</R21>
+					<R22>1</R22>
+				</CoordinateFrame>
+				<bool name="CanCollide">true</bool>
+				<PhysicalProperties name="CustomPhysicalProperties">
+					<CustomPhysics>false</CustomPhysics>
+				</PhysicalProperties>
+				<float name="Elasticity">0.5</float>
+				<float name="Friction">0.300000012</float>
+				<float name="FrontParamA">-0.5</float>
+				<float name="FrontParamB">0.5</float>
+				<token name="FrontSurface">0</token>
+				<token name="FrontSurfaceInput">0</token>
+				<float name="LeftParamA">-0.5</float>
+				<float name="LeftParamB">0.5</float>
+				<token name="LeftSurface">0</token>
+				<token name="LeftSurfaceInput">0</token>
+				<bool name="Locked">true</bool>
+				<token name="Material">256</token>
+				<string name="Name">Handle</string>
+				<float name="Reflectance">0</float>
+				<float name="RightParamA">-0.5</float>
+				<float name="RightParamB">0.5</float>
+				<token name="RightSurface">0</token>
+				<token name="RightSurfaceInput">0</token>
+				<Vector3 name="RotVelocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<float name="TopParamA">-0.5</float>
+				<float name="TopParamB">0.5</float>
+				<token name="TopSurface">0</token>
+				<token name="TopSurfaceInput">0</token>
+				<float name="Transparency">0</float>
+				<Vector3 name="Velocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<token name="formFactorRaw">2</token>
+				<token name="shape">1</token>
+				<Vector3 name="size">
+					<X>1</X>
+					<Y>0.400000006</Y>
+					<Z>1</Z>
+				</Vector3>
+			</Properties>
+			<Item class="SpecialMesh" referent="RBX6872C92107384C9594D4A2868FE86ECD">
+				<Properties>
+					<token name="LODX">2</token>
+					<token name="LODY">2</token>
+					<Content name="MeshId"><url>http://www.mulrbx.com/asset/?id=18007807</url></Content>
+					<token name="MeshType">5</token>
+					<string name="Name">Mesh</string>
+					<Vector3 name="Offset">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+					<Vector3 name="Scale">
+						<X>1.10000002</X>
+						<Y>1.10000002</Y>
+						<Z>1.10000002</Z>
+					</Vector3>
+					<Content name="TextureId"><url>http://www.mulrbx.com/asset/?id=18008745 </url></Content>
+					<Vector3 name="VertexColor">
+						<X>1</X>
+						<Y>1</Y>
+						<Z>1</Z>
+					</Vector3>
+				</Properties>
+			</Item>
+			<Item class="Sound" referent="RBX22BDF2A2471B4380A3E509A6A5028555">
+				<Properties>
+					<float name="EmitterSize">10</float>
+					<bool name="Looped">false</bool>
+					<string name="Name">Fire</string>
+					<bool name="PlayOnRemove">false</bool>
+					<float name="PlaybackSpeed">1</float>
+					<bool name="Playing">false</bool>
+					<token name="RollOffMode">0</token>
+					<Ref name="SoundGroup">null</Ref>
+					<Content name="SoundId"><url>rbxasset://sounds/swoosh.wav</url></Content>
+					<double name="TimePosition">0</double>
+					<float name="Volume">0.699999988</float>
+					<float name="xmlRead_MaxDistance_3">10000</float>
+				</Properties>
+			</Item>
+			<Item class="Attachment" referent="RBX863BBB70052B47C0BFB0E62578EAF9B2">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>-0.5</Z>
+						<R00>0</R00>
+						<R01>0</R01>
+						<R02>1</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>-0</R12>
+						<R20>-1</R20>
+						<R21>0</R21>
+						<R22>0</R22>
+					</CoordinateFrame>
+					<string name="Name">RightGripAttachment</string>
+					<bool name="Visible">false</bool>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="Script" referent="RBXB8481EA2CF7342899480F9FDB70FAD5A">
+			<Properties>
+				<bool name="Disabled">true</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">StarScript</string>
+				<string name="ScriptGuid">{B42C806F-FEFB-4874-991D-43D657DCF8D0}</string>
+				<ProtectedString name="Source"><![CDATA[arrow = script.Parent
+damage = 30
+
+local HitSound = Instance.new("Sound")
+HitSound.SoundId = "http://www.mulrbx.com/asset/?id=11113679"
+HitSound.Parent = arrow
+HitSound.Volume = .5
+
+
+function stick(hit)
+	-- joint myself to the thing i hit
+
+	local weld = Instance.new("Weld")
+
+	weld.Part0 = arrow
+	weld.Part1 = hit
+
+	-- correction term to account for average skew between physics update and heartbeat
+	local HitPos = arrow.Position --+ (-arrow.Velocity * (1/60)) --+ (arrow.CFrame.lookVector * .5)
+
+	local CJ = CFrame.new(HitPos)
+	local C0 = arrow.CFrame:inverse() *CJ
+	local C1 = hit.CFrame:inverse() * CJ
+	
+	weld.C0 = C0
+	weld.C1 = C1
+
+	weld.Parent = arrow
+
+end
+
+
+function onTouched(hit)
+
+	connection:disconnect()
+
+	stick(hit)
+	HitSound:Play()
+
+	humanoid = hit.Parent:findFirstChild("Humanoid")
+	if humanoid~=nil then
+		tagHumanoid(humanoid)
+
+			humanoid:TakeDamage(damage)
+
+		wait(1)
+		untagHumanoid(humanoid)
+	end
+	
+end
+
+function tagHumanoid(humanoid)
+	-- todo: make tag expire
+	local tag = arrow:findFirstChild("creator")
+	if tag ~= nil then
+		local new_tag = tag:clone()
+		new_tag.Parent = humanoid
+		
+	end
+end
+
+
+function untagHumanoid(humanoid)
+	if humanoid ~= nil then
+		local tag = humanoid:findFirstChild("creator")
+		if tag ~= nil then
+			
+			tag.Parent = nil
+		end
+	end
+end
+
+connection = arrow.Touched:connect(onTouched)
+
+wait(10)
+
+arrow.Parent = nil]]></ProtectedString>
+			</Properties>
+		</Item>
+		<Item class="Script" referent="RBXA56D5E1ED78C4941A878FDD5B2815C1B">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">NinjaStar</string>
+				<string name="ScriptGuid">{50D7BB01-E280-4346-B048-EBF5CC55FD3E}</string>
+				<ProtectedString name="Source"><![CDATA[--Updated for R15 avatars by StarWars
+Tool = script.Parent
+VELOCITY = 50 -- constant
+loaded=false
+
+local Pellet = Instance.new("Part")
+Pellet.Name="NinjaStar"
+Pellet.Locked = true
+Pellet.BackSurface = 0
+Pellet.BottomSurface = 0
+Pellet.FrontSurface = 0
+Pellet.LeftSurface = 0
+Pellet.RightSurface = 0
+Pellet.TopSurface = 0
+Pellet.Shape = 1
+Pellet.formFactor = 2
+Pellet.Size = Vector3.new(1,.4,1)
+Pellet.BrickColor = BrickColor.new(26)
+script.Parent.StarScript:clone().Parent = Pellet
+
+
+function isTurbo(character)
+	return character:FindFirstChild("NinjaMaskOfAwesomeness") ~= nil
+end
+
+
+function fire(v, turbo)
+	local Character = Tool.Parent
+	local Torso = Character:FindFirstChild("Torso") or Character:FindFirstChild("UpperTorso")
+	local RightArm = Character:FindFirstChild("Right Arm") or Character:FindFirstChild("RightUpperArm")
+	local RightShoulder = Torso:FindFirstChild("Right Shoulder") or RightArm:FindFirstChild("RightShoulder")
+	RightShoulder.MaxVelocity = 0.7
+	RightShoulder.DesiredAngle = 3.6
+	wait(.1)
+	RightShoulder.MaxVelocity = 1
+	Tool.Handle.Transparency=1
+	Tool.Handle.Fire:play()
+
+-- find player's head pos
+
+	local vCharacter = Tool.Parent
+	local vPlayer = game.Players:playerFromCharacter(vCharacter)
+
+	local head = vCharacter:findFirstChild("Head")
+	if head == nil then return end
+
+
+	local launch = head.Position + 10 * v
+
+		
+
+	local missile = Pellet:clone()
+        
+
+	Tool.Handle.Mesh:clone().Parent = missile
+		
+
+	missile.Position = launch
+	missile.Velocity = v * 80
+
+
+
+
+	local force = Instance.new("BodyForce")
+	force.force = Vector3.new(0,40,0)
+	force.Parent = missile
+
+	if (turbo) then
+		missile.Velocity = v * 100
+		force.force = Vector3.new(0,45,0)
+	end
+
+	missile.StarScript.Disabled = false
+
+	local creator_tag = Instance.new("ObjectValue")
+	creator_tag.Value = vCharacter
+	creator_tag.Name = "creator"
+	creator_tag.Parent = missile
+	
+	missile.Parent = game.Workspace
+
+end
+
+
+
+function rndDir()
+	return Vector3.new(math.random() - .5, math.random() - .5, math.random() - .5).unit
+end
+
+Tool.Enabled = true
+function onActivated()
+	local Character = Tool.Parent
+	local Torso = Character:FindFirstChild("Torso") or Character:FindFirstChild("UpperTorso")
+	local RightArm = Character:FindFirstChild("Right Arm") or Character:FindFirstChild("RightUpperArm")
+	local RightShoulder = Torso:FindFirstChild("Right Shoulder") or RightArm:FindFirstChild("RightShoulder")	
+	if not Tool.Enabled then
+		return
+	end
+
+	Tool.Enabled = false
+
+	local character = Tool.Parent;
+	local humanoid = character.Humanoid
+	if humanoid == nil then
+		print("Humanoid not found")
+		return 
+	end
+	if loaded==true then
+		loaded=false
+	
+		local targetPos = humanoid.TargetPoint
+		local lookAt = (targetPos - character.Head.Position).unit
+	
+		fire(lookAt, isTurbo(character) )
+	
+		if (isTurbo(character) == true) then
+			wait(.1)
+			RightShoulder.MaxVelocity = 0.6
+			RightShoulder.DesiredAngle = -3.6
+			wait(.1)
+			fire(lookAt * .9 + rndDir() * .1, isTurbo(character) )
+			RightShoulder.MaxVelocity = 0.6
+			RightShoulder.DesiredAngle = -3.6
+			wait(.1)
+			fire(lookAt * .8 + rndDir() * .2, isTurbo(character) )
+			wait(.1)
+		else
+			wait(.3)
+		end
+
+		Tool.Enabled = true
+	elseif loaded==false then
+		RightShoulder.MaxVelocity = 0.6
+		RightShoulder.DesiredAngle = -3.6
+		wait(.1)
+		Tool.Handle.Transparency=0
+		wait(.1)
+		loaded=true
+	end
+	Tool.Enabled = true
+end
+
+script.Parent.Activated:connect(onActivated)
+]]></ProtectedString>
+			</Properties>
+		</Item>
+		<Item class="LocalScript" referent="RBXC9442C984F154536BE0A8A487EFE70A1">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">Local Gui</string>
+				<string name="ScriptGuid"></string>
+				<ProtectedString name="Source"><![CDATA[Tool=script.Parent
+function onEquippedLocal(mouse)
+	if mouse == nil then
+		print("Mouse not found")
+		return 
+	end
+	mouse.Icon = "rbxasset://textures\\GunCursor.png"
+end
+
+Tool.Equipped:connect(onEquippedLocal)]]></ProtectedString>
+			</Properties>
+		</Item>
+	</Item>
+</roblox>

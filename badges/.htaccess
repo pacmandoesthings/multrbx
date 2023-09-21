@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteBase /badges/
+
+RewriteRule ^(\d+)$ index.php/$1 [L]

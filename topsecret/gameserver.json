@@ -1,0 +1,31 @@
+{
+   "Mode":"GameServer",
+   "GameId":"29fd9df4-4c59-4d8c-8cee-8f187b09709b",
+   "Settings":{
+      "Type":"Avatar",
+      "PlaceId":2,
+      "SessionId":"c89589f1-d1de-46e3-80e0-2703d1159409",
+        "CreatorId":1,
+      "GameId":"29fd9df4-4c59-4d8c-8cee-8f187b09709b",
+        "MachineAddress":"127.0.0.1",
+        "GsmInterval":5,
+          "MaxPlayers":30,
+    "MaxGameInstances":51,
+     "ApiKey":"",
+	  "PreferredPlayerCapacity":30,
+      "DataCenterId":"69420",
+      "PlaceVisitAccessKey":"",
+      "UniverseId":2,
+      "PlaceFetchUrl":"http://mulrbx.com/asset/?id=59538",
+      "MatchmakingContextId":1,
+      "CreatorId":1,
+      "CreatorType":"User",
+      "PlaceVersion":1,
+      "BaseUrl":"mulrbx.com",
+      "JobId":"Test",
+      "script":"print('Initializing NetworkServer.')",
+      "PreferredPort":53640
+
+   },
+   "Arguments":{}
+}

@@ -1,0 +1,317 @@
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mulrbx.com/roblox.xsd" version="4">
+	<External>null</External>
+	<External>nil</External>
+	<Item class="Tool" referent="RBX6A58706843194B7A8FFB70E5F1A76C66">
+		<Properties>
+			<bool name="CanBeDropped">true</bool>
+			<bool name="Enabled">true</bool>
+			<CoordinateFrame name="Grip">
+				<X>-0.100000001</X>
+				<Y>0</Y>
+				<Z>0</Z>
+				<R00>0</R00>
+				<R01>0</R01>
+				<R02>-1</R02>
+				<R10>0</R10>
+				<R11>1</R11>
+				<R12>0</R12>
+				<R20>1</R20>
+				<R21>0</R21>
+				<R22>0</R22>
+			</CoordinateFrame>
+			<bool name="ManualActivationOnly">false</bool>
+			<string name="Name">FireExtinguisher</string>
+			<bool name="RequiresHandle">true</bool>
+			<BinaryString name="Tags"></BinaryString>
+			<Content name="TextureId"><url>http://www.mulrbx.com/asset/?id=27787298</url></Content>
+			<string name="ToolTip"></string>
+		</Properties>
+		<Item class="Part" referent="RBXCD78F2A8F6714AE7873DE4FC29F6A858">
+			<Properties>
+				<bool name="Anchored">false</bool>
+				<float name="BackParamA">-0.5</float>
+				<float name="BackParamB">0.5</float>
+				<token name="BackSurface">0</token>
+				<token name="BackSurfaceInput">0</token>
+				<float name="BottomParamA">-0.5</float>
+				<float name="BottomParamB">0.5</float>
+				<token name="BottomSurface">4</token>
+				<token name="BottomSurfaceInput">0</token>
+				<CoordinateFrame name="CFrame">
+					<X>1.5</X>
+					<Y>5.50000906</Y>
+					<Z>0</Z>
+					<R00>0</R00>
+					<R01>0</R01>
+					<R02>1</R02>
+					<R10>0</R10>
+					<R11>1</R11>
+					<R12>0</R12>
+					<R20>-1</R20>
+					<R21>0</R21>
+					<R22>0</R22>
+				</CoordinateFrame>
+				<bool name="CanCollide">true</bool>
+				<int name="CollisionGroupId">0</int>
+				<Color3uint8 name="Color3uint8">4288914085</Color3uint8>
+				<PhysicalProperties name="CustomPhysicalProperties">
+					<CustomPhysics>false</CustomPhysics>
+				</PhysicalProperties>
+				<float name="Elasticity">0.5</float>
+				<float name="Friction">0.300000012</float>
+				<float name="FrontParamA">-0.5</float>
+				<float name="FrontParamB">0.5</float>
+				<token name="FrontSurface">0</token>
+				<token name="FrontSurfaceInput">0</token>
+				<float name="LeftParamA">-0.5</float>
+				<float name="LeftParamB">0.5</float>
+				<token name="LeftSurface">0</token>
+				<token name="LeftSurfaceInput">0</token>
+				<bool name="Locked">true</bool>
+				<token name="Material">256</token>
+				<string name="Name">Handle</string>
+				<float name="Reflectance">0</float>
+				<float name="RightParamA">-0.5</float>
+				<float name="RightParamB">0.5</float>
+				<token name="RightSurface">0</token>
+				<token name="RightSurfaceInput">0</token>
+				<Vector3 name="RotVelocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<BinaryString name="Tags"></BinaryString>
+				<float name="TopParamA">-0.5</float>
+				<float name="TopParamB">0.5</float>
+				<token name="TopSurface">3</token>
+				<token name="TopSurfaceInput">0</token>
+				<float name="Transparency">0</float>
+				<Vector3 name="Velocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<token name="formFactorRaw">1</token>
+				<token name="shape">1</token>
+				<Vector3 name="size">
+					<X>1</X>
+					<Y>1.20000005</Y>
+					<Z>1</Z>
+				</Vector3>
+			</Properties>
+			<Item class="SpecialMesh" referent="RBX05CA288B44DD418F91D0764260978AEE">
+				<Properties>
+					<token name="LODX">2</token>
+					<token name="LODY">2</token>
+					<Content name="MeshId"><url>http://www.mulrbx.com/asset/?id=27787143</url></Content>
+					<token name="MeshType">5</token>
+					<string name="Name">Mesh</string>
+					<Vector3 name="Offset">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+					<Vector3 name="Scale">
+						<X>1</X>
+						<Y>1</Y>
+						<Z>1</Z>
+					</Vector3>
+					<BinaryString name="Tags"></BinaryString>
+					<Content name="TextureId"><url>http://www.mulrbx.com/asset/?id=27787168</url></Content>
+					<Vector3 name="VertexColor">
+						<X>1</X>
+						<Y>1</Y>
+						<Z>1</Z>
+					</Vector3>
+				</Properties>
+			</Item>
+			<Item class="Sound" referent="RBX36CD6CB0637E40BD8E03113CFC80DDB7">
+				<Properties>
+					<float name="EmitterSize">10</float>
+					<bool name="Looped">true</bool>
+					<string name="Name">FoamSound</string>
+					<bool name="PlayOnRemove">false</bool>
+					<float name="PlaybackSpeed">1</float>
+					<bool name="Playing">false</bool>
+					<token name="RollOffMode">0</token>
+					<Ref name="SoundGroup">null</Ref>
+					<Content name="SoundId"><url>http://www.mulrbx.com/asset/?id=27801510</url></Content>
+					<BinaryString name="Tags"></BinaryString>
+					<double name="TimePosition">0</double>
+					<float name="Volume">0.5</float>
+					<float name="xmlRead_MaxDistance_3">10000</float>
+				</Properties>
+			</Item>
+			<Item class="Attachment" referent="RBXA5D2D82DD0864D528088E609519F0B62">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>-0.100000024</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>6.31088724e-30</R00>
+						<R01>0</R01>
+						<R02>-1</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>1</R20>
+						<R21>0</R21>
+						<R22>6.31088724e-30</R22>
+					</CoordinateFrame>
+					<string name="Name">RightGripAttachment</string>
+					<BinaryString name="Tags"></BinaryString>
+					<bool name="Visible">false</bool>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="LocalScript" referent="RBX4563BC18C344419FA4112EC0452DBA45">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">BubbleScript</string>
+				<string name="ScriptGuid">{CE8C4EC0-449E-48B2-8A27-93509E6E63B7}</string>
+				<ProtectedString name="Source"><![CDATA[local Tool = script.Parent
+local spraying = false
+local torso = nil
+local offset = 5
+local debris = game:GetService("Debris")
+
+local bubble = Instance.new("Part")
+bubble.Shape = 0
+bubble.formFactor = 0
+bubble.Size = Vector3.new(1,1,1)
+bubble.Transparency = 0.2
+bubble.BottomSurface = "Smooth"
+bubble.TopSurface = "Smooth"
+bubble.CanCollide = true
+
+function onEquipped(mouse)
+
+	torso = Tool.Parent:FindFirstChild("Torso", false) or Tool.Parent:FindFirstChild("UpperTorso", false)
+	mouse.Button1Down:connect(onButton1Down)
+	mouse.Button1Up:connect(onButton1Up)
+
+end
+
+function onUnequipped()
+
+	spraying = false
+	Tool.Handle.Mesh.MeshId = "http://www.mulrbx.com/asset/?id=27787143"
+	Tool.Handle.FoamSound:Stop()
+
+
+end
+
+function onButton1Down(mouse)
+
+	spraying = true
+	Tool.Handle.Mesh.MeshId = "http://www.mulrbx.com/asset/?id=27787226"
+	Tool.Handle.FoamSound:Play()
+	sprayBubbles()
+
+end
+
+function onButton1Up(mouse)
+
+	spraying = false
+	Tool.Handle.Mesh.MeshId = "http://www.mulrbx.com/asset/?id=27787143"
+	Tool.Handle.FoamSound:Stop()
+
+end
+
+function sprayBubbles()
+
+	while spraying do
+		
+		local sprayDir = torso.CFrame.lookVector.unit
+
+		local bubbleClone = bubble:clone()
+		local torsoNormal = torso.CFrame.lookVector
+		local denom = math.abs(torsoNormal.x) + math.abs(torsoNormal.z)
+		local posX = 5 * (torsoNormal.x/denom)
+		local posZ = 5 * (torsoNormal.z/denom)
+		bubbleClone.Position = Vector3.new(Tool.Handle.Position.x + posX,Tool.Handle.Position.y,Tool.Handle.Position.z + posZ)
+		bubbleClone.Velocity = Vector3.new(sprayDir.x,sprayDir.y + 0.5, sprayDir.z) * 50
+		bubbleClone.Size = Vector3.new(math.random(1,2),math.random(1,2),math.random(1,2))
+		bubbleClone.Parent = game.Workspace
+
+		local script = Tool.ExtinguishScript:clone()
+		script.Parent = bubbleClone
+		script.Disabled = false
+
+		debris:AddItem(bubbleClone, 2)
+		
+		wait(0.05)
+	end
+
+end
+
+Tool.Equipped:connect(onEquipped)
+Tool.Unequipped:connect(onUnequipped)
+]]></ProtectedString>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+		<Item class="Script" referent="RBX7B317C0218E8436FBD689D5A7C872A3B">
+			<Properties>
+				<bool name="Disabled">true</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">ExtinguishScript</string>
+				<string name="ScriptGuid">{6A5F3052-77AF-45BC-93AE-40687C8672BC}</string>
+				<ProtectedString name="Source"><![CDATA[local bubble = script.Parent
+
+bubble.Touched:connect(function(part)
+	parts = part:GetChildren()
+	for i = 1, #parts do
+		if parts[i].className == "Fire" then
+			parts[i].Enabled = false
+		end
+	end
+	bubble:remove()
+end)
+
+]]></ProtectedString>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+		<Item class="Camera" referent="RBX3ACAF9275A98461CADCED30C32498EFF">
+			<Properties>
+				<CoordinateFrame name="CFrame">
+					<X>-0.878361404</X>
+					<Y>6.21358299</Y>
+					<Z>1.00360107</Z>
+					<R00>0.393965989</R00>
+					<R01>0.24255079</R01>
+					<R02>-0.88654387</R02>
+					<R10>7.4505806e-09</R10>
+					<R11>0.964552045</R11>
+					<R12>0.263893127</R12>
+					<R20>0.91912508</R20>
+					<R21>-0.103964925</R21>
+					<R22>0.380000651</R22>
+				</CoordinateFrame>
+				<Ref name="CameraSubject">null</Ref>
+				<token name="CameraType">0</token>
+				<float name="FieldOfView">70</float>
+				<CoordinateFrame name="Focus">
+					<X>0.894726336</X>
+					<Y>5.68579674</Y>
+					<Z>0.243599772</Z>
+					<R00>1</R00>
+					<R01>0</R01>
+					<R02>0</R02>
+					<R10>0</R10>
+					<R11>1</R11>
+					<R12>0</R12>
+					<R20>0</R20>
+					<R21>0</R21>
+					<R22>1</R22>
+				</CoordinateFrame>
+				<bool name="HeadLocked">true</bool>
+				<float name="HeadScale">1</float>
+				<string name="Name">ThumbnailCamera</string>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+	</Item>
+</roblox>

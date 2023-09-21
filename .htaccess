@@ -1,0 +1,26 @@
+RewriteEngine On
+
+# Redirect IP address to mulrbx.com
+RewriteCond %{HTTP_HOST} ^37\.143\.61\.72$
+RewriteRule ^(.*)$ http://mulrbx.com/$1 [R=301,L]
+
+# Remove .php extension from URLs
+RewriteCond %{THE_REQUEST} /([^.]+)\.php [NC]
+RewriteRule ^ /%1 [NC,L,R]
+
+# Append .php to filenames
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^ %{REQUEST_URI}.php [NC,L]
+
+# Error documents
+ErrorDocument 404 /RobloxDefaultErrorPage.aspx?code=404
+ErrorDocument 500 /RobloxDefaultErrorPage.aspx?code=500
+
+# AddHandler and AddType configurations
+AddHandler application/x-httpd-php .ashx
+AddType application/x-httpd-php .ashx
+AddHandler application/x-httpd-php .aspx
+AddType application/x-httpd-php .aspx
+
+# Disable directory indexing
+Options -Indexes

@@ -1,0 +1,616 @@
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mulrbx.com/roblox.xsd" version="4">
+	<Meta name="ExplicitAutoJoints">true</Meta>
+	<External>null</External>
+	<External>nil</External>
+	<Item class="Tool" referent="RBX6D6939FB61DB48C4B675861888364C01">
+		<Properties>
+			<bool name="CanBeDropped">true</bool>
+			<bool name="Enabled">true</bool>
+			<CoordinateFrame name="Grip">
+				<X>0</X>
+				<Y>0.100000001</Y>
+				<Z>0</Z>
+				<R00>-1</R00>
+				<R01>0</R01>
+				<R02>0</R02>
+				<R10>0</R10>
+				<R11>0</R11>
+				<R12>1</R12>
+				<R20>0</R20>
+				<R21>1</R21>
+				<R22>-0</R22>
+			</CoordinateFrame>
+			<bool name="ManualActivationOnly">false</bool>
+			<string name="Name">RemoteExplosiveDetonator</string>
+			<bool name="RequiresHandle">true</bool>
+			<BinaryString name="Tags"></BinaryString>
+			<Content name="TextureId"><url>http://www.mulrbx.com/asset/?id=74322561</url></Content>
+			<string name="ToolTip">NOW!</string>
+		</Properties>
+		<Item class="Part" referent="RBX878AB2FC401D49668364C46EB2EC99F4">
+			<Properties>
+				<bool name="Anchored">false</bool>
+				<float name="BackParamA">-0.5</float>
+				<float name="BackParamB">0.5</float>
+				<token name="BackSurface">0</token>
+				<token name="BackSurfaceInput">0</token>
+				<float name="BottomParamA">-0.5</float>
+				<float name="BottomParamB">0.5</float>
+				<token name="BottomSurface">4</token>
+				<token name="BottomSurfaceInput">0</token>
+				<CoordinateFrame name="CFrame">
+					<X>79.9955673</X>
+					<Y>2.28790736</Y>
+					<Z>-43.0137329</Z>
+					<R00>0.999521732</R00>
+					<R01>-3.70460184e-05</R01>
+					<R02>0.0309262052</R02>
+					<R10>-0.0309261903</R10>
+					<R11>0.000380786951</R11>
+					<R12>0.999521673</R12>
+					<R20>-4.88045553e-05</R20>
+					<R21>-1</R21>
+					<R22>0.000379458972</R22>
+				</CoordinateFrame>
+				<bool name="CanCollide">true</bool>
+				<int name="CollisionGroupId">0</int>
+				<Color3uint8 name="Color3uint8">4288914085</Color3uint8>
+				<PhysicalProperties name="CustomPhysicalProperties">
+					<CustomPhysics>false</CustomPhysics>
+				</PhysicalProperties>
+				<float name="FrontParamA">-0.5</float>
+				<float name="FrontParamB">0.5</float>
+				<token name="FrontSurface">0</token>
+				<token name="FrontSurfaceInput">0</token>
+				<float name="LeftParamA">-0.5</float>
+				<float name="LeftParamB">0.5</float>
+				<token name="LeftSurface">0</token>
+				<token name="LeftSurfaceInput">0</token>
+				<bool name="Locked">true</bool>
+				<bool name="Massless">false</bool>
+				<token name="Material">256</token>
+				<string name="Name">Handle</string>
+				<float name="Reflectance">0</float>
+				<float name="RightParamA">-0.5</float>
+				<float name="RightParamB">0.5</float>
+				<token name="RightSurface">0</token>
+				<token name="RightSurfaceInput">0</token>
+				<int name="RootPriority">0</int>
+				<Vector3 name="RotVelocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<BinaryString name="Tags"></BinaryString>
+				<float name="TopParamA">-0.5</float>
+				<float name="TopParamB">0.5</float>
+				<token name="TopSurface">3</token>
+				<token name="TopSurfaceInput">0</token>
+				<float name="Transparency">0</float>
+				<Vector3 name="Velocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<token name="formFactorRaw">3</token>
+				<token name="shape">1</token>
+				<Vector3 name="size">
+					<X>0.399997801</X>
+					<Y>0.389998913</Y>
+					<Z>1.9799993</Z>
+				</Vector3>
+			</Properties>
+			<Item class="SpecialMesh" referent="RBXF84313E24C32498BA189688D4396D5CD">
+				<Properties>
+					<token name="LODX">2</token>
+					<token name="LODY">2</token>
+					<Content name="MeshId"><url>http://www.mulrbx.com/asset/?id=74322546</url></Content>
+					<token name="MeshType">5</token>
+					<string name="Name">Mesh</string>
+					<Vector3 name="Offset">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+					<Vector3 name="Scale">
+						<X>1.5</X>
+						<Y>1.5</Y>
+						<Z>1.5</Z>
+					</Vector3>
+					<BinaryString name="Tags"></BinaryString>
+					<Content name="TextureId"><url>http://www.mulrbx.com/asset/?id=74322558</url></Content>
+					<Vector3 name="VertexColor">
+						<X>1</X>
+						<Y>1</Y>
+						<Z>1</Z>
+					</Vector3>
+				</Properties>
+			</Item>
+			<Item class="Attachment" referent="RBX98115F2E1F244180880BEC3B407119B0">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>-0.194999456</Y>
+						<Z>0</Z>
+						<R00>0</R00>
+						<R01>1</R01>
+						<R02>-0</R02>
+						<R10>-1</R10>
+						<R11>0</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<string name="Name">RightGripAttachment</string>
+					<BinaryString name="Tags"></BinaryString>
+					<bool name="Visible">false</bool>
+				</Properties>
+			</Item>
+			<Item class="Sound" referent="RBXC7127BDDFF244B4EA2608B7FDC08E1BF">
+				<Properties>
+					<float name="EmitterSize">30</float>
+					<bool name="Looped">false</bool>
+					<string name="Name">Boom</string>
+					<bool name="PlayOnRemove">false</bool>
+					<float name="PlaybackSpeed">1</float>
+					<bool name="Playing">false</bool>
+					<token name="RollOffMode">0</token>
+					<Ref name="SoundGroup">null</Ref>
+					<Content name="SoundId"><url>rbxasset://sounds/collide.wav</url></Content>
+					<BinaryString name="Tags"></BinaryString>
+					<double name="TimePosition">0</double>
+					<float name="Volume">2.5</float>
+					<float name="xmlRead_MaxDistance_3">10000</float>
+				</Properties>
+			</Item>
+			<Item class="Sound" referent="RBXF10B95ED00C24FE3B82254705616FB3E">
+				<Properties>
+					<float name="EmitterSize">10</float>
+					<bool name="Looped">false</bool>
+					<string name="Name">Beep</string>
+					<bool name="PlayOnRemove">false</bool>
+					<float name="PlaybackSpeed">1</float>
+					<bool name="Playing">false</bool>
+					<token name="RollOffMode">0</token>
+					<Ref name="SoundGroup">null</Ref>
+					<Content name="SoundId"><url>http://www.mulrbx.com/asset/?id=104560954</url></Content>
+					<BinaryString name="Tags"></BinaryString>
+					<double name="TimePosition">0</double>
+					<float name="Volume">2</float>
+					<float name="xmlRead_MaxDistance_3">10000</float>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="Script" referent="RBXA428CAEB6CC34FDEB634B653B65D276E">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">BombScript</string>
+				<string name="ScriptGuid">{DCA69729-16BB-4FB8-826C-A063D26BC7BA}</string>
+				<ProtectedString name="Source"><![CDATA[local Tool = script.Parent 
+local Remote = Tool.Handle
+
+local vCharacter
+local myTorso 
+local myHumanoid 
+
+local RE = Tool:WaitForChild("RemoteEvent")
+
+Tool.Enabled = true 
+
+local c4Clone,c4Touch
+
+local exploded
+
+local debris = game:GetService("Debris") 
+
+local players = game:GetService("Players")
+
+function IsTeamMate(Player1, Player2)
+	return (Player1 and Player2 and not Player1.Neutral and not Player2.Neutral and Player1.TeamColor == Player2.TeamColor)
+end
+
+function onActivated(targetPos)
+	if not Tool.Enabled then 
+		return 
+	end 
+
+	if not myTorso or not myHumanoid then
+		return 
+	end
+
+	Tool.Enabled = false
+
+	if not c4Clone or not c4Clone.Parent or exploded then 
+		exploded = false 
+		local target = targetPos
+		local lookAt = (target - Remote.Position).Unit 
+		
+		local findPart = workspace:FindPartOnRay(Ray.new(Remote.Position, lookAt * 8.0), vCharacter)
+		if findPart then 			
+			c4Clone = Remote:Clone()	
+			c4Clone.CFrame = Remote.CFrame 
+			c4Clone.Velocity = lookAt * 9.0 
+			c4Clone.Parent = workspace
+			c4Clone.Anchored = false
+			c4Clone.Locked = true
+			c4Clone.CanCollide = true
+			if c4Clone:CanSetNetworkOwnership() then
+				c4Clone:SetNetworkOwner(nil)
+			end
+			local Activate = c4Clone:FindFirstChild("Beep")
+			if Activate then
+				Activate:Play()
+			end
+			c4Touch = c4Clone.Touched:Connect(function(part)
+				if part and part.Parent and not part.Anchored and part.Parent ~=  vCharacter and part.Parent ~= Tool and not part.Parent:IsA("Accoutrement") and not part:IsGrounded() then 
+					local FF = part.Parent:FindFirstChildOfClass("ForceField")
+					if FF then return end
+					local c4Weld = Instance.new("Weld")
+					c4Weld.Part0 = part 
+					c4Weld.Part1 = c4Clone 
+					c4Weld.Name = "C4Weld"
+					c4Weld.Parent = c4Clone 
+					c4Weld.C1 = part.CFrame * c4Clone.CFrame:inverse()		
+				end 				
+			end) 
+
+			if Remote:FindFirstChildOfClass("SpecialMesh") then 
+				Remote:FindFirstChildOfClass("SpecialMesh").MeshId = "http://www.mulrbx.com/asset/?id=74322546"
+				Remote:FindFirstChildOfClass("SpecialMesh").TextureId = "http://www.mulrbx.com/asset/?id=74322558"
+			end  
+
+			if Tool:FindFirstChild("TooFar") then Tool.TooFar.Value = 2 end 
+		else 		
+			if Tool:FindFirstChild("TooFar") then 
+				Tool.TooFar.Value = 1
+			end 
+		end  	
+	elseif c4Clone and c4Clone.Parent then 
+		local explosion = Instance.new("Explosion")
+		explosion.BlastRadius = 15.0 
+		explosion.DestroyJointRadiusPercent = 0
+		explosion.BlastPressure = 0	
+		explosion.Position = c4Clone.Position 		
+		c4Clone.Anchored = true
+		local Boom = c4Clone:FindFirstChild("Boom")
+		if Boom then
+			Boom:Play()
+		end
+		
+		if c4Clone:FindFirstChildOfClass("SpecialMesh") then
+			 c4Clone.Transparency = 1
+		end
+		
+		if c4Touch then
+			c4Touch:Disconnect();c4Touch = nil
+		end
+		
+		explosion.Hit:Connect(function(hit)
+			if hit and hit.Parent then 
+				local humanoid,FF = hit.Parent:FindFirstChildOfClass("Humanoid"),hit.Parent:FindFirstChildOfClass("ForceField")
+				if humanoid and humanoid ~= myHumanoid and not FF and not IsTeamMate(vPlayer,players:GetPlayerFromCharacter(humanoid.Parent)) then 
+					local creatorTag = Instance.new("ObjectValue")
+					creatorTag.Name = "creator"
+					creatorTag.Value = vPlayer
+					creatorTag.Parent = humanoid 
+					debris:AddItem(creatorTag, 1.0) 
+				end 
+				if hit and hit.Parent and (not humanoid or not IsTeamMate(vPlayer,players:GetPlayerFromCharacter(humanoid.Parent))) and not FF then
+					hit:BreakJoints()
+					if hit:CanSetNetworkOwnership() then
+						hit:SetNetworkOwner(nil)
+					end
+					hit.Velocity = (hit.Position-explosion.Position).Unit * 10^2.5
+				end
+			end 
+		end) 
+
+		explosion.Parent = workspace
+
+		exploded = true
+
+		if Remote:FindFirstChildOfClass("SpecialMesh") then 
+			Remote:FindFirstChildOfClass("SpecialMesh").MeshId = "http://www.mulrbx.com/asset/?id=74322628"
+			Remote:FindFirstChildOfClass("SpecialMesh").TextureId = "http://www.mulrbx.com/asset/?id=74322630"
+		end 		
+
+		if Tool:FindFirstChild("TooFar") then Tool.TooFar.Value = 0 end 
+		debris:AddItem(c4Clone,2)
+	end 
+
+	wait(2.0)
+	
+	Tool.Enabled = true 
+end 
+
+function onEquipped()
+	vCharacter = Tool.Parent 
+	myTorso = vCharacter:FindFirstChild("Torso") or vCharacter:FindFirstChild("UpperTorso")
+	myHumanoid = vCharacter:FindFirstChildOfClass("Humanoid") 
+	vPlayer = game.Players:GetPlayerFromCharacter(vCharacter)
+
+	if (not c4Clone or not c4Clone.Parent) and Remote:FindFirstChild("Mesh") then 
+		Remote.Mesh.MeshId = "http://www.mulrbx.com/asset/?id=74322628"
+		Remote.Mesh.TextureId = "http://www.mulrbx.com/asset/?id=74322630"
+	end 
+end 
+
+function onUnequipped()
+	if Remote:FindFirstChild("Mesh") then 
+		Remote.Mesh.MeshId = "http://www.mulrbx.com/asset/?id=74322546"
+		Remote.Mesh.TextureId = "http://www.mulrbx.com/asset/?id=74322558"
+	end  	
+end
+
+RE.OnServerEvent:Connect(function(player, func, ...)
+	if not player == game:GetService("Players"):GetPlayerFromCharacter(Tool.Parent) then return end
+	
+	if func == "Activate" then
+		onActivated(...)
+	end
+end)
+Tool.Equipped:Connect(onEquipped)
+Tool.Unequipped:Connect(onUnequipped)
+]]></ProtectedString>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+		<Item class="LocalScript" referent="RBX8DF95EFE24884EA487D34E99D4D20EEA">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">GuiScript</string>
+				<string name="ScriptGuid">{AF1A3909-DABE-4C1B-BDAA-63648188CB86}</string>
+				<ProtectedString name="Source"><![CDATA[local Tool = script.Parent 
+local Lantern = Tool.Handle
+
+local vCharacter 
+local vPlayer 
+
+local sg 
+local frame 
+local genericTextLabel
+
+local CAS = game:GetService("ContextActionService")
+local ActionName = "RemoteDetonator"
+
+local RE = Tool:WaitForChild("RemoteEvent")
+
+function onAction(actionName, inputState, inputObject)
+	local player = game:GetService("Players").LocalPlayer
+	local mouse = player:GetMouse()
+	
+	if inputState == Enum.UserInputState.Begin then
+		RE:FireServer("Activate", mouse.Hit.p)
+	end
+end
+
+function onEquipped()
+	onUnequipped()
+	
+	CAS:BindActionToInputTypes(
+		ActionName,
+		onAction,
+		false,
+		Enum.UserInputType.MouseButton1,
+		Enum.UserInputType.Touch
+	)
+	
+	vCharacter = Tool.Parent
+	vPlayer = game.Players:GetPlayerFromCharacter(vCharacter)
+	if vPlayer then 
+		local playerGui = vPlayer:FindFirstChild("PlayerGui")
+		if playerGui and playerGui:FindFirstChild("LanternGui") == nil then 
+			sg = Instance.new("ScreenGui")
+			sg.Name = "LanternGui"
+			sg.Parent = playerGui 
+
+			frame = Instance.new("Frame")
+			frame.Parent = sg 
+			frame.Size = UDim2.new(0, 200, 0, 30)
+			frame.Position = UDim2.new(0.5, -100, 1, -130) 
+			frame.Style = Enum.FrameStyle.RobloxRound
+
+			genericTextLabel = Instance.new("TextLabel")
+			genericTextLabel.BackgroundTransparency = 1.0
+			genericTextLabel.Size = UDim2.new(1, 0, 1, 0)
+			genericTextLabel.Visible = true 
+			genericTextLabel.ZIndex = 10 
+			genericTextLabel.FontSize = Enum.FontSize.Size10 
+			genericTextLabel.Font = Enum.Font.Legacy
+			genericTextLabel.TextColor3 = Color3.new(1, 127/255, 0)
+			genericTextLabel.TextXAlignment = Enum.TextXAlignment.Center
+			genericTextLabel.TextYAlignment = Enum.TextYAlignment.Top
+			genericTextLabel.Parent = frame
+			genericTextLabel.Text = "Plant the bomb!" 
+		end 
+	end 
+end 
+
+function onUnequipped()
+	CAS:UnbindAction(ActionName)
+	if sg then sg:Destroy() end 
+end 
+
+Tool.Equipped:Connect(onEquipped)
+Tool.Unequipped:Connect(onUnequipped)
+
+local tooFar 
+
+while not Tool:FindFirstChild("TooFar") do 
+	wait()
+end
+
+tooFar = Tool.TooFar
+
+tooFar.Changed:Connect(function()
+	if tooFar and genericTextLabel then
+		if tooFar.Value == 1 then 		
+			genericTextLabel.Text = "Target too far away"  
+			wait(2.0)
+			genericTextLabel.Text = "Plant the bomb"
+		elseif tooFar.Value == 0 then
+			genericTextLabel.Text = "Plant the bomb"
+		else 
+			genericTextLabel.Text = "Time to detonate" 
+		end 			
+	end
+end) 
+]]></ProtectedString>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+		<Item class="IntValue" referent="RBX3249DEA1B32B4CE4902842DBEE6FA3E0">
+			<Properties>
+				<string name="Name">TooFar</string>
+				<BinaryString name="Tags"></BinaryString>
+				<int64 name="Value">2</int64>
+			</Properties>
+		</Item>
+		<Item class="RemoteEvent" referent="RBXF9FFABF89C884DE9A694B020AE15E50B">
+			<Properties>
+				<string name="Name">RemoteEvent</string>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+		<Item class="LocalScript" referent="RBX82896CFD50B74327B45B4D7B610B514F">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">MouseIcon</string>
+				<string name="ScriptGuid">{EAAD856B-C4E8-4B3D-8811-6C15B9810CFE}</string>
+				<ProtectedString name="Source"><![CDATA[--Rescripted by Luckymaxer
+
+Mouse_Icon = "rbxasset://textures/GunCursor.png"
+Reloading_Icon = "rbxasset://textures/GunWaitCursor.png"
+
+Tool = script.Parent
+
+Mouse = nil
+
+function UpdateIcon()
+	if Mouse then
+		Mouse.Icon = Tool.Enabled and Mouse_Icon or Reloading_Icon
+	end
+end
+
+function OnEquipped(ToolMouse)
+	Mouse = ToolMouse
+	UpdateIcon()
+end
+
+function OnChanged(Property)
+	if Property == "Enabled" then
+		UpdateIcon()
+	end
+end
+
+Tool.Equipped:Connect(OnEquipped)
+Tool.Changed:Connect(OnChanged)
+]]></ProtectedString>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+		<Item class="Keyframe" referent="RBX953111D5CF7A41BB89F8B9379BDEF87E">
+			<Properties>
+				<string name="Name">ThumbnailPose</string>
+				<BinaryString name="Tags"></BinaryString>
+				<float name="Time">0</float>
+			</Properties>
+			<Item class="Pose" referent="RBXE5F09B65DC37497FB70A9E8D0A8BBB99">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<token name="EasingDirection">1</token>
+					<token name="EasingStyle">0</token>
+					<string name="Name">UpperTorso</string>
+					<BinaryString name="Tags"></BinaryString>
+					<float name="Weight">0</float>
+				</Properties>
+				<Item class="Pose" referent="RBX37203476E61D48299B1510F2ECF15CD0">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0</X>
+							<Y>-6.70552254e-08</Y>
+							<Z>-5.96046448e-08</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0.173648193</R11>
+							<R12>-0.98480773</R12>
+							<R20>0</R20>
+							<R21>0.98480773</R21>
+							<R22>0.173648193</R22>
+						</CoordinateFrame>
+						<token name="EasingDirection">1</token>
+						<token name="EasingStyle">0</token>
+						<string name="Name">RightUpperArm</string>
+						<BinaryString name="Tags"></BinaryString>
+						<float name="Weight">1</float>
+					</Properties>
+					<Item class="Pose" referent="RBX07B19B704E59453D96F1ED5FD8A33499">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>0</X>
+								<Y>-1.49011612e-08</Y>
+								<Z>3.7252903e-09</Z>
+								<R00>1</R00>
+								<R01>0</R01>
+								<R02>0</R02>
+								<R10>0</R10>
+								<R11>0.98480773</R11>
+								<R12>-0.173648179</R12>
+								<R20>0</R20>
+								<R21>0.173648179</R21>
+								<R22>0.98480773</R22>
+							</CoordinateFrame>
+							<token name="EasingDirection">1</token>
+							<token name="EasingStyle">0</token>
+							<string name="Name">RightLowerArm</string>
+							<BinaryString name="Tags"></BinaryString>
+							<float name="Weight">1</float>
+						</Properties>
+						<Item class="Pose" referent="RBX6607D7D65E804683A2BB4FC91BC408E0">
+							<Properties>
+								<CoordinateFrame name="CFrame">
+									<X>0</X>
+									<Y>0</Y>
+									<Z>0</Z>
+									<R00>1</R00>
+									<R01>0</R01>
+									<R02>0</R02>
+									<R10>0</R10>
+									<R11>1</R11>
+									<R12>0</R12>
+									<R20>0</R20>
+									<R21>0</R21>
+									<R22>1</R22>
+								</CoordinateFrame>
+								<token name="EasingDirection">1</token>
+								<token name="EasingStyle">0</token>
+								<string name="Name">RightHand</string>
+								<BinaryString name="Tags"></BinaryString>
+								<float name="Weight">1</float>
+							</Properties>
+						</Item>
+					</Item>
+				</Item>
+			</Item>
+		</Item>
+	</Item>
+</roblox>

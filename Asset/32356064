@@ -1,0 +1,637 @@
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mulrbx.com/roblox.xsd" version="4">
+	<Meta name="ExplicitAutoJoints">true</Meta>
+	<External>null</External>
+	<External>nil</External>
+	<Item class="Tool" referent="RBXED574C0371BB47AA8ED21F79C9FAC8AD">
+		<Properties>
+			<bool name="CanBeDropped">true</bool>
+			<bool name="Enabled">true</bool>
+			<CoordinateFrame name="Grip">
+				<X>0</X>
+				<Y>-1</Y>
+				<Z>-0.800000012</Z>
+				<R00>1</R00>
+				<R01>0</R01>
+				<R02>0</R02>
+				<R10>0</R10>
+				<R11>0</R11>
+				<R12>-1</R12>
+				<R20>0</R20>
+				<R21>1</R21>
+				<R22>0</R22>
+			</CoordinateFrame>
+			<bool name="ManualActivationOnly">false</bool>
+			<string name="Name">BigRocketLauncher</string>
+			<bool name="RequiresHandle">true</bool>
+			<BinaryString name="Tags"></BinaryString>
+			<Content name="TextureId"><url>http://www.mulrbx.com/asset/?id=31613709</url></Content>
+			<string name="ToolTip"></string>
+		</Properties>
+		<Item class="Part" referent="RBX08CAD0A0AC6F4B008F6A5BB498D85A6C">
+			<Properties>
+				<bool name="Anchored">false</bool>
+				<float name="BackParamA">-0.5</float>
+				<float name="BackParamB">0.5</float>
+				<token name="BackSurface">0</token>
+				<token name="BackSurfaceInput">0</token>
+				<float name="BottomParamA">-0.5</float>
+				<float name="BottomParamB">0.5</float>
+				<token name="BottomSurface">4</token>
+				<token name="BottomSurfaceInput">0</token>
+				<CoordinateFrame name="CFrame">
+					<X>16.5</X>
+					<Y>2.9000001</Y>
+					<Z>5.5</Z>
+					<R00>1</R00>
+					<R01>0</R01>
+					<R02>0</R02>
+					<R10>0</R10>
+					<R11>0.707107365</R11>
+					<R12>0.707106352</R12>
+					<R20>0</R20>
+					<R21>-0.707106352</R21>
+					<R22>0.707107365</R22>
+				</CoordinateFrame>
+				<bool name="CanCollide">true</bool>
+				<bool name="CastShadow">true</bool>
+				<int name="CollisionGroupId">0</int>
+				<Color3uint8 name="Color3uint8">4288914085</Color3uint8>
+				<PhysicalProperties name="CustomPhysicalProperties">
+					<CustomPhysics>false</CustomPhysics>
+				</PhysicalProperties>
+				<float name="FrontParamA">-0.5</float>
+				<float name="FrontParamB">0.5</float>
+				<token name="FrontSurface">0</token>
+				<token name="FrontSurfaceInput">0</token>
+				<float name="LeftParamA">-0.5</float>
+				<float name="LeftParamB">0.5</float>
+				<token name="LeftSurface">0</token>
+				<token name="LeftSurfaceInput">0</token>
+				<bool name="Locked">true</bool>
+				<bool name="Massless">false</bool>
+				<token name="Material">256</token>
+				<string name="Name">Handle</string>
+				<float name="Reflectance">0</float>
+				<float name="RightParamA">-0.5</float>
+				<float name="RightParamB">0.5</float>
+				<token name="RightSurface">0</token>
+				<token name="RightSurfaceInput">0</token>
+				<int name="RootPriority">0</int>
+				<Vector3 name="RotVelocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<BinaryString name="Tags"></BinaryString>
+				<float name="TopParamA">-0.5</float>
+				<float name="TopParamB">0.5</float>
+				<token name="TopSurface">3</token>
+				<token name="TopSurfaceInput">0</token>
+				<float name="Transparency">0</float>
+				<Vector3 name="Velocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<token name="formFactorRaw">1</token>
+				<token name="shape">1</token>
+				<Vector3 name="size">
+					<X>1</X>
+					<Y>5</Y>
+					<Z>1</Z>
+				</Vector3>
+			</Properties>
+			<Item class="SpecialMesh" referent="RBX35F01570EA6A4ABDB60F18F5529ACC27">
+				<Properties>
+					<token name="LODX">2</token>
+					<token name="LODY">2</token>
+					<Content name="MeshId"><url>http://www.mulrbx.com/asset/?id=31601544</url></Content>
+					<token name="MeshType">5</token>
+					<string name="Name">Mesh</string>
+					<Vector3 name="Offset">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+					<Vector3 name="Scale">
+						<X>1</X>
+						<Y>1</Y>
+						<Z>1</Z>
+					</Vector3>
+					<BinaryString name="Tags"></BinaryString>
+					<Content name="TextureId"><url>http://www.mulrbx.com/asset/?id=31601599</url></Content>
+					<Vector3 name="VertexColor">
+						<X>1</X>
+						<Y>1</Y>
+						<Z>1</Z>
+					</Vector3>
+				</Properties>
+			</Item>
+			<Item class="Sound" referent="RBXA3B2B6D2A90E43019A7D9DC42A7BDF92">
+				<Properties>
+					<float name="EmitterSize">10</float>
+					<bool name="Looped">false</bool>
+					<string name="Name">Launch</string>
+					<bool name="PlayOnRemove">false</bool>
+					<float name="PlaybackSpeed">1</float>
+					<bool name="Playing">false</bool>
+					<token name="RollOffMode">0</token>
+					<Ref name="SoundGroup">null</Ref>
+					<Content name="SoundId"><url>rbxassetid://1796772196</url></Content>
+					<BinaryString name="Tags"></BinaryString>
+					<double name="TimePosition">0</double>
+					<float name="Volume">1</float>
+					<float name="xmlRead_MaxDistance_3">10000</float>
+				</Properties>
+			</Item>
+			<Item class="Sound" referent="RBX0AAC6019812140B0BE69C76EE203B8D8">
+				<Properties>
+					<float name="EmitterSize">10</float>
+					<bool name="Looped">false</bool>
+					<string name="Name">Reload</string>
+					<bool name="PlayOnRemove">false</bool>
+					<float name="PlaybackSpeed">1</float>
+					<bool name="Playing">false</bool>
+					<token name="RollOffMode">0</token>
+					<Ref name="SoundGroup">null</Ref>
+					<Content name="SoundId"><url>rbxassetid://1796772823</url></Content>
+					<BinaryString name="Tags"></BinaryString>
+					<double name="TimePosition">0</double>
+					<float name="Volume">1</float>
+					<float name="xmlRead_MaxDistance_3">10000</float>
+				</Properties>
+			</Item>
+			<Item class="Attachment" referent="RBX5427687EBC1E43C8963D4211EAF6CBA8">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>-1.00000012</Y>
+						<Z>-0.799999952</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>0</R11>
+						<R12>-1</R12>
+						<R20>0</R20>
+						<R21>1</R21>
+						<R22>0</R22>
+					</CoordinateFrame>
+					<string name="Name">RightGripAttachment</string>
+					<BinaryString name="Tags"></BinaryString>
+					<bool name="Visible">false</bool>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="Script" referent="RBXC2963527258646E28CE702AF64836630">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">RocketLauncherScript</string>
+				<string name="ScriptGuid">{AF444F9A-7864-4F69-B47D-D7619541898C}</string>
+				<ProtectedString name="Source"><![CDATA[--Fixed by TakeoHonorable
+
+
+local Tool = script.Parent
+Tool.Enabled = true
+
+local AnimationFolder = Tool:WaitForChild("Animations")
+
+local MouseLoc = Tool:WaitForChild("MouseLoc",10)
+
+local Handle = Tool:WaitForChild("Handle",10)
+
+local reload = 10
+
+local rocketspeed = 100
+
+local humanoid,character,player
+
+local debris,players = game:GetService("Debris"), game:GetService("Players")
+
+local reloadRocket = Instance.new("Part")
+reloadRocket.CanCollide = false
+reloadRocket.Size = Vector3.new(1,2,1)
+
+local rocketMesh = Instance.new("SpecialMesh")
+rocketMesh.MeshId = "http://www.mulrbx.com/asset/?id=31601976"
+rocketMesh.TextureId = "http://www.mulrbx.com/asset/?id=31601599"
+rocketMesh.Parent = reloadRocket
+
+local CloneRocket = reloadRocket:Clone()
+
+local ParticleAttachment = Instance.new("Attachment")
+ParticleAttachment.Position = Vector3.new(0,1,0)
+ParticleAttachment.Parent = CloneRocket
+
+local Fire = Instance.new("Fire")
+Fire.Color = Color3.fromRGB(255,132,0)
+Fire.Heat = 25
+Fire.SecondaryColor = Color3.new(1,0,0)
+Fire.Size = 2
+Fire.Enabled = true
+Fire.Parent = ParticleAttachment
+
+local Smoke = Instance.new("Smoke")
+Smoke.Color = Color3.new(0,0,0)
+Smoke.Enabled = true
+Smoke.Opacity = 0.15
+Smoke.RiseVelocity = 15
+Smoke.Size = 0.1
+Smoke.Parent = ParticleAttachment
+
+
+local Animations = {}
+
+function IsTeamMate(Player1, Player2)
+	return (Player1 and Player2 and not Player1.Neutral and not Player2.Neutral and Player1.TeamColor == Player2.TeamColor)
+end
+
+function TagHumanoid(humanoid, player)
+	local Creator_Tag = Instance.new("ObjectValue")
+	Creator_Tag.Name = "creator";
+	Creator_Tag.Value = player;
+	game:GetService("Debris"):AddItem(Creator_Tag, 2)
+	Creator_Tag.Parent = humanoid
+end
+	
+function UntagHumanoid(humanoid)
+	for _, v in pairs(humanoid:GetChildren()) do
+		if v:IsA("ObjectValue") and v.Name == "creator" then
+			v:Destroy()
+		end
+	end
+end
+
+function onActivated()
+	
+	if not Tool.Enabled then return end
+	Tool.Enabled = false
+
+	local TargetPosition = MouseLoc:InvokeClient(player)
+	
+	local root = CloneRocket:Clone()
+	
+	Handle.Launch:Play()
+	Animations.RocketKickBack:Play()
+
+	local force = Instance.new("BodyForce")
+	force.Force = Vector3.new(0,root:GetMass()*workspace.Gravity,0)
+	force.Parent = root
+	
+	local spawnPosition = Handle.Position + (Handle.CFrame.upVector * (Handle.Size.Y / 2))
+	
+	root.CFrame = CFrame.new(spawnPosition, TargetPosition)* CFrame.Angles(math.pi/2,0,0)
+	root.Velocity = (TargetPosition-spawnPosition).unit * rocketspeed	
+	
+	root.Parent = workspace
+	root:SetNetworkOwner(nil)
+	root.Locked = true
+	root.Anchored = false
+	
+
+	local sound = Instance.new("Sound")
+	sound.SoundId = "http://www.mulrbx.com/asset/?id=258057783"
+	sound.Volume = 1
+	sound.Parent = root
+	local con
+	con = root.Touched:Connect(function(part)
+		if not part or not part.Parent or part:IsDescendantOf(character)then return end
+		for _,v in pairs(root:GetChildren()) do
+			if v:IsA("Attachment") then
+				v:Destroy()
+			end
+		end
+		local e = Instance.new("Explosion")
+		e.BlastPressure = 10000
+		e.BlastRadius = 10
+		e.DestroyJointRadiusPercent = 0 -- no joint breakers
+		e.Position = root.Position
+		e.Parent = workspace
+		e.Hit:Connect(function(hit)
+			if not hit or not hit.Parent or hit.Parent:IsA("Accoutrement") or hit.Parent:FindFirstChildOfClass("ForceField") or IsTeamMate(player,players:GetPlayerFromCharacter(hit.Parent)) then return end
+			local Humanoid = hit.Parent:FindFirstChildOfClass("Humanoid")
+			if Humanoid then
+				if Humanoid ~= humanoid then
+					UntagHumanoid(Humanoid)
+					TagHumanoid(Humanoid,player)
+				end
+				Humanoid.Parent:BreakJoints()
+			end
+			if not part.Anchored then
+				part.Velocity = (part.CFrame.p-e.Position).unit*(e.BlastPressure/100)
+			end
+			for _,joints in pairs(hit:GetJoints()) do
+				joints:Destroy()
+			end
+			
+		end)
+		debris:AddItem(e,1.5)
+		root.Sound:Play()
+		root.Transparency = 1
+		root.CanCollide = false
+		debris:AddItem(root,2)
+		con:Disconnect()
+	end)
+
+	Handle.Mesh.MeshId = "http://www.mulrbx.com/asset/?id=31611841"
+
+	debris:AddItem(root,14)
+
+	wait(reload)
+
+	if Tool:IsDescendantOf(character) then
+		Animations.RocketReload:Play()
+		local rocketClone = reloadRocket:Clone()
+		rocketClone.Parent = humanoid.Parent
+		Handle.Reload:Play()
+		local welder = Instance.new("Weld")
+		welder.Part0 = rocketClone
+		welder.Parent = rocketClone
+		welder.Part1 = humanoid.Parent:FindFirstChild("Left Arm") or humanoid.Parent:FindFirstChild("LeftHand")
+		welder.C0 = CFrame.new(0,welder.Part1.Size.Y/2+rocketClone.Size.Y/2,0)
+		debris:AddItem(rocketClone,0.5)
+	end
+	
+	wait(.5)
+	
+	Handle.Mesh.MeshId = "http://www.mulrbx.com/asset/?id=31601544"
+	Tool.Enabled = true
+
+end
+
+Tool.Activated:Connect(onActivated)
+
+
+function onEquipped()
+	humanoid = Tool.Parent:FindFirstChildOfClass("Humanoid")
+	character = humanoid.Parent
+	player = players:GetPlayerFromCharacter(character)
+	if not humanoid then return end
+	Animations = {
+		RocketKickBack = AnimationFolder:WaitForChild(humanoid.RigType.Name):WaitForChild("rocketkickback"),
+		RocketReload = AnimationFolder:WaitForChild(humanoid.RigType.Name):WaitForChild("rocketreload")
+	}
+	for animname,anims in pairs(Animations) do
+		Animations[animname] = humanoid:LoadAnimation(anims)
+	end
+end
+
+function onUnequipped()
+	for _,anims in pairs(Animations) do
+		anims:Stop()
+	end
+	Animations = {}
+end
+
+Tool.Equipped:Connect(onEquipped)
+]]></ProtectedString>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+		<Item class="Camera" referent="RBXE860F77211AF41B1A2BE27B81B414DDA">
+			<Properties>
+				<CoordinateFrame name="CFrame">
+					<X>20.588501</X>
+					<Y>2.50624323</Y>
+					<Z>5.87831926</Z>
+					<R00>0.0240225121</R00>
+					<R01>0.0714441165</R01>
+					<R02>0.997155249</R02>
+					<R10>-0</R10>
+					<R11>0.997443199</R11>
+					<R12>-0.0714647323</R12>
+					<R20>-0.999711514</R20>
+					<R21>0.00171676243</R21>
+					<R22>0.0239610858</R22>
+				</CoordinateFrame>
+				<Ref name="CameraSubject">null</Ref>
+				<token name="CameraType">0</token>
+				<float name="FieldOfView">70</float>
+				<CoordinateFrame name="Focus">
+					<X>16.4861183</X>
+					<Y>2.8002553</Y>
+					<Z>5.77974129</Z>
+					<R00>1</R00>
+					<R01>0</R01>
+					<R02>0</R02>
+					<R10>0</R10>
+					<R11>1</R11>
+					<R12>0</R12>
+					<R20>0</R20>
+					<R21>0</R21>
+					<R22>1</R22>
+				</CoordinateFrame>
+				<bool name="HeadLocked">true</bool>
+				<float name="HeadScale">1</float>
+				<string name="Name">ThumbnailCamera</string>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+		<Item class="LocalScript" referent="RBX7A4D872C1CE94496AE902C8D602064D5">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">MouseIcon</string>
+				<string name="ScriptGuid">{D8BA1C9B-5664-459A-9DDC-E0BB8F8D3F4A}</string>
+				<ProtectedString name="Source"><![CDATA[local MOUSE_ICON = 'rbxasset://textures/GunCursor.png'
+local RELOADING_ICON = 'rbxasset://textures/GunWaitCursor.png'
+
+local Tool = script.Parent
+
+local Mouse = nil
+
+local function UpdateIcon()
+	if Mouse then
+		Mouse.Icon = Tool.Enabled and MOUSE_ICON or RELOADING_ICON
+	end
+end
+
+local function OnEquipped(mouse)
+	Mouse = mouse
+	UpdateIcon()
+end
+
+local function OnChanged(property)
+	if property == 'Enabled' then
+		UpdateIcon()
+	end
+end
+
+Tool.Equipped:Connect(OnEquipped)
+Tool.Changed:Connect(OnChanged)
+]]></ProtectedString>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+		<Item class="RemoteFunction" referent="RBX28DE87063E804778904570BA6864A760">
+			<Properties>
+				<string name="Name">MouseLoc</string>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+		<Item class="LocalScript" referent="RBX0EB7900941E44783964668D04897218B">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">Client</string>
+				<string name="ScriptGuid">{B618BE6A-F500-4A94-A901-F863594DBFEE}</string>
+				<ProtectedString name="Source"><![CDATA[--Rescripted by TakeoHonorable
+
+local Tool = script.Parent
+
+local MouseLoc = Tool:WaitForChild("MouseLoc",10)
+
+function MouseLoc.OnClientInvoke()
+	return game:GetService("Players").LocalPlayer:GetMouse().Hit.p
+end]]></ProtectedString>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+		<Item class="Keyframe" referent="RBX4A4B3CBF8C794353B2BA25267FBE8840">
+			<Properties>
+				<string name="Name">ThumbnailPose</string>
+				<BinaryString name="Tags"></BinaryString>
+				<float name="Time">0</float>
+			</Properties>
+			<Item class="Pose" referent="RBXB4D62EE305C5498EB5955B16B3BADE34">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<token name="EasingDirection">1</token>
+					<token name="EasingStyle">0</token>
+					<string name="Name">UpperTorso</string>
+					<BinaryString name="Tags"></BinaryString>
+					<float name="Weight">0</float>
+				</Properties>
+				<Item class="Pose" referent="RBXB6214DF08015490E93689676547A37CB">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0</X>
+							<Y>-6.70552254e-08</Y>
+							<Z>-5.96046448e-08</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0.173648193</R11>
+							<R12>-0.98480773</R12>
+							<R20>0</R20>
+							<R21>0.98480773</R21>
+							<R22>0.173648193</R22>
+						</CoordinateFrame>
+						<token name="EasingDirection">1</token>
+						<token name="EasingStyle">0</token>
+						<string name="Name">RightUpperArm</string>
+						<BinaryString name="Tags"></BinaryString>
+						<float name="Weight">1</float>
+					</Properties>
+					<Item class="Pose" referent="RBX5A377AF9F18F4D6E95A5EB45DAFDAFD5">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>0</X>
+								<Y>-1.49011612e-08</Y>
+								<Z>3.7252903e-09</Z>
+								<R00>1</R00>
+								<R01>0</R01>
+								<R02>0</R02>
+								<R10>0</R10>
+								<R11>0.98480773</R11>
+								<R12>-0.173648179</R12>
+								<R20>0</R20>
+								<R21>0.173648179</R21>
+								<R22>0.98480773</R22>
+							</CoordinateFrame>
+							<token name="EasingDirection">1</token>
+							<token name="EasingStyle">0</token>
+							<string name="Name">RightLowerArm</string>
+							<BinaryString name="Tags"></BinaryString>
+							<float name="Weight">1</float>
+						</Properties>
+						<Item class="Pose" referent="RBXEAD87D7AD1F54876A57C81F15FC88811">
+							<Properties>
+								<CoordinateFrame name="CFrame">
+									<X>0</X>
+									<Y>0</Y>
+									<Z>0</Z>
+									<R00>1</R00>
+									<R01>0</R01>
+									<R02>0</R02>
+									<R10>0</R10>
+									<R11>1</R11>
+									<R12>0</R12>
+									<R20>0</R20>
+									<R21>0</R21>
+									<R22>1</R22>
+								</CoordinateFrame>
+								<token name="EasingDirection">1</token>
+								<token name="EasingStyle">0</token>
+								<string name="Name">RightHand</string>
+								<BinaryString name="Tags"></BinaryString>
+								<float name="Weight">1</float>
+							</Properties>
+						</Item>
+					</Item>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="Folder" referent="RBXFF5FE4410985403A9D4458171307794F">
+			<Properties>
+				<string name="Name">Animations</string>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+			<Item class="Folder" referent="RBX0E1BE2803C37432FA71490AF56840F8A">
+				<Properties>
+					<string name="Name">R6</string>
+					<BinaryString name="Tags"></BinaryString>
+				</Properties>
+				<Item class="Animation" referent="RBX0A8E9032E0D34BEF801362EB15717333">
+					<Properties>
+						<Content name="AnimationId"><url>http://www.mulrbx.com/Asset?ID=31617132</url></Content>
+						<string name="Name">rocketkickback</string>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="Animation" referent="RBX9621B51DBB9B41B480452A8D03380F16">
+					<Properties>
+						<Content name="AnimationId"><url>http://www.mulrbx.com/Asset?ID=31617128</url></Content>
+						<string name="Name">rocketreload</string>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+			</Item>
+			<Item class="Folder" referent="RBX233FB67CFF9D45F6B3565948B12F86AD">
+				<Properties>
+					<string name="Name">R15</string>
+					<BinaryString name="Tags"></BinaryString>
+				</Properties>
+				<Item class="Animation" referent="RBX41118B31A12A4E258827CFDDCCE2DD01">
+					<Properties>
+						<Content name="AnimationId"><url>rbxassetid://2513438216</url></Content>
+						<string name="Name">rocketreload</string>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="Animation" referent="RBXAAFA34C4111F40609B4D8DA490DE2CC6">
+					<Properties>
+						<Content name="AnimationId"><url>rbxassetid://2513418440</url></Content>
+						<string name="Name">rocketkickback</string>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+			</Item>
+		</Item>
+	</Item>
+</roblox>

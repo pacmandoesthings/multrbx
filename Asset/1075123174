@@ -1,0 +1,1703 @@
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mulrbx.com/roblox.xsd" version="4">
+	<Meta name="ExplicitAutoJoints">true</Meta>
+	<External>null</External>
+	<External>nil</External>
+	<Item class="ModuleScript" referent="RBX7FB16A25E5824BBF9EC08F1CD256E3B9">
+		<Properties>
+			<Content name="LinkedSource"><null></null></Content>
+			<string name="Name">MainModule</string>
+			<string name="ScriptGuid">{E71741A5-8C26-4373-BEB6-CA2D153FFA7D}</string>
+			<ProtectedString name="Source"><![CDATA[--Created by StarWars
+--This is a work in progress still, more features will be added in the future!
+--Module: 1075123174
+
+local Debris = game:GetService("Debris")
+
+local Gear = require(script.Gear)
+
+local module = {}
+local methods = {}
+methods.__index = methods
+
+-- // Public API
+function methods:BindGear(tool, toolType)
+	local NewGear = Gear.new(self, tool, toolType)
+		
+	self.BindedGears[tool] = NewGear
+	return NewGear
+end
+
+function methods:CastRay(start, direction, length, ignore)
+	ignore = ignore or {}
+	length = length or 999
+	local NewRay = Ray.new(start, direction * length)
+	
+	return workspace:FindPartOnRayWithIgnoreList(NewRay, ignore)
+end
+
+function methods:IsTeamMate(player1, player2)
+	if not player1 or not player2 then return false end
+	
+	if typeof(player1) == "Instance" and player1:IsA("Player") and typeof(player2) == "Instance" and player2:IsA("Player")  then
+		if not player1.Neutral and not player2.Neutral then
+			return player1.Team == player2.Team
+		end
+	end
+	
+	return false
+end
+
+function methods:TagHumanoid(humanoid, player)
+	local CreatorTag = Instance.new("ObjectValue")
+	CreatorTag.Name = "creator"
+	CreatorTag.Value = player
+	
+	Debris:AddItem(CreatorTag, 2)
+	CreatorTag.Parent = humanoid
+end
+
+function methods:UntagHumanoid(humanoid)
+	if not humanoid then return end 
+	
+	for i, v in next, humanoid:GetChildren() do 
+		if v:IsA("ObjectValue") and v.Name == "creator" then
+			v:Destroy()
+		end
+	end
+end
+
+function methods:WeldToAttachment(attach1, attach2)
+	if not attach1 or not attach2 then return end 
+	local Motor6D = Instance.new("Motor6D")
+	
+	Motor6D.Part0 = attach1.Parent
+	Motor6D.Part1 = attach2.Parent
+	Motor6D.C0 = attach1.CFrame
+	Motor6D.C1 = attach2.CFrame
+	Motor6D.Parent = attach1.Parent
+	
+	return Motor6D
+end
+
+-- // Constructor
+function module.new()
+	local obj = setmetatable({}, methods)
+
+	obj.ShieldTag = "Gear_Shield"
+	obj.BindedGears = {}
+
+	return obj 
+end
+
+return module.new()]]></ProtectedString>
+			<BinaryString name="Tags"></BinaryString>
+		</Properties>
+		<Item class="ModuleScript" referent="RBXAE6AF7C031B04DA492F4456ED1A00355">
+			<Properties>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">Gear</string>
+				<string name="ScriptGuid">{3C38B482-4236-4034-82A4-A6EAD82C288D}</string>
+				<ProtectedString name="Source"><![CDATA[--Created by StarWars
+local Players = game:GetService("Players")
+
+local ToolModules = script.ToolModules
+local Scripts = script.Scripts
+
+local Tools = {}
+for _, tool in next, ToolModules:GetChildren() do 
+	if tool:IsA("ModuleScript") then 
+		Tools[tool.Name] = require(tool)
+	end
+end
+
+local module = {}
+local methods = {}
+methods.__index = methods
+
+-- // Public API
+function methods:BindActivateFunction(actionName, functionToBind)
+	self.BindedActivateFunctions[actionName] = functionToBind
+end
+
+function methods:UnbindActivateFunction(actionName)
+	self.BindedActivateFunctions[actionName] = nil
+end
+
+function methods:BindEquippedFunction(actionName, functionToBind)
+	self.BindedEquippedFunctions[actionName] = functionToBind
+end
+
+function methods:UnbindEquippedFunction(actionName)
+	self.BindedEquippedFunctions[actionName] = nil
+end
+
+function methods:BindUnequippedFunction(actionName, functionToBind)
+	self.BindedUnequippedFunctions[actionName] = functionToBind
+end
+
+function methods:UnbindUnequippedFunction(actionName)
+	self.BindedUnequippedFunctions[actionName] = nil
+end
+
+function methods:IsPlayerAlive()
+	return self.Player and self.Player.Parent and self.Character and self.Character.Parent and self.Humanoid and self.Humanoid.Parent and self.Humanoid.Health > 0 and self.Character:FindFirstChild("Head") and self.Character.Head.Parent and self.RootPart and self.RootPart.Parent
+end
+
+function methods:SetupLocalScript(scriptName)
+	if not scriptName or type(scriptName) ~= 'string' then return end 
+	local FindScript = Scripts:FindFirstChild(scriptName)
+	
+	if not FindScript then return end 
+	
+	FindScript = FindScript:Clone()
+	FindScript.Parent = self.Tool
+	FindScript.Disabled = false
+end
+
+function methods:SetupRemoteFunctions()
+	self.Remotes = self.Tool:FindFirstChild("Remotes") or Instance.new("Folder")
+	self.Remotes.Name = "Remotes"
+	self.Remotes.Parent = self.Tool
+	
+	self.ClientControls = self.Remotes:FindFirstChild("ClientControls") or Instance.new("RemoteFunction")
+	self.ClientControls.Name = "ClientControls"
+	self.ClientControls.Parent = self.Remotes
+	
+	self.ServerControls = self.Remotes:FindFirstChild("ServerControls") or Instance.new("RemoteFunction")
+	self.ServerControls.Name = "ServerControls"
+	self.ServerControls.Parent = self.Remotes	
+	
+	self:SetupLocalScript("RemoteScript")
+end
+
+-- // Constructor
+function module.new(service, tool, toolType)
+	local obj = setmetatable({}, methods)
+	
+	obj.Service = service
+	obj.Tool = tool 
+	obj.BindedActivateFunctions = {}
+	obj.BindedEquippedFunctions = {}
+	obj.BindedUnequippedFunctions = {}	
+	obj:BindActivateFunction("default_function", function() if not obj.Class then return end obj.Class:OnActivated() end)
+	obj:BindEquippedFunction("default_function", function() if not obj.Class then return end obj.Class:OnEquipped() end)
+	obj:BindUnequippedFunction("default_function", function() if not obj.Class then return end obj.Class:OnUnequipped() end)
+	
+	obj.Tool.Activated:Connect(function()	
+		if not obj.Tool.Enabled then return end 
+		if not obj:IsPlayerAlive() then return end
+
+		obj.Tool.Enabled = false	
+		for i, func in next, obj.BindedActivateFunctions do 
+			func() 
+		end
+		
+		obj.Tool.Enabled = true
+	end)
+	
+	obj.Tool.Equipped:Connect(function()		
+		obj.Character = obj.Tool.Parent
+		obj.Player = Players:GetPlayerFromCharacter(obj.Character)
+		obj.Humanoid = obj.Character:FindFirstChildOfClass("Humanoid")		
+		obj.RootPart = obj.Humanoid.RootPart	
+		
+		if not obj:IsPlayerAlive() then return end 
+		
+		for _, func in next, obj.BindedEquippedFunctions do 
+			func() 
+		end
+	end)	
+	
+	obj.Tool.Unequipped:Connect(function()				
+		for _, func in next, obj.BindedUnequippedFunctions do 
+			func()
+		end
+		
+		obj.Player = nil
+		obj.Character = nil
+		obj.RootPart = nil		
+		obj.Humanoid = nil		
+	end)
+	
+	if toolType then
+		obj.Class = Tools[toolType].new(tool, obj)
+	end
+	return obj
+end
+
+return module]]></ProtectedString>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+			<Item class="Folder" referent="RBX7F05EB463F7C42458419854627925BEB">
+				<Properties>
+					<string name="Name">ToolModules</string>
+					<BinaryString name="Tags"></BinaryString>
+				</Properties>
+				<Item class="ModuleScript" referent="RBX4518F366E9314D7B8389417A39FBF41D">
+					<Properties>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Sword</string>
+						<string name="ScriptGuid">{3039D8A6-5D91-4827-8DE4-F66CBA200E80}</string>
+						<ProtectedString name="Source"><![CDATA[--Created by StarWars
+local CollectionService = game:GetService("CollectionService")
+local Debris = game:GetService("Debris")
+
+local LungeSound = Instance.new("Sound")
+LungeSound.Name = "Lunge"
+LungeSound.SoundId = "rbxassetid://12222208"
+LungeSound.Volume = 0.6
+local SlashSound = Instance.new("Sound")
+SlashSound.Name = "Slash"
+SlashSound.SoundId = "rbxassetid://12222216"
+SlashSound.Volume = 0.7
+local UnsheathSound = Instance.new("Sound")
+UnsheathSound.Name = "Unsheath"
+UnsheathSound.SoundId = "rbxassetid://12222225"
+UnsheathSound.Volume = 1
+
+local module = {}
+local methods = {}
+methods.__index = methods
+
+-- // Private API
+function methods:OnActivated()	
+	local Value = "Slash"
+	self.Damage = self.SlashDamage 
+	local Animation = nil
+
+	Debris:AddItem(Animation, 2)	
+	
+	if tick() - self.LastClick < 0.2 and self.HasLunge then
+		if not self.BindedLungeAnimation then 
+			Animation = Instance.new("StringValue")
+			Animation.Name = "toolanim"					
+			Value = "Lunge"
+			Animation.Value = Value
+			Animation.Parent = self.Tool
+		else
+			Animation = self.Gear.Humanoid and self.Gear.Humanoid:LoadAnimation(self.BindedLungeAnimation)
+			Animation:Play()
+		end
+		wait(0.2)
+		self.Sounds.Lunge:Play()
+		self.Tool.Grip = self.GripOut
+		self.Damage = self.LungeDamage
+		wait(0.75)
+		self.Damage = self.BaseDamage
+		self.Tool.Grip = self.GripUp
+	elseif self.HasSlash then 
+		if self.BindedSlashAnimation then
+			Animation = self.Gear.Humanoid and self.Gear.Humanoid:LoadAnimation(self.BindedSlashAnimation)
+			Animation:Play()
+		else
+			Animation = Instance.new("StringValue")
+			Animation.Name = "toolanim"		
+			Animation.Value = Value		
+			Animation.Parent = self.Tool		
+		end	
+		self.Sounds.Slash:Play()
+	end
+	
+	self.LastClick = tick()
+end
+
+function methods:OnEquipped()
+	self.Sounds.Unshealth:Play()
+end
+
+function methods:OnUnequipped()
+	
+end
+
+-- // Public API
+function methods:SetGripOut(cframeValue)
+	self.GripOut = cframeValue or self.GripOut
+end
+
+function methods:SetGripUp(cframeValue)
+	self.GripUp = cframeValue or self.GripUp
+end
+
+function methods:SetBaseDamage(damage)
+	self.BaseDamage = damage or self.BaseDamage
+end
+
+function methods:SetSlashDamage(damage)
+	self.SlashDamage = damage or self.SlashDamage
+end
+
+function methods:SetLungeDamage(damage)
+	self.LungeDamage = damage or self.LungeDamage
+end
+
+function methods:DamageCharacter(character, hasShield)
+	local Humanoid = character:FindFirstChildOfClass("Humanoid")
+	local RootPart = character:FindFirstChild("HumanoidRootPart")
+	if not Humanoid or Humanoid.Health == 0 or not RootPart then return end 
+		
+	local Damage = self.Damage
+	if hasShield then
+		Damage = self.Damage * 0.5
+	end		
+	
+	self.eDamagedHumanoid:Fire(character)	
+	Humanoid:TakeDamage(Damage)
+end
+
+function methods:BindLungeAnimation(animation)
+	self.BindedLungeAnimation = animation
+end
+
+function methods:BindSlashAnimation(animation)
+	self.BindedSlashAnimation = animation
+end
+
+function methods:EnableSlash()
+	self.HasSlash = true
+end
+
+function methods:EnableLunge()
+	self.HasLunge = true
+end
+
+function methods:DisableSlash()
+	self.HasSlash = false
+end
+
+function methods:DisableLunge()
+	self.HasLunge = false
+end
+
+-- // Constructor
+function module.new(tool, gear)
+	local obj = setmetatable({}, methods)
+	
+	local bindableEvent = Instance.new("BindableEvent")
+	
+	obj.eDamagedHumanoid = bindableEvent
+	obj.OnDamagedHumanoid = bindableEvent.Event
+	
+	obj.Gear = gear
+	obj.HasLunge = true
+	obj.HasSlash = true
+	obj.BaseDamage = 5
+	obj.SlashDamage = 8
+	obj.LungeDamage = 12
+	obj.Tool = tool 	
+	obj.Handle = obj.Tool:FindFirstChild("Handle")
+	obj.GripUp = obj.Tool.Grip
+	obj.GripOut = obj.Tool.Grip * CFrame.Angles(math.rad(90), 0, 0)
+	obj.LastClick = 0
+	obj.Damage = 0 
+	obj.Sounds = {
+		Lunge = LungeSound:Clone(),
+		Slash = SlashSound:Clone(),
+		Unshealth = UnsheathSound:Clone()
+	}	
+	
+	obj.Sounds.Lunge.Parent = obj.Handle
+	obj.Sounds.Slash.Parent = obj.Handle
+	obj.Sounds.Unshealth.Parent = obj.Handle
+	
+	local Debounce = false 
+	obj.Tool.Handle.Touched:Connect(function(hit)
+		if not hit or not hit.Parent or Debounce then return end 
+		
+		local AttackingCharacter = hit.Parent
+		if AttackingCharacter ~= obj.Character then 
+			Debounce = true 
+			obj:DamageCharacter(AttackingCharacter, CollectionService:HasTag(hit, "Gear_Shield"))
+			wait(0.05)
+			Debounce = false 
+		end
+	end)
+	
+	return obj 	
+end
+
+return module
+]]></ProtectedString>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="RBXB1A8FE9BCB7246DC8B55A319642F820B">
+					<Properties>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Staff</string>
+						<string name="ScriptGuid">{F9CBAD70-833A-43E9-8DA6-0D9CDF6CC055}</string>
+						<ProtectedString name="Source"><![CDATA[local module = {}
+local methods = {}
+methods.__index = methods
+
+-- // Private API
+function methods:OnActivated()	
+
+end
+
+function methods:OnEquipped()
+	
+end
+
+function methods:OnUnequipped()
+	
+end
+
+-- // Public API
+function methods:SetRangeDamage(damage)
+	self.RangeDamage = damage or self.RangeDamage
+end
+
+function methods:SetMeleeDamage(damage)
+	self.MeleeDamage = damage or self.MeleeDamage
+end
+
+-- // Constructor 
+function module.new(tool, gear)
+	local obj = setmetatable({}, methods)
+	
+	obj.RangeDamage = 10	
+	obj.MeleeDamage = 10
+
+	obj.RemotesFolder = Instance.new("Folder")
+	obj.RemotesFolder.Name = "Remotes"
+	obj.RemoteEvent = Instance.new("RemoteEvent")
+	obj.RemoteFunction = Instance.new("RemoteFunction")
+	obj.RemoteFunction.Parent = obj.RemotesFolder
+	obj.RemoteEvent.Parent = obj.RemotesFolder	
+	obj.RemotesFolder.Parent = tool
+	
+	return obj
+end
+
+return module
+]]></ProtectedString>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="RBX5A408785FB6D4E7D887317F5D4C3C6BA">
+					<Properties>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Nunchuck</string>
+						<string name="ScriptGuid">{33CE2F4B-8DFF-4A40-8C6B-CAFF2D790A23}</string>
+						<ProtectedString name="Source"><![CDATA[--Created by StarWars
+local Debris = game:GetService("Debris")
+local Players = game:GetService("Players")
+
+local module = {}
+local methods = {}
+methods.__index = methods
+
+-- // Private API
+function methods:SetPose(poseData)
+	local PoseType = type(poseData)
+	for i, v in next, self.NunchuckParts do
+		if PoseType == "nil" then
+			v.Motor.DesiredAngle = v.DefaultPose
+			v.Motor.MaxVelocity = v.DefaultSpeed
+		elseif PoseType == "number" then
+			v.Motor.DesiredAngle = poseData
+			v.Motor.MaxVelocity = v.DefaultSpeed
+		elseif PoseType == "table" then
+			for j, k in next, poseData do 
+				if type(k) == "number" then
+					if i == j then
+						v.Motor.DesiredAngle = k
+					end
+				elseif type(k) == "table" then
+					if v.Part == k.Part then
+						if k.DesiredAngle then
+							v.Motor.DesiredAngle = k.DesiredAngle
+						end
+						if k.DesiredSpeed then
+							v.Motor.MaxVelocity = k.DesiredSpeed
+						end
+					end
+				end
+			end
+		end
+	end
+end
+
+function methods:PlaySound(sound)
+	if type(sound) == "table" then
+		if sound.Sound then
+			sound = sound.Sound
+		else
+			sound = sound[math.random(1, #sound)].Sound
+		end
+	end
+	
+	for i, v in pairs(self.Sounds) do
+		if v.Sound == sound then
+			if v.Pitch then
+				v.Sound.Pitch = math.random((v.Pitch.Min * 1000), (v.Pitch.Max * 1000)) * 0.001
+			end
+			v.Sound:Play()
+		end
+	end
+end
+
+function methods:ConstructWeapon()
+	if not self.ModelRef then return end 
+	if self.Model then
+		self.Model:Destroy()
+	end
+	
+	self.Model = self.ModelRef:Clone()
+	self.Model.Name = "Nunchuck_Weapon"
+	local FakeHandle1 = self.Model:FindFirstChild("FakeHandle1")
+	if FakeHandle1 then
+		local NewMotor = Instance.new("Motor6D")
+		NewMotor.Part0 = FakeHandle1
+		NewMotor.Part1 = self.Handle
+		NewMotor.Parent = FakeHandle1
+	end
+	
+	self.NunchuckParts = {}
+	for i, v in next, self.Model:GetChildren() do 
+		local Motor = v:FindFirstChildOfClass("Motor6D")
+		if Motor then
+			table.insert(self.NunchuckParts, {Part = v, Motor = Motor, DefaultPose = Motor.DesiredAngle, DefaultSpeed = 0.1})
+		end
+	end	
+	
+	self.Model:MakeJoints()
+	self.Model.Parent = self.Tool
+end
+
+function methods:OnEquipped()
+	self:ConstructWeapon()
+end
+
+function methods:OnUnequipped()
+	if self.Model then
+		self.Model:Destroy()
+	end
+	
+	if self.Gear:IsPlayerAlive() then
+		self.Gear.Humanoid.AutoRotate = true
+	end
+end
+
+function methods:OnActivated()	
+	local MouseData = nil
+	pcall(function() MouseData = self.Remotes.ClientControl:InvokeClient(self.Gear.Player, "MouseData") end)
+	if not MouseData then return end 
+
+	local TargetPosition = MouseData.Position
+	local Angle = CFrame.new(self.Gear.Character.Head.Position, Vector3.new(TargetPosition.X, self.Gear.Character.Head.Position.Y, TargetPosition.Z)):toObjectSpace(self.Gear.Character.Head.CFrame).lookVector.X
+	local Direction = (math.abs(Angle) <= 0.45 and Enum.NormalId.Front or Angle > 0 and Enum.NormalId.Left or Angle < 0 and Enum.NormalId.Right)
+	local Animation = ((Direction == Enum.NormalId.Left and self.Animations.CenterSwing) or (Direction == Enum.NormalId.Right and self.Animations.CenterSwing) or self.Animations.CenterSwing) 
+	local RotAngle = CFrame.new(self.Gear.RootPart.Position, Vector3.new(TargetPosition.X, self.Gear.RootPart.Position.Y, TargetPosition.Z))
+	local BodyGyro = Instance.new("BodyGyro")
+	BodyGyro.Name = "TurnForce"
+	BodyGyro.MaxTorque = Vector3.new(0, math.huge, 0)
+	BodyGyro.CFrame = RotAngle
+	
+	Debris:AddItem(BodyGyro, 0.5)
+	BodyGyro.Parent = self.Gear.RootPart
+	self.Gear.Humanoid.AutoRotate = false
+	self.CurrentAnimation = Animation
+	self:SetPose({1, 1, -1.5, -0.5, 0})
+	delay(0.25, function()
+		self:PlaySound({self.Sounds.Swing, self.Sounds.Woosh})
+		self:SetPose(0)
+		wait(0.25)
+		self:SetPose()
+	end)
+	spawn(function()
+		pcall(function() self.Remotes.ClientControl:InvokeClient(self.Gear.Player, "PlayAnimation", Animation) end)
+	end)	
+	delay(Animation.Duration, function()
+		self.Gear.Humanoid.AutoRotate = true
+		self.CurrentAnimation = nil
+		
+		wait(0.6)
+		self:SetPose()
+		if BodyGyro and BodyGyro.Parent then
+			BodyGyro:Destroy()
+		end
+	end)	
+	
+	wait(1.5)	
+end
+
+-- // Construtor
+function module.new(tool, gear)
+	local obj = setmetatable({}, methods)
+	
+	obj.Gear = gear
+	obj.Tool = tool
+	obj.Remotes = obj.Tool:FindFirstChild("Remotes")
+	obj.ModelRef = obj.Tool:FindFirstChild("DisplayModel") and obj.Tool.DisplayModel:Clone()
+	if obj.Tool:FindFirstChild("DisplayModel") then
+		obj.Tool.DisplayModel:Destroy()
+	end
+	obj.Handle = obj.Tool.Handle
+	obj.Animations = {
+		CenterSwing = {Animation = obj.Tool.Animations.R6:WaitForChild("CenterSwing"), FadeTime = nil, Weight = nil, Speed = 1, Duration = 1},
+		LeftSwing = {Animation = obj.Tool.Animations.R6:WaitForChild("LeftSwing"), FadeTime = nil, Weight = nil, Speed = 1, Duration = 1},
+		RightSwing = {Animation = obj.Tool.Animations.R6:WaitForChild("RightSwing"), FadeTime = nil, Weight = nil, Speed = 1, Duration = 1},
+	}
+	if obj.Gear.Humanoid and obj.Gear.Humanoid.RigType == Enum.HumanoidRigType.R15 then
+		obj.Animations = {
+			CenterSwing = {Animation = obj.Tool.Animations.R15:WaitForChild("CenterSwing"), FadeTime = nil, Weight = nil, Speed = 1, Duration = 1},
+			LeftSwing = {Animation = obj.Tool.Animations.R15:WaitForChild("LeftSwing"), FadeTime = nil, Weight = nil, Speed = 1, Duration = 1},
+			RightSwing = {Animation = obj.Tool.Animations.R15:WaitForChild("RightSwing"), FadeTime = nil, Weight = nil, Speed = 1, Duration = 1},
+		}
+	end	
+	obj.Sounds = {
+		Swing = {Sound = obj.Handle:WaitForChild("Swing"), Pitch = {Min = 1, Max = 5}},
+		Hit = {Sound = obj.Handle:WaitForChild("Hit"), Pitch = {Min = 2, Max = 7}},
+		Woosh = {Sound = obj.Handle:WaitForChild("Woosh"), Pitch = {Min = 0.75, Max = 1}},
+		Smack = {Sound = obj.Handle:WaitForChild("Smack")},
+		Spin = {Sound = obj.Handle:WaitForChild("Spin")},
+	}
+	
+	obj.Damage = {
+		Touch = {Min = 0, Max = 0},
+		Hit = {Min = 18, Max = 26},
+	}
+		
+	local Debounce = false
+	obj.Tool.Handle.Touched:Connect(function(hit)
+		if not hit or not hit.Parent or Debounce then return end 
+		local HitCharacter = hit.Parent
+		local HitPlayer = Players:GetPlayerFromCharacter(HitCharacter)
+		if HitPlayer and (obj.Gear.Service:IsTeamMate(obj.Gear.Player, HitPlayer) or HitPlayer == obj.Gear.Player) then return end
+
+		local RightArm = obj.Gear.Character:FindFirstChild("Right Arm") or obj.Gear.Character:FindFirstChild("RightHand")
+		if not RightArm then return end 
+		
+		local RightGrip = RightArm:FindFirstChild("RightGrip")
+		if not RightGrip or (RightGrip.Part0 ~= RightArm and RightGrip.Part1 ~= RightArm) then return end 
+		
+		local HitHumanoid = HitCharacter:FindFirstChildOfClass("Humanoid")
+		if HitCharacter == obj.Gear.Character or not HitHumanoid or HitHumanoid.Health <= 0 then return end 
+		
+		local DamageValue = obj.Damage.Touch
+		if obj.CurrentAnimation then
+			DamageValue = obj.Damage.Hit
+		end
+		
+		if not DamageValue then return end 
+		Debounce = true
+		delay(0.05, function()
+			Debounce = false
+		end)
+		obj.Gear.Service:UntagHumanoid(HitHumanoid)
+		obj.Gear.Service:TagHumanoid(HitHumanoid, obj.Gear.Player)
+		local FinalizedDamage = math.random(DamageValue.Min, DamageValue.Max)
+		if FinalizedDamage <= 0 then return end 
+
+		HitHumanoid:TakeDamage(FinalizedDamage)
+		obj:PlaySound({obj.Sounds.Hit, obj.Sounds.Smack})
+	end)	
+	
+	return obj	
+end
+
+return module
+]]></ProtectedString>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="RBXA700334A03394806893B220D4BC08071">
+					<Properties>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">PunchArms</string>
+						<string name="ScriptGuid">{7EB1B4DA-84A8-44CC-AA2F-46E5AFCCC740}</string>
+						<ProtectedString name="Source"><![CDATA[local Debris = game:GetService("Debris")
+
+local module = {}
+local methods = {}
+methods.__index = methods
+
+local LEFT_FIST_C1 = CFrame.new(0.1, 1.86, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+local RIGHT_FIST_C1 = CFrame.new(-0.1, 1.86, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+local NORMAL_FORCE_MAGNITUDE = 2E4
+local EXTRA_FORCE_MAGNITUDE = 3E4
+
+-- // Private API
+function methods:OnTouched(hit, hasHat)
+	local HitCharacter = hit.Parent
+	if HitCharacter and HitCharacter:IsA("Accessory") then
+		HitCharacter = HitCharacter.Parent
+	end
+	
+	if HitCharacter and HitCharacter:FindFirstChildOfClass("Humanoid") and HitCharacter ~= self.Gear.Character then
+		local HitHumanoid = HitCharacter.Humanoid
+		self.Gear.Service:TagHumanoid(HitHumanoid, self.Gear.Player)
+		
+		local Shove = Instance.new("BodyForce")
+		local Offset = hit.Position - self.Gear.RootPart.Position
+		local ShoveDirection = Vector3.new(Offset.x, math.abs(Offset.y), Offset.z).Unit
+		
+		if hasHat then
+			HitHumanoid:TakeDamage(self.ExtraDamage)
+			Shove.Force = ShoveDirection * EXTRA_FORCE_MAGNITUDE
+		else
+			HitHumanoid:TakeDamage(self.Damage)
+			Shove.Force = ShoveDirection * NORMAL_FORCE_MAGNITUDE
+		end
+		
+		Shove.Parent = hit 
+		Debris:AddItem(Shove, 0.2)
+	end
+end
+
+function methods:GenerateR15Arms()
+	if self.Gear.Character:FindFirstChild("RightUpperArm") then
+		self.Gear.Character.RightUpperArm.Transparency = 1
+	end
+	if self.Gear.Character:FindFirstChild("RightLowerArm") then
+		self.Gear.Character.RightLowerArm.Transparency = 1
+	end
+	if self.Gear.Character:FindFirstChild("RightHand") then
+		self.Gear.Character.RightHand.Transparency = 1
+	end
+	if self.Gear.Character:FindFirstChild("LeftUpperArm") then
+		self.Gear.Character.LeftUpperArm.Transparency = 1
+	end
+	if self.Gear.Character:FindFirstChild("LeftLowerArm") then
+		self.Gear.Character.LeftLowerArm.Transparency = 1
+	end
+	if self.Gear.Character:FindFirstChild("LeftHand") then
+		self.Gear.Character.LeftHand.Transparency = 1
+	end	
+	
+	local RightUpperArm = self.Gear.Character:FindFirstChild("RightUpperArm")
+	local LeftUpperArm = self.Gear.Character:FindFirstChild("LeftUpperArm")
+	
+	if LeftUpperArm then
+		local leftArmPart = self.Package.R15.LeftArm
+		if leftArmPart then
+			self.LeftArm = leftArmPart:Clone()
+			self.LeftArm.Name = "Left Arm"
+			self.LeftArm.Parent = self.Gear.Character
+			local LeftArmMotor = self.Gear.Service:WeldToAttachment(self.LeftArm:FindFirstChild("Attachment"), LeftUpperArm:FindFirstChild("LeftShoulderRigAttachment"))
+			LeftArmMotor.Name = "Left Shoulder"
+		else
+			if self.Gear.Character:FindFirstChild("LeftUpperArm") then
+				self.Gear.Character.LeftUpperArm.Transparency = 0
+			end
+			if self.Gear.Character:FindFirstChild("LeftLowerArm") then
+				self.Gear.Character.LeftLowerArm.Transparency = 0
+			end
+			if self.Gear.Character:FindFirstChild("LeftHand") then
+				self.Gear.Character.LeftHand.Transparency = 0
+			end				
+		end
+	end
+	if RightUpperArm then
+		local rightArmPart = self.Package.R15.RightArm
+		if rightArmPart then
+			self.RightArm = rightArmPart:Clone()
+			self.RightArm.Name = "Right Arm"
+			self.RightArm.Parent = self.Gear.Character
+			local RightArmMotor = self.Gear.Service:WeldToAttachment(self.RightArm:FindFirstChild("Attachment"), RightUpperArm:FindFirstChild("RightShoulderRigAttachment"))
+			RightArmMotor.Name = "Right Shoulder"
+		else
+			if self.Gear.Character:FindFirstChild("RightUpperArm") then
+				self.Gear.Character.RightUpperArm.Transparency = 0
+			end
+			if self.Gear.Character:FindFirstChild("RightLowerArm") then
+				self.Gear.Character.RightLowerArm.Transparency = 0
+			end
+			if self.Gear.Character:FindFirstChild("RightHand") then
+				self.Gear.Character.RightHand.Transparency = 0
+			end			
+		end
+	end
+end	
+
+function methods:FixR15Arms()
+	if self.Gear.Character:FindFirstChild("RightUpperArm") then
+		self.Gear.Character.RightUpperArm.Transparency = 0
+	end
+	if self.Gear.Character:FindFirstChild("RightLowerArm") then
+		self.Gear.Character.RightLowerArm.Transparency = 0
+	end
+	if self.Gear.Character:FindFirstChild("RightHand") then
+		self.Gear.Character.RightHand.Transparency = 0
+	end
+	if self.Gear.Character:FindFirstChild("LeftUpperArm") then
+		self.Gear.Character.LeftUpperArm.Transparency = 0
+	end
+	if self.Gear.Character:FindFirstChild("LeftLowerArm") then
+		self.Gear.Character.LeftLowerArm.Transparency = 0
+	end
+	if self.Gear.Character:FindFirstChild("LeftHand") then
+		self.Gear.Character.LeftHand.Transparency = 0
+	end	
+end
+
+function methods:OnActivated()
+	local RandomAnimation
+	if self.Gear.Humanoid.RigType == Enum.HumanoidRigType.R15 then
+		RandomAnimation = self.Tool.Animations.R15:GetChildren()[math.random(1, #self.Tool.Animations.R15:GetChildren())]
+	else
+		RandomAnimation = self.Tool.Animations.R6:GetChildren()[math.random(1, #self.Tool.Animations.R6:GetChildren())]
+	end
+	
+	local LeftFist = self.Gear.Character:FindFirstChild("Left Arm") or self.LeftArm
+	local RightFist = self.Gear.Character:FindFirstChild("Right Arm") or self.RightArm
+	
+	local LeftDebounce = false
+	local RightDebounce = false	
+	
+	if LeftFist then
+		local LeftConn = LeftFist.Touched:Connect(function(hit)
+			if LeftDebounce then return end 
+			LeftDebounce = true
+			self:OnTouched(hit) 
+			wait(0.3)
+			LeftDebounce = false
+		end)
+	end
+	if RightFist then
+		local RightConn = RightFist.Touched:Connect(function(hit)
+			if RightDebounce then return end 
+			RightDebounce = true
+			self:OnTouched(hit)
+			wait(0.3)
+			RightDebounce = false
+		end)
+	end 	
+	
+	if RandomAnimation then
+		local Animation = self.Gear.Humanoid:LoadAnimation(RandomAnimation)
+		Animation:Play()
+		wait(2)
+	end
+	if LeftConn then
+		LeftConn:Disconnect()
+	end
+	if RightConn then
+		RightConn:Disconnect()
+	end
+end
+
+function methods:OnEquipped()
+	if self.Equipped then return end 
+	self.Equipped = true
+	if self.RightArm and not self.RightArm.Parent then
+		self.RightArm:Destroy()
+	end
+	if self.LeftArm and not self.LeftArm.Parent then
+		self.LeftArm:Destroy()
+	end
+	if self.Gear.Humanoid.RigType == Enum.HumanoidRigType.R15 then
+		self:GenerateR15Arms()
+	else
+		if self.Gear.Character:FindFirstChild("Right Arm") then
+			self.RightArm = self.Package.R6.RightArm:Clone()
+			self.RightArm.Parent = self.Gear.Character
+		end
+		if self.Gear.Character:FindFirstChild("Left Arm") then
+			self.LeftArm = self.Package.R6.LeftArm:Clone()
+			self.LeftArm.Parent = self.Gear.Character
+		end
+	end
+end
+
+function methods:OnUnequipped()
+	if not self.Equipped then return end 
+	self.Equipped = false
+	
+	if self.RightArm and self.RightArm.Parent then
+		self.RightArm:Destroy()
+	end
+	if self.LeftArm and self.LeftArm.Parent then
+		self.LeftArm:Destroy()
+	end
+	
+	self.RightArm = nil
+	self.LeftArm = nil
+	
+	if self.Gear.Humanoid.RigType == Enum.HumanoidRigType.R15 then
+		self:FixR15Arms()
+	end
+end
+
+-- // Public API
+function methods:SetDamage(damage)
+	self.Damage = damage
+end
+
+function methods:SetExtraDamage(damage)
+	self.ExtraDamage = damage
+end
+
+-- // Constructor
+function module.new(tool, gear)
+	local obj = setmetatable({}, methods)
+	
+	obj.Tool = tool
+	obj.Gear = gear
+	obj.Equipped = false 
+	
+	obj.Damage = 10
+	obj.ExtraDamage = 20
+	obj.Package = {}
+	obj.Package.R15 = {}
+	obj.Package.R6 = {}
+	for _, v in next, obj.Tool.Package.R6:GetChildren() do
+		obj.Package.R6[v.Name] = v:Clone()
+	end	
+	for _, v in next, obj.Tool.Package.R15:GetChildren() do
+		obj.Package.R15[v.Name] = v:Clone()
+	end		
+	obj.Tool.Package:Destroy()
+	
+	return obj
+end
+
+return module
+]]></ProtectedString>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="RBXEAF8E0F34DC24459A8C4833095F3CAC9">
+					<Properties>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">LaserGun</string>
+						<string name="ScriptGuid">{D5DFFE35-5B53-4635-846A-C4C941735C01}</string>
+						<ProtectedString name="Source"><![CDATA[--Created by StarWars
+local TweenService = game:GetService("TweenService")
+local Debris = game:GetService("Debris")
+local Players = game:GetService("Players")
+
+local LaserInfo = TweenInfo.new(0.5, Enum.EasingStyle.Sine, Enum.EasingDirection.Out)
+
+local FireSound = Instance.new("Sound")
+FireSound.Name = "Fire"
+FireSound.SoundId = "rbxassetid://130113322"
+FireSound.Volume = 0.5
+
+local module = {}
+local methods = {}
+methods.__index = methods
+
+-- // Private API
+function methods:ShootLaser(endPoint)
+	local Distance = (self.Barrel.WorldPosition - endPoint).Magnitude	
+	
+	local NewPart = Instance.new("Part")
+	NewPart.Name = "Laser"	
+	NewPart.Material = Enum.Material.Neon
+	NewPart.Color = self.Colors[math.random(1, #self.Colors)]
+	NewPart.TopSurface = Enum.SurfaceType.Smooth
+	NewPart.BottomSurface = Enum.SurfaceType.Smooth
+	NewPart.Size = Vector3.new(0.2, 0.2, Distance)
+	NewPart.CFrame = CFrame.new(self.Barrel.WorldPosition, endPoint) * CFrame.new(0, 0, -Distance * 0.5)
+	NewPart.Anchored = true
+	NewPart.CanCollide = false
+	NewPart.Parent = workspace	
+	
+	local Goals = {Size = Vector3.new(0, 0, Distance), Transparency = 1}
+	local LaserTween = TweenService:Create(NewPart, LaserInfo, Goals)
+	
+	self.Sounds.Fire:Play()
+	LaserTween:Play()
+	self.eLaserFired:Fire(NewPart)
+	Debris:AddItem(NewPart, 1)
+end
+
+function methods:OnActivated()
+	local MouseData = nil
+	
+	pcall(function()
+		MouseData = self.ClientControls:InvokeClient(self.Gear.Player, "GetMouseData")
+	end)
+	
+	if MouseData then
+		local Hit, Endpoint = self.Gear.Service:CastRay(self.Gear.RootPart.Position, (MouseData.Position - self.Gear.RootPart.Position).Unit, 999, {self.Gear.Character})
+		if Hit and Hit.Parent then
+			local HitHumanoid = Hit.Parent:FindFirstChildOfClass("Humanoid") or Hit.Parent.Parent and Hit.Parent.Parent:FindFirstChildOfClass("Humanoid")
+			local HitPlayer = Players:GetPlayerFromCharacter(Hit.Parent) or Players:GetPlayerFromCharacter(Hit.Parent.Parent)
+			if HitHumanoid and not self.Gear.Service:IsTeamMate(self.Gear.Player, HitPlayer) then
+				HitHumanoid:TakeDamage(self.Damage)
+			end
+		end
+		
+		self:ShootLaser(Endpoint)
+	end
+
+	wait(1)
+end
+
+function methods:OnEquipped()
+	
+end
+
+function methods:OnUnequipped()
+	
+end
+
+-- // Public API
+function methods:SetDamage(damage)
+	self.Damage = damage or self.Damage
+end
+
+function methods:SetColors(newColors)
+	self.Colors = newColors or self.Colors
+end
+
+function methods:SetFireSound(assetId)
+	if not assetId then return end 
+	if assetId and type(assetId) ~= 'string' and type(assetId) ~= 'number' then return end 
+	
+	self.Sounds.Fire.SoundId = "rbxassetid://" .. assetId
+end
+
+-- // Constructor
+function module.new(tool, gear)
+	local obj = setmetatable({}, methods)
+	
+	local bindableEvent = Instance.new("BindableEvent")
+	
+	obj.eLaserFired = bindableEvent
+	obj.OnLaserFired = bindableEvent.Event
+	
+	obj.Gear = gear
+	obj.Tool = tool 	
+	obj.Handle = obj.Tool:FindFirstChild("Handle")
+	obj.Barrel = obj.Handle:FindFirstChild("Barrel") or Instance.new("Attachment")
+	obj.Barrel.Name = "Barrel"
+	obj.Barrel.Parent = obj.Handle
+	obj.Damage = 5 
+	obj.Colors = {Color3.fromRGB(255, 0, 0)}
+	
+	obj.Sounds = {
+		Fire = FireSound:Clone()
+	}	
+	
+	obj.Sounds.Fire.Parent = obj.Handle	
+	
+	obj.Gear:SetupRemoteFunctions()
+	obj.Remotes = obj.Gear.Remotes
+	obj.ClientControls = obj.Gear.ClientControls
+
+	obj.Gear:SetupLocalScript("MouseIcon")
+
+	return obj 	
+end
+
+return module
+]]></ProtectedString>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="RBXF48FAD64799245B19878B82B3E4212B4">
+					<Properties>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Glider</string>
+						<string name="ScriptGuid">{7D4DAEA1-BB42-4DEC-BB0F-C55EF64264A5}</string>
+						<ProtectedString name="Source"><![CDATA[--Created by StarWars
+local module = {}
+local methods = {}
+methods.__index = methods
+
+-- // Private API
+function methods:OnActivated()
+	if self.Flying then return end 
+	local Torso = self.Gear.Character:FindFirstChild("Torso") or self.Gear.Character:FindFirstChild("UpperTorso")
+	if not Torso then return end 	
+	self.Flying = true	
+	
+	self.FlyingGyro = self.BaseGyro:Clone()
+	self.FlyingForce = self.BaseForce:Clone()	
+	
+	self.FlyingGyro.CFrame = Torso.CFrame
+	self.FlyingGyro.Parent = Torso
+	self.FlyingForce.Parent = Torso
+	
+	local RightArm = self.Gear.Character:FindFirstChild("Right Arm") or self.Gear.Character:FindFirstChild("RightHand")
+	if RightArm then
+		local RightGrip = RightArm:FindFirstChild("RightGrip")
+		if RightGrip then
+			RightGrip.C1 = self.Handle.RightGripAttachment.CFrame
+		end
+	end
+end
+
+function methods:OnEquipped()
+	
+end
+
+function methods:OnUnequipped()
+	if self.FlyingGyro then
+		self.FlyingGyro:Destroy()
+	end
+	
+	if self.FlyingForce then
+		self.FlyingForce:Destroy()
+	end
+	
+	self.FlyingGyro = nil
+	self.FlyingForce = nil
+	self.Flying = false
+end
+
+-- // Public API
+
+-- // Constructor
+function module.new(tool, gear)
+	local obj = setmetatable({}, methods)
+	
+	obj.Gear = gear
+	obj.BaseGyro = Instance.new("BodyGyro")
+	obj.BaseGyro.MaxTorque = Vector3.new(0, 0, 0)
+	obj.BaseGyro.Name = "FlyingGyro"
+	
+	obj.BaseForce = Instance.new("BodyForce")
+	obj.BaseForce.Force = Vector3.new(0, 0, 0)
+	obj.BaseForce.Name = "FlyingForce"
+	
+	obj.Tool = tool 	
+	obj.Handle = obj.Tool:FindFirstChild("Handle")
+	obj.Handle.Touched:Connect(function(hit)
+		if not hit:IsDescendantOf(obj.Gear.Character) and obj.Flying then
+			obj:OnUnequipped()
+			obj.Gear.Humanoid.Sit = false
+		end
+	end)
+	
+	obj.Flying = false
+	
+	obj.Gear:SetupRemoteFunctions()
+	obj.Gear:SetupLocalScript("GliderControls")
+	
+	obj.ServerControls = obj.Gear.ServerControls
+	function obj.ServerControls.OnServerInvoke(player, mode, value)
+		if player ~= obj.Gear.Player or not mode then return end 
+		if mode == "KeyPressed" then
+			if value == Enum.KeyCode.Space then
+				obj:OnUnequipped()
+			end
+		end
+	end
+
+	return obj 	
+end
+
+return module
+]]></ProtectedString>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="RBX65515FECC62B48DC85A9D5A3928075A2">
+					<Properties>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Mount</string>
+						<string name="ScriptGuid">{5D059312-9B9C-454F-B5B0-CAE955278870}</string>
+						<ProtectedString name="Source"><![CDATA[-- // Created by StarWars
+local Debris = game:GetService("Debris")
+
+local RemoverScript = script.Remover
+
+local module = {}
+local methods = {}
+methods.__index = methods
+
+-- // Private API
+function methods:OnActivated()	
+
+end
+
+function methods:OnEquipped()
+	if not self.MountModel or not self.Handle then return end 
+	
+	self.Handle.Transparency = 1
+	self:SpawnMount()
+	Debris:AddItem(self.Tool, 0)
+end
+
+function methods:OnUnequipped()
+	if not self.Handle then return end 
+	self.Handle.Transparency = 0
+end
+
+function methods:SpawnMount()
+	if not self.MountModel then return end 
+	
+	self.CurrentMount = self.MountModel:Clone()
+	local MountTorso = self.CurrentMount:FindFirstChild("Torso")
+	if not MountTorso then return end	
+	
+	local RemoverClone = RemoverScript:Clone()
+	local Data = {
+		{Name = "Creator", Class = "ObjectValue", Value = self.Gear.Player},
+		{Name = "Model", Class = "ObjectValue", Value = self.CurrentMount}
+	}
+	
+	for i, v in pairs(Data) do
+		local Object = Instance.new(v.Class)
+		Object.Name = v.Name
+		Object.Value = v.Value
+		Object.Parent = RemoverClone
+	end	
+	
+	RemoverClone.Disabled = false
+	RemoverClone.Parent = self.CurrentMount
+	self.CurrentMount.Parent = workspace
+	MountTorso.CFrame = ((self.Gear.RootPart.CFrame * CFrame.new(0, 0, -((self.Gear.RootPart.Size.Z * 0.5) + (self.CurrentMount:GetModelSize().Z * 0.5) + 2))) + Vector3.new(0, 1.5, 0))	
+end
+
+-- // Public API
+function methods:SetMountModel(model)
+	if typeof(model) ~= 'Instance' or not model:IsA("Model") then return end 
+	self.MountModel = model:Clone()
+end
+
+-- // Constructor
+function module.new(tool, gear)
+	local obj = setmetatable({}, methods)
+	
+	obj.Tool = tool
+	obj.Handle = obj.Tool:FindFirstChild("Handle")
+	obj.Gear = gear
+	obj.MountModel = nil
+	obj.CurrentMount = nil	
+	
+	return obj
+end
+
+return module
+]]></ProtectedString>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+					<Item class="Script" referent="RBXE20AA71B0E78416D96F4B023E6FF15EB">
+						<Properties>
+							<bool name="Disabled">true</bool>
+							<Content name="LinkedSource"><null></null></Content>
+							<string name="Name">Remover</string>
+							<string name="ScriptGuid">{9FD3A2E8-22A7-4BF8-A035-F18308447CF7}</string>
+							<ProtectedString name="Source"><![CDATA[Debris = game:GetService("Debris")
+
+Creator = script:FindFirstChild("Creator")
+Model = script:WaitForChild("Model")
+
+function DestroyModel()
+	if Model and Model.Parent then
+		Debris:AddItem(Model, 1)
+		if Model and Model.Parent then
+			Model:Destroy()
+		end
+	end
+	Debris:AddItem(script, 1)
+	if script and script.Parent then
+		script:Destroy()
+	end
+end
+
+if not Creator or not Creator.Value or not Creator.Value:IsA("Player") or not Creator.Value.Parent or not Model or not Model.Value then
+	DestroyModel()
+	return
+end
+
+Creator = Creator.Value
+Model = Model.Value
+
+Character = Creator.Character
+if not Character then
+	DestroyModel()
+	return
+end
+
+Creator:GetPropertyChangedSignal("Parent"):Connect(function()
+	if not Creator.Parent then
+		DestroyModel()
+	end
+end)
+
+Character:GetPropertyChangedSignal("Parent"):Connect(function()
+	if not Character.Parent then
+		DestroyModel()
+	end
+end)
+
+Model:GetPropertyChangedSignal("Parent"):Connect(function()
+	if not Model.Parent then
+		DestroyModel()
+	end
+end)]]></ProtectedString>
+							<BinaryString name="Tags"></BinaryString>
+						</Properties>
+					</Item>
+				</Item>
+			</Item>
+			<Item class="Folder" referent="RBX91A366A6DF6F466181B89997193EC10D">
+				<Properties>
+					<string name="Name">Scripts</string>
+					<BinaryString name="Tags"></BinaryString>
+				</Properties>
+				<Item class="LocalScript" referent="RBX8DF6404BB8F34D6D94898F4A25D3FB8B">
+					<Properties>
+						<bool name="Disabled">true</bool>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">RemoteScript</string>
+						<string name="ScriptGuid">{AEDCCF54-DFE5-43F7-9E10-7AA555E9B075}</string>
+						<ProtectedString name="Source"><![CDATA[-- // Created by StarWars
+local Players = game:GetService("Players")
+local Debris = game:GetService("Debris")
+local Lighting = game:GetService("Lighting")
+local TweenService = game:GetService("TweenService")
+
+local Tool = script.Parent
+local Handle = Tool:FindFirstChild("Handle")
+
+local Player = Players.LocalPlayer
+local Mouse = Player:GetMouse()
+
+local ToolEquipped = false
+local Character = nil
+local Humanoid
+
+local Remotes = Tool:WaitForChild("Remotes")
+local ClientControls = Remotes:WaitForChild("ClientControls")
+local ServerControls = Remotes:WaitForChild("ServerControls")
+
+local Animations = {}
+
+function ClientControls.OnClientInvoke(mode, value)
+	if not mode or not ToolEquipped then return end 
+
+	if mode == "GetMouseData" then
+		local Data = {Position = Mouse.Hit.p, Target = Mouse.Target}
+		
+		return Data
+	elseif mode == "PlayAnimation" and ToolEquipped and Humanoid then
+		for index, anim in next, Animations do 
+			if anim.Animation == value.Animation then
+				anim.AnimationTrack:Stop()
+				table.remove(Animations, index)
+			end
+		end
+		local AnimationTrack = Humanoid:LoadAnimation(value.Animation)
+		table.insert(Animations, {Animation = value.Animation, AnimationTrack = AnimationTrack})
+		AnimationTrack:Play(value.FadeTime, value.Weight, value.Speed)
+	elseif mode == "StopAnimation" and value then
+		for index, anim in next, Animations do
+			if anim.Animation == value.Animation then
+				anim.AnimationTrack:Stop()
+				table.remove(Animations, index)
+			end
+		end
+	elseif mode == "PlaySound" and value and typeof(value) == 'Instance' and value:IsA("Sound") then
+		value:Play()
+	elseif mode == "StopSound" and value and typeof(value) == 'Instance' and value:IsA("Sound") then
+		value:Stop()
+	elseif mode == "CameraFlash" and Handle then
+		value = value or 20
+		local DistanceFromCamera = (workspace.CurrentCamera.CFrame.p - Handle.Position).Magnitude
+		if DistanceFromCamera <= value then
+			local NewColorCorrection = Instance.new("ColorCorrectionEffect")
+			NewColorCorrection.Parent = Lighting
+			local ColorTweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Sine, Enum.EasingDirection.Out, 0, true)
+			local ColorTween = TweenService:Create(NewColorCorrection, ColorTweenInfo, {Brightness = 1})
+			ColorTween:Play()
+			Debris:AddItem(NewColorCorrection, 5)
+		end
+	end
+end
+
+Tool.Equipped:Connect(function()
+	ToolEquipped = true
+	Character =  Tool.Parent
+	Humanoid = Character:FindFirstChildOfClass("Humanoid")
+end)
+
+Tool.Unequipped:Connect(function()
+	ToolEquipped = false
+	for _, anim in next, Animations do
+		if anim and anim.AnimationTrack then
+			anim.AnimationTrack:Stop()
+		end
+	end	
+	
+	Animations = {}
+	
+	Character = nil
+	Humanoid = nil
+end)]]></ProtectedString>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="LocalScript" referent="RBX5878CF7AE9754C6DA9A1025A1CC308B3">
+					<Properties>
+						<bool name="Disabled">true</bool>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">MouseIcon</string>
+						<string name="ScriptGuid">{133B8AAC-CCF3-46AB-932A-FB043C0FAD94}</string>
+						<ProtectedString name="Source"><![CDATA[Mouse_Icon = "rbxasset://textures/GunCursor.png"
+Reloading_Icon = "rbxasset://textures/GunWaitCursor.png"
+
+Tool = script.Parent
+
+Mouse = nil
+
+function UpdateIcon()
+	if Mouse then
+		Mouse.Icon = Tool.Enabled and Mouse_Icon or Reloading_Icon
+	end
+end
+
+function OnEquipped(ToolMouse)
+	Mouse = ToolMouse
+	UpdateIcon()
+end
+
+Tool:GetPropertyChangedSignal("Enabled"):Connect(UpdateIcon)
+Tool.Equipped:connect(OnEquipped)]]></ProtectedString>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="LocalScript" referent="RBX9A2AF9C87925481D9E22AB6A258A62AA">
+					<Properties>
+						<bool name="Disabled">false</bool>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">GliderControls</string>
+						<string name="ScriptGuid">{CD698ADF-3F03-45D9-A93C-188C4837F93C}</string>
+						<ProtectedString name="Source"><![CDATA[-- // Created by StarWars
+local UserInputService = game:GetService("UserInputService")
+local ContextActionService = game:GetService("ContextActionService")
+local TweenService = game:GetService("TweenService")
+local RunService = game:GetService("RunService")
+local Players = game:GetService("Players")
+
+local Player = Players.LocalPlayer
+local PlayerGui = Player:WaitForChild("PlayerGui")
+
+local Tool = script.Parent
+local Handle = Tool:WaitForChild("Handle")
+local Mouse = Player:GetMouse()
+
+local Remotes = Tool:WaitForChild("Remotes")
+local ServerControls = Remotes:WaitForChild("ServerControls")
+
+local MouseDownConnection = nil
+local MouseUpConnection = nil
+
+local Torso = nil
+local Humanoid = nil
+local FlyingForce = nil
+local FlyingGyro = nil
+local DesiredFlightCFrame = nil
+
+local Flying = false
+local MouseDown = false
+local ToolEquipped = false
+
+local IND = tostring(0 / 0)
+
+local AnimationTracks = {}
+
+local Animations = {
+	Fly = {Animation = Tool:WaitForChild("Animations"):WaitForChild("R6"):WaitForChild("Fly"), FadeTime = 0.3, Weight = nil, Speed = nil}
+}
+
+local function DropBomb()
+	
+end
+
+function SetAnimation(mode, value)
+	if not Humanoid or Humanoid.Health == 0 then
+		return
+	end
+	if mode == "PlayAnimation" and value and ToolEquipped then
+		for i, v in pairs(AnimationTracks) do
+			if v.Animation == value.Animation then
+				v.AnimationTrack:Stop()
+				table.remove(AnimationTracks, i)
+			end
+		end
+		local AnimationTrack = Humanoid:LoadAnimation(value.Animation)
+		table.insert(AnimationTracks, {Animation = value.Animation, AnimationTrack = AnimationTrack})
+		AnimationTrack:Play(value.FadeTime, value.Weight, value.Speed)
+	elseif mode == "StopAnimation" and value then
+		for i, v in pairs(AnimationTracks) do
+			if v.Animation == value.Animation then
+				v.AnimationTrack:Stop(value.FadeTime)
+				table.remove(AnimationTracks, i)
+			end
+		end
+	end
+end
+
+local function EndFlight()
+	Flying = false
+	workspace.CurrentCamera.CameraSubject = Player.Character
+	workspace.CurrentCamera.CameraType = Enum.CameraType.Custom
+	
+	Torso.RotVelocity = Vector3.new(0, 0, 0)
+	Humanoid:ChangeState(Enum.HumanoidStateType.Freefall)
+	ContextActionService:UnbindAction("Glider_Unequip")
+	SetAnimation("StopAnimation", Animations.Fly)
+end
+
+local function BeginFlight()
+	FlyingForce = Torso:WaitForChild("FlyingForce", 5)
+	FlyingGyro = Torso:WaitForChild("FlyingGyro", 5)
+	if not FlyingForce or not FlyingGyro then return end 
+	Humanoid.Jump = true
+	wait(0.2)
+	if Flying then return end 
+	for i = 0, 1, 0.1 do
+		FlyingGyro.MaxTorque = Vector3.new((i * 10000), (i * 10000), (i * 10000))
+	end	
+	Flying = true
+	workspace.CurrentCamera.CameraSubject = Handle
+	workspace.CurrentCamera.CameraType = Enum.CameraType.Track
+	Humanoid.Sit = true
+	
+	DesiredFlightCFrame = (Torso.CFrame - Torso.CFrame.p) * CFrame.Angles(0, 0, 0.01)
+	
+	ContextActionService:BindAction("Glider_Unequip", function(actionName, inputState, inputObject)
+		if ToolEquipped and Flying then
+			ServerControls:InvokeServer("KeyPressed", inputObject.KeyCode)
+			EndFlight()
+			RunService:UnbindFromRenderStep("Glider_Controls")	
+		end
+	end, false, Enum.KeyCode.Space)	
+	
+	SetAnimation("PlayAnimation", Animations.Fly)
+end
+
+local function GetMassOf(model)
+	if model:IsA('BasePart') then
+		return model:GetMass()
+	else
+		local mass = 0
+		for _, ch in pairs(model:GetChildren()) do
+			mass = mass + GetMassOf(ch)
+		end
+		return mass
+	end
+end
+
+local function Slerp(t, a, b)
+	local om = math.acos(math.min(1, a:Dot(b)))
+	if om < 0.01 then
+		return ((1 - t) * a + t * b)
+	else
+		return ((math.sin((1 - t) * om ) / math.sin(om)) * a + (math.sin(t * om) / math.sin(om)) * b)
+	end
+end
+
+local function Update(delta)
+	if Flying and Humanoid and Humanoid.Health > 0 then
+		local MoveDirection = workspace.CurrentCamera.CFrame * CFrame.Angles(0.6, 0.6, 0.6)
+		MoveDirection = CFrame.new(MoveDirection.p, Mouse.Hit.p)
+		if MouseDown then
+			local Theta = math.acos(DesiredFlightCFrame.lookVector:Dot(MoveDirection.lookVector))
+			local Fraction = math.min(1, 1.5 * delta / Theta)
+			local Unit = Slerp(Fraction, DesiredFlightCFrame.lookVector, MoveDirection.lookVector)
+			DesiredFlightCFrame = CFrame.new(workspace.CurrentCamera.CFrame.p, Mouse.Hit.p)
+			
+			if tostring(Unit.X) == IND or tostring(Unit.Y) == IND or tostring(Unit.Z) == IND then return end 
+		end
+		
+		local CurrentVelocity = Torso.Velocity
+		local VelocityXZ = CurrentVelocity * Vector3.new(1, 0, 1)
+		
+		local Direction = DesiredFlightCFrame.lookVector
+		local DirectionXZ = (Direction * Vector3.new(1, 0, 1)).Unit 
+		
+		FlyingGyro.CFrame = DesiredFlightCFrame * CFrame.Angles(0, 0, Torso.RotVelocity.y / 3 * (1 - math.abs(Direction.y)^2)) * CFrame.Angles(-math.pi * 0.5, 0, 0)
+		
+		local HeadingForceFactor = -Direction.y
+		local LiftForceFactor = Direction.y
+		
+		local ForwardSpeed = math.max(0, CurrentVelocity.Magnitude)
+		local Weight = GetMassOf(Player.Character) * workspace.Gravity
+		
+		local DragForce = (CurrentVelocity.Magnitude / 10)^2 * Weight 
+		local DragForceY = (CurrentVelocity.y / 15)^2 * Weight
+		local DragForceXZ = (VelocityXZ.Magnitude / 35)^2 * Weight
+		
+		local SuspendFactor = 0
+		if Direction.y < 0 then
+			SuspendFactor = (-Direction.y)^2
+		end
+		local Force = Vector3.new(0, Weight * (1 - SuspendFactor + 0.3 * LiftForceFactor), 0) + (DirectionXZ * (Weight * math.max(0, (0.5 * HeadingForceFactor + 0.6)))) - (VelocityXZ.Unit * DragForceXZ) - (Vector3.new(0, CurrentVelocity.y, 0).Unit * DragForceY)
+		if tostring(Force.X) == IND or tostring(Force.Y) == IND or tostring(Force.Z) == IND then return end 
+		FlyingForce.Force = Force
+	end
+end
+
+Tool.Equipped:Connect(function()
+	Humanoid = Player.Character and Player.Character:FindFirstChildOfClass("Humanoid")
+	Torso = Player.Character and (Player.Character:FindFirstChild("Torso") or Player.Character:FindFirstChild("UpperTorso"))
+	
+	if not Humanoid or Humanoid.Health == 0 or not Torso then return end 
+	
+	if Humanoid and Humanoid.RigType == Enum.HumanoidRigType.R15 then
+		Animations = {
+			Fly = {Animation = Tool:WaitForChild("Animations"):WaitForChild("R15"):WaitForChild("Fly"), FadeTime = 0.3, Weight = nil, Speed = nil}
+		}
+	else
+		Animations = {
+			Fly = {Animation = Tool:WaitForChild("Animations"):WaitForChild("R6"):WaitForChild("Fly"), FadeTime = 0.3, Weight = nil, Speed = nil}
+		}					
+	end
+	
+	if UserInputService.TouchEnabled then
+		ContextActionService:BindAction("Glider_DropBomb", function(actionName, inputState, inputObject)
+			if Flying and inputState == Enum.UserInputState.Begin then
+				DropBomb()
+			end
+		end, true)
+		
+		ContextActionService:SetTitle("Glider_DropBomb", "Drop Bomb")
+	end
+	
+	MouseDownConnection = Mouse.Button1Down:Connect(function()
+		MouseDown = true
+		if not Flying then
+			BeginFlight()
+			RunService:BindToRenderStep("Glider_Controls", Enum.RenderPriority.Input.Value, Update)
+		end
+	end)
+	
+	MouseUpConnection = Mouse.Button1Up:Connect(function()
+		MouseDown = false
+	end)
+	
+	ToolEquipped = true	
+end)
+
+Tool.Unequipped:Connect(function()
+	if not ToolEquipped then return end 
+	ToolEquipped = false
+	RunService:UnbindFromRenderStep("Glider_Controls")
+	ContextActionService:UnbindAction("Glider_DropBomb")
+	ContextActionService:UnbindAction("Glider_Unequip")
+	EndFlight()
+	
+	if MouseDownConnection then
+		MouseDownConnection:Disconnect()
+	end
+	
+	if MouseUpConnection then
+		MouseUpConnection:Disconnect()
+	end
+	
+	MouseUpConnection = nil
+	MouseDownConnection = nil
+end)
+
+Handle.Touched:Connect(function(hit)
+	if not hit:IsDescendantOf(Player.Character) and Flying and ToolEquipped then
+		RunService:UnbindFromRenderStep("Glider_Controls")
+		EndFlight()
+	end
+end)]]></ProtectedString>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+			</Item>
+		</Item>
+	</Item>
+</roblox>

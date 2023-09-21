@@ -1,0 +1,385 @@
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mulrbx.com/roblox.xsd" version="4">
+	<External>null</External>
+	<External>nil</External>
+	<Item class="Tool" referent="RBX5524C3826EF149A8BCCBC15565679610">
+		<Properties>
+			<bool name="CanBeDropped">true</bool>
+			<bool name="Enabled">true</bool>
+			<CoordinateFrame name="Grip">
+				<X>0</X>
+				<Y>0</Y>
+				<Z>0</Z>
+				<R00>1</R00>
+				<R01>0</R01>
+				<R02>0</R02>
+				<R10>0</R10>
+				<R11>1</R11>
+				<R12>0</R12>
+				<R20>0</R20>
+				<R21>0</R21>
+				<R22>1</R22>
+			</CoordinateFrame>
+			<bool name="ManualActivationOnly">false</bool>
+			<string name="Name">StaffOfTheWoodlands</string>
+			<Content name="TextureId"><url>http://www.mulrbx.com/asset/?id=11384456</url></Content>
+			<string name="ToolTip"></string>
+		</Properties>
+		<Item class="Part" referent="RBX2575AAB224704FFEA203B32FE86F07F9">
+			<Properties>
+				<bool name="Anchored">false</bool>
+				<float name="BackParamA">-0.5</float>
+				<float name="BackParamB">0.5</float>
+				<token name="BackSurface">0</token>
+				<token name="BackSurfaceInput">0</token>
+				<float name="BottomParamA">-0.5</float>
+				<float name="BottomParamB">0.5</float>
+				<token name="BottomSurface">0</token>
+				<token name="BottomSurfaceInput">0</token>
+				<int name="BrickColor">194</int>
+				<CoordinateFrame name="CFrame">
+					<X>-0.408910006</X>
+					<Y>2.87240911</Y>
+					<Z>-0.229908004</Z>
+					<R00>-0.999999881</R00>
+					<R01>1.50886521e-007</R01>
+					<R02>-3.20870157e-007</R02>
+					<R10>-9.57614361e-008</R10>
+					<R11>0.785830677</R11>
+					<R12>0.618440628</R12>
+					<R20>3.94288293e-007</R20>
+					<R21>0.618440688</R21>
+					<R22>-0.785830617</R22>
+				</CoordinateFrame>
+				<bool name="CanCollide">true</bool>
+				<float name="Elasticity">0.5</float>
+				<float name="Friction">0.300000012</float>
+				<float name="FrontParamA">-0.5</float>
+				<float name="FrontParamB">0.5</float>
+				<token name="FrontSurface">0</token>
+				<token name="FrontSurfaceInput">0</token>
+				<float name="LeftParamA">-0.5</float>
+				<float name="LeftParamB">0.5</float>
+				<token name="LeftSurface">0</token>
+				<token name="LeftSurfaceInput">0</token>
+				<bool name="Locked">true</bool>
+				<token name="Material">256</token>
+				<string name="Name">Handle</string>
+				<float name="Reflectance">0</float>
+				<float name="RightParamA">-0.5</float>
+				<float name="RightParamB">0.5</float>
+				<token name="RightSurface">0</token>
+				<token name="RightSurfaceInput">0</token>
+				<Vector3 name="RotVelocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<float name="TopParamA">-0.5</float>
+				<float name="TopParamB">0.5</float>
+				<token name="TopSurface">0</token>
+				<token name="TopSurfaceInput">0</token>
+				<float name="Transparency">0</float>
+				<Vector3 name="Velocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<token name="formFactorRaw">3</token>
+				<token name="shape">1</token>
+				<Vector3 name="size">
+					<X>1</X>
+					<Y>5.5999999</Y>
+					<Z>1</Z>
+				</Vector3>
+			</Properties>
+			<Item class="Sound" referent="RBXE73302B94422402CA231E3BB802C56F3">
+				<Properties>
+					<bool name="Looped">false</bool>
+					<string name="Name">Equip</string>
+					<float name="Pitch">1</float>
+					<bool name="PlayOnRemove">false</bool>
+					<Content name="SoundId"><url>http://www.mulrbx.com/asset/?id=10548108</url></Content>
+					<float name="Volume">0.5</float>
+				</Properties>
+			</Item>
+			<Item class="SpecialMesh" referent="RBX4E8096C7F8BE471A9E85435468BC019C">
+				<Properties>
+					<token name="LODX">2</token>
+					<token name="LODY">2</token>
+					<Content name="MeshId"><url>http://www.mulrbx.com/asset/?id=11383425</url></Content>
+					<token name="MeshType">5</token>
+					<string name="Name">Mesh</string>
+					<Vector3 name="Offset">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+					<Vector3 name="Scale">
+						<X>1</X>
+						<Y>1</Y>
+						<Z>1</Z>
+					</Vector3>
+					<Content name="TextureId"><url>http://www.mulrbx.com/asset/?id=11383671</url></Content>
+					<Vector3 name="VertexColor">
+						<X>1</X>
+						<Y>1</Y>
+						<Z>1</Z>
+					</Vector3>
+				</Properties>
+			</Item>
+			<Item class="Sound" referent="RBXC29E4A5B07C644879F19B9B58150BC63">
+				<Properties>
+					<bool name="Looped">false</bool>
+					<string name="Name">WoodWalk</string>
+					<float name="Pitch">1</float>
+					<bool name="PlayOnRemove">false</bool>
+					<Content name="SoundId"><url>http://www.mulrbx.com/asset/?id=11387922</url></Content>
+					<float name="Volume">0.699999988</float>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="Script" referent="RBXF27DB687E0F44912A1D093FA54141AFB">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">Script</string>
+				<ProtectedString name="Source"><![CDATA[--Rescripted by Luckymaxer
+
+Tool = script.Parent
+Handle = Tool:WaitForChild("Handle")
+
+Players = game:GetService("Players")
+Debris = game:GetService("Debris")
+InsertService = game:GetService("InsertService")
+
+HatModel = InsertService:LoadAsset(9910420)
+Hat = HatModel:GetChildren()[1]:Clone()
+Debris:AddItem(HatModel, 1)
+
+Sounds = {
+	Equip = Handle:WaitForChild("Equip"),
+	WoodWalk = Handle:WaitForChild("WoodWalk"),
+}
+
+Grips = {
+	Up = CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+	Out = CFrame.new(0, 0, 0, 0.194998264, 0.975938141, -0.0975725725, -0.980757415, 0.194987625, -0.00973754004, 0.00952220801, 0.0975938067, 0.995180845),
+}
+
+TransparentParts = {}
+
+ToolEquipped = false
+
+Tool.Grip = Grips.Up
+Tool.Enabled = true
+
+function IsTurbo(character)
+	return character:FindFirstChild(Hat.Name)
+end
+
+function SetTransparency(PrimaryParent, Transparency)
+	local Parts = {}
+	local function SetParentTransparency(Parent)
+		for i, v in pairs(Parent:GetChildren()) do
+			--if v ~= Tool then
+				local ItemTransparent = false
+				for ii, vv in pairs(TransparentParts) do
+					if vv and vv.Part and vv.Part == v then
+						ItemTransparent = true
+					end
+				end
+				if not ItemTransparent then
+					local HasTransparency = false
+					pcall(function()
+						local Property = v["Transparency"]
+						if Property < 1 then
+							HasTransparency = true
+						end
+					end)
+					if HasTransparency then
+						table.insert(Parts, {Part = v, Transparency = 0})
+					end
+				end
+				SetParentTransparency(v, Transparency)
+			--end
+		end
+	end
+	SetParentTransparency(PrimaryParent)
+	for i, v in pairs(Parts) do
+		v.Part.Transparency = Transparency
+	end
+	return Parts
+end
+
+Tool.Enabled = true
+function Activated()
+	
+	if not Tool.Enabled or not CheckIfAlive() then
+		return
+	end
+	
+	Tool.Enabled = false
+	
+	for i, v in pairs({ToolUnequipped, ItemAdded, ItemRemoved}) do
+		if v then
+			v:disconnect()
+		end
+	end
+	
+	local CurrentlyEquipped = true
+	
+	ToolUnequipped = Tool.Unequipped:connect(function()
+		CurrentlyEquipped = false
+	end)
+	
+	Sounds.WoodWalk:Play()
+	Tool.Grip = Grips.Out
+	wait(0.5)
+	if CurrentlyEquipped and ToolEquipped and CheckIfAlive() then
+		Tool.Grip = Grips.Up
+		local Transparency = ((IsTurbo(Character) and 0.97) or 0.94)
+		TransparentParts = SetTransparency(Character, Transparency)
+		ItemAdded = Character.ChildAdded:connect(function(Child)
+			for i, v in pairs(SetTransparency(Child, Transparency)) do
+				table.insert(TransparentParts, v)
+			end
+		end)
+		ItemRemoved = Character.ChildRemoved:connect(function(Child)
+			for i, v in pairs(Child:GetChildren()) do
+				for ii, vv in pairs(TransparentParts) do
+					if vv.Part == v then
+						vv.Part.Transparency = vv.Transparency
+						table.remove(TransparentParts, ii)
+					end
+				end
+			end
+		end)
+		wait(8)
+		if CurrentlyEquipped then
+			for i, v in pairs(TransparentParts) do
+				if v.Part and v.Part.Parent then
+					v.Part.Transparency = v.Transparency
+				end
+			end
+			TransparentParts = {}
+			Sounds.WoodWalk:Stop()
+		end
+	end
+	wait(3)
+	Tool.Grip = Grips.Up
+	Tool.Enabled = true
+end
+
+function CheckIfAlive()
+	return (((Player and Player.Parent and Character and Character.Parent and Humanoid and Humanoid.Parent and Humanoid.Health > 0) and true) or false)
+end
+
+function Equipped()
+	Character = Tool.Parent
+	Player = Players:GetPlayerFromCharacter(Character)
+	Humanoid = Character:FindFirstChild("Humanoid")
+	if not CheckIfAlive() then
+		return
+	end
+	ToolEquipped = true
+	Sounds.Equip:Play()
+end
+
+function Unequipped()
+	Tool.Grip = Grips.Up
+	for i, v in pairs(Sounds) do
+		v:Stop()
+	end
+	for i, v in pairs({ToolUnequipped, ItemAdded, ItemRemoved}) do
+		if v then
+			v:disconnect()
+		end
+	end	
+	for i, v in pairs(TransparentParts) do
+		if v.Part and v.Part.Parent then
+			v.Part.Transparency = v.Transparency
+		end
+	end
+	TransparentParts = {}
+	ToolEquipped = false
+end
+
+Tool.Activated:connect(Activated)
+Tool.Equipped:connect(Equipped)
+Tool.Unequipped:connect(Unequipped)]]></ProtectedString>
+			</Properties>
+		</Item>
+		<Item class="LocalScript" referent="RBX2F5B77CAD4FD43D7BED8B3F79F60840B">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">MouseIcon</string>
+				<ProtectedString name="Source"><![CDATA[--Made by Luckymaxer
+
+Mouse_Icon = "rbxasset://textures/GunCursor.png"
+Reloading_Icon = "rbxasset://textures/GunWaitCursor.png"
+
+Tool = script.Parent
+
+Mouse = nil
+
+function UpdateIcon()
+	if Mouse then
+		Mouse.Icon = Tool.Enabled and Mouse_Icon or Reloading_Icon
+	end
+end
+
+function OnEquipped(ToolMouse)
+	Mouse = ToolMouse
+	UpdateIcon()
+end
+
+function OnChanged(Property)
+	if Property == "Enabled" then
+		UpdateIcon()
+	end
+end
+
+Tool.Equipped:connect(OnEquipped)
+Tool.Changed:connect(OnChanged)
+]]></ProtectedString>
+			</Properties>
+		</Item>
+		<Item class="Camera" referent="RBXE876904DAB3C4038AD2FBA3EE2BB909F">
+			<Properties>
+				<Ref name="CameraSubject">null</Ref>
+				<token name="CameraType">0</token>
+				<CoordinateFrame name="CoordinateFrame">
+					<X>-3.09263396</X>
+					<Y>5.20019054</Y>
+					<Z>1.66636848</Z>
+					<R00>0.38621673</R00>
+					<R01>0.404629469</R01>
+					<R02>-0.828921974</R02>
+					<R10>-0</R10>
+					<R11>0.898649991</R11>
+					<R12>0.438666433</R12>
+					<R20>0.922408104</R20>
+					<R21>-0.169420317</R21>
+					<R22>0.347073644</R22>
+				</CoordinateFrame>
+				<float name="FieldOfView">50.0000038</float>
+				<CoordinateFrame name="Focus">
+					<X>-0.510821104</X>
+					<Y>3.83389235</Y>
+					<Z>0.58535099</Z>
+					<R00>1</R00>
+					<R01>0</R01>
+					<R02>0</R02>
+					<R10>0</R10>
+					<R11>1</R11>
+					<R12>0</R12>
+					<R20>0</R20>
+					<R21>0</R21>
+					<R22>1</R22>
+				</CoordinateFrame>
+				<string name="Name">ThumbnailCamera</string>
+			</Properties>
+		</Item>
+	</Item>
+</roblox>

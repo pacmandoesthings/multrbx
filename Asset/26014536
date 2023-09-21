@@ -1,0 +1,561 @@
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mulrbx.com/roblox.xsd" version="4">
+	<External>null</External>
+	<External>nil</External>
+	<Item class="Tool" referent="RBX35D1786E1BF54FF3A8F13C744EB93EAE">
+		<Properties>
+			<bool name="CanBeDropped">true</bool>
+			<bool name="Enabled">true</bool>
+			<CoordinateFrame name="Grip">
+				<X>0.5</X>
+				<Y>0</Y>
+				<Z>1.10000002</Z>
+				<R00>0</R00>
+				<R01>-1</R01>
+				<R02>0</R02>
+				<R10>0.707106769</R10>
+				<R11>0</R11>
+				<R12>0.707106829</R12>
+				<R20>-0.707106769</R20>
+				<R21>0</R21>
+				<R22>0.707106829</R22>
+			</CoordinateFrame>
+			<bool name="ManualActivationOnly">false</bool>
+			<string name="Name">RedPaintballGun</string>
+			<bool name="RequiresHandle">true</bool>
+			<BinaryString name="Tags"></BinaryString>
+			<Content name="TextureId"><url>http://www.mulrbx.com/asset/?id=27133356</url></Content>
+			<string name="ToolTip"></string>
+		</Properties>
+		<Item class="Part" referent="RBX1817EB592ABD4F86A68EADC2951F8DA8">
+			<Properties>
+				<bool name="Anchored">false</bool>
+				<float name="BackParamA">-0.5</float>
+				<float name="BackParamB">0.5</float>
+				<token name="BackSurface">0</token>
+				<token name="BackSurfaceInput">0</token>
+				<float name="BottomParamA">-0.5</float>
+				<float name="BottomParamB">0.5</float>
+				<token name="BottomSurface">4</token>
+				<token name="BottomSurfaceInput">0</token>
+				<CoordinateFrame name="CFrame">
+					<X>2.27781796</X>
+					<Y>-0.282498002</Y>
+					<Z>0.409691006</Z>
+					<R00>0.642788053</R00>
+					<R01>0</R01>
+					<R02>-0.76604414</R02>
+					<R10>-0.76604414</R10>
+					<R11>0</R11>
+					<R12>-0.642788053</R12>
+					<R20>0</R20>
+					<R21>1</R21>
+					<R22>0</R22>
+				</CoordinateFrame>
+				<bool name="CanCollide">true</bool>
+				<int name="CollisionGroupId">0</int>
+				<Color3uint8 name="Color3uint8">4288914085</Color3uint8>
+				<PhysicalProperties name="CustomPhysicalProperties">
+					<CustomPhysics>false</CustomPhysics>
+				</PhysicalProperties>
+				<float name="Elasticity">0.5</float>
+				<float name="Friction">0.300000012</float>
+				<float name="FrontParamA">-0.5</float>
+				<float name="FrontParamB">0.5</float>
+				<token name="FrontSurface">0</token>
+				<token name="FrontSurfaceInput">0</token>
+				<float name="LeftParamA">-0.5</float>
+				<float name="LeftParamB">0.5</float>
+				<token name="LeftSurface">0</token>
+				<token name="LeftSurfaceInput">0</token>
+				<bool name="Locked">true</bool>
+				<token name="Material">256</token>
+				<string name="Name">Handle</string>
+				<float name="Reflectance">0</float>
+				<float name="RightParamA">-0.5</float>
+				<float name="RightParamB">0.5</float>
+				<token name="RightSurface">0</token>
+				<token name="RightSurfaceInput">0</token>
+				<Vector3 name="RotVelocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<BinaryString name="Tags"></BinaryString>
+				<float name="TopParamA">-0.5</float>
+				<float name="TopParamB">0.5</float>
+				<token name="TopSurface">3</token>
+				<token name="TopSurfaceInput">0</token>
+				<float name="Transparency">0</float>
+				<Vector3 name="Velocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<token name="formFactorRaw">3</token>
+				<token name="shape">1</token>
+				<Vector3 name="size">
+					<X>1.5999999</X>
+					<Y>0.400000006</Y>
+					<Z>2.20000005</Z>
+				</Vector3>
+			</Properties>
+			<Item class="SpecialMesh" referent="RBX7CB18CA751584B3B8DBE23C51EF31D5B">
+				<Properties>
+					<token name="LODX">2</token>
+					<token name="LODY">2</token>
+					<Content name="MeshId"><url>http://www.mulrbx.com/asset/?id=27126889</url></Content>
+					<token name="MeshType">5</token>
+					<string name="Name">Mesh</string>
+					<Vector3 name="Offset">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+					<Vector3 name="Scale">
+						<X>1</X>
+						<Y>1</Y>
+						<Z>1</Z>
+					</Vector3>
+					<BinaryString name="Tags"></BinaryString>
+					<Content name="TextureId"><url>http://www.mulrbx.com/asset/?id=27133338</url></Content>
+					<Vector3 name="VertexColor">
+						<X>1</X>
+						<Y>1</Y>
+						<Z>1</Z>
+					</Vector3>
+				</Properties>
+			</Item>
+			<Item class="Sound" referent="RBXA4289F18F0E44144A77B77DB4B65569D">
+				<Properties>
+					<float name="EmitterSize">10</float>
+					<bool name="Looped">false</bool>
+					<string name="Name">Fire</string>
+					<bool name="PlayOnRemove">false</bool>
+					<float name="PlaybackSpeed">0.699999988</float>
+					<bool name="Playing">false</bool>
+					<token name="RollOffMode">0</token>
+					<Ref name="SoundGroup">null</Ref>
+					<Content name="SoundId"><url>http://www.mulrbx.com/asset/?id=27127089</url></Content>
+					<BinaryString name="Tags"></BinaryString>
+					<double name="TimePosition">0</double>
+					<float name="Volume">1</float>
+					<float name="xmlRead_MaxDistance_3">10000</float>
+				</Properties>
+			</Item>
+			<Item class="Attachment" referent="RBX6368A335959E452297B528021AD5E878">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0.49999997</X>
+						<Y>0</Y>
+						<Z>1.10000014</Z>
+						<R00>-4.37113883e-08</R00>
+						<R01>-1</R01>
+						<R02>0</R02>
+						<R10>1</R10>
+						<R11>-4.37113883e-08</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<string name="Name">RightGripAttachment</string>
+					<BinaryString name="Tags"></BinaryString>
+					<bool name="Visible">false</bool>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="RemoteEvent" referent="RBXEA44ACCB90FC42EE94B07A9C30E0025F">
+			<Properties>
+				<string name="Name">WeaponEvent</string>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+		<Item class="Script" referent="RBXDEF7D1E1368548DBB3CFF2059F43B2BA">
+			<Properties>
+				<bool name="Disabled">true</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">ProjectileScript</string>
+				<string name="ScriptGuid">{65858676-A8EC-412F-A55B-37F968E8FC0B}</string>
+				<ProtectedString name="Source"><![CDATA[--Stickmasterluke was here last
+
+
+sp=script.Parent
+
+
+local debris=game:GetService("Debris")
+local creator=sp:WaitForChild("creator")
+
+
+damage=62
+local splatted=false
+
+local flakes = {"27131640", "27131658", "27131680", "27131699", "27131714"}
+local globs = {"27131730", "27131741","27131759"}
+
+local HitSound=Instance.new("Sound")
+HitSound.SoundId="http://www.mulrbx.com/asset/?id=27127113"
+HitSound.Parent=sp
+HitSound.Volume=1
+
+function Snowface(p)
+	local guiMain = Instance.new("GuiMain") 
+	guiMain.Parent = p.PlayerGui 
+	local mainFrame = Instance.new("Frame") 
+	mainFrame.Name = "PaintballEffect"
+	mainFrame.Position = UDim2.new(0, 0, 0, 0) 
+	mainFrame.Size = UDim2.new(1, 0, 1, 0) 
+	mainFrame.BackgroundColor = BrickColor.new(1,1,1)
+	mainFrame.Transparency = 1
+	mainFrame.BorderColor = BrickColor.new(1,1,1)
+	debris:AddItem(guiMain, 10)
+	mainFrame.Parent = guiMain
+
+	--- big glob
+	local s = Instance.new("ImageLabel")
+	local size = (math.random() * .2) + .5
+	s.Size = UDim2.new(size,0,size,0)
+	s.Position = UDim2.new(math.random() - (size/2),0, math.random() - (size/2),0)
+	s.SizeConstraint = Enum.SizeConstraint.RelativeXX
+	s.Transparency = 1
+	s.Image = "http://www.mulrbx.com/asset/?id=" .. globs[math.random(1, #globs)]
+	debris:AddItem(s, 5 + (math.random() * 2))
+	s.Parent = mainFrame
+
+	--flakes
+	for i=1,10 do
+		local s = Instance.new("ImageLabel")
+		local size = (math.random() * .05) + .05
+		s.Size = UDim2.new(size,0,size,0)
+		s.Position = UDim2.new(math.random() - (size/2),0, math.random() - (size/2),0)
+		s.SizeConstraint = Enum.SizeConstraint.RelativeXX
+		s.Transparency = 1
+		s.Image = "http://www.mulrbx.com/asset/?id=" .. flakes[math.random(1, #flakes)]
+		debris:AddItem(s, 3 + (math.random() * 6))
+		s.Parent = mainFrame
+	end
+	
+end
+
+
+function onTouched(hit)
+	if not splatted and hit.Parent and sp and sp:isDescendantOf(workspace) and string.lower(string.sub(hit.Name,1,6))~="effect" and hit.Name~="Handle" then
+		local targetplayer=game.Players:GetPlayerFromCharacter(hit.Parent)
+		if creator and creator.Value and creator.Value.Character and not hit:isDescendantOf(creator.Value.Character) then
+			splatted=true
+			sp.Name="Effect"
+			HitSound:Play()
+			local humanoid=hit.Parent:FindFirstChild("Humanoid")
+			if humanoid and targetplayer then
+				for _,v in pairs(humanoid:GetChildren()) do
+					if v.Name=="creator" then
+						v:Destroy()
+					end
+				end
+				local killertag=creator:clone()
+				debris:AddItem(killertag,1)
+				killertag.Parent=humanoid
+				humanoid:TakeDamage(damage)
+				Snowface(targetplayer)
+			end
+			--[[if part:IsA("Part") then	--color hit part
+				overallSize=part.Size.x+hit.Size.y+hit.Size.z
+				if overallSize<40 then
+					part.BrickColor=sp.BrickColor
+				end
+			end]]
+			sp.CanCollide=false
+			sp.Anchored=true
+			sp.Transparency=1
+			local fire=Instance.new("Fire")
+			fire.Heat=0
+			fire.Parent=sp
+			fire.Color=sp.BrickColor.Color
+			fire.SecondaryColor=sp.BrickColor.Color
+			fire.Parent=sp
+			wait(.3)
+			if fire then
+				fire.Enabled=false
+			end
+			wait(2)
+			sp:Destroy()
+		end
+	end
+end
+
+
+sp.Touched:connect(onTouched)
+debris:AddItem(sp,30)
+
+wait(.1)
+if sp then
+	sp.CanCollide=true	--we do this so that the ball bounces off what it hits, then becomes invisible and the fire particles happen on the side of the surface that was it.
+end]]></ProtectedString>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+		<Item class="Script" referent="RBX741197EE269B4D69BF78A4A4C28E4D88">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">Script</string>
+				<string name="ScriptGuid">{F3D4DAE5-6D1C-455E-8BE8-152F27573AD0}</string>
+				<ProtectedString name="Source"><![CDATA[--Made by Stickmasterluke
+--Rescripted by StarWars
+
+local Debris = game:GetService("Debris")
+local Players = game:GetService("Players")
+
+local Tool = script.Parent
+local Handle = Tool.Handle
+local FireSound = Handle:FindFirstChild("Fire")
+
+local Animations = Tool.Animations
+local R6Folder = Animations.R6
+local R15Folder = Animations.R15
+
+local FIRE_RATE = 0.4
+local VELOCITY = 200
+
+local WeaponEvent = Tool:FindFirstChild("WeaponEvent") or Instance.new("RemoteEvent")
+WeaponEvent.Name = "WeaponEvent"
+
+local Player = nil
+local Character = nil
+local Head = nil
+local Humanoid = nil
+
+local BaseBullet = Instance.new("Part")
+BaseBullet.Name = "Paintball"
+BaseBullet.Size = Vector3.new(1, 1, 1) * 0.5
+BaseBullet.BrickColor = BrickColor.new("Really red")
+BaseBullet.Material = Enum.Material.Plastic
+BaseBullet.Locked = true
+BaseBullet.CanCollide = false
+BaseBullet.TopSurface = Enum.SurfaceType.Smooth
+BaseBullet.BottomSurface = Enum.SurfaceType.Smooth
+
+local BaseMesh = Instance.new("SpecialMesh")
+BaseMesh.MeshType = Enum.MeshType.Sphere
+BaseMesh.Scale = Vector3.new(1, 1, 1)
+BaseMesh.Parent = BaseBullet
+
+Tool.ProjectileScript:Clone().Parent = BaseBullet
+
+function Fire(player, firePos)
+	if player ~= Player then return end
+	if not Tool.Enabled then return end
+	if not Player then return end
+	if not Humanoid then return end
+	if Humanoid.Health <= 0 then return end
+
+	Tool.Enabled = false
+
+	Tool.GripPos = Vector3.new(0, 0, 0.8)
+	if FireSound then
+		FireSound:Play()
+	end
+
+	local NewBullet = BaseBullet:Clone()
+	local Direction = (firePos - Head.Position).unit
+	NewBullet.CFrame = CFrame.new(Head.Position, Head.Position + Direction)
+	NewBullet.Velocity = Direction * VELOCITY
+	NewBullet.ProjectileScript.Disabled = false
+
+	local BodyForce = Instance.new("BodyForce")
+	BodyForce.Force = Vector3.new(0, NewBullet:GetMass() * workspace.Gravity * 0.8, 0)
+	BodyForce.Parent = NewBullet
+
+	local CreatorTag = Instance.new("ObjectValue")
+	CreatorTag.Name = "creator"
+	CreatorTag.Value = Player
+	CreatorTag.Parent = NewBullet
+
+	Debris:AddItem(NewBullet, 10)
+	NewBullet.Parent = workspace
+
+	wait(FIRE_RATE * 0.5)
+	Tool.GripPos = Vector3.new(0, 0, 1)
+	wait(FIRE_RATE * 0.5)
+
+	Tool.Enabled = true
+end
+
+function OnEquipped()
+	Character = Tool.Parent
+	Player = Players:GetPlayerFromCharacter(Character)
+	Head = Character:FindFirstChild("Head")
+	Humanoid = Character:FindFirstChildOfClass("Humanoid")
+end
+
+function OnUnequipped()
+	Character = nil
+	Player = nil
+	Head = nil
+	Humanoid = nil
+	if FireSound and FireSound.IsPlaying then
+		FireSound:Stop()
+	end
+end
+
+WeaponEvent.OnServerEvent:Connect(Fire)
+--Tool.Activated:Connect(OnActivate)
+Tool.Equipped:Connect(OnEquipped)
+Tool.Unequipped:Connect(OnUnequipped)]]></ProtectedString>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+		<Item class="LocalScript" referent="RBX54C9FCD4CCF5421B9D3658DA3AAE10BE">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">LocalScript</string>
+				<string name="ScriptGuid">{6D441F65-CD10-4D25-AF8A-6E98EEBACB49}</string>
+				<ProtectedString name="Source"><![CDATA[--Made by Stickmasterluke
+--Rescripted by StarWars
+
+local Tool = script.Parent
+
+local WeaponEvent = Tool:WaitForChild("WeaponEvent")
+local Animations = Tool:WaitForChild("Animations")
+local R6Folder = Animations:WaitForChild("R6")
+local R15Folder = Animations:WaitForChild("R15")
+
+local HoldAnim = nil
+local Character = nil
+local Humanoid = nil
+
+function OnEquipped(mouse)
+	Character = Tool.Parent
+	Humanoid = Character:FindFirstChildOfClass("Humanoid")
+
+	if Humanoid then
+		if Humanoid.RigType == Enum.HumanoidRigType.R15 then
+			HoldAnim = Humanoid:LoadAnimation(R15Folder:WaitForChild("Hold"))
+		else
+			HoldAnim = Humanoid:LoadAnimation(R6Folder:WaitForChild("Hold"))
+		end
+		HoldAnim:Play()
+	end
+
+	mouse.Button1Down:Connect(function() WeaponEvent:FireServer(mouse.Hit.p) end)
+end
+
+function OnUnequipped()
+	Character = nil
+	Humanoid = nil
+	if HoldAnim then
+		HoldAnim:Stop()
+		HoldAnim:Destroy()
+	end
+
+	HoldAnim = nil
+end
+
+Tool.Equipped:Connect(OnEquipped)
+Tool.Unequipped:Connect(OnUnequipped)]]></ProtectedString>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+		<Item class="LocalScript" referent="RBXBC6F61BBDFF147B5B31F9976524E79B5">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">MouseIcon</string>
+				<string name="ScriptGuid">{C1D2D69F-FA31-4C45-9092-79D692960DB9}</string>
+				<ProtectedString name="Source"><![CDATA[Mouse_Icon = "rbxasset://textures/GunCursor.png"
+Reloading_Icon = "rbxasset://textures/GunWaitCursor.png"
+
+Tool = script.Parent
+
+Mouse = nil
+
+function UpdateIcon()
+	if Mouse then
+		Mouse.Icon = Tool.Enabled and Mouse_Icon or Reloading_Icon
+	end
+end
+
+function OnEquipped(ToolMouse)
+	Mouse = ToolMouse
+	UpdateIcon()
+end
+
+Tool:GetPropertyChangedSignal("Enabled"):Connect(UpdateIcon)
+Tool.Equipped:connect(OnEquipped)
+]]></ProtectedString>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+		<Item class="Folder" referent="RBX01D23D611F7742B39D884255BA38945C">
+			<Properties>
+				<string name="Name">Animations</string>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+			<Item class="Folder" referent="RBXA1381A43A8404B328437F77ED658B962">
+				<Properties>
+					<string name="Name">R6</string>
+					<BinaryString name="Tags"></BinaryString>
+				</Properties>
+				<Item class="Animation" referent="RBX91FDDDFE4AE34FDCBA68123B8D25E1A8">
+					<Properties>
+						<Content name="AnimationId"><url>rbxassetid://863606193</url></Content>
+						<string name="Name">Hold</string>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+			</Item>
+			<Item class="Folder" referent="RBX22CFD565DF9A46D58FC70313470FC335">
+				<Properties>
+					<string name="Name">R15</string>
+					<BinaryString name="Tags"></BinaryString>
+				</Properties>
+				<Item class="Animation" referent="RBX0E42159BDA404B809F73EC3BD9425AA9">
+					<Properties>
+						<Content name="AnimationId"><url>rbxassetid://863600699</url></Content>
+						<string name="Name">Hold</string>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="Camera" referent="RBX8175E6450F074F81A774BC26BBBCA0DD">
+			<Properties>
+				<CoordinateFrame name="CFrame">
+					<X>2.75665474</X>
+					<Y>-0.533084095</Y>
+					<Z>3.74507809</Z>
+					<R00>0.984789848</R00>
+					<R01>0.00998053886</R01>
+					<R02>0.173463345</R02>
+					<R10>-9.31322686e-10</R10>
+					<R11>0.998348951</R11>
+					<R12>-0.0574418604</R12>
+					<R20>-0.173750252</R20>
+					<R21>0.0565681607</R21>
+					<R22>0.983163714</R22>
+				</CoordinateFrame>
+				<Ref name="CameraSubject">null</Ref>
+				<token name="CameraType">0</token>
+				<float name="FieldOfView">70</float>
+				<CoordinateFrame name="Focus">
+					<X>2.40972805</X>
+					<Y>-0.418200374</Y>
+					<Z>1.77875066</Z>
+					<R00>1</R00>
+					<R01>0</R01>
+					<R02>0</R02>
+					<R10>0</R10>
+					<R11>1</R11>
+					<R12>0</R12>
+					<R20>0</R20>
+					<R21>0</R21>
+					<R22>1</R22>
+				</CoordinateFrame>
+				<bool name="HeadLocked">true</bool>
+				<float name="HeadScale">1</float>
+				<string name="Name">ThumbnailCamera</string>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+	</Item>
+</roblox>

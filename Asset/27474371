@@ -1,0 +1,868 @@
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mulrbx.com/roblox.xsd" version="4">
+	<External>null</External>
+	<External>nil</External>
+	<Item class="Tool" referent="RBX01BDE056DC544B7CB7BB3B12EE22C821">
+		<Properties>
+			<bool name="CanBeDropped">true</bool>
+			<bool name="Enabled">true</bool>
+			<CoordinateFrame name="Grip">
+				<X>0</X>
+				<Y>-0.699999988</Y>
+				<Z>-0.699999988</Z>
+				<R00>-1</R00>
+				<R01>0</R01>
+				<R02>0</R02>
+				<R10>0</R10>
+				<R11>1</R11>
+				<R12>0</R12>
+				<R20>0</R20>
+				<R21>0</R21>
+				<R22>-1</R22>
+			</CoordinateFrame>
+			<bool name="ManualActivationOnly">false</bool>
+			<string name="Name">NoobTube</string>
+			<bool name="RequiresHandle">true</bool>
+			<Content name="TextureId"><url>http://www.mulrbx.com/asset/?id=27469657</url></Content>
+			<string name="ToolTip"></string>
+		</Properties>
+		<Item class="Part" referent="RBX72B2FDF4E7C5432B8A63182C2AB78FA3">
+			<Properties>
+				<bool name="Anchored">false</bool>
+				<float name="BackParamA">-0.5</float>
+				<float name="BackParamB">0.5</float>
+				<token name="BackSurface">0</token>
+				<token name="BackSurfaceInput">0</token>
+				<float name="BottomParamA">-0.5</float>
+				<float name="BottomParamB">0.5</float>
+				<token name="BottomSurface">4</token>
+				<token name="BottomSurfaceInput">0</token>
+				<int name="BrickColor">37</int>
+				<CoordinateFrame name="CFrame">
+					<X>-268</X>
+					<Y>15.8000002</Y>
+					<Z>-224</Z>
+					<R00>-8.94069672e-008</R00>
+					<R01>-0.00908773672</R01>
+					<R02>0.999958754</R02>
+					<R10>-0.0508622602</R10>
+					<R11>0.998664379</R11>
+					<R12>0.00907597132</R12>
+					<R20>-0.998705566</R20>
+					<R21>-0.0508601516</R21>
+					<R22>-0.00046235323</R22>
+				</CoordinateFrame>
+				<bool name="CanCollide">true</bool>
+				<PhysicalProperties name="CustomPhysicalProperties">
+					<CustomPhysics>false</CustomPhysics>
+				</PhysicalProperties>
+				<float name="Elasticity">0.5</float>
+				<float name="Friction">0.300000012</float>
+				<float name="FrontParamA">-0.5</float>
+				<float name="FrontParamB">0.5</float>
+				<token name="FrontSurface">0</token>
+				<token name="FrontSurfaceInput">0</token>
+				<float name="LeftParamA">-0.5</float>
+				<float name="LeftParamB">0.5</float>
+				<token name="LeftSurface">0</token>
+				<token name="LeftSurfaceInput">0</token>
+				<bool name="Locked">true</bool>
+				<token name="Material">256</token>
+				<string name="Name">Handle</string>
+				<float name="Reflectance">0</float>
+				<float name="RightParamA">-0.5</float>
+				<float name="RightParamB">0.5</float>
+				<token name="RightSurface">0</token>
+				<token name="RightSurfaceInput">0</token>
+				<Vector3 name="RotVelocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<float name="TopParamA">-0.5</float>
+				<float name="TopParamB">0.5</float>
+				<token name="TopSurface">3</token>
+				<token name="TopSurfaceInput">0</token>
+				<float name="Transparency">0</float>
+				<Vector3 name="Velocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<token name="formFactorRaw">1</token>
+				<token name="shape">1</token>
+				<Vector3 name="size">
+					<X>1</X>
+					<Y>1.20000005</Y>
+					<Z>4</Z>
+				</Vector3>
+			</Properties>
+			<Item class="SpecialMesh" referent="RBX673E9DF1180344F89F72A10A8B1E179A">
+				<Properties>
+					<token name="LODX">2</token>
+					<token name="LODY">2</token>
+					<Content name="MeshId"><url>http://www.mulrbx.com/asset/?id=27469702</url></Content>
+					<token name="MeshType">5</token>
+					<string name="Name">Mesh</string>
+					<Vector3 name="Offset">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+					<Vector3 name="Scale">
+						<X>1</X>
+						<Y>1</Y>
+						<Z>1</Z>
+					</Vector3>
+					<Content name="TextureId"><url>http://www.mulrbx.com/asset/?id=27469682</url></Content>
+					<Vector3 name="VertexColor">
+						<X>1</X>
+						<Y>1</Y>
+						<Z>1</Z>
+					</Vector3>
+				</Properties>
+			</Item>
+			<Item class="Sound" referent="RBX92FC2F27145E4DC7835919B81A718401">
+				<Properties>
+					<float name="EmitterSize">10</float>
+					<bool name="Looped">false</bool>
+					<string name="Name">NoobShoot</string>
+					<bool name="PlayOnRemove">false</bool>
+					<float name="PlaybackSpeed">1</float>
+					<bool name="Playing">false</bool>
+					<token name="RollOffMode">0</token>
+					<Ref name="SoundGroup">null</Ref>
+					<Content name="SoundId"><url>http://www.mulrbx.com/asset/?id=27470527</url></Content>
+					<double name="TimePosition">0</double>
+					<float name="Volume">0.5</float>
+					<float name="xmlRead_MaxDistance_3">10000</float>
+				</Properties>
+			</Item>
+			<Item class="Sound" referent="RBXFF29676F845E413B9049FE65CE76DBF8">
+				<Properties>
+					<float name="EmitterSize">10</float>
+					<bool name="Looped">false</bool>
+					<string name="Name">NoobFail</string>
+					<bool name="PlayOnRemove">false</bool>
+					<float name="PlaybackSpeed">1</float>
+					<bool name="Playing">false</bool>
+					<token name="RollOffMode">0</token>
+					<Ref name="SoundGroup">null</Ref>
+					<Content name="SoundId"><url>http://www.mulrbx.com/asset/?id=27470547</url></Content>
+					<double name="TimePosition">0</double>
+					<float name="Volume">0.5</float>
+					<float name="xmlRead_MaxDistance_3">10000</float>
+				</Properties>
+			</Item>
+			<Item class="Sound" referent="RBXEB1A3069453F48E89DE3C59CB460F45C">
+				<Properties>
+					<float name="EmitterSize">10</float>
+					<bool name="Looped">false</bool>
+					<string name="Name">Reload</string>
+					<bool name="PlayOnRemove">false</bool>
+					<float name="PlaybackSpeed">1</float>
+					<bool name="Playing">false</bool>
+					<token name="RollOffMode">0</token>
+					<Ref name="SoundGroup">null</Ref>
+					<Content name="SoundId"><url>http://www.mulrbx.com/asset/?id=25299064</url></Content>
+					<double name="TimePosition">0</double>
+					<float name="Volume">1</float>
+					<float name="xmlRead_MaxDistance_3">10000</float>
+				</Properties>
+			</Item>
+			<Item class="Attachment" referent="RBXBC05C16ED4204C42A95EA0EAFA2B69E1">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>-0.5</Y>
+						<Z>-0.5</Z>
+						<R00>0</R00>
+						<R01>0</R01>
+						<R02>1</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>-0</R12>
+						<R20>-1</R20>
+						<R21>0</R21>
+						<R22>0</R22>
+					</CoordinateFrame>
+					<string name="Name">RightGripAttachment</string>
+					<bool name="Visible">false</bool>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="Script" referent="RBXD02BFE3236EF4B1784003FB32D9FD3C4">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">RayGun</string>
+				<string name="ScriptGuid">{2F069348-71B5-4F8F-B4FD-B56EADF2015A}</string>
+				<ProtectedString name="Source"><![CDATA[--Rescripted by Luckymaxer
+--Updated for R15 avatars by StarWars
+
+Tool = script.Parent
+Handle = Tool:WaitForChild("Handle")
+
+Players = game:GetService("Players")
+Debris = game:GetService("Debris")
+InsertService = game:GetService("InsertService")
+
+ReloadTime = 25
+
+Sounds = {
+	Reload = Handle:WaitForChild("Reload"),
+	NoobFail = Handle:WaitForChild("NoobFail"),
+	NoobShoot = Handle:WaitForChild("NoobShoot")
+}
+
+Animate = script:WaitForChild("Animate")
+MessageScript = script:WaitForChild("MessageScript")
+
+AssetId = 27410797
+FigureModel = InsertService:LoadAsset(AssetId)
+Figure = FigureModel:GetChildren()[1]:Clone()
+if FigureModel and FigureModel.Parent then
+	FigureModel:Destroy()
+end
+for i, v in pairs({Animate, MessageScript}) do
+	local ScriptClone = v:Clone()
+	ScriptClone.Disabled = false
+	ScriptClone.Parent = Figure
+end
+
+AmountInFront = 15
+
+ServerControl = (Tool:FindFirstChild("ServerControl") or Instance.new("RemoteFunction"))
+ServerControl.Name = "ServerControl"
+ServerControl.Parent = Tool
+
+ClientControl = (Tool:FindFirstChild("ClientControl") or Instance.new("RemoteFunction"))
+ClientControl.Name = "ClientControl"
+ClientControl.Parent = Tool
+
+Tool.Enabled = true
+
+function Fire(character)
+	if not CheckIfAlive() then
+		return
+	end
+	local FigureClone = Figure:Clone()
+	local spawnPoint = Torso.Position
+	local torsoNormal = Torso.CFrame.lookVector
+	local denom = math.abs(torsoNormal.x) + math.abs(torsoNormal.z)
+	local posX = AmountInFront * (torsoNormal.x/denom)
+	local posZ = AmountInFront * (torsoNormal.z/denom)
+	local pos = Vector3.new(spawnPoint.x + posX, spawnPoint.y, spawnPoint.z + posZ)
+	
+	Debris:AddItem(FigureClone, 30)
+	FigureClone.PersonToPester.Value = character
+	FigureClone.Parent = game:GetService("Workspace")
+	FigureClone:MakeJoints()
+	FigureClone.Torso.CFrame = CFrame.new(pos, Torso.Position) * CFrame.Angles(0, math.pi, 0)
+end
+
+function Activated(Target)
+	if not Tool.Enabled or not CheckIfAlive()then
+		return
+	end
+	Tool.Enabled = false
+	wait(0.3)
+	Sounds.NoobShoot:Play()
+	wait(1.5)
+	Tool.GripPos = Vector3.new(0, -0.5, -0.5)
+	Fire(Target)
+	wait(0.1)
+	Tool.GripPos = Vector3.new(0, -0.7, -0.7)
+	wait(ReloadTime)
+	Tool.Enabled = true
+end
+
+function CheckIfAlive()
+	return (((Character and Character.Parent and Humanoid and Humanoid.Parent and Humanoid.Health > 0 and Torso and Torso.Parent) and true) or false)
+end
+
+function Equipped()
+	Character = Tool.Parent
+	Humanoid = Character:FindFirstChild("Humanoid")
+	Torso = Character:FindFirstChild("Torso") or Character:FindFirstChild("UpperTorso")
+	Player = Players:GetPlayerFromCharacter(Character)
+end
+
+function Unequipped()
+	for i, v in pairs(Sounds) do
+		v:Stop()
+	end
+end
+
+function OnServerInvoke(player, mode, value)
+	if player == Player and value and CheckIfAlive() then
+		if mode == "MouseClick" then
+			local Down = value.Down
+			local Target = value.Target
+			Activated(Target.Parent)
+		end
+	end
+end
+
+function InvokeClient(Mode, Value)
+	local ClientReturn = nil
+	pcall(function()
+		ClientReturn = ClientControl:InvokeClient(Player, Mode, Value)
+	end)
+	return ClientReturn
+end
+
+ServerControl.OnServerInvoke = OnServerInvoke
+Tool.Equipped:connect(Equipped)
+Tool.Unequipped:connect(Unequipped)]]></ProtectedString>
+			</Properties>
+			<Item class="Script" referent="RBX834511B521874E39B73B17C3B6FD8088">
+				<Properties>
+					<bool name="Disabled">true</bool>
+					<Content name="LinkedSource"><null></null></Content>
+					<string name="Name">Animate</string>
+					<string name="ScriptGuid">{C6C7867B-AB13-4A6E-97E6-9D740ACFEFD7}</string>
+					<ProtectedString name="Source"><![CDATA[local debris = game:GetService("Debris")
+local jumpCoolDown = 0
+
+local Figure = script.Parent
+
+local Torso = Figure:WaitForChild("Torso")
+local RightShoulder = Torso:WaitForChild("Right Shoulder")
+local LeftShoulder = Torso:WaitForChild("Left Shoulder")
+local RightHip = Torso:WaitForChild("Right Hip")
+local LeftHip = Torso:WaitForChild("Left Hip")
+local Neck = Torso:WaitForChild("Neck")
+local Humanoid = Figure:WaitForChild("Humanoid")
+
+local pose = "Standing"
+local toolAnim = "None"
+local toolAnimTime = 0
+local isSeated = false
+
+function onRunning(speed)
+	if isSeated then
+		return
+	end
+	if speed > 0 then
+		pose = "Running"
+	else
+		pose = "Standing"
+	end
+end
+
+function onDied()
+	pose = "Dead"
+end
+
+function onJumping()
+	isSeated = false
+	pose = "Jumping"
+end
+
+function onClimbing()
+	pose = "Climbing"
+end
+
+function onGettingUp()
+	pose = "GettingUp"
+end
+
+function onFreeFall()
+	pose = "FreeFall"
+end
+
+function onFallingDown()
+	pose = "FallingDown"
+end
+
+function onSeated()
+	isSeated = true
+	pose = "Seated"
+end
+
+function moveJump()
+	RightShoulder.MaxVelocity = 0.5
+	LeftShoulder.MaxVelocity = 0.5
+	RightShoulder.DesiredAngle = math.pi
+	LeftShoulder.DesiredAngle = -math.pi
+	RightHip.DesiredAngle = 0
+	LeftHip.DesiredAngle = 0
+end
+
+function moveFreeFall()
+	RightShoulder.MaxVelocity = 0.5
+	LeftShoulder.MaxVelocity = 0.5
+	RightShoulder.DesiredAngle = math.pi
+	LeftShoulder.DesiredAngle = -math.pi
+	RightHip.DesiredAngle = 0
+	LeftHip.DesiredAngle = 0
+end
+
+function moveSit()
+	RightShoulder.MaxVelocity = 0.15
+	LeftShoulder.MaxVelocity = 0.15
+	RightShoulder.DesiredAngle = math.pi /2
+	LeftShoulder.DesiredAngle = -math.pi /2
+	RightHip.DesiredAngle = math.pi /2
+	LeftHip.DesiredAngle = -math.pi /2
+end
+
+function getTool()
+	kidTable = Figure:children()
+	if (kidTable ~= nil) then
+		numKids = #kidTable
+		for i=1,numKids do
+			if (kidTable[i].className == "Tool") then
+				return kidTable[i]
+			end
+		end
+	end
+	return nil
+end
+
+function getToolAnim(tool)
+	c = tool:children()
+	for i=1,#c do
+		if (c[i].Name == "toolanim" and c[i].className == "StringValue") then
+			return c[i]
+		end
+	end
+	return nil
+end
+
+function animateTool()
+	if (toolAnim == "None") then
+		RightShoulder.DesiredAngle = (math.pi / 2)
+		return
+	end
+	if (toolAnim == "Slash") then
+		RightShoulder.MaxVelocity = 0.5
+		RightShoulder.DesiredAngle = 0
+		return
+	end
+	if (toolAnim == "Lunge") then
+		RightShoulder.MaxVelocity = 0.5
+		LeftShoulder.MaxVelocity = 0.5
+		RightHip.MaxVelocity = 0.5
+		LeftHip.MaxVelocity = 0.5
+		RightShoulder.DesiredAngle = (math.pi / 2)
+		LeftShoulder.DesiredAngle = 1.0
+		RightHip.DesiredAngle = (math.pi / 2)
+		LeftHip.DesiredAngle = 1.0
+		return
+	end
+end
+
+ function move(time)
+	local amplitude
+	local frequency
+	if (pose == "Jumping") then
+		moveJump()
+		return
+	end
+	if (pose == "FreeFall") then
+		moveFreeFall()
+		return
+	end
+	if (pose == "Seated") then
+		moveSit()
+		return
+	end
+	local climbFudge = 0
+	if (pose == "Running") then
+		RightShoulder.MaxVelocity = 0.15
+		LeftShoulder.MaxVelocity = 0.15
+		amplitude = 1
+		frequency = 9
+	elseif (pose == "Climbing") then
+		RightShoulder.MaxVelocity = 0.5 
+		LeftShoulder.MaxVelocity = 0.5
+		amplitude = 1
+		frequency = 9
+		climbFudge = math.pi
+	else
+		amplitude = 0.1
+		frequency = 1
+	end 
+	desiredAngle = amplitude * math.sin(time*frequency) 
+	RightShoulder.DesiredAngle = desiredAngle + climbFudge
+	LeftShoulder.DesiredAngle = desiredAngle - climbFudge
+	RightHip.DesiredAngle = -desiredAngle
+	LeftHip.DesiredAngle = -desiredAngle
+	local tool = getTool()
+	if tool ~= nil then
+		animStringValueObject = getToolAnim(tool)
+		if animStringValueObject ~= nil then
+			toolAnim = animStringValueObject.Value
+			-- message recieved, delete StringValue
+			animStringValueObject.Parent = nil
+			toolAnimTime = time + .3
+		end
+		if time > toolAnimTime then
+			toolAnimTime = 0
+			toolAnim = "None"
+		end
+		animateTool()
+	else
+		toolAnim = "None"
+		toolAnimTime = 0
+	end
+end
+
+-- connect events
+Humanoid.Died:connect(onDied)
+Humanoid.Running:connect(onRunning)
+Humanoid.Jumping:connect(onJumping)
+Humanoid.Climbing:connect(onClimbing)
+Humanoid.GettingUp:connect(onGettingUp)
+Humanoid.FreeFalling:connect(onFreeFall)
+Humanoid.FallingDown:connect(onFallingDown)
+Humanoid.Seated:connect(onSeated)
+
+ -- main program
+local nextTime = 0
+local runService = game:service("RunService");
+Humanoid.Health = Humanoid.MaxHealth
+PersonToPester = Figure:FindFirstChild("PersonToPester")
+while Figure.Parent~=nil do
+	time = runService.Stepped:wait()
+	if time > nextTime then
+		move(time)
+		nextTime = time + 0.1
+		if Humanoid.Health <= 0 then
+			wait(4)
+			Humanoid.Parent:remove()
+		end
+		if not PersonToPester.Value or not PersonToPester.Value:FindFirstChild("Torso") then
+			Humanoid:MoveTo(Vector3.new(Humanoid.Parent.Torso.Position.x + math.random(-20,20),Humanoid.Parent.Torso.Position.y,Humanoid.Parent.Torso.Position.z + math.random(-10,10)) , Humanoid.Parent.Torso)
+			wait(1)
+		else
+			if PersonToPester.Value then
+				local torso = PersonToPester.Value:FindFirstChild("Torso")
+				if torso then
+					Humanoid:MoveTo(torso.Position,Humanoid.Parent.Torso)		
+					if torso.Position.y > Torso.Position.y + 3 and jumpCoolDown <= 0 then
+						local force = Instance.new("BodyForce")
+						force.force = Vector3.new(0,20000,0)
+						force.Parent = Torso
+						debris:AddItem(force,0.05)
+						Humanoid.Jump = true
+						jumpCoolDown = 10
+					end
+				end
+			end
+		end
+		if jumpCoolDown > 0 then
+			jumpCoolDown = jumpCoolDown - 1
+		end
+	end
+end]]></ProtectedString>
+				</Properties>
+			</Item>
+			<Item class="Script" referent="RBXAD78261C271747BD9BE94F0944CAC02B">
+				<Properties>
+					<bool name="Disabled">true</bool>
+					<Content name="LinkedSource"><null></null></Content>
+					<string name="Name">MessageScript</string>
+					<string name="ScriptGuid">{6D10E800-A3FA-42DF-BBFB-AEA98F5C229C}</string>
+					<ProtectedString name="Source"><![CDATA[--Fixed by Luckymaxer
+
+Figure = script.Parent
+
+Players = game:GetService("Players")
+
+PersonToPester = Figure:WaitForChild("PersonToPester")
+
+local noobSayings = 
+	{"Will you donate me? plz?",
+	"THIS IS NOT FAKE BUILDERMAN TOLD ME HOW TO GET 1000000000 ROBUX AND TIX SO COPY THIS ON 10 HATS AND LOOK AT YOUR MONEY",
+	"Come to my place to get on film!",
+	"Can I friend you?",
+	"What is a 'noob'?",
+	"Plz join my group",
+	"Why are you running away?",
+	"I'm totally 1337",
+	"How do I get Robux?",
+	"Hi."
+}
+
+local Debris = game:GetService("Debris") 
+
+Message = script:WaitForChild("Message"):Clone()
+
+function saySomething(player, duration)
+	if not player then
+		return
+	end
+	local PlayerGui = player:FindFirstChild("PlayerGui")
+	if not PlayerGui then
+		return
+	end
+	local NewMsg = Message:Clone()
+	NewMsg.Frame.TextLabel.Text = noobSayings[math.random(1,#noobSayings)]
+	Debris:AddItem(NewMsg, duration)
+	NewMsg.Parent = PlayerGui
+end
+
+while true do
+	wait(5)
+	local Player = Players:GetPlayerFromCharacter(PersonToPester.Value)
+	if Player then
+		saySomething(Player, 5)
+	end
+end
+
+]]></ProtectedString>
+				</Properties>
+				<Item class="ScreenGui" referent="RBXA43B3A876C3E4093824B2C66C6AFF6CB">
+					<Properties>
+						<int name="DisplayOrder">0</int>
+						<bool name="Enabled">true</bool>
+						<string name="Name">Message</string>
+						<bool name="ResetOnSpawn">true</bool>
+					</Properties>
+					<Item class="Frame" referent="RBX7560C05B16454EE9BD821F9B707ACF72">
+						<Properties>
+							<bool name="Active">false</bool>
+							<Vector2 name="AnchorPoint">
+								<X>0</X>
+								<Y>0</Y>
+							</Vector2>
+							<Color3 name="BackgroundColor3">4289374890</Color3>
+							<float name="BackgroundTransparency">0.5</float>
+							<Color3 name="BorderColor3">4279970357</Color3>
+							<int name="BorderSizePixel">0</int>
+							<bool name="ClipsDescendants">false</bool>
+							<bool name="Draggable">false</bool>
+							<string name="Name">Frame</string>
+							<Ref name="NextSelectionDown">null</Ref>
+							<Ref name="NextSelectionLeft">null</Ref>
+							<Ref name="NextSelectionRight">null</Ref>
+							<Ref name="NextSelectionUp">null</Ref>
+							<UDim2 name="Position">
+								<XS>0</XS>
+								<XO>25</XO>
+								<YS>0</YS>
+								<YO>25</YO>
+							</UDim2>
+							<float name="Rotation">0</float>
+							<bool name="Selectable">false</bool>
+							<Ref name="SelectionImageObject">null</Ref>
+							<UDim2 name="Size">
+								<XS>0</XS>
+								<XO>250</XO>
+								<YS>0</YS>
+								<YO>150</YO>
+							</UDim2>
+							<token name="SizeConstraint">0</token>
+							<token name="Style">0</token>
+							<bool name="Visible">true</bool>
+							<int name="ZIndex">1</int>
+						</Properties>
+						<Item class="TextLabel" referent="RBXFF7E50A79973409381D3ECDDD9B68B93">
+							<Properties>
+								<bool name="Active">false</bool>
+								<Vector2 name="AnchorPoint">
+									<X>0</X>
+									<Y>0</Y>
+								</Vector2>
+								<Color3 name="BackgroundColor3">4294967295</Color3>
+								<float name="BackgroundTransparency">1</float>
+								<Color3 name="BorderColor3">4279970357</Color3>
+								<int name="BorderSizePixel">0</int>
+								<bool name="ClipsDescendants">false</bool>
+								<bool name="Draggable">false</bool>
+								<token name="Font">3</token>
+								<token name="FontSize">7</token>
+								<string name="Name">TextLabel</string>
+								<Ref name="NextSelectionDown">null</Ref>
+								<Ref name="NextSelectionLeft">null</Ref>
+								<Ref name="NextSelectionRight">null</Ref>
+								<Ref name="NextSelectionUp">null</Ref>
+								<UDim2 name="Position">
+									<XS>0</XS>
+									<XO>0</XO>
+									<YS>0</YS>
+									<YO>0</YO>
+								</UDim2>
+								<float name="Rotation">0</float>
+								<bool name="Selectable">false</bool>
+								<Ref name="SelectionImageObject">null</Ref>
+								<UDim2 name="Size">
+									<XS>1</XS>
+									<XO>0</XO>
+									<YS>1</YS>
+									<YO>0</YO>
+								</UDim2>
+								<token name="SizeConstraint">0</token>
+								<string name="Text"></string>
+								<Color3 name="TextColor3">4279970357</Color3>
+								<bool name="TextScaled">false</bool>
+								<float name="TextSize">24</float>
+								<Color3 name="TextStrokeColor3">4278190080</Color3>
+								<float name="TextStrokeTransparency">1</float>
+								<float name="TextTransparency">0</float>
+								<bool name="TextWrapped">true</bool>
+								<token name="TextXAlignment">2</token>
+								<token name="TextYAlignment">1</token>
+								<bool name="Visible">true</bool>
+								<int name="ZIndex">1</int>
+							</Properties>
+						</Item>
+					</Item>
+				</Item>
+			</Item>
+			<Item class="Script" referent="RBXECB7935B19694E67ACE7E4B7D0FB2ABA">
+				<Properties>
+					<bool name="Disabled">true</bool>
+					<Content name="LinkedSource"><null></null></Content>
+					<string name="Name">Welder</string>
+					<string name="ScriptGuid">{FC9C7E5E-6379-4947-9E47-82FF262FAE81}</string>
+					<ProtectedString name="Source"><![CDATA[local noob= script.Parent
+
+noob.Torso.Anchored = true
+noob.LeftArm.Anchored = true
+noob.RightArm.Anchored = true
+noob.LeftLeg.Anchored = true
+noob.RightLeg.Anchored = true
+noob.Head.Anchored = true
+
+local keepYoHead = Instance.new("Weld")
+keepYoHead.Part0 = noob.Head
+keepYoHead.Part1 = noob.Torso
+keepYoHead.C0 = CFrame.new(0,-1.5,0)
+keepYoHead.Parent = noob.Head
+
+local keepYoRightArm = Instance.new("Weld")
+keepYoRightArm.Part0 = noob.Torso
+keepYoRightArm.Part1 = noob.RightArm
+keepYoRightArm.C0 = CFrame.new(1.5,0,0)
+keepYoRightArm.Parent = noob.Torso
+
+local keepYoLeftArm = Instance.new("Weld")
+keepYoLeftArm.Part0 = noob.Torso
+keepYoLeftArm.Part1 = noob.LeftArm
+keepYoLeftArm.C0 = CFrame.new(-1.5,0,0)
+keepYoLeftArm.Parent = noob.Torso
+
+local keepYoLeftLeg = Instance.new("Weld")
+keepYoLeftLeg.Part0 = noob.Torso
+keepYoLeftLeg.Part1 = noob.LeftLeg
+keepYoLeftLeg.C0 = CFrame.new(-0.5,-2,0)
+keepYoLeftLeg.Parent = noob.Torso
+
+local keepYoRightLeg = Instance.new("Weld")
+keepYoRightLeg.Part0 = noob.Torso
+keepYoRightLeg.Part1 = noob.RightLeg
+keepYoRightLeg.C0 = CFrame.new(0.5,-2,0)
+keepYoRightLeg.Parent = noob.Torso
+
+noob.Torso.Anchored = false
+noob.LeftArm.Anchored = false
+noob.RightArm.Anchored = false
+noob.LeftLeg.Anchored = false
+noob.RightLeg.Anchored = false
+noob.Head.Anchored = false
+]]></ProtectedString>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="LocalScript" referent="RBX4FF15FBB2B1A4ED1A3EBD0061051CA2E">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">MouseIcon</string>
+				<string name="ScriptGuid"></string>
+				<ProtectedString name="Source"><![CDATA[--Made by Luckymaxer
+
+Mouse_Icon = "http://www.mulrbx.com/asset/?id=27404887"
+Reloading_Icon = "http://www.mulrbx.com/asset/?id=27398778"
+
+Tool = script.Parent
+
+Mouse = nil
+
+function UpdateIcon()
+	if Mouse then
+		Mouse.Icon = Tool.Enabled and Mouse_Icon or Reloading_Icon
+	end
+end
+
+function OnEquipped(ToolMouse)
+	Mouse = ToolMouse
+	UpdateIcon()
+end
+
+function OnChanged(Property)
+	if Property == "Enabled" then
+		UpdateIcon()
+	end
+end
+
+Tool.Equipped:connect(OnEquipped)
+Tool.Changed:connect(OnChanged)]]></ProtectedString>
+			</Properties>
+		</Item>
+		<Item class="LocalScript" referent="RBX5919C497B6FB4FF28E7CCE7FE7B09332">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">LocalScript</string>
+				<string name="ScriptGuid"></string>
+				<ProtectedString name="Source"><![CDATA[--Made by Luckymaxer
+
+Tool = script.Parent
+Handle = Tool:WaitForChild("Handle")
+
+Players = game:GetService("Players")
+
+ServerControl = Tool:WaitForChild("ServerControl")
+ClientControl = Tool:WaitForChild("ClientControl")
+
+ToolEquipped = false
+
+function CheckIfAlive()
+	return (((Player and Player.Parent and Humanoid and Humanoid.Parent and Humanoid.Health > 0) and true) or false)
+end
+
+function Equipped(Mouse)
+	Character = Tool.Parent
+	Player = Players:GetPlayerFromCharacter(Character)
+	Humanoid = Character:FindFirstChild("Humanoid")
+	ToolEquipped = true
+	if not CheckIfAlive() then
+		return
+	end
+	PlayerMouse = Player:GetMouse()
+	Mouse.Button1Down:connect(function()
+		InvokeServer("MouseClick", {Down = true, Target = Mouse.Target})
+	end)
+	Mouse.Button1Up:connect(function()
+		InvokeServer("MouseClick", {Down = false, Target = Mouse.Target})
+	end)
+end
+
+function Unequipped()
+	ToolEquipped = false
+end
+
+function InvokeServer(Mode, Value)
+	pcall(function()
+		local ServerReturn = ServerControl:InvokeServer(Mode, Value)
+		return ServerReturn
+	end)
+end
+
+function OnClientInvoke(Mode, Value)
+	if Mode == "MousePosition" then
+		return PlayerMouse.Hit.p
+	end
+end
+
+Tool.Equipped:connect(Equipped)
+Tool.Unequipped:connect(Unequipped)
+ClientControl.OnClientInvoke = OnClientInvoke]]></ProtectedString>
+			</Properties>
+		</Item>
+	</Item>
+</roblox>

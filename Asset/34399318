@@ -1,0 +1,711 @@
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mulrbx.com/roblox.xsd" version="4">
+	<External>null</External>
+	<External>nil</External>
+	<Item class="Tool" referent="RBX4882E9CC144840E08A1CAF6BE7D6F20C">
+		<Properties>
+			<bool name="CanBeDropped">true</bool>
+			<bool name="Enabled">true</bool>
+			<CoordinateFrame name="Grip">
+				<X>0</X>
+				<Y>-0.800000012</Y>
+				<Z>0.800000012</Z>
+				<R00>0.707106769</R00>
+				<R01>0</R01>
+				<R02>-0.707106769</R02>
+				<R10>-0</R10>
+				<R11>1</R11>
+				<R12>-0</R12>
+				<R20>0.707106769</R20>
+				<R21>0</R21>
+				<R22>0.707106769</R22>
+			</CoordinateFrame>
+			<bool name="ManualActivationOnly">false</bool>
+			<string name="Name">CupcakeLauncher</string>
+			<bool name="RequiresHandle">true</bool>
+			<Content name="TextureId"><url>http://www.mulrbx.com/asset/?id=34250152</url></Content>
+			<string name="ToolTip"></string>
+		</Properties>
+		<Item class="Part" referent="RBXB1969B0652514C0893084D53253BAB78">
+			<Properties>
+				<bool name="Anchored">false</bool>
+				<float name="BackParamA">-0.5</float>
+				<float name="BackParamB">0.5</float>
+				<token name="BackSurface">0</token>
+				<token name="BackSurfaceInput">0</token>
+				<float name="BottomParamA">-0.5</float>
+				<float name="BottomParamB">0.5</float>
+				<token name="BottomSurface">0</token>
+				<token name="BottomSurfaceInput">0</token>
+				<int name="BrickColor">194</int>
+				<CoordinateFrame name="CFrame">
+					<X>0.5</X>
+					<Y>1.30000007</Y>
+					<Z>0</Z>
+					<R00>-1</R00>
+					<R01>0</R01>
+					<R02>0</R02>
+					<R10>0</R10>
+					<R11>1</R11>
+					<R12>0</R12>
+					<R20>0</R20>
+					<R21>0</R21>
+					<R22>-1</R22>
+				</CoordinateFrame>
+				<bool name="CanCollide">true</bool>
+				<PhysicalProperties name="CustomPhysicalProperties">
+					<CustomPhysics>false</CustomPhysics>
+				</PhysicalProperties>
+				<float name="Elasticity">0.5</float>
+				<float name="Friction">0.300000012</float>
+				<float name="FrontParamA">-0.5</float>
+				<float name="FrontParamB">0.5</float>
+				<token name="FrontSurface">0</token>
+				<token name="FrontSurfaceInput">0</token>
+				<float name="LeftParamA">-0.5</float>
+				<float name="LeftParamB">0.5</float>
+				<token name="LeftSurface">0</token>
+				<token name="LeftSurfaceInput">0</token>
+				<bool name="Locked">true</bool>
+				<token name="Material">256</token>
+				<string name="Name">Handle</string>
+				<float name="Reflectance">0</float>
+				<float name="RightParamA">-0.5</float>
+				<float name="RightParamB">0.5</float>
+				<token name="RightSurface">0</token>
+				<token name="RightSurfaceInput">0</token>
+				<Vector3 name="RotVelocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<float name="TopParamA">-0.5</float>
+				<float name="TopParamB">0.5</float>
+				<token name="TopSurface">0</token>
+				<token name="TopSurfaceInput">0</token>
+				<float name="Transparency">0</float>
+				<Vector3 name="Velocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<token name="formFactorRaw">2</token>
+				<token name="shape">1</token>
+				<Vector3 name="size">
+					<X>1</X>
+					<Y>1.60000002</Y>
+					<Z>3</Z>
+				</Vector3>
+			</Properties>
+			<Item class="Sound" referent="RBX5B395F66A0514B4B947477CD07E3FA58">
+				<Properties>
+					<float name="EmitterSize">10</float>
+					<bool name="Looped">false</bool>
+					<string name="Name">CakeBang</string>
+					<bool name="PlayOnRemove">false</bool>
+					<float name="PlaybackSpeed">1</float>
+					<bool name="Playing">false</bool>
+					<token name="RollOffMode">0</token>
+					<Ref name="SoundGroup">null</Ref>
+					<Content name="SoundId"><url>http://www.mulrbx.com/asset/?id= 34365512</url></Content>
+					<double name="TimePosition">0</double>
+					<float name="Volume">0</float>
+					<float name="xmlRead_MaxDistance_3">10000</float>
+				</Properties>
+			</Item>
+			<Item class="SpecialMesh" referent="RBXD7852B2485E74F0F9F941F123C85C475">
+				<Properties>
+					<token name="LODX">2</token>
+					<token name="LODY">2</token>
+					<Content name="MeshId"><url>http://www.mulrbx.com/asset/?id=34249026</url></Content>
+					<token name="MeshType">5</token>
+					<string name="Name">Mesh</string>
+					<Vector3 name="Offset">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+					<Vector3 name="Scale">
+						<X>1</X>
+						<Y>1</Y>
+						<Z>1</Z>
+					</Vector3>
+					<Content name="TextureId"><url>http://www.mulrbx.com/asset/?id=34249993</url></Content>
+					<Vector3 name="VertexColor">
+						<X>1</X>
+						<Y>1</Y>
+						<Z>1</Z>
+					</Vector3>
+				</Properties>
+			</Item>
+			<Item class="Attachment" referent="RBX631D6AFA0F0B42DD844EAA35E616A647">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>-0.5</Y>
+						<Z>1.25</Z>
+						<R00>0</R00>
+						<R01>0</R01>
+						<R02>-1</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>1</R20>
+						<R21>0</R21>
+						<R22>0</R22>
+					</CoordinateFrame>
+					<string name="Name">RightGripAttachment</string>
+					<bool name="Visible">false</bool>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="Script" referent="RBXDC291D161D1A4D9188A8A6C406BC5588">
+			<Properties>
+				<bool name="Disabled">true</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">LaserBlast</string>
+				<string name="ScriptGuid">{0493F6B3-FD50-49F5-B076-C18A99B39CA0}</string>
+				<ProtectedString name="Source"><![CDATA[ball = script.Parent
+damage = 10
+
+HitSound = Instance.new("Sound")
+HitSound.Name = "HitSound"
+HitSound.SoundId = "http://www.mulrbx.com/asset/?id=34376514"
+HitSound.Parent = ball
+HitSound.Volume = 1
+
+hitPerson = false
+
+function onTouched(hit)
+	if hitPerson then return end
+	if hit == nil or hit.Parent == nil then return end
+	local humanoid = hit.Parent:findFirstChild("Humanoid")
+
+	if humanoid ~= nil then
+		hitPerson = true
+		humanoid:TakeDamage(damage)
+		HitSound:Play()
+
+		myPlayer = game.Players:GetPlayerFromCharacter(humanoid.Parent)
+		if myPlayer == nil then
+			ball.Parent = nil
+			return
+		end
+		cScreen = myPlayer.PlayerGui:FindFirstChild("CakeScreen")
+		if (cScreen == nil) then
+			-- need to make a new cScreen
+			cScreen = script:FindFirstChild("CakeScreen")
+			if cScreen == nil then print("CSCREEN NOT CLONEABLE!") end
+			cScreen:Clone().Parent = myPlayer.PlayerGui
+		end
+
+		cScript = script:FindFirstChild("CakeScript")
+		if (cScript == nil) then print("CSCRIPT NOT CLONEABLE!") end
+		newCScript = cScript:Clone()
+		newCScript.Parent = myPlayer.PlayerGui
+		newCScript.Disabled = false
+	end
+
+	ball.Parent = nil
+
+--	HitSound:Play()
+--	ball.Parent = nil
+	--print("Hit Ground At: ")
+	--print(ball.Position)
+	--[[if not hitPerson then ball.Parent = nil
+	elseif humanoid ~= nil then
+		ball.BodyForce.force = Vector3.new(0,ball:GetMass()*196.1643,0)
+		ball.Velocity = Vector3.new(0,0,0)
+		ball.RotVelocity = Vector3.new(0,0,0)
+		--[[bodyPart = nil
+		switch = math.random(1,6)
+		if switch == 1 then ball.Position = humanoid.Parent.Head.Position end
+		if switch == 2 then ball.Position = humanoid.Parent.Torso.Position end
+		if switch == 3 then
+			bodyPart = humanoid.Parent:findFirstChild("Left Arm")
+		end
+		if switch == 4 then
+			bodyPart = humanoid.Parent:findFirstChild("Right Arm")
+		end
+		if switch == 5 then
+			bodyPart = humanoid.Parent:findFirstChild("Left Leg")
+		end
+		if switch == 6 then
+			bodyPart = humanoid.Parent:findFirstChild("Right Leg")
+		end
+		if bodyPart ~= nil then
+			ball.Position = bodyPart.Position
+		end
+		print(switch)
+		--ball.Position = hit.Position+Vector3.new((math.random()-.5)*2, (math.random()-.5)*2, (math.random()-.5)*2)
+		--print(hit)
+		]]--]]
+		--ball.Position = humanoid.Parent.Head.Position+Vector3.new(math.random()-.5, math.random()-.5, math.random()-.5)
+	--end
+end
+
+connection = ball.Touched:connect(onTouched)
+
+
+function isNotCreator(target)
+	name_tag = ball:findFirstChild("creator")
+	if name_tag == nil then return false end
+
+	--print(target)
+	--print(name_tag.Value)
+
+	if (target == name_tag.Value) then return false
+	else return true end
+end
+
+
+for i = 1,50 do
+	if not hitPerson then
+	myPlayers = game.Players:GetPlayers()
+
+	local bestTarget = nil
+	local bestDistance = 1000
+	
+	-- search for closest potential target
+	for j = 1, #myPlayers do
+		if myPlayers[j] ~= nil then
+			if isNotCreator(myPlayers[j]) then
+				newDistance = myPlayers[j]:DistanceFromCharacter(ball.Position)
+				if newDistance < bestDistance then
+					bestDistance = newDistance
+					bestTarget = myPlayers[j]
+				end
+			end
+		end
+	end
+
+	--if bestTarget ~= nil and ball.Velocity.Y < 0 then
+	if bestTarget ~= nil then
+		-- home in on this target
+		--print("homing")
+		dPos = bestTarget.Character.PrimaryPart.Position - ball.Position
+		--ball.BodyForce.force = dPos*.01
+		--ball.Velocity = Vector3.new(dPos.unit.X*15, 0, dPos.unit.Z*15)
+
+		-- 2D-angle-back-solving-code
+		-- A is deltaY, B is (.5*g*deltaX^2)/v^2, and C is deltaX
+		-- then our quadratic to be solved is (A^2+C^2)*x^2 + (2AB-C^2)*x + B^2
+		-- where x is cos(theta)*cos(theta)
+
+		-- we solve for the optimal angle to be traveling at this speed (given gravity), and then adjust the velocities
+		--    to go closer to this optimal angle-based velocity (using a weighted average)
+
+		deltaX = math.sqrt(dPos.X*dPos.X+dPos.Z*dPos.Z)
+		vSq = ball.Velocity:Dot(ball.Velocity)
+		A = dPos.Y
+		B = .5*196.1643*deltaX*deltaX/vSq
+		C = deltaX
+
+		qA = A*A+C*C
+		qB = 2*A*B - C*C
+		qC = B*B
+
+		det = qB*qB - 4*qA*qC
+		if qA ~= 0 and det >= 0 then
+			xSquaredPlus = (-qB + math.sqrt(det))/(2*qA)
+			--xSquaredMinus = (-qB - math.sqrt(det)/(2*qA)
+			
+			if xSquaredPlus > 0 then
+				newCosX = math.sqrt(xSquaredPlus)
+				--newAlpha = math.acos(newX)
+				newSinX = (1 - newCosX*newCosX)
+				if newSinX >= 0 then
+					v = math.sqrt(vSq)
+					newSinX = math.sqrt(newSinX)
+
+					if (dPos.Y + B/(newCosX*newCosX)) < 0 then newSinX = -newSinX end
+
+					vXZ = v * newCosX
+					vY = v * newSinX
+					vX = vXZ * dPos.X / deltaX
+					vZ = vXZ * dPos.Z / deltaX
+					--ball.Velocity = Vector3.new(vX, vY, vZ)
+					ball.Velocity = Vector3.new(ball.Velocity.X*.7+vX*.3, ball.Velocity.Y*.7+vY*.3, ball.Velocity.Z*.7+vZ*.3)
+				end
+			end
+		end
+	end
+	wait(.05)
+	end
+end
+--ball.SparkSound.Looped = false
+--ball.SparkSound:Stop()
+if hitPerson then wait(5) end
+ball.Parent = nil]]></ProtectedString>
+			</Properties>
+			<Item class="LocalScript" referent="RBX1C4108C38B7543EBB7CC80DC660E3789">
+				<Properties>
+					<bool name="Disabled">true</bool>
+					<Content name="LinkedSource"><null></null></Content>
+					<string name="Name">CakeScript</string>
+					<string name="ScriptGuid">{9DAD806C-B8E9-44D2-8664-81C3476B419D}</string>
+					<ProtectedString name="Source"><![CDATA[print("You got caked!")
+
+splats = script:FindFirstChild("Splats")
+if splats == nil then
+	splats = Instance.new("Sound")
+	splats.Parent = script
+	splats.Volume = 1
+	splats.Name = "Splats"
+	splats.SoundId = "http://www.mulrbx.com/asset/?id=34376514"
+end
+
+screen = script.Parent:FindFirstChild("CakeScreen")
+if screen == nil then
+	print("Could not find screen in PlayerGUI")
+end
+
+cake = screen:FindFirstChild("cake")
+if cake == nil then
+	print("The Cake Was a Lie! (cake picture could not be found under CakeScreen)")
+end
+
+newCake = cake:Clone()
+newCake.Position = UDim2.new(math.random(), -10, math.random()*.8, -10)
+--newCake.Position = UDim2.new(math.random()*.70+.25, 0, math.random()*.70+.25, 0)
+newCake.Size = UDim2.new(.2, 10, .2, 10)
+newCake.Visible = true
+newCake.Parent = screen
+
+for i = 1,100 do
+	newCake.Size = UDim2.new(.2, 10, .2+i*.008, 10)
+	wait(.1)
+end
+
+--print("Finished cake script!!")
+--script.Disabled = true
+--script.Parent = nil
+]]></ProtectedString>
+				</Properties>
+			</Item>
+			<Item class="ScreenGui" referent="RBX06E6C5C2C3A440BA8E972B18EB907952">
+				<Properties>
+					<int name="DisplayOrder">0</int>
+					<bool name="Enabled">true</bool>
+					<string name="Name">CakeScreen</string>
+					<bool name="ResetOnSpawn">true</bool>
+				</Properties>
+				<Item class="ImageLabel" referent="RBX7397ECA632D641B6BD33A8FE9A5BF5D5">
+					<Properties>
+						<bool name="Active">false</bool>
+						<Vector2 name="AnchorPoint">
+							<X>0</X>
+							<Y>0</Y>
+						</Vector2>
+						<Color3 name="BackgroundColor3">4289374636</Color3>
+						<float name="BackgroundTransparency">1</float>
+						<Color3 name="BorderColor3">4279970357</Color3>
+						<int name="BorderSizePixel">1</int>
+						<bool name="ClipsDescendants">false</bool>
+						<bool name="Draggable">false</bool>
+						<Content name="Image"><url>http://www.mulrbx.com/asset/?id=34377700</url></Content>
+						<Color3 name="ImageColor3">4294967295</Color3>
+						<Vector2 name="ImageRectOffset">
+							<X>0</X>
+							<Y>0</Y>
+						</Vector2>
+						<Vector2 name="ImageRectSize">
+							<X>0</X>
+							<Y>0</Y>
+						</Vector2>
+						<float name="ImageTransparency">0</float>
+						<string name="Name">cake</string>
+						<Ref name="NextSelectionDown">null</Ref>
+						<Ref name="NextSelectionLeft">null</Ref>
+						<Ref name="NextSelectionRight">null</Ref>
+						<Ref name="NextSelectionUp">null</Ref>
+						<UDim2 name="Position">
+							<XS>0</XS>
+							<XO>0</XO>
+							<YS>0</YS>
+							<YO>0</YO>
+						</UDim2>
+						<float name="Rotation">0</float>
+						<token name="ScaleType">0</token>
+						<bool name="Selectable">false</bool>
+						<Ref name="SelectionImageObject">null</Ref>
+						<UDim2 name="Size">
+							<XS>0</XS>
+							<XO>0</XO>
+							<YS>0</YS>
+							<YO>0</YO>
+						</UDim2>
+						<token name="SizeConstraint">0</token>
+						<Rect2D name="SliceCenter">
+							<min>
+								<X>0</X>
+								<Y>0</Y>
+							</min>
+							<max>
+								<X>0</X>
+								<Y>0</Y>
+							</max>
+						</Rect2D>
+						<bool name="Visible">false</bool>
+						<int name="ZIndex">1</int>
+					</Properties>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="Script" referent="RBXCFA48C63469F49FABE5D2F5DBAF38F50">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">CupcakeGun</string>
+				<string name="ScriptGuid">{2CAF5E05-A823-46B1-B222-9D9236E0ADE0}</string>
+				<ProtectedString name="Source"><![CDATA[local Tool = script.Parent;
+
+Tool.Enabled = true
+
+
+function fire(dPos)
+
+	local vCharacter = Tool.Parent
+	local vPlayer = game.Players:playerFromCharacter(vCharacter)
+
+	--This call will cause a "wait" until the data comes back
+	local root = game:GetService("InsertService"):LoadAsset(34384720)
+
+	local instances = root:GetChildren()
+	if #instances == 0 then
+		root:Remove()
+		return
+	end
+
+	root = root:FindFirstChild("Cupcake")
+	if root == nil then return end
+
+	local missile = root:Clone()
+	missile.RotVelocity = Vector3.new((math.random()-.5)*20, (math.random()-.5)*20, (math.random()-.5)*20)
+
+	if vCharacter.Name == "Backpack" then return end
+	local spawnPos = vCharacter.PrimaryPart.Position
+	
+	spawnPos = spawnPos + dPos.unit*5
+	dPos = dPos - dPos.unit * 5
+	
+	-- convert to a 2D space
+	deltaXZSquared = dPos.X*dPos.X + dPos.Z*dPos.Z
+	deltaXZ = math.sqrt(deltaXZSquared)
+	deltaY = dPos.Y
+	
+	--[[print("dPos: ")
+	print(dPos)
+	
+	print("deltaY: ")
+	print(deltaY)
+
+	print("deltaXZ: ")
+	print(deltaXZ)]]--
+
+	-- pick a random medium angle (45 +- 45/2 degrees)
+	alpha = math.random()*math.pi/4 + math.pi/8
+	--alpha = math.pi / 4
+
+	missile.Position = spawnPos
+	missile.Size = Vector3.new(2, 2, 2)
+	
+	
+	-- back-solve for the velocity required to hit the target point
+	--gravity = 196.1643
+	gravity = 196.1643
+	numerator = -0.5*gravity*deltaXZSquared
+	denominator = math.cos(alpha)*math.cos(alpha)*(deltaY - math.tan(alpha)*deltaXZ)
+
+	--[[print("numerator: ")
+	print(numerator)
+	print("denominator: ")
+	print(denominator)]]--
+	
+	if denominator == 0 then return end
+	missileSpeed = math.sqrt(numerator / denominator)
+	if missileSpeed > 200 then missileSpeed = 200 end
+	vXZ = missileSpeed * math.cos(alpha)
+	vY = missileSpeed * math.sin(alpha)
+	vX = vXZ * dPos.X / deltaXZ
+	vZ = vXZ * dPos.Z / deltaXZ
+	missile.Velocity = Vector3.new(vX, vY, vZ)
+	--[[print("missileSpeed: ")
+	print(missileSpeed)
+	print("vY: ")
+	print(vY)
+	print("vX: ")
+	print(vX)
+	print("vZ: ")
+	print(vZ)]]--
+	
+	missile.BrickColor = BrickColor.Random()
+	missile.Shape = 0
+
+--	missile.BottomSurface = 0
+--	missile.TopSurface = 0
+	missile.Name = "Spark"
+	missile.Reflectance = .5
+	missile.Transparency = 0
+	missile.CanCollide = false
+
+
+	local force = Instance.new("BodyForce")
+	force.force = Vector3.new(0,0,0)
+	--force.force = Vector3.new(0,98,0)
+	--force.force = Vector3.new(0, missile:getMass()*200,0)
+	force.Parent = missile
+
+	local creator_tag = Instance.new("ObjectValue")
+	creator_tag.Value = vPlayer
+	creator_tag.Name = "creator"
+	creator_tag.Parent = missile
+	
+	local new_script = script.Parent.LaserBlast:clone()
+	new_script.Disabled = false
+	new_script.Parent = missile
+
+	missile.Parent = game.Workspace
+
+	local cakeBang = Tool.Handle:FindFirstChild("CakeBang")
+	if cakeBang ~= nil then 
+		cakeBang.Volume = 0.5
+		cakeBang:Play() 
+	end
+end
+
+
+
+function gunUp()
+	--Tool.GripForward = Vector3.new(0,.196, -.981)
+	--Tool.GripRight = Vector3.new(1,0,0)
+	--Tool.GripUp = Vector3.new(0,.981, -.196)
+
+	for i = 1,15 do
+		upAngle = math.cos(i*math.pi/60)
+		downAngle = math.sin(i*math.pi/60)
+		Tool.GripForward = Vector3.new(0, downAngle, -upAngle)
+		Tool.GripRight = Vector3.new(1,0,0)
+		Tool.GripUp = Vector3.new(0, upAngle, -downAngle)
+		wait(.02)
+	end
+end
+
+function gunOut()
+
+	for i = 1,15 do
+		upAngle = math.cos((15-i)*math.pi/60)
+		downAngle = math.sin((15-i)*math.pi/60)
+		Tool.GripForward = Vector3.new(0, downAngle, -upAngle)
+		Tool.GripRight = Vector3.new(1,0,0)
+		Tool.GripUp = Vector3.new(0, upAngle, -downAngle)
+		wait(.02)
+	end
+
+	--Tool.GripForward = Vector3.new(0,0,-1)
+	--Tool.GripRight = Vector3.new(1,0,0)
+	--Tool.GripUp = Vector3.new(0,1,0)
+end
+
+function onEquip()
+	Tool.GripUp = Vector3.new(0, 1, 0)
+	Tool.GripRight = Vector3.new(1, 0, 0)
+	Tool.GripForward = Vector3.new(0, 0, -1)
+	Tool.GripPos = Vector3.new(0, -.8, .8)
+end
+
+
+function onActivated()
+	if not Tool.Enabled  then
+		return
+	end
+
+	Tool.Enabled = false
+
+
+	local character = Tool.Parent;
+	local humanoid = character.Humanoid
+	if humanoid == nil then
+		print("Humanoid not found")
+		return 
+	end
+
+	local targetPos = humanoid.TargetPoint
+	local lookAt = (targetPos - character.Head.Position).unit
+
+	local reload = 1.5
+
+
+	gunUp()
+	for i = 1,5 do 
+		local targetPos = humanoid.TargetPoint
+		--local lookAt = (targetPos - character.Head.Position)
+		local lookAt = targetPos - character.PrimaryPart.Position
+		--if (lookAt.magnitude > 1000) then lookAt = lookAt.unit * 1000 end
+		fire(lookAt) 
+		wait(.6)
+	end
+	wait(reload)
+	gunOut()
+	wait(reload)
+
+	cakeBang = Tool.Handle:FindFirstChild("CakeBang")
+	if cakeBang ~= nil then cakeBang.Volume = 0 end
+
+	Tool.Enabled = true
+end
+
+script.Parent.Activated:connect(onActivated)
+script.Parent.Equipped:connect(onEquip)]]></ProtectedString>
+			</Properties>
+		</Item>
+		<Item class="LocalScript" referent="RBX64CB2F20AA844F109CF877A903963AD2">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">Local Gui</string>
+				<string name="ScriptGuid"></string>
+				<ProtectedString name="Source"><![CDATA[local Tool = script.Parent;
+
+enabled = true
+function onButton1Down(mouse)
+	if not enabled then
+		return
+	end
+	print("ending")
+	enabled = false
+
+	while Tool.Enabled do
+		wait(.01)
+	end
+
+	print("Setting Mouse To Wait")
+	mouse.Icon = "rbxasset://textures\\GunWaitCursor.png"
+
+	while not Tool.Enabled do
+		wait(.01)
+	end
+
+	print("Setting Mouse to Go")
+	mouse.Icon = "rbxasset://textures\\GunCursor.png"
+
+	enabled = true
+end
+
+function onEquippedLocal(mouse)
+
+	if mouse == nil then
+		print("Mouse not found")
+		return 
+	end
+
+	mouse.Icon = "rbxasset://textures\\GunCursor.png"
+	mouse.Button1Down:connect(function() onButton1Down(mouse) end)
+end
+
+
+Tool.Equipped:connect(onEquippedLocal)
+]]></ProtectedString>
+			</Properties>
+		</Item>
+	</Item>
+</roblox>

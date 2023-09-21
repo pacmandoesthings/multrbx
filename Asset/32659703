@@ -1,0 +1,707 @@
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mulrbx.com/roblox.xsd" version="4" assettype="animation">
+	<External>null</External>
+	<External>nil</External>
+	<Item class="KeyframeSequence" referent="RBX0">
+		<Properties>
+			<bool name="Loop">false</bool>
+			<string name="Name">KeyframeSequence</string>
+			<token name="Priority">2</token>
+			<bool name="archivable">true</bool>
+		</Properties>
+		<Item class="Keyframe" referent="RBX1">
+			<Properties>
+				<string name="Name">Keyframe</string>
+				<float name="Time">0</float>
+				<bool name="archivable">true</bool>
+			</Properties>
+			<Item class="Pose" referent="RBX2">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<float name="MaskWeight">0</float>
+					<string name="Name">Torso</string>
+					<float name="Weight">1</float>
+					<bool name="archivable">true</bool>
+				</Properties>
+				<Item class="Pose" referent="RBX3">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0</X>
+							<Y>0</Y>
+							<Z>0</Z>
+							<R00>-0.00247470685</R00>
+							<R01>-0.99999696</R01>
+							<R02>0</R02>
+							<R10>0.99999696</R10>
+							<R11>-0.00247470685</R11>
+							<R12>0</R12>
+							<R20>0</R20>
+							<R21>0</R21>
+							<R22>1</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Right Arm</string>
+						<float name="Weight">1</float>
+						<bool name="archivable">true</bool>
+					</Properties>
+				</Item>
+				<Item class="Pose" referent="RBX4">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0</X>
+							<Y>0</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0</R20>
+							<R21>0</R21>
+							<R22>1</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Left Arm</string>
+						<float name="Weight">1</float>
+						<bool name="archivable">true</bool>
+					</Properties>
+				</Item>
+				<Item class="Pose" referent="RBX5">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0</X>
+							<Y>0</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0</R20>
+							<R21>0</R21>
+							<R22>1</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Right Leg</string>
+						<float name="Weight">1</float>
+						<bool name="archivable">true</bool>
+					</Properties>
+				</Item>
+				<Item class="Pose" referent="RBX6">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0</X>
+							<Y>0</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0</R20>
+							<R21>0</R21>
+							<R22>1</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Left Leg</string>
+						<float name="Weight">1</float>
+						<bool name="archivable">true</bool>
+					</Properties>
+				</Item>
+				<Item class="Pose" referent="RBX7">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0</X>
+							<Y>0</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0</R20>
+							<R21>0</R21>
+							<R22>1</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Head</string>
+						<float name="Weight">1</float>
+						<bool name="archivable">true</bool>
+					</Properties>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="Keyframe" referent="RBX8">
+			<Properties>
+				<string name="Name">Keyframe</string>
+				<float name="Time">0.200000003</float>
+				<bool name="archivable">true</bool>
+			</Properties>
+			<Item class="Pose" referent="RBX9">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<float name="MaskWeight">0</float>
+					<string name="Name">Torso</string>
+					<float name="Weight">1</float>
+					<bool name="archivable">true</bool>
+				</Properties>
+				<Item class="Pose" referent="RBX10">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0</X>
+							<Y>0</Y>
+							<Z>0</Z>
+							<R00>-0.00247470685</R00>
+							<R01>-0.824536204</R01>
+							<R02>0.565803766</R02>
+							<R10>0.99999696</R10>
+							<R11>-0.00204049167</R11>
+							<R12>0.00140020275</R12>
+							<R20>0</R20>
+							<R21>0.565805495</R21>
+							<R22>0.824538708</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Right Arm</string>
+						<float name="Weight">1</float>
+						<bool name="archivable">true</bool>
+					</Properties>
+				</Item>
+				<Item class="Pose" referent="RBX11">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>-0.352362454</X>
+							<Y>-0.0807147026</Y>
+							<Z>-0.304866105</Z>
+							<R00>0.2411495</R00>
+							<R01>0.530773997</R01>
+							<R02>-0.812481403</R02>
+							<R10>-0.970487952</R10>
+							<R11>0.131888151</R11>
+							<R12>-0.201887578</R12>
+							<R20>0</R20>
+							<R21>0.837188482</R21>
+							<R22>0.546914458</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Left Arm</string>
+						<float name="Weight">1</float>
+						<bool name="archivable">true</bool>
+					</Properties>
+				</Item>
+				<Item class="Pose" referent="RBX12">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0</X>
+							<Y>0</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0</R20>
+							<R21>0</R21>
+							<R22>1</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Right Leg</string>
+						<float name="Weight">1</float>
+						<bool name="archivable">true</bool>
+					</Properties>
+				</Item>
+				<Item class="Pose" referent="RBX13">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0</X>
+							<Y>0</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0</R20>
+							<R21>0</R21>
+							<R22>1</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Left Leg</string>
+						<float name="Weight">1</float>
+						<bool name="archivable">true</bool>
+					</Properties>
+				</Item>
+				<Item class="Pose" referent="RBX14">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0</X>
+							<Y>0</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0</R20>
+							<R21>0</R21>
+							<R22>1</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Head</string>
+						<float name="Weight">1</float>
+						<bool name="archivable">true</bool>
+					</Properties>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="Keyframe" referent="RBX15">
+			<Properties>
+				<string name="Name">Keyframe</string>
+				<float name="Time">0.400000006</float>
+				<bool name="archivable">true</bool>
+			</Properties>
+			<Item class="Pose" referent="RBX16">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<float name="MaskWeight">0</float>
+					<string name="Name">Torso</string>
+					<float name="Weight">1</float>
+					<bool name="archivable">true</bool>
+				</Properties>
+				<Item class="Pose" referent="RBX17">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0.437156409</X>
+							<Y>0</Y>
+							<Z>0</Z>
+							<R00>0.808042765</R00>
+							<R01>0.0201942492</R01>
+							<R02>0.588777721</R02>
+							<R10>-0.0254813656</R10>
+							<R11>0.999675095</R11>
+							<R12>0.000683352177</R12>
+							<R20>-0.588572621</R20>
+							<R21>-0.0155550372</R21>
+							<R22>0.808294713</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Right Arm</string>
+						<float name="Weight">1</float>
+						<bool name="archivable">true</bool>
+					</Properties>
+				</Item>
+				<Item class="Pose" referent="RBX18">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>-0.664022505</X>
+							<Y>-0.0807147026</Y>
+							<Z>-0.975125432</Z>
+							<R00>0.978206515</R00>
+							<R01>0.179739267</R01>
+							<R02>0.103952587</R02>
+							<R10>-0.0411595106</R10>
+							<R11>0.658573389</R11>
+							<R12>-0.751389921</R12>
+							<R20>-0.203514576</R20>
+							<R21>0.730735898</R21>
+							<R22>0.6516186</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Left Arm</string>
+						<float name="Weight">1</float>
+						<bool name="archivable">true</bool>
+					</Properties>
+				</Item>
+				<Item class="Pose" referent="RBX19">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0</X>
+							<Y>0</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0</R20>
+							<R21>0</R21>
+							<R22>1</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Right Leg</string>
+						<float name="Weight">1</float>
+						<bool name="archivable">true</bool>
+					</Properties>
+				</Item>
+				<Item class="Pose" referent="RBX20">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0</X>
+							<Y>0</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0</R20>
+							<R21>0</R21>
+							<R22>1</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Left Leg</string>
+						<float name="Weight">1</float>
+						<bool name="archivable">true</bool>
+					</Properties>
+				</Item>
+				<Item class="Pose" referent="RBX21">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0</X>
+							<Y>0</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0</R20>
+							<R21>0</R21>
+							<R22>1</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Head</string>
+						<float name="Weight">1</float>
+						<bool name="archivable">true</bool>
+					</Properties>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="Keyframe" referent="RBX22">
+			<Properties>
+				<string name="Name">Keyframe</string>
+				<float name="Time">0.550000012</float>
+				<bool name="archivable">true</bool>
+			</Properties>
+			<Item class="Pose" referent="RBX23">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<float name="MaskWeight">0</float>
+					<string name="Name">Torso</string>
+					<float name="Weight">1</float>
+					<bool name="archivable">true</bool>
+				</Properties>
+				<Item class="Pose" referent="RBX24">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>1.75460279</X>
+							<Y>0</Y>
+							<Z>0</Z>
+							<R00>0.808042765</R00>
+							<R01>0.191560566</R01>
+							<R02>0.557109952</R02>
+							<R10>-0.0254813656</R10>
+							<R11>0.956137896</R11>
+							<R12>-0.291806459</R12>
+							<R20>-0.588572621</R20>
+							<R21>0.221596122</R21>
+							<R22>0.777481437</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Right Arm</string>
+						<float name="Weight">1</float>
+						<bool name="archivable">true</bool>
+					</Properties>
+				</Item>
+				<Item class="Pose" referent="RBX25">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>-1.92431009</X>
+							<Y>-0.0807147026</Y>
+							<Z>-0.975125432</Z>
+							<R00>0.978206515</R00>
+							<R01>0.136613578</R01>
+							<R02>0.156362012</R02>
+							<R10>-0.0411595106</R10>
+							<R11>0.865700543</R11>
+							<R12>-0.498867154</R12>
+							<R20>-0.203514576</R20>
+							<R21>0.481559336</R21>
+							<R22>0.852456689</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Left Arm</string>
+						<float name="Weight">1</float>
+						<bool name="archivable">true</bool>
+					</Properties>
+				</Item>
+				<Item class="Pose" referent="RBX26">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0</X>
+							<Y>0</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0</R20>
+							<R21>0</R21>
+							<R22>1</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Right Leg</string>
+						<float name="Weight">1</float>
+						<bool name="archivable">true</bool>
+					</Properties>
+				</Item>
+				<Item class="Pose" referent="RBX27">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0</X>
+							<Y>0</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0</R20>
+							<R21>0</R21>
+							<R22>1</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Left Leg</string>
+						<float name="Weight">1</float>
+						<bool name="archivable">true</bool>
+					</Properties>
+				</Item>
+				<Item class="Pose" referent="RBX28">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0</X>
+							<Y>0</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0</R20>
+							<R21>0</R21>
+							<R22>1</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Head</string>
+						<float name="Weight">1</float>
+						<bool name="archivable">true</bool>
+					</Properties>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="Keyframe" referent="RBX29">
+			<Properties>
+				<string name="Name">Keyframe</string>
+				<float name="Time">0.699999988</float>
+				<bool name="archivable">true</bool>
+			</Properties>
+			<Item class="Pose" referent="RBX30">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<float name="MaskWeight">0</float>
+					<string name="Name">Torso</string>
+					<float name="Weight">1</float>
+					<bool name="archivable">true</bool>
+				</Properties>
+				<Item class="Pose" referent="RBX31">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0</X>
+							<Y>0</Y>
+							<Z>0</Z>
+							<R00>0.998324811</R00>
+							<R01>-0.0578582063</R01>
+							<R02>0</R02>
+							<R10>0.0578582063</R10>
+							<R11>0.998324811</R11>
+							<R12>0</R12>
+							<R20>0</R20>
+							<R21>0</R21>
+							<R22>1</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Right Arm</string>
+						<float name="Weight">1</float>
+						<bool name="archivable">true</bool>
+					</Properties>
+				</Item>
+				<Item class="Pose" referent="RBX32">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0</X>
+							<Y>0</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0</R20>
+							<R21>0</R21>
+							<R22>1</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Left Arm</string>
+						<float name="Weight">1</float>
+						<bool name="archivable">true</bool>
+					</Properties>
+				</Item>
+				<Item class="Pose" referent="RBX33">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0</X>
+							<Y>0</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0</R20>
+							<R21>0</R21>
+							<R22>1</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Right Leg</string>
+						<float name="Weight">1</float>
+						<bool name="archivable">true</bool>
+					</Properties>
+				</Item>
+				<Item class="Pose" referent="RBX34">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0</X>
+							<Y>0</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0</R20>
+							<R21>0</R21>
+							<R22>1</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Left Leg</string>
+						<float name="Weight">1</float>
+						<bool name="archivable">true</bool>
+					</Properties>
+				</Item>
+				<Item class="Pose" referent="RBX35">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0</X>
+							<Y>0</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0</R20>
+							<R21>0</R21>
+							<R22>1</R22>
+						</CoordinateFrame>
+						<float name="MaskWeight">0</float>
+						<string name="Name">Head</string>
+						<float name="Weight">1</float>
+						<bool name="archivable">true</bool>
+					</Properties>
+				</Item>
+			</Item>
+		</Item>
+	</Item>
+</roblox>

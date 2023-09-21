@@ -1,0 +1,2768 @@
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mulrbx.com/roblox.xsd" version="4">
+	<External>null</External>
+	<External>nil</External>
+	<Item class="Model" referent="RBX0">
+		<Properties>
+			<CoordinateFrame name="ModelInPrimary">
+				<X>0</X>
+				<Y>0</Y>
+				<Z>0</Z>
+				<R00>1</R00>
+				<R01>0</R01>
+				<R02>0</R02>
+				<R10>0</R10>
+				<R11>1</R11>
+				<R12>0</R12>
+				<R20>0</R20>
+				<R21>0</R21>
+				<R22>1</R22>
+			</CoordinateFrame>
+			<string name="Name">MisterRobotGuy</string>
+			<Ref name="PrimaryPart">RBX1</Ref>
+		</Properties>
+		<Item class="Part" referent="RBX1">
+			<Properties>
+				<bool name="Anchored">false</bool>
+				<float name="BackParamA">-0.5</float>
+				<float name="BackParamB">0.5</float>
+				<token name="BackSurface">0</token>
+				<token name="BackSurfaceInput">0</token>
+				<float name="BottomParamA">-0.5</float>
+				<float name="BottomParamB">0.5</float>
+				<token name="BottomSurface">4</token>
+				<token name="BottomSurfaceInput">0</token>
+				<int name="BrickColor">1003</int>
+				<CoordinateFrame name="CFrame">
+					<X>-113.590004</X>
+					<Y>247.600006</Y>
+					<Z>-258.100006</Z>
+					<R00>-1</R00>
+					<R01>0</R01>
+					<R02>0</R02>
+					<R10>0</R10>
+					<R11>1</R11>
+					<R12>0</R12>
+					<R20>0</R20>
+					<R21>0</R21>
+					<R22>-1</R22>
+				</CoordinateFrame>
+				<bool name="CanCollide">true</bool>
+				<float name="Elasticity">0.5</float>
+				<float name="Friction">0.300000012</float>
+				<float name="FrontParamA">-0.5</float>
+				<float name="FrontParamB">0.5</float>
+				<token name="FrontSurface">0</token>
+				<token name="FrontSurfaceInput">0</token>
+				<float name="LeftParamA">-0.5</float>
+				<float name="LeftParamB">0.5</float>
+				<token name="LeftSurface">0</token>
+				<token name="LeftSurfaceInput">0</token>
+				<bool name="Locked">false</bool>
+				<token name="Material">256</token>
+				<string name="Name">Head</string>
+				<float name="Reflectance">0</float>
+				<float name="RightParamA">-0.5</float>
+				<float name="RightParamB">0.5</float>
+				<token name="RightSurface">0</token>
+				<token name="RightSurfaceInput">0</token>
+				<Vector3 name="RotVelocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<float name="TopParamA">-0.5</float>
+				<float name="TopParamB">0.5</float>
+				<token name="TopSurface">0</token>
+				<token name="TopSurfaceInput">0</token>
+				<float name="Transparency">0</float>
+				<Vector3 name="Velocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<token name="formFactorRaw">0</token>
+				<token name="shape">1</token>
+				<Vector3 name="size">
+					<X>2</X>
+					<Y>1</Y>
+					<Z>1</Z>
+				</Vector3>
+			</Properties>
+			<Item class="SpecialMesh" referent="RBX2">
+				<Properties>
+					<token name="LODX">2</token>
+					<token name="LODY">2</token>
+					<Content name="MeshId"><url>http://www.mulrbx.com/asset/?id=18012277</url></Content>
+					<token name="MeshType">5</token>
+					<string name="Name">Mesh</string>
+					<Vector3 name="Offset">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+					<Vector3 name="Scale">
+						<X>1.10000002</X>
+						<Y>1.10000002</Y>
+						<Z>1.10000002</Z>
+					</Vector3>
+					<Content name="TextureId"><url>http://www.mulrbx.com/asset/?id=18012267</url></Content>
+					<Vector3 name="VertexColor">
+						<X>1</X>
+						<Y>1</Y>
+						<Z>1</Z>
+					</Vector3>
+				</Properties>
+			</Item>
+			<Item class="Sound" referent="RBX3">
+				<Properties>
+					<bool name="Looped">false</bool>
+					<string name="Name">Hurt1</string>
+					<float name="Pitch">1</float>
+					<bool name="PlayOnRemove">false</bool>
+					<Content name="SoundId"><url>http://www.mulrbx.com/asset/?ID=130845494</url></Content>
+					<float name="Volume">1</float>
+				</Properties>
+			</Item>
+			<Item class="Sound" referent="RBX4">
+				<Properties>
+					<bool name="Looped">false</bool>
+					<string name="Name">Hurt2</string>
+					<float name="Pitch">1</float>
+					<bool name="PlayOnRemove">false</bool>
+					<Content name="SoundId"><url>http://www.mulrbx.com/asset/?ID=130845508</url></Content>
+					<float name="Volume">1</float>
+				</Properties>
+			</Item>
+			<Item class="Script" referent="RBX5">
+				<Properties>
+					<bool name="Disabled">false</bool>
+					<Content name="LinkedSource"><null></null></Content>
+					<string name="Name">HurtSound</string>
+					<ProtectedString name="Source">script.Parent:WaitForChild(&quot;PlayHurt&quot;).Changed:connect(function ()
+&#9;if script.Parent.PlayHurt.Value == true then
+&#9;&#9;script.Parent.PlayHurt.Value = false
+&#9;&#9;local r = math.random(1,2)
+&#9;&#9;script.Parent:WaitForChild(&quot;Hurt&quot;..r):Play()
+&#9;end
+end)</ProtectedString>
+				</Properties>
+			</Item>
+			<Item class="BoolValue" referent="RBX6">
+				<Properties>
+					<string name="Name">PlayHurt</string>
+					<bool name="Value">false</bool>
+				</Properties>
+			</Item>
+			<Item class="Configuration" referent="RBX7">
+				<Properties>
+					<string name="Name">StalkerVoiceCommands</string>
+				</Properties>
+				<Item class="Sound" referent="RBX8">
+					<Properties>
+						<bool name="Looped">false</bool>
+						<string name="Name">1-1</string>
+						<float name="Pitch">1</float>
+						<bool name="PlayOnRemove">false</bool>
+						<Content name="SoundId"><url>http://www.mulrbx.com/asset/?ID=129569129</url></Content>
+						<float name="Volume">0.5</float>
+					</Properties>
+				</Item>
+				<Item class="Sound" referent="RBX9">
+					<Properties>
+						<bool name="Looped">false</bool>
+						<string name="Name">1-2</string>
+						<float name="Pitch">1</float>
+						<bool name="PlayOnRemove">false</bool>
+						<Content name="SoundId"><url>http://www.mulrbx.com/asset/?ID=129569224</url></Content>
+						<float name="Volume">0.5</float>
+					</Properties>
+				</Item>
+				<Item class="Sound" referent="RBX10">
+					<Properties>
+						<bool name="Looped">false</bool>
+						<string name="Name">2-1</string>
+						<float name="Pitch">1</float>
+						<bool name="PlayOnRemove">false</bool>
+						<Content name="SoundId"><url>http://www.mulrbx.com/asset/?ID=129569279</url></Content>
+						<float name="Volume">0.5</float>
+					</Properties>
+				</Item>
+				<Item class="Sound" referent="RBX11">
+					<Properties>
+						<bool name="Looped">false</bool>
+						<string name="Name">2-2</string>
+						<float name="Pitch">1</float>
+						<bool name="PlayOnRemove">false</bool>
+						<Content name="SoundId"><url>http://www.mulrbx.com/asset/?ID=129569318</url></Content>
+						<float name="Volume">0.5</float>
+					</Properties>
+				</Item>
+				<Item class="Sound" referent="RBX12">
+					<Properties>
+						<bool name="Looped">false</bool>
+						<string name="Name">3-1</string>
+						<float name="Pitch">1</float>
+						<bool name="PlayOnRemove">false</bool>
+						<Content name="SoundId"><url>http://www.mulrbx.com/asset/?ID=129569368</url></Content>
+						<float name="Volume">0.5</float>
+					</Properties>
+				</Item>
+				<Item class="Sound" referent="RBX13">
+					<Properties>
+						<bool name="Looped">false</bool>
+						<string name="Name">3-2</string>
+						<float name="Pitch">1</float>
+						<bool name="PlayOnRemove">false</bool>
+						<Content name="SoundId"><url>http://www.mulrbx.com/asset/?ID=129569395</url></Content>
+						<float name="Volume">0.5</float>
+					</Properties>
+				</Item>
+				<Item class="Sound" referent="RBX14">
+					<Properties>
+						<bool name="Looped">false</bool>
+						<string name="Name">4-1</string>
+						<float name="Pitch">1</float>
+						<bool name="PlayOnRemove">false</bool>
+						<Content name="SoundId"><url>http://www.mulrbx.com/asset/?ID=129569440</url></Content>
+						<float name="Volume">0.5</float>
+					</Properties>
+				</Item>
+				<Item class="Sound" referent="RBX15">
+					<Properties>
+						<bool name="Looped">false</bool>
+						<string name="Name">4-2</string>
+						<float name="Pitch">1</float>
+						<bool name="PlayOnRemove">false</bool>
+						<Content name="SoundId"><url>http://www.mulrbx.com/asset/?ID=129569492</url></Content>
+						<float name="Volume">0.5</float>
+					</Properties>
+				</Item>
+				<Item class="Sound" referent="RBX16">
+					<Properties>
+						<bool name="Looped">false</bool>
+						<string name="Name">5-1</string>
+						<float name="Pitch">1</float>
+						<bool name="PlayOnRemove">false</bool>
+						<Content name="SoundId"><url>http://www.mulrbx.com/asset/?ID=130759273</url></Content>
+						<float name="Volume">0.5</float>
+					</Properties>
+				</Item>
+				<Item class="Sound" referent="RBX17">
+					<Properties>
+						<bool name="Looped">false</bool>
+						<string name="Name">5-2</string>
+						<float name="Pitch">1</float>
+						<bool name="PlayOnRemove">false</bool>
+						<Content name="SoundId"><url>http://www.mulrbx.com/asset/?ID=130759273</url></Content>
+						<float name="Volume">0.5</float>
+					</Properties>
+				</Item>
+				<Item class="Sound" referent="RBX18">
+					<Properties>
+						<bool name="Looped">false</bool>
+						<string name="Name">5-3</string>
+						<float name="Pitch">1</float>
+						<bool name="PlayOnRemove">false</bool>
+						<Content name="SoundId"><url>http://www.mulrbx.com/asset/?ID=130759286</url></Content>
+						<float name="Volume">0.5</float>
+					</Properties>
+				</Item>
+				<Item class="Sound" referent="RBX19">
+					<Properties>
+						<bool name="Looped">false</bool>
+						<string name="Name">3-3</string>
+						<float name="Pitch">1</float>
+						<bool name="PlayOnRemove">false</bool>
+						<Content name="SoundId"><url>http://www.mulrbx.com/asset/?ID=130759190</url></Content>
+						<float name="Volume">0.5</float>
+					</Properties>
+				</Item>
+				<Item class="Sound" referent="RBX20">
+					<Properties>
+						<bool name="Looped">false</bool>
+						<string name="Name">3-4</string>
+						<float name="Pitch">1</float>
+						<bool name="PlayOnRemove">false</bool>
+						<Content name="SoundId"><url>http://www.mulrbx.com/asset/?ID=130759206</url></Content>
+						<float name="Volume">0.5</float>
+					</Properties>
+				</Item>
+				<Item class="Sound" referent="RBX21">
+					<Properties>
+						<bool name="Looped">false</bool>
+						<string name="Name">3-5</string>
+						<float name="Pitch">1</float>
+						<bool name="PlayOnRemove">false</bool>
+						<Content name="SoundId"><url>http://www.mulrbx.com/asset/?ID=130759216</url></Content>
+						<float name="Volume">0.5</float>
+					</Properties>
+				</Item>
+				<Item class="Sound" referent="RBX22">
+					<Properties>
+						<bool name="Looped">false</bool>
+						<string name="Name">1-3</string>
+						<float name="Pitch">1</float>
+						<bool name="PlayOnRemove">false</bool>
+						<Content name="SoundId"><url>http://www.mulrbx.com/asset/?ID=130759255</url></Content>
+						<float name="Volume">0.5</float>
+					</Properties>
+				</Item>
+				<Item class="Sound" referent="RBX23">
+					<Properties>
+						<bool name="Looped">false</bool>
+						<string name="Name">1-4</string>
+						<float name="Pitch">1</float>
+						<bool name="PlayOnRemove">false</bool>
+						<Content name="SoundId"><url>http://www.mulrbx.com/asset/?ID=130759269</url></Content>
+						<float name="Volume">0.5</float>
+					</Properties>
+				</Item>
+			</Item>
+			<Item class="Weld" referent="RBX24">
+				<Properties>
+					<CoordinateFrame name="C0">
+						<X>0</X>
+						<Y>0.5</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<CoordinateFrame name="C1">
+						<X>0</X>
+						<Y>0.5</Y>
+						<Z>0</Z>
+						<R00>-1</R00>
+						<R01>0</R01>
+						<R02>-0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>-0</R12>
+						<R20>0</R20>
+						<R21>-0</R21>
+						<R22>-1</R22>
+					</CoordinateFrame>
+					<string name="Name">HeadWeld</string>
+					<Ref name="Part0">RBX1</Ref>
+					<Ref name="Part1">RBX25</Ref>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="Part" referent="RBX26">
+			<Properties>
+				<bool name="Anchored">false</bool>
+				<float name="BackParamA">-0.5</float>
+				<float name="BackParamB">0.5</float>
+				<token name="BackSurface">0</token>
+				<token name="BackSurfaceInput">0</token>
+				<float name="BottomParamA">-0.5</float>
+				<float name="BottomParamB">0.5</float>
+				<token name="BottomSurface">4</token>
+				<token name="BottomSurfaceInput">0</token>
+				<int name="BrickColor">1003</int>
+				<CoordinateFrame name="CFrame">
+					<X>-113.590004</X>
+					<Y>246.100006</Y>
+					<Z>-258.100006</Z>
+					<R00>-1</R00>
+					<R01>0</R01>
+					<R02>0</R02>
+					<R10>0</R10>
+					<R11>1</R11>
+					<R12>0</R12>
+					<R20>0</R20>
+					<R21>0</R21>
+					<R22>-1</R22>
+				</CoordinateFrame>
+				<bool name="CanCollide">true</bool>
+				<float name="Elasticity">0.5</float>
+				<float name="Friction">0.300000012</float>
+				<float name="FrontParamA">-0.5</float>
+				<float name="FrontParamB">0.5</float>
+				<token name="FrontSurface">0</token>
+				<token name="FrontSurfaceInput">0</token>
+				<float name="LeftParamA">0</float>
+				<float name="LeftParamB">0</float>
+				<token name="LeftSurface">2</token>
+				<token name="LeftSurfaceInput">0</token>
+				<bool name="Locked">false</bool>
+				<token name="Material">256</token>
+				<string name="Name">Torso</string>
+				<float name="Reflectance">0</float>
+				<float name="RightParamA">0</float>
+				<float name="RightParamB">0</float>
+				<token name="RightSurface">2</token>
+				<token name="RightSurfaceInput">0</token>
+				<Vector3 name="RotVelocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<float name="TopParamA">-0.5</float>
+				<float name="TopParamB">0.5</float>
+				<token name="TopSurface">3</token>
+				<token name="TopSurfaceInput">0</token>
+				<float name="Transparency">0</float>
+				<Vector3 name="Velocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<token name="formFactorRaw">0</token>
+				<token name="shape">1</token>
+				<Vector3 name="size">
+					<X>2</X>
+					<Y>2</Y>
+					<Z>1</Z>
+				</Vector3>
+			</Properties>
+			<Item class="Decal" referent="RBX27">
+				<Properties>
+					<token name="Face">5</token>
+					<string name="Name">roblox</string>
+					<float name="Shiny">20</float>
+					<float name="Specular">0</float>
+					<Content name="Texture"><null></null></Content>
+					<float name="Transparency">0</float>
+				</Properties>
+			</Item>
+			<Item class="Motor6D" referent="RBX28">
+				<Properties>
+					<CoordinateFrame name="C0">
+						<X>1</X>
+						<Y>0.5</Y>
+						<Z>0</Z>
+						<R00>0</R00>
+						<R01>0</R01>
+						<R02>1</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>-1</R20>
+						<R21>-0</R21>
+						<R22>-0</R22>
+					</CoordinateFrame>
+					<CoordinateFrame name="C1">
+						<X>-0.5</X>
+						<Y>0.5</Y>
+						<Z>0</Z>
+						<R00>0</R00>
+						<R01>0</R01>
+						<R02>1</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>-1</R20>
+						<R21>-0</R21>
+						<R22>-0</R22>
+					</CoordinateFrame>
+					<float name="DesiredAngle">0</float>
+					<float name="MaxVelocity">0.100000001</float>
+					<string name="Name">Right Shoulder</string>
+					<Ref name="Part0">RBX26</Ref>
+					<Ref name="Part1">RBX29</Ref>
+				</Properties>
+			</Item>
+			<Item class="Motor6D" referent="RBX30">
+				<Properties>
+					<CoordinateFrame name="C0">
+						<X>-1</X>
+						<Y>0.5</Y>
+						<Z>0</Z>
+						<R00>-0</R00>
+						<R01>-0</R01>
+						<R02>-1</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>1</R20>
+						<R21>0</R21>
+						<R22>0</R22>
+					</CoordinateFrame>
+					<CoordinateFrame name="C1">
+						<X>0.5</X>
+						<Y>0.5</Y>
+						<Z>0</Z>
+						<R00>-0</R00>
+						<R01>-0</R01>
+						<R02>-1</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>1</R20>
+						<R21>0</R21>
+						<R22>0</R22>
+					</CoordinateFrame>
+					<float name="DesiredAngle">0</float>
+					<float name="MaxVelocity">0.100000001</float>
+					<string name="Name">Left Shoulder</string>
+					<Ref name="Part0">RBX26</Ref>
+					<Ref name="Part1">RBX31</Ref>
+				</Properties>
+			</Item>
+			<Item class="Motor6D" referent="RBX32">
+				<Properties>
+					<CoordinateFrame name="C0">
+						<X>1</X>
+						<Y>-1</Y>
+						<Z>0</Z>
+						<R00>0</R00>
+						<R01>0</R01>
+						<R02>1</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>-1</R20>
+						<R21>-0</R21>
+						<R22>-0</R22>
+					</CoordinateFrame>
+					<CoordinateFrame name="C1">
+						<X>0.5</X>
+						<Y>1</Y>
+						<Z>0</Z>
+						<R00>0</R00>
+						<R01>0</R01>
+						<R02>1</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>-1</R20>
+						<R21>-0</R21>
+						<R22>-0</R22>
+					</CoordinateFrame>
+					<float name="DesiredAngle">0</float>
+					<float name="MaxVelocity">0.100000001</float>
+					<string name="Name">Right Hip</string>
+					<Ref name="Part0">RBX26</Ref>
+					<Ref name="Part1">RBX33</Ref>
+				</Properties>
+			</Item>
+			<Item class="Motor6D" referent="RBX34">
+				<Properties>
+					<CoordinateFrame name="C0">
+						<X>-1</X>
+						<Y>-1</Y>
+						<Z>0</Z>
+						<R00>-0</R00>
+						<R01>-0</R01>
+						<R02>-1</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>1</R20>
+						<R21>0</R21>
+						<R22>0</R22>
+					</CoordinateFrame>
+					<CoordinateFrame name="C1">
+						<X>-0.5</X>
+						<Y>1</Y>
+						<Z>0</Z>
+						<R00>-0</R00>
+						<R01>-0</R01>
+						<R02>-1</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>1</R20>
+						<R21>0</R21>
+						<R22>0</R22>
+					</CoordinateFrame>
+					<float name="DesiredAngle">0</float>
+					<float name="MaxVelocity">0.100000001</float>
+					<string name="Name">Left Hip</string>
+					<Ref name="Part0">RBX26</Ref>
+					<Ref name="Part1">RBX35</Ref>
+				</Properties>
+			</Item>
+			<Item class="Motor6D" referent="RBX36">
+				<Properties>
+					<CoordinateFrame name="C0">
+						<X>0</X>
+						<Y>1</Y>
+						<Z>0</Z>
+						<R00>-1</R00>
+						<R01>-0</R01>
+						<R02>-0</R02>
+						<R10>0</R10>
+						<R11>0</R11>
+						<R12>1</R12>
+						<R20>0</R20>
+						<R21>1</R21>
+						<R22>0</R22>
+					</CoordinateFrame>
+					<CoordinateFrame name="C1">
+						<X>0</X>
+						<Y>-0.5</Y>
+						<Z>0</Z>
+						<R00>-1</R00>
+						<R01>-0</R01>
+						<R02>-0</R02>
+						<R10>0</R10>
+						<R11>0</R11>
+						<R12>1</R12>
+						<R20>0</R20>
+						<R21>1</R21>
+						<R22>0</R22>
+					</CoordinateFrame>
+					<float name="DesiredAngle">0</float>
+					<float name="MaxVelocity">0.100000001</float>
+					<string name="Name">Neck</string>
+					<Ref name="Part0">RBX26</Ref>
+					<Ref name="Part1">RBX1</Ref>
+				</Properties>
+			</Item>
+			<Item class="SpotLight" referent="RBX37">
+				<Properties>
+					<float name="Angle">90</float>
+					<float name="Brightness">2</float>
+					<Color3 name="Color">4293114389</Color3>
+					<bool name="Enabled">true</bool>
+					<token name="Face">5</token>
+					<string name="Name">Flashlight</string>
+					<float name="Range">45</float>
+					<bool name="Shadows">true</bool>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="Part" referent="RBX31">
+			<Properties>
+				<bool name="Anchored">false</bool>
+				<float name="BackParamA">-0.5</float>
+				<float name="BackParamB">0.5</float>
+				<token name="BackSurface">0</token>
+				<token name="BackSurfaceInput">0</token>
+				<float name="BottomParamA">-0.5</float>
+				<float name="BottomParamB">0.5</float>
+				<token name="BottomSurface">4</token>
+				<token name="BottomSurfaceInput">0</token>
+				<int name="BrickColor">1003</int>
+				<CoordinateFrame name="CFrame">
+					<X>-112.090004</X>
+					<Y>246.100006</Y>
+					<Z>-258.100006</Z>
+					<R00>-1</R00>
+					<R01>0</R01>
+					<R02>0</R02>
+					<R10>0</R10>
+					<R11>1</R11>
+					<R12>0</R12>
+					<R20>0</R20>
+					<R21>0</R21>
+					<R22>-1</R22>
+				</CoordinateFrame>
+				<bool name="CanCollide">false</bool>
+				<float name="Elasticity">0.5</float>
+				<float name="Friction">0.300000012</float>
+				<float name="FrontParamA">-0.5</float>
+				<float name="FrontParamB">0.5</float>
+				<token name="FrontSurface">0</token>
+				<token name="FrontSurfaceInput">0</token>
+				<float name="LeftParamA">-0.5</float>
+				<float name="LeftParamB">0.5</float>
+				<token name="LeftSurface">0</token>
+				<token name="LeftSurfaceInput">0</token>
+				<bool name="Locked">false</bool>
+				<token name="Material">256</token>
+				<string name="Name">Left Arm</string>
+				<float name="Reflectance">0</float>
+				<float name="RightParamA">-0.5</float>
+				<float name="RightParamB">0.5</float>
+				<token name="RightSurface">0</token>
+				<token name="RightSurfaceInput">0</token>
+				<Vector3 name="RotVelocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<float name="TopParamA">-0.5</float>
+				<float name="TopParamB">0.5</float>
+				<token name="TopSurface">3</token>
+				<token name="TopSurfaceInput">0</token>
+				<float name="Transparency">0</float>
+				<Vector3 name="Velocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<token name="formFactorRaw">0</token>
+				<token name="shape">1</token>
+				<Vector3 name="size">
+					<X>1</X>
+					<Y>2</Y>
+					<Z>1</Z>
+				</Vector3>
+			</Properties>
+		</Item>
+		<Item class="Part" referent="RBX29">
+			<Properties>
+				<bool name="Anchored">false</bool>
+				<float name="BackParamA">-0.5</float>
+				<float name="BackParamB">0.5</float>
+				<token name="BackSurface">0</token>
+				<token name="BackSurfaceInput">0</token>
+				<float name="BottomParamA">-0.5</float>
+				<float name="BottomParamB">0.5</float>
+				<token name="BottomSurface">4</token>
+				<token name="BottomSurfaceInput">0</token>
+				<int name="BrickColor">1003</int>
+				<CoordinateFrame name="CFrame">
+					<X>-115.090004</X>
+					<Y>246.100006</Y>
+					<Z>-258.100006</Z>
+					<R00>-1</R00>
+					<R01>0</R01>
+					<R02>0</R02>
+					<R10>0</R10>
+					<R11>1</R11>
+					<R12>0</R12>
+					<R20>0</R20>
+					<R21>0</R21>
+					<R22>-1</R22>
+				</CoordinateFrame>
+				<bool name="CanCollide">false</bool>
+				<float name="Elasticity">0.5</float>
+				<float name="Friction">0.300000012</float>
+				<float name="FrontParamA">-0.5</float>
+				<float name="FrontParamB">0.5</float>
+				<token name="FrontSurface">0</token>
+				<token name="FrontSurfaceInput">0</token>
+				<float name="LeftParamA">-0.5</float>
+				<float name="LeftParamB">0.5</float>
+				<token name="LeftSurface">0</token>
+				<token name="LeftSurfaceInput">0</token>
+				<bool name="Locked">false</bool>
+				<token name="Material">256</token>
+				<string name="Name">Right Arm</string>
+				<float name="Reflectance">0</float>
+				<float name="RightParamA">-0.5</float>
+				<float name="RightParamB">0.5</float>
+				<token name="RightSurface">0</token>
+				<token name="RightSurfaceInput">0</token>
+				<Vector3 name="RotVelocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<float name="TopParamA">-0.5</float>
+				<float name="TopParamB">0.5</float>
+				<token name="TopSurface">3</token>
+				<token name="TopSurfaceInput">0</token>
+				<float name="Transparency">0</float>
+				<Vector3 name="Velocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<token name="formFactorRaw">0</token>
+				<token name="shape">1</token>
+				<Vector3 name="size">
+					<X>1</X>
+					<Y>2</Y>
+					<Z>1</Z>
+				</Vector3>
+			</Properties>
+		</Item>
+		<Item class="Part" referent="RBX35">
+			<Properties>
+				<bool name="Anchored">false</bool>
+				<float name="BackParamA">-0.5</float>
+				<float name="BackParamB">0.5</float>
+				<token name="BackSurface">0</token>
+				<token name="BackSurfaceInput">0</token>
+				<float name="BottomParamA">-0.5</float>
+				<float name="BottomParamB">0.5</float>
+				<token name="BottomSurface">0</token>
+				<token name="BottomSurfaceInput">0</token>
+				<int name="BrickColor">1003</int>
+				<CoordinateFrame name="CFrame">
+					<X>-113.090004</X>
+					<Y>244.100006</Y>
+					<Z>-258.100006</Z>
+					<R00>-1</R00>
+					<R01>0</R01>
+					<R02>0</R02>
+					<R10>0</R10>
+					<R11>1</R11>
+					<R12>0</R12>
+					<R20>0</R20>
+					<R21>0</R21>
+					<R22>-1</R22>
+				</CoordinateFrame>
+				<bool name="CanCollide">false</bool>
+				<float name="Elasticity">0.5</float>
+				<float name="Friction">0.300000012</float>
+				<float name="FrontParamA">-0.5</float>
+				<float name="FrontParamB">0.5</float>
+				<token name="FrontSurface">0</token>
+				<token name="FrontSurfaceInput">0</token>
+				<float name="LeftParamA">-0.5</float>
+				<float name="LeftParamB">0.5</float>
+				<token name="LeftSurface">0</token>
+				<token name="LeftSurfaceInput">0</token>
+				<bool name="Locked">false</bool>
+				<token name="Material">256</token>
+				<string name="Name">Left Leg</string>
+				<float name="Reflectance">0</float>
+				<float name="RightParamA">-0.5</float>
+				<float name="RightParamB">0.5</float>
+				<token name="RightSurface">0</token>
+				<token name="RightSurfaceInput">0</token>
+				<Vector3 name="RotVelocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<float name="TopParamA">-0.5</float>
+				<float name="TopParamB">0.5</float>
+				<token name="TopSurface">3</token>
+				<token name="TopSurfaceInput">0</token>
+				<float name="Transparency">0</float>
+				<Vector3 name="Velocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<token name="formFactorRaw">0</token>
+				<token name="shape">1</token>
+				<Vector3 name="size">
+					<X>1</X>
+					<Y>2</Y>
+					<Z>1</Z>
+				</Vector3>
+			</Properties>
+		</Item>
+		<Item class="Part" referent="RBX33">
+			<Properties>
+				<bool name="Anchored">false</bool>
+				<float name="BackParamA">-0.5</float>
+				<float name="BackParamB">0.5</float>
+				<token name="BackSurface">0</token>
+				<token name="BackSurfaceInput">0</token>
+				<float name="BottomParamA">-0.5</float>
+				<float name="BottomParamB">0.5</float>
+				<token name="BottomSurface">0</token>
+				<token name="BottomSurfaceInput">0</token>
+				<int name="BrickColor">1003</int>
+				<CoordinateFrame name="CFrame">
+					<X>-114.090004</X>
+					<Y>244.100006</Y>
+					<Z>-258.100006</Z>
+					<R00>-1</R00>
+					<R01>0</R01>
+					<R02>0</R02>
+					<R10>0</R10>
+					<R11>1</R11>
+					<R12>0</R12>
+					<R20>0</R20>
+					<R21>0</R21>
+					<R22>-1</R22>
+				</CoordinateFrame>
+				<bool name="CanCollide">false</bool>
+				<float name="Elasticity">0.5</float>
+				<float name="Friction">0.300000012</float>
+				<float name="FrontParamA">-0.5</float>
+				<float name="FrontParamB">0.5</float>
+				<token name="FrontSurface">0</token>
+				<token name="FrontSurfaceInput">0</token>
+				<float name="LeftParamA">-0.5</float>
+				<float name="LeftParamB">0.5</float>
+				<token name="LeftSurface">0</token>
+				<token name="LeftSurfaceInput">0</token>
+				<bool name="Locked">false</bool>
+				<token name="Material">256</token>
+				<string name="Name">Right Leg</string>
+				<float name="Reflectance">0</float>
+				<float name="RightParamA">-0.5</float>
+				<float name="RightParamB">0.5</float>
+				<token name="RightSurface">0</token>
+				<token name="RightSurfaceInput">0</token>
+				<Vector3 name="RotVelocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<float name="TopParamA">-0.5</float>
+				<float name="TopParamB">0.5</float>
+				<token name="TopSurface">3</token>
+				<token name="TopSurfaceInput">0</token>
+				<float name="Transparency">0</float>
+				<Vector3 name="Velocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<token name="formFactorRaw">0</token>
+				<token name="shape">1</token>
+				<Vector3 name="size">
+					<X>1</X>
+					<Y>2</Y>
+					<Z>1</Z>
+				</Vector3>
+			</Properties>
+		</Item>
+		<Item class="Humanoid" referent="RBX38">
+			<Properties>
+				<float name="Health">100</float>
+				<float name="MaxHealth">100</float>
+				<string name="Name">Humanoid</string>
+				<token name="NameOcclusion">0</token>
+				<float name="WalkSpeed">16</float>
+			</Properties>
+		</Item>
+		<Item class="Part" referent="RBX39">
+			<Properties>
+				<bool name="Anchored">false</bool>
+				<float name="BackParamA">-0.5</float>
+				<float name="BackParamB">0.5</float>
+				<token name="BackSurface">0</token>
+				<token name="BackSurfaceInput">0</token>
+				<float name="BottomParamA">-0.5</float>
+				<float name="BottomParamB">0.5</float>
+				<token name="BottomSurface">0</token>
+				<token name="BottomSurfaceInput">0</token>
+				<int name="BrickColor">1003</int>
+				<CoordinateFrame name="CFrame">
+					<X>-113.590004</X>
+					<Y>246.100006</Y>
+					<Z>-258.100006</Z>
+					<R00>-1</R00>
+					<R01>0</R01>
+					<R02>0</R02>
+					<R10>0</R10>
+					<R11>1</R11>
+					<R12>0</R12>
+					<R20>0</R20>
+					<R21>0</R21>
+					<R22>-1</R22>
+				</CoordinateFrame>
+				<bool name="CanCollide">true</bool>
+				<float name="Elasticity">0.5</float>
+				<float name="Friction">0.300000012</float>
+				<float name="FrontParamA">-0.5</float>
+				<float name="FrontParamB">0.5</float>
+				<token name="FrontSurface">0</token>
+				<token name="FrontSurfaceInput">0</token>
+				<float name="LeftParamA">0</float>
+				<float name="LeftParamB">0</float>
+				<token name="LeftSurface">0</token>
+				<token name="LeftSurfaceInput">0</token>
+				<bool name="Locked">false</bool>
+				<token name="Material">256</token>
+				<string name="Name">HumanoidRootPart</string>
+				<float name="Reflectance">0</float>
+				<float name="RightParamA">0</float>
+				<float name="RightParamB">0</float>
+				<token name="RightSurface">0</token>
+				<token name="RightSurfaceInput">0</token>
+				<Vector3 name="RotVelocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<float name="TopParamA">-0.5</float>
+				<float name="TopParamB">0.5</float>
+				<token name="TopSurface">0</token>
+				<token name="TopSurfaceInput">0</token>
+				<float name="Transparency">1</float>
+				<Vector3 name="Velocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<token name="formFactorRaw">0</token>
+				<token name="shape">1</token>
+				<Vector3 name="size">
+					<X>2</X>
+					<Y>2</Y>
+					<Z>1</Z>
+				</Vector3>
+			</Properties>
+			<Item class="Motor6D" referent="RBX40">
+				<Properties>
+					<CoordinateFrame name="C0">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>-1</R00>
+						<R01>-0</R01>
+						<R02>-0</R02>
+						<R10>0</R10>
+						<R11>0</R11>
+						<R12>1</R12>
+						<R20>0</R20>
+						<R21>1</R21>
+						<R22>0</R22>
+					</CoordinateFrame>
+					<CoordinateFrame name="C1">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>-1</R00>
+						<R01>-0</R01>
+						<R02>-0</R02>
+						<R10>0</R10>
+						<R11>0</R11>
+						<R12>1</R12>
+						<R20>0</R20>
+						<R21>1</R21>
+						<R22>0</R22>
+					</CoordinateFrame>
+					<float name="DesiredAngle">0</float>
+					<float name="MaxVelocity">0.100000001</float>
+					<string name="Name">RootJoint</string>
+					<Ref name="Part0">RBX39</Ref>
+					<Ref name="Part1">RBX26</Ref>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="LocalScript" referent="RBX41">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">Animate</string>
+				<ProtectedString name="Source">function waitForChild(parent, childName)
+&#9;local child = parent:findFirstChild(childName)
+&#9;if child then return child end
+&#9;while true do
+&#9;&#9;child = parent.ChildAdded:wait()
+&#9;&#9;if child.Name==childName then return child end
+&#9;end
+end
+
+local Figure = script.Parent
+local Torso = waitForChild(Figure, &quot;Torso&quot;)
+local RightShoulder = waitForChild(Torso, &quot;Right Shoulder&quot;)
+local LeftShoulder = waitForChild(Torso, &quot;Left Shoulder&quot;)
+local RightHip = waitForChild(Torso, &quot;Right Hip&quot;)
+local LeftHip = waitForChild(Torso, &quot;Left Hip&quot;)
+local Neck = waitForChild(Torso, &quot;Neck&quot;)
+local Humanoid = waitForChild(Figure, &quot;Humanoid&quot;)
+local pose = &quot;Standing&quot;
+
+local currentAnim = &quot;&quot;
+local currentAnimTrack = nil
+local currentAnimKeyframeHandler = nil
+local oldAnimTrack = nil
+local animTable = {}
+local animNames = { 
+&#9;idle = &#9;{&#9;
+&#9;&#9;&#9;&#9;{ id = &quot;http://www.mulrbx.com/asset/?id=125750544&quot;, weight = 9 },
+&#9;&#9;&#9;&#9;{ id = &quot;http://www.mulrbx.com/asset/?id=125750618&quot;, weight = 1 }
+&#9;&#9;&#9;},
+&#9;walk = &#9;{ &#9;
+&#9;&#9;&#9;&#9;{ id = &quot;http://www.mulrbx.com/asset/?id=125749145&quot;, weight = 10 } 
+&#9;&#9;&#9;}, 
+&#9;run = &#9;{
+&#9;&#9;&#9;&#9;{ id = &quot;run.xml&quot;, weight = 10 } 
+&#9;&#9;&#9;}, 
+&#9;jump = &#9;{
+&#9;&#9;&#9;&#9;{ id = &quot;http://www.mulrbx.com/asset/?id=125750702&quot;, weight = 10 } 
+&#9;&#9;&#9;}, 
+&#9;fall = &#9;{
+&#9;&#9;&#9;&#9;{ id = &quot;http://www.mulrbx.com/asset/?id=125750759&quot;, weight = 10 } 
+&#9;&#9;&#9;}, 
+&#9;climb = {
+&#9;&#9;&#9;&#9;{ id = &quot;http://www.mulrbx.com/asset/?id=125750800&quot;, weight = 10 } 
+&#9;&#9;&#9;}, 
+&#9;toolnone = {
+&#9;&#9;&#9;&#9;{ id = &quot;http://www.mulrbx.com/asset/?id=125750867&quot;, weight = 10 } 
+&#9;&#9;&#9;},
+&#9;toolslash = {
+&#9;&#9;&#9;&#9;{ id = &quot;http://www.mulrbx.com/asset/?id=129967390&quot;, weight = 10 } 
+--&#9;&#9;&#9;&#9;{ id = &quot;slash.xml&quot;, weight = 10 } 
+&#9;&#9;&#9;},
+&#9;toollunge = {
+&#9;&#9;&#9;&#9;{ id = &quot;http://www.mulrbx.com/asset/?id=129967478&quot;, weight = 10 } 
+&#9;&#9;&#9;},
+&#9;wave = {
+&#9;&#9;&#9;&#9;{ id = &quot;http://www.mulrbx.com/asset/?id=128777973&quot;, weight = 10 } 
+&#9;&#9;&#9;},
+&#9;point = {
+&#9;&#9;&#9;&#9;{ id = &quot;http://www.mulrbx.com/asset/?id=128853357&quot;, weight = 10 } 
+&#9;&#9;&#9;},
+&#9;dance = {
+&#9;&#9;&#9;&#9;{ id = &quot;http://www.mulrbx.com/asset/?id=128777973&quot;, weight = 10 } 
+&#9;&#9;&#9;},
+&#9;laugh = {
+&#9;&#9;&#9;&#9;{ id = &quot;http://www.mulrbx.com/asset/?id=129423131&quot;, weight = 10 } 
+&#9;&#9;&#9;},
+&#9;cheer = {
+&#9;&#9;&#9;&#9;{ id = &quot;http://www.mulrbx.com/asset/?id=129423030&quot;, weight = 10 } 
+&#9;&#9;&#9;},
+}
+
+-- Existance in this list signifies that it is an emote, the value indicates if it is a looping emote
+local emoteNames = { wave = false, point = false, dance = true, laugh = false, cheer = false}
+
+math.randomseed(tick())
+
+-- Setup animation objects
+for name, fileList in pairs(animNames) do 
+&#9;animTable[name] = {}
+&#9;animTable[name].count = 0
+&#9;animTable[name].totalWeight = 0
+
+&#9;-- check for config values
+&#9;local config = script:FindFirstChild(name)
+&#9;if (config ~= nil) then
+--&#9;&#9;print(&quot;Loading anims &quot; .. name)
+&#9;&#9;local idx = 1
+&#9;&#9;for _, childPart in pairs(config:GetChildren()) do
+&#9;&#9;&#9;animTable[name][idx] = {}
+&#9;&#9;&#9;animTable[name][idx].anim = childPart
+&#9;&#9;&#9;local weightObject = childPart:FindFirstChild(&quot;Weight&quot;)
+&#9;&#9;&#9;if (weightObject == nil) then
+&#9;&#9;&#9;&#9;animTable[name][idx].weight = 1
+&#9;&#9;&#9;else
+&#9;&#9;&#9;&#9;animTable[name][idx].weight = weightObject.Value
+&#9;&#9;&#9;end
+&#9;&#9;&#9;animTable[name].count = animTable[name].count + 1
+&#9;&#9;&#9;animTable[name].totalWeight = animTable[name].totalWeight + animTable[name][idx].weight
+--&#9;&#9;&#9;print(name .. &quot; [&quot; .. idx .. &quot;] &quot; .. animTable[name][idx].anim.AnimationId .. &quot; (&quot; .. animTable[name][idx].weight .. &quot;)&quot;)
+&#9;&#9;&#9;idx = idx + 1
+&#9;&#9;end
+&#9;end
+
+&#9;-- fallback to defaults
+&#9;if (animTable[name].count &lt;= 0) then
+&#9;&#9;for idx, anim in pairs(fileList) do
+&#9;&#9;&#9;animTable[name][idx] = {}
+&#9;&#9;&#9;animTable[name][idx].anim = Instance.new(&quot;Animation&quot;)
+&#9;&#9;&#9;animTable[name][idx].anim.Name = name
+&#9;&#9;&#9;animTable[name][idx].anim.AnimationId = anim.id
+&#9;&#9;&#9;animTable[name][idx].weight = anim.weight
+&#9;&#9;&#9;animTable[name].count = animTable[name].count + 1
+&#9;&#9;&#9;animTable[name].totalWeight = animTable[name].totalWeight + anim.weight
+--&#9;&#9;&#9;print(name .. &quot; [&quot; .. idx .. &quot;] &quot; .. anim.id .. &quot; (&quot; .. anim.weight .. &quot;)&quot;)
+&#9;&#9;end
+&#9;end
+end
+
+-- ANIMATION
+
+-- declarations
+local toolAnim = &quot;None&quot;
+local toolAnimTime = 0
+
+local jumpAnimTime = 0
+local jumpAnimDuration = 0.175
+
+local toolTransitionTime = 0.1
+local fallTransitionTime = 0.2
+local jumpMaxLimbVelocity = 0.75
+
+-- functions
+
+function stopAllAnimations()
+&#9;local oldAnim = currentAnim
+
+&#9;-- return to idle if finishing an emote
+&#9;if (emoteNames[oldAnim] ~= nil and emoteNames[oldAnim] == false) then
+&#9;&#9;oldAnim = &quot;idle&quot;
+&#9;end
+
+&#9;currentAnim = &quot;&quot;
+&#9;if (currentAnimKeyframeHandler ~= nil) then
+&#9;&#9;currentAnimKeyframeHandler:disconnect()
+&#9;end
+
+&#9;if (oldAnimTrack ~= nil) then
+&#9;&#9;oldAnimTrack:Stop()
+&#9;&#9;oldAnimTrack:Destroy()
+&#9;&#9;oldAnimTrack = nil
+&#9;end
+&#9;if (currentAnimTrack ~= nil) then
+&#9;&#9;currentAnimTrack:Stop()
+&#9;&#9;currentAnimTrack:Destroy()
+&#9;&#9;currentAnimTrack = nil
+&#9;end
+&#9;return oldAnim
+end
+
+function keyFrameReachedFunc(frameName)
+&#9;if (frameName == &quot;End&quot;) then
+--&#9;&#9;print(&quot;Keyframe : &quot;.. frameName)
+&#9;&#9;local repeatAnim = stopAllAnimations()
+&#9;&#9;playAnimation(repeatAnim, 0.0, Humanoid)
+&#9;end
+end
+
+-- Preload animations
+function playAnimation(animName, transitionTime, humanoid)
+&#9;if (animName ~= currentAnim) then&#9;&#9; 
+&#9;&#9;
+&#9;&#9;if (oldAnimTrack ~= nil) then
+&#9;&#9;&#9;oldAnimTrack:Stop()
+&#9;&#9;&#9;oldAnimTrack:Destroy()
+&#9;&#9;end
+
+&#9;&#9;local roll = math.random(1, animTable[animName].totalWeight) 
+&#9;&#9;local origRoll = roll
+&#9;&#9;local idx = 1
+&#9;&#9;while (roll &gt; animTable[animName][idx].weight) do
+&#9;&#9;&#9;roll = roll - animTable[animName][idx].weight
+&#9;&#9;&#9;idx = idx + 1
+&#9;&#9;end
+--&#9;&#9;print(animName .. &quot; &quot; .. idx .. &quot; [&quot; .. origRoll .. &quot;]&quot;)
+&#9;&#9;local anim = animTable[animName][idx].anim
+
+&#9;&#9;-- load it to the humanoid; get AnimationTrack
+&#9;&#9;oldAnimTrack = currentAnimTrack
+&#9;&#9;currentAnimTrack = humanoid:LoadAnimation(anim)
+&#9;&#9; 
+&#9;&#9;-- play the animation
+&#9;&#9;currentAnimTrack:Play(transitionTime)
+&#9;&#9;currentAnim = animName
+
+&#9;&#9;-- set up keyframe name triggers
+&#9;&#9;if (currentAnimKeyframeHandler ~= nil) then
+&#9;&#9;&#9;currentAnimKeyframeHandler:disconnect()
+&#9;&#9;end
+&#9;&#9;currentAnimKeyframeHandler = currentAnimTrack.KeyframeReached:connect(keyFrameReachedFunc)
+&#9;end
+end
+
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+
+local toolAnimName = &quot;&quot;
+local toolOldAnimTrack = nil
+local toolAnimTrack = nil
+local currentToolAnimKeyframeHandler = nil
+
+function toolKeyFrameReachedFunc(frameName)
+&#9;if (frameName == &quot;End&quot;) then
+--&#9;&#9;print(&quot;Keyframe : &quot;.. frameName)
+&#9;&#9;local repeatAnim = stopToolAnimations()
+&#9;&#9;playToolAnimation(repeatAnim, 0.0, Humanoid)
+&#9;end
+end
+
+
+function playToolAnimation(animName, transitionTime, humanoid)
+&#9;if (animName ~= toolAnimName) then&#9;&#9; 
+&#9;&#9;
+&#9;&#9;if (toolAnimTrack ~= nil) then
+&#9;&#9;&#9;toolAnimTrack:Stop()
+&#9;&#9;&#9;toolAnimTrack:Destroy()
+&#9;&#9;&#9;transitionTime = 0
+&#9;&#9;end
+
+&#9;&#9;local roll = math.random(1, animTable[animName].totalWeight) 
+&#9;&#9;local origRoll = roll
+&#9;&#9;local idx = 1
+&#9;&#9;while (roll &gt; animTable[animName][idx].weight) do
+&#9;&#9;&#9;roll = roll - animTable[animName][idx].weight
+&#9;&#9;&#9;idx = idx + 1
+&#9;&#9;end
+--&#9;&#9;print(animName .. &quot; * &quot; .. idx .. &quot; [&quot; .. origRoll .. &quot;]&quot;)
+&#9;&#9;local anim = animTable[animName][idx].anim
+
+&#9;&#9;-- load it to the humanoid; get AnimationTrack
+&#9;&#9;toolOldAnimTrack = toolAnimTrack
+&#9;&#9;toolAnimTrack = humanoid:LoadAnimation(anim)
+&#9;&#9; 
+&#9;&#9;-- play the animation
+&#9;&#9;toolAnimTrack:Play(transitionTime)
+&#9;&#9;toolAnimName = animName
+
+&#9;&#9;currentToolAnimKeyframeHandler = toolAnimTrack.KeyframeReached:connect(toolKeyFrameReachedFunc)
+&#9;end
+end
+
+function stopToolAnimations()
+&#9;local oldAnim = toolAnimName
+
+&#9;if (currentToolAnimKeyframeHandler ~= nil) then
+&#9;&#9;currentToolAnimKeyframeHandler:disconnect()
+&#9;end
+
+&#9;toolAnimName = &quot;&quot;
+&#9;if (toolAnimTrack ~= nil) then
+&#9;&#9;toolAnimTrack:Stop()
+&#9;&#9;toolAnimTrack:Destroy()
+&#9;&#9;toolAnimTrack = nil
+&#9;end
+
+
+&#9;return oldAnim
+end
+
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+
+
+function onRunning(speed)
+&#9;if speed&gt;0 then
+&#9;&#9;playAnimation(&quot;walk&quot;, 0.1, Humanoid)
+&#9;&#9;pose = &quot;Running&quot;
+&#9;else
+&#9;&#9;playAnimation(&quot;idle&quot;, 0.1, Humanoid)
+&#9;&#9;pose = &quot;Standing&quot;
+&#9;end
+end
+
+function onDied()
+&#9;pose = &quot;Dead&quot;
+end
+
+function onJumping()
+&#9;playAnimation(&quot;jump&quot;, 0.1, Humanoid)
+&#9;jumpAnimTime = jumpAnimDuration
+&#9;pose = &quot;Jumping&quot;
+end
+
+function onClimbing()
+&#9;playAnimation(&quot;climb&quot;, 0.1, Humanoid)
+&#9;pose = &quot;Climbing&quot;
+end
+
+function onGettingUp()
+&#9;pose = &quot;GettingUp&quot;
+end
+
+function onFreeFall()
+&#9;if (jumpAnimTime &lt;= 0) then
+&#9;&#9;playAnimation(&quot;fall&quot;, fallTransitionTime, Humanoid)
+&#9;end
+&#9;pose = &quot;FreeFall&quot;
+end
+
+function onFallingDown()
+&#9;pose = &quot;FallingDown&quot;
+end
+
+function onSeated()
+&#9;pose = &quot;Seated&quot;
+end
+
+function onPlatformStanding()
+&#9;pose = &quot;PlatformStanding&quot;
+end
+
+function onSwimming(speed)
+&#9;if speed&gt;0 then
+&#9;&#9;pose = &quot;Running&quot;
+&#9;else
+&#9;&#9;pose = &quot;Standing&quot;
+&#9;end
+end
+
+function getTool()&#9;
+&#9;for _, kid in ipairs(Figure:GetChildren()) do
+&#9;&#9;if kid.className == &quot;Tool&quot; then return kid end
+&#9;end
+&#9;return nil
+end
+
+function getToolAnim(tool)
+&#9;for _, c in ipairs(tool:GetChildren()) do
+&#9;&#9;if c.Name == &quot;toolanim&quot; and c.className == &quot;StringValue&quot; then
+&#9;&#9;&#9;return c
+&#9;&#9;end
+&#9;end
+&#9;return nil
+end
+
+function animateTool()
+&#9;
+&#9;if (toolAnim == &quot;None&quot;) then
+&#9;&#9;playToolAnimation(&quot;toolnone&quot;, toolTransitionTime, Humanoid)
+&#9;&#9;return
+&#9;end
+
+&#9;if (toolAnim == &quot;Slash&quot;) then
+&#9;&#9;playToolAnimation(&quot;toolslash&quot;, 0, Humanoid)
+&#9;&#9;return
+&#9;end
+
+&#9;if (toolAnim == &quot;Lunge&quot;) then
+&#9;&#9;playToolAnimation(&quot;toollunge&quot;, 0, Humanoid)
+&#9;&#9;return
+&#9;end
+end
+
+function moveSit()
+&#9;RightShoulder.MaxVelocity = 0.15
+&#9;LeftShoulder.MaxVelocity = 0.15
+&#9;RightShoulder:SetDesiredAngle(3.14 /2)
+&#9;LeftShoulder:SetDesiredAngle(-3.14 /2)
+&#9;RightHip:SetDesiredAngle(3.14 /2)
+&#9;LeftHip:SetDesiredAngle(-3.14 /2)
+end
+
+local lastTick = 0
+
+function move(time)
+&#9;local amplitude = 1
+&#9;local frequency = 1
+  &#9;local deltaTime = time - lastTick
+  &#9;lastTick = time
+
+&#9;local climbFudge = 0
+&#9;local setAngles = false
+
+  &#9;if (jumpAnimTime &gt; 0) then
+  &#9;&#9;jumpAnimTime = jumpAnimTime - deltaTime
+  &#9;end
+
+&#9;if (pose == &quot;FreeFall&quot; and jumpAnimTime &lt;= 0) then
+&#9;&#9;playAnimation(&quot;fall&quot;, fallTransitionTime, Humanoid)
+&#9;elseif (pose == &quot;Seated&quot;) then
+&#9;&#9;stopAllAnimations()
+&#9;&#9;moveSit()
+&#9;&#9;return
+&#9;elseif (pose == &quot;Running&quot;) then
+&#9;&#9;playAnimation(&quot;walk&quot;, 0.1, Humanoid)
+&#9;elseif (pose == &quot;Dead&quot; or pose == &quot;GettingUp&quot; or pose == &quot;FallingDown&quot; or pose == &quot;Seated&quot; or pose == &quot;PlatformStanding&quot;) then
+--&#9;&#9;print(&quot;Wha &quot; .. pose)
+&#9;&#9;amplitude = 0.1
+&#9;&#9;frequency = 1
+&#9;&#9;setAngles = true
+&#9;end
+
+&#9;if (setAngles) then
+&#9;&#9;desiredAngle = amplitude * math.sin(time * frequency)
+
+&#9;&#9;RightShoulder:SetDesiredAngle(desiredAngle + climbFudge)
+&#9;&#9;LeftShoulder:SetDesiredAngle(desiredAngle - climbFudge)
+&#9;&#9;RightHip:SetDesiredAngle(-desiredAngle)
+&#9;&#9;LeftHip:SetDesiredAngle(-desiredAngle)
+&#9;end
+
+&#9;-- Tool Animation handling
+&#9;local tool = getTool()
+&#9;if tool then
+&#9;
+&#9;&#9;animStringValueObject = getToolAnim(tool)
+
+&#9;&#9;if animStringValueObject then
+&#9;&#9;&#9;toolAnim = animStringValueObject.Value
+&#9;&#9;&#9;-- message recieved, delete StringValue
+&#9;&#9;&#9;animStringValueObject.Parent = nil
+&#9;&#9;&#9;toolAnimTime = time + .3
+&#9;&#9;end
+
+&#9;&#9;if time &gt; toolAnimTime then
+&#9;&#9;&#9;toolAnimTime = 0
+&#9;&#9;&#9;toolAnim = &quot;None&quot;
+&#9;&#9;end
+
+&#9;&#9;animateTool()&#9;&#9;
+&#9;else
+&#9;&#9;stopToolAnimations()
+&#9;&#9;toolAnim = &quot;None&quot;
+&#9;&#9;toolAnimTime = 0
+&#9;end
+end
+
+-- connect events
+Humanoid.Died:connect(onDied)
+Humanoid.Running:connect(onRunning)
+Humanoid.Jumping:connect(onJumping)
+Humanoid.Climbing:connect(onClimbing)
+Humanoid.GettingUp:connect(onGettingUp)
+Humanoid.FreeFalling:connect(onFreeFall)
+Humanoid.FallingDown:connect(onFallingDown)
+Humanoid.Seated:connect(onSeated)
+Humanoid.PlatformStanding:connect(onPlatformStanding)
+Humanoid.Swimming:connect(onSwimming)
+
+-- setup emote chat hook
+Game.Players.LocalPlayer.Chatted:connect(function(msg)
+&#9;local emote = &quot;&quot;
+&#9;if (string.sub(msg, 1, 3) == &quot;/e &quot;) then
+&#9;&#9;emote = string.sub(msg, 4)
+&#9;elseif (string.sub(msg, 1, 7) == &quot;/emote &quot;) then
+&#9;&#9;emote = string.sub(msg, 8)
+&#9;end
+&#9;
+&#9;if (pose == &quot;Standing&quot; and emoteNames[emote] ~= nil) then
+&#9;&#9;playAnimation(emote, 0.1, Humanoid)
+&#9;end
+--&#9;print(&quot;===&gt; &quot; .. string.sub(msg, 1, 3) .. &quot;(&quot; .. emote .. &quot;)&quot;)
+end)
+
+
+-- main program
+
+local runService = game:service(&quot;RunService&quot;);
+
+-- initialize to idle
+playAnimation(&quot;idle&quot;, 0.1, Humanoid)
+pose = &quot;Standing&quot;
+
+while Figure.Parent~=nil do
+&#9;local _, time = wait(0.1)
+&#9;move(time)
+end
+
+
+</ProtectedString>
+			</Properties>
+		</Item>
+		<Item class="Hat" referent="RBX42">
+			<Properties>
+				<CoordinateFrame name="AttachmentPoint">
+					<X>0</X>
+					<Y>0.5</Y>
+					<Z>0</Z>
+					<R00>-1</R00>
+					<R01>0</R01>
+					<R02>-0</R02>
+					<R10>0</R10>
+					<R11>1</R11>
+					<R12>-0</R12>
+					<R20>0</R20>
+					<R21>-0</R21>
+					<R22>-1</R22>
+				</CoordinateFrame>
+				<string name="Name">StalkerHead</string>
+			</Properties>
+			<Item class="Part" referent="RBX25">
+				<Properties>
+					<bool name="Anchored">false</bool>
+					<float name="BackParamA">-0.5</float>
+					<float name="BackParamB">0.5</float>
+					<token name="BackSurface">0</token>
+					<token name="BackSurfaceInput">0</token>
+					<float name="BottomParamA">-0.5</float>
+					<float name="BottomParamB">0.5</float>
+					<token name="BottomSurface">4</token>
+					<token name="BottomSurfaceInput">0</token>
+					<int name="BrickColor">1003</int>
+					<CoordinateFrame name="CFrame">
+						<X>-113.590004</X>
+						<Y>247.600006</Y>
+						<Z>-258.100006</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<bool name="CanCollide">false</bool>
+					<float name="Elasticity">0.5</float>
+					<float name="Friction">0.300000012</float>
+					<float name="FrontParamA">-0.5</float>
+					<float name="FrontParamB">0.5</float>
+					<token name="FrontSurface">0</token>
+					<token name="FrontSurfaceInput">0</token>
+					<float name="LeftParamA">-0.5</float>
+					<float name="LeftParamB">0.5</float>
+					<token name="LeftSurface">0</token>
+					<token name="LeftSurfaceInput">0</token>
+					<bool name="Locked">false</bool>
+					<token name="Material">256</token>
+					<string name="Name">Handle</string>
+					<float name="Reflectance">0</float>
+					<float name="RightParamA">-0.5</float>
+					<float name="RightParamB">0.5</float>
+					<token name="RightSurface">0</token>
+					<token name="RightSurfaceInput">0</token>
+					<Vector3 name="RotVelocity">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+					<float name="TopParamA">-0.5</float>
+					<float name="TopParamB">0.5</float>
+					<token name="TopSurface">0</token>
+					<token name="TopSurfaceInput">0</token>
+					<float name="Transparency">1</float>
+					<Vector3 name="Velocity">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+					<token name="formFactorRaw">0</token>
+					<token name="shape">1</token>
+					<Vector3 name="size">
+						<X>2</X>
+						<Y>1</Y>
+						<Z>1</Z>
+					</Vector3>
+				</Properties>
+				<Item class="SpecialMesh" referent="RBX43">
+					<Properties>
+						<token name="LODX">2</token>
+						<token name="LODY">2</token>
+						<Content name="MeshId"><null></null></Content>
+						<token name="MeshType">0</token>
+						<string name="Name">Mesh</string>
+						<Vector3 name="Offset">
+							<X>0</X>
+							<Y>0</Y>
+							<Z>0</Z>
+						</Vector3>
+						<Vector3 name="Scale">
+							<X>1.25</X>
+							<Y>1.25</Y>
+							<Z>1.25</Z>
+						</Vector3>
+						<Content name="TextureId"><null></null></Content>
+						<Vector3 name="VertexColor">
+							<X>1</X>
+							<Y>1</Y>
+							<Z>1</Z>
+						</Vector3>
+					</Properties>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="Shirt" referent="RBX44">
+			<Properties>
+				<string name="Name">Shirt</string>
+				<Content name="ShirtTemplate"><url>http://www.mulrbx.com/asset/?id=9859131</url></Content>
+			</Properties>
+		</Item>
+		<Item class="Pants" referent="RBX45">
+			<Properties>
+				<string name="Name">Pants</string>
+				<Content name="PantsTemplate"><url>http://www.mulrbx.com/asset/?id=9859149</url></Content>
+			</Properties>
+		</Item>
+		<Item class="CharacterMesh" referent="RBX46">
+			<Properties>
+				<int name="BaseTextureId">56140463</int>
+				<token name="BodyPart">2</token>
+				<int name="MeshId">56139927</int>
+				<string name="Name">SpaceTrooperLeft Arm</string>
+				<int name="OverlayTextureId">0</int>
+			</Properties>
+		</Item>
+		<Item class="CharacterMesh" referent="RBX47">
+			<Properties>
+				<int name="BaseTextureId">56140463</int>
+				<token name="BodyPart">4</token>
+				<int name="MeshId">56139901</int>
+				<string name="Name">SpaceTrooperLeft Leg</string>
+				<int name="OverlayTextureId">0</int>
+			</Properties>
+		</Item>
+		<Item class="CharacterMesh" referent="RBX48">
+			<Properties>
+				<int name="BaseTextureId">56140463</int>
+				<token name="BodyPart">3</token>
+				<int name="MeshId">56139782</int>
+				<string name="Name">SpaceTrooperRight Arm</string>
+				<int name="OverlayTextureId">0</int>
+			</Properties>
+		</Item>
+		<Item class="CharacterMesh" referent="RBX49">
+			<Properties>
+				<int name="BaseTextureId">56140463</int>
+				<token name="BodyPart">5</token>
+				<int name="MeshId">56139754</int>
+				<string name="Name">SpaceTrooperRight Leg</string>
+				<int name="OverlayTextureId">0</int>
+			</Properties>
+		</Item>
+		<Item class="CharacterMesh" referent="RBX50">
+			<Properties>
+				<int name="BaseTextureId">56140463</int>
+				<token name="BodyPart">1</token>
+				<int name="MeshId">56139720</int>
+				<string name="Name">SpaceTrooperTorso</string>
+				<int name="OverlayTextureId">0</int>
+			</Properties>
+		</Item>
+		<Item class="BoolValue" referent="RBX51">
+			<Properties>
+				<string name="Name">IsElite</string>
+				<bool name="Value">false</bool>
+			</Properties>
+		</Item>
+		<Item class="BoolValue" referent="RBX52">
+			<Properties>
+				<string name="Name">IsEngineer</string>
+				<bool name="Value">false</bool>
+			</Properties>
+		</Item>
+		<Item class="BoolValue" referent="RBX53">
+			<Properties>
+				<string name="Name">IsMedic</string>
+				<bool name="Value">false</bool>
+			</Properties>
+		</Item>
+		<Item class="BoolValue" referent="RBX54">
+			<Properties>
+				<string name="Name">MakeStalker</string>
+				<bool name="Value">false</bool>
+			</Properties>
+		</Item>
+		<Item class="Script" referent="RBX55">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">StalkerAppearance</string>
+				<ProtectedString name="Source">repeat wait () until script.Parent.MakeStalker.Value == true
+
+script.Parent.Humanoid.MaxHealth = 125
+script.Parent.Humanoid.Health = 125
+script.Parent.Upgrades:Destroy()
+if script.Parent.Torso:findFirstChild(&quot;Flashlight&quot;) then
+&#9;script.Parent.Torso.Flashlight:Destroy()
+end
+
+local stuff = script.Parent:GetChildren()
+
+for i = 1,#stuff do
+&#9;if stuff[i]:IsA(&quot;Shirt&quot;) or stuff[i]:IsA(&quot;Pants&quot;) or stuff[i]:IsA(&quot;CharacterMesh&quot;) then
+&#9;&#9;stuff[i]:Destroy()
+&#9;elseif stuff[i]:IsA(&quot;BasePart&quot;) and stuff[i].Name ~= &quot;HumanoidRootPart&quot; then
+&#9;&#9;stuff[i].Transparency = 0.95
+&#9;&#9;if string.sub(stuff[i].Name,1,3) == &quot;Eye&quot; then
+&#9;&#9;&#9;stuff[i]:Destroy()
+&#9;&#9;elseif stuff[i]:findFirstChild(&quot;Mesh&quot;) then
+&#9;&#9;&#9;stuff[i].Mesh:Destroy()
+&#9;&#9;&#9;stuff[i].Transparency = 1
+&#9;&#9;end
+&#9;elseif stuff[i]:IsA(&quot;Humanoid&quot;) then
+&#9;&#9;stuff[i].WalkSpeed = 30
+&#9;elseif stuff[i]:IsA(&quot;Hat&quot;) then
+&#9;&#9;if stuff[i].Name ~= &quot;StalkerHead&quot; then
+&#9;&#9;&#9;stuff[i]:Destroy()
+&#9;&#9;end
+&#9;end
+end
+
+script.Parent:WaitForChild(&quot;StalkerHead&quot;).Handle.Transparency = 0.95
+
+script.Parent.ChildAdded:connect(function (child)
+&#9;if child.Name == &quot;CombineHat&quot; then
+&#9;&#9;wait(0.1)
+&#9;&#9;child:Destroy()
+&#9;end
+end)</ProtectedString>
+			</Properties>
+		</Item>
+		<Item class="LocalScript" referent="RBX56">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">ClientsideEyes</string>
+				<ProtectedString name="Source">while wait() do
+&#9;if (game.Workspace.CurrentCamera.Focus.p - game.Workspace.CurrentCamera.CoordinateFrame.p).magnitude &lt; 1.5 then
+&#9;&#9;if script.Parent:findFirstChild(&quot;Eye&quot;) then
+&#9;&#9;&#9;script.Parent.Eye.Light.PlayerToHideFrom = game.Players.LocalPlayer
+&#9;&#9;&#9;script.Parent.Eye2.Light.PlayerToHideFrom = game.Players.LocalPlayer
+&#9;&#9;end
+&#9;else
+&#9;&#9;if script.Parent:findFirstChild(&quot;Eye&quot;) then
+&#9;&#9;&#9;script.Parent.Eye.Light.PlayerToHideFrom = nil
+&#9;&#9;&#9;script.Parent.Eye2.Light.PlayerToHideFrom = nil
+&#9;&#9;end
+&#9;end
+end</ProtectedString>
+			</Properties>
+			<Item class="Script" referent="RBX57">
+				<Properties>
+					<bool name="Disabled">false</bool>
+					<Content name="LinkedSource"><null></null></Content>
+					<string name="Name">ExtremelyUglyDebug</string>
+					<ProtectedString name="Source">while true do
+&#9;wait(1)
+&#9;script.Parent.Disabled = true
+&#9;wait(0.1)
+&#9;script.Parent.Disabled = false
+end
+</ProtectedString>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="LocalScript" referent="RBX58">
+			<Properties>
+				<bool name="Disabled">true</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">Upgrades</string>
+				<ProtectedString name="Source">wait(1)
+
+upgradePacks = {
+&#9;-- 1 = Default, 2 = Speedy Pack, 3 = Higher Jump Pack, 4 = Tank Pack, 5 = Engineer Pack
+&#9;[1] = {
+&#9;&#9;ArmorId = 56140463;
+&#9;&#9;ShirtId = 9859131;
+&#9;&#9;PantsId = 9859149;
+&#9;&#9;HelmetId = 18012267;
+&#9;&#9;Change = nil
+&#9;};
+&#9;[2] = {
+&#9;&#9;ArmorId = 108722009;
+&#9;&#9;ShirtId = 108722300;
+&#9;&#9;PantsId = 108722411;
+&#9;&#9;HelmetId = 108721727;
+&#9;&#9;Change = function ()
+&#9;&#9;&#9;script.Parent.Humanoid.WalkSpeed = 20
+&#9;&#9;&#9;script.Parent.Humanoid.Health = 75
+&#9;&#9;end
+&#9;};
+&#9;[3] = {
+&#9;&#9;ArmorId = 108722881;
+&#9;&#9;ShirtId = 108723272;
+&#9;&#9;PantsId = 108723146;
+&#9;&#9;HelmetId = 108722962;
+&#9;&#9;Change = function ()
+&#9;&#9;&#9;local g = Instance.new(&quot;BodyForce&quot;,script.Parent.Torso)
+&#9;&#9;&#9;g.force = Vector3.new(1000,1000,1000)
+&#9;&#9;&#9;script.Parent.Humanoid.WalkSpeed = 14
+&#9;&#9;end
+&#9;};
+&#9;[4] = {
+&#9;&#9;ArmorId = 108723598;
+&#9;&#9;ShirtId = 108723910;
+&#9;&#9;PantsId = 108724149;
+&#9;&#9;HelmetId = 108723685;
+&#9;&#9;Change = function ()
+&#9;&#9;&#9;script.Parent.Humanoid.MaxHealth = 150
+&#9;&#9;&#9;delay(0.5,function ()
+&#9;&#9;&#9;&#9;for i = 1,100 do
+&#9;&#9;&#9;&#9;&#9;script.Parent.Humanoid.Health = 150
+&#9;&#9;&#9;&#9;&#9;wait()
+&#9;&#9;&#9;&#9;end
+&#9;&#9;&#9;end)
+&#9;&#9;&#9;script.Parent.Humanoid.WalkSpeed = 12
+&#9;&#9;end
+&#9;};
+&#9;[5] = {
+&#9;&#9;ArmorId = 113436750;
+&#9;&#9;ShirtId = 113436804;
+&#9;&#9;PantsId = 113436769;
+&#9;&#9;HelmetId = 113436711;
+&#9;&#9;Change = function ()
+&#9;&#9;&#9;script.Parent.IsEngineer.Value = true
+&#9;&#9;end
+&#9;};
+&#9;[6] = {
+&#9;&#9;ArmorId = 114170809;
+&#9;&#9;ShirtId = 114171239;
+&#9;&#9;PantsId = 114171193;
+&#9;&#9;HelmetId = 114171011;
+&#9;&#9;Change = function ()
+&#9;&#9;&#9;script.Parent.IsMedic.Value = true
+&#9;&#9;end
+&#9;};
+&#9;[7] = {
+&#9;&#9;ArmorId = 0;
+&#9;&#9;ShirtId = 21463406;
+&#9;&#9;PantsId = 21463724;
+&#9;&#9;HelmetId = 118142889;
+&#9;&#9;Change = function ()
+&#9;&#9;&#9;for i,v in pairs(script.Parent:GetChildren()) do
+&#9;&#9;&#9;&#9;if v:IsA(&quot;CharacterMesh&quot;) then
+&#9;&#9;&#9;&#9;&#9;v:Destroy()
+&#9;&#9;&#9;&#9;end
+&#9;&#9;&#9;end
+&#9;&#9;&#9;for i,v in pairs(script:GetChildren()) do
+&#9;&#9;&#9;&#9;v:clone().Parent = script.Parent
+&#9;&#9;&#9;end
+&#9;&#9;&#9;script.Parent.Eye.Light.Light.Image = &quot;http://www.mulrbx.com/asset/?ID=74675986&quot;
+&#9;&#9;&#9;script.Parent.Eye2.Light.Light.Image = &quot;http://www.mulrbx.com/asset/?ID=74675986&quot;
+&#9;&#9;&#9;script.Parent.Torso.Flashlight.Color = Color3.new(0,1,1)
+&#9;&#9;&#9;script.Parent.Torso.Flashlight.Angle = 70 -- Slightly dimmer.
+&#9;&#9;&#9;script.Parent.IsElite.Value = true
+&#9;&#9;end 
+&#9;};
+&#9;[8] = {
+&#9;&#9;ArmorId = 108722009;
+&#9;&#9;ShirtId = 9859131;
+&#9;&#9;PantsId = 9859149;&#9;
+&#9;&#9;HelmetId = 130672688;
+&#9;&#9;Change = function ()
+&#9;&#9;&#9;script.Parent.Head.Mesh.VertexColor = Vector3.new(0.8,0.5,0)
+&#9;&#9;end
+&#9;}
+}
+
+repeat wait () until game.Players.LocalPlayer:findFirstChild(&quot;PurchasedUpgrades&quot;) ~= nil
+repeat wait () until game.Players.LocalPlayer.PurchasedUpgrades:findFirstChild(&quot;CurrentUpgrade&quot;) ~= nil
+
+local value = game.Players.LocalPlayer.PurchasedUpgrades.CurrentUpgrade.Value
+for i,v in pairs(script.Parent:GetChildren()) do
+&#9;if v:IsA(&quot;Shirt&quot;) then
+&#9;&#9;v.ShirtTemplate = &quot;http://www.mulrbx.com/asset/?ID=&quot;..upgradePacks[value].ShirtId
+&#9;elseif v:IsA(&quot;Pants&quot;) then
+&#9;&#9;v.PantsTemplate = &quot;http://www.mulrbx.com/asset/?ID=&quot;..upgradePacks[value].PantsId
+&#9;elseif v:IsA(&quot;BasePart&quot;) then
+&#9;&#9;if v.Name == &quot;Head&quot; then
+&#9;&#9;&#9;v.Mesh.TextureId = &quot;http://www.mulrbx.com/asset/?ID=&quot;..upgradePacks[value].HelmetId
+&#9;&#9;end
+&#9;elseif v:IsA(&quot;CharacterMesh&quot;) then
+&#9;&#9;v.BaseTextureId = upgradePacks[value].ArmorId
+&#9;end
+end
+local func = upgradePacks[value].Change
+if func ~= nil then
+&#9;func()
+end</ProtectedString>
+			</Properties>
+			<Item class="CharacterMesh" referent="RBX59">
+				<Properties>
+					<int name="BaseTextureId">0</int>
+					<token name="BodyPart">2</token>
+					<int name="MeshId">55058007</int>
+					<string name="Name">LeftArmMesh</string>
+					<int name="OverlayTextureId">118153375</int>
+				</Properties>
+			</Item>
+			<Item class="CharacterMesh" referent="RBX60">
+				<Properties>
+					<int name="BaseTextureId">0</int>
+					<token name="BodyPart">4</token>
+					<int name="MeshId">55057966</int>
+					<string name="Name">LeftLegMesh</string>
+					<int name="OverlayTextureId">118153375</int>
+				</Properties>
+			</Item>
+			<Item class="CharacterMesh" referent="RBX61">
+				<Properties>
+					<int name="BaseTextureId">0</int>
+					<token name="BodyPart">3</token>
+					<int name="MeshId">55057946</int>
+					<string name="Name">RightArmMesh</string>
+					<int name="OverlayTextureId">118153375</int>
+				</Properties>
+			</Item>
+			<Item class="CharacterMesh" referent="RBX62">
+				<Properties>
+					<int name="BaseTextureId">0</int>
+					<token name="BodyPart">5</token>
+					<int name="MeshId">55057914</int>
+					<string name="Name">RightLegMesh</string>
+					<int name="OverlayTextureId">118153375</int>
+				</Properties>
+			</Item>
+			<Item class="CharacterMesh" referent="RBX63">
+				<Properties>
+					<int name="BaseTextureId">0</int>
+					<token name="BodyPart">1</token>
+					<int name="MeshId">55057893</int>
+					<string name="Name">TorsoMesh</string>
+					<int name="OverlayTextureId">118153375</int>
+				</Properties>
+			</Item>
+			<Item class="Script" referent="RBX64">
+				<Properties>
+					<bool name="Disabled">false</bool>
+					<Content name="LinkedSource"><null></null></Content>
+					<string name="Name">Debug</string>
+					<ProtectedString name="Source">wait(3)
+script.Parent.Disabled = false
+script:Destroy()</ProtectedString>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="Script" referent="RBX65">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">HealthScript v3.1</string>
+				<ProtectedString name="Source">function getPlayer()
+&#9;repeat wait() until game.Players:findFirstChild(string.sub(script.Parent.Name,10,#script.Parent.Name-1))
+&#9;return game.Players:findFirstChild(string.sub(script.Parent.Name,10,#script.Parent.Name-1))
+end
+
+local HealthGUI_prototype = script:FindFirstChild(&quot;HealthGUI&quot;)
+local lastHealth = 100
+local lastHealth2 = 100
+local maxWidth = 0.96
+
+local humanoid = script.Parent.Humanoid
+
+if (humanoid == nil) then
+&#9;print(&quot;ERROR: no humanoid found in &apos;HealthScript v3.1&apos;&quot;)
+end
+
+
+function CreateGUI()
+&#9;local p = getPlayer() -- This will call a wait until the player designated to the name has been found
+&#9;HealthGUI_prototype.Parent = p.PlayerGui
+end
+
+function UpdateGUI(health)
+&#9;tray = HealthGUI_prototype.tray
+&#9;local width = (health / humanoid.MaxHealth) * maxWidth
+&#9;local height = 0.83
+&#9;local lastX = tray.bar.Position.X.Scale
+&#9;local x = 0.019 + (maxWidth - width)
+&#9;local y = 0.1
+&#9;
+&#9;tray.bar.Position = UDim2.new(x,0,y, 0) 
+&#9;tray.bar.Size = UDim2.new(width, 0, height, 0)
+&#9;-- If more than 1/4 health, bar = green.  Else, bar = red.
+&#9;if( (health / humanoid.MaxHealth) &gt; 0.25 ) then
+&#9;&#9;tray.barRed.Size = UDim2.new(0, 0, 0, 0)
+&#9;else
+&#9;&#9;tray.barRed.Position = tray.bar.Position
+&#9;&#9;tray.barRed.Size = tray.bar.Size
+&#9;&#9;tray.bar.Size = UDim2.new(0, 0, 0, 0)
+&#9;end
+&#9;
+&#9;if ( (lastHealth - health) &gt; (humanoid.MaxHealth / 10) ) then
+&#9;&#9;lastHealth = health
+
+&#9;&#9;if humanoid.Health ~= humanoid.MaxHealth then
+&#9;&#9;&#9;delay(0,function()
+&#9;&#9;&#9;&#9;AnimateHurtOverlay()
+&#9;&#9;&#9;end)
+&#9;&#9;&#9;delay(0,function()
+&#9;&#9;&#9;&#9;AnimateBars(x, y, lastX, height)
+&#9;&#9;&#9;end)
+&#9;&#9;end
+&#9;else
+&#9;&#9;lastHealth = health
+&#9;end
+end
+
+
+function HealthChanged(health)
+&#9;UpdateGUI(health)
+&#9;if ( (lastHealth2 - health) &gt; (humanoid.MaxHealth / 10) ) then
+&#9;&#9;lastHealth2 = health
+&#9;else
+&#9;&#9;lastHealth2 = health
+&#9;end
+end
+
+function AnimateBars(x, y, lastX, height)
+&#9;tray = HealthGUI_prototype.tray
+&#9;local width = math.abs(x - lastX)
+&#9;if( x &gt; lastX ) then
+&#9;&#9;x = lastX
+&#9;end
+&#9;tray.bar2.Position = UDim2.new(x,0, y, 0)
+&#9;tray.bar2.Size = UDim2.new(width, 0, height, 0)
+&#9;tray.bar2.BackgroundTransparency = 0
+&#9;local GBchannels = 1
+&#9;local j = 0.2
+
+&#9;local i_total = 30
+&#9;for i=1,i_total do
+&#9;&#9;-- Increment Values
+&#9;&#9;if (GBchannels &lt; 0.2) then
+&#9;&#9;&#9;j = -j
+&#9;&#9;end
+&#9;&#9;GBchannels = GBchannels + j
+&#9;&#9;if (i &gt; (i_total - 10)) then
+&#9;&#9;&#9;tray.bar2.BackgroundTransparency = tray.bar2.BackgroundTransparency + 0.1
+&#9;&#9;end
+&#9;&#9;tray.bar2.BackgroundColor3 = Color3.new(1, GBchannels, GBchannels)
+&#9;&#9;
+&#9;&#9;wait(0.02)
+&#9;end
+end
+
+function AnimateHurtOverlay()
+&#9;-- Start:
+&#9;-- overlay.Position = UDim2.new(0, 0, 0, -22)
+&#9;-- overlay.Size = UDim2.new(1, 0, 1.15, 30)
+&#9;
+&#9;-- Finish:
+&#9;-- overlay.Position = UDim2.new(-2, 0, -2, -22)
+&#9;-- overlay.Size = UDim2.new(4.5, 0, 4.65, 30)
+&#9;
+&#9;overlay = HealthGUI_prototype.hurtOverlay
+&#9;overlay.Position = UDim2.new(-2, 0, -2, -22)
+&#9;overlay.Size = UDim2.new(4.5, 0, 4.65, 30)
+&#9;-- Animate In, fast
+&#9;local i_total = 2
+&#9;local wiggle_total = 0
+&#9;local wiggle_i = 0.02
+&#9;for i=1,i_total do
+&#9;&#9;overlay.Position = UDim2.new( (-2 + (2 * (i/i_total)) + wiggle_total/2), 0, (-2 + (2 * (i/i_total)) + wiggle_total/2), -22 )
+&#9;&#9;overlay.Size = UDim2.new( (4.5 - (3.5 * (i/i_total)) + wiggle_total), 0, (4.65 - (3.5 * (i/i_total)) + wiggle_total), 30 )
+&#9;&#9;wait(0.01)
+&#9;end
+&#9;
+&#9;i_total = 30
+&#9;
+&#9;wait(0.03)
+&#9;
+&#9;-- Animate Out, slow
+&#9;for i=1,i_total do
+&#9;&#9;if( math.abs(wiggle_total) &gt; (wiggle_i * 3) ) then
+&#9;&#9;&#9;wiggle_i = -wiggle_i
+&#9;&#9;end
+&#9;&#9;wiggle_total = wiggle_total + wiggle_i
+&#9;&#9;overlay.Position = UDim2.new( (0 - (2 * (i/i_total)) + wiggle_total/2), 0, (0 - (2 * (i/i_total)) + wiggle_total/2), -22 )
+&#9;&#9;overlay.Size = UDim2.new( (1 + (3.5 * (i/i_total)) + wiggle_total), 0, (1.15 + (3.5 * (i/i_total)) + wiggle_total), 30 )
+&#9;&#9;wait(0.01)
+&#9;end
+&#9;
+&#9;-- Hide after we&apos;re done
+&#9;overlay.Position = UDim2.new(10, 0, 0, 0)
+end
+
+CreateGUI()
+humanoid.HealthChanged:connect(HealthChanged)
+humanoid.Died:connect(function() HealthChanged(0) end)</ProtectedString>
+			</Properties>
+			<Item class="GuiMain" referent="RBX66">
+				<Properties>
+					<string name="Name">HealthGUI</string>
+				</Properties>
+				<Item class="ImageLabel" referent="RBX67">
+					<Properties>
+						<bool name="Active">false</bool>
+						<Color3 name="BackgroundColor3">4290164919</Color3>
+						<float name="BackgroundTransparency">1</float>
+						<Color3 name="BorderColor3">4279970357</Color3>
+						<int name="BorderSizePixel">1</int>
+						<bool name="ClipsDescendants">false</bool>
+						<bool name="Draggable">false</bool>
+						<Content name="Image"><url>http://www.mulrbx.com/asset/?id=34854607</url></Content>
+						<Vector2 name="ImageRectOffset">
+							<X>0</X>
+							<Y>0</Y>
+						</Vector2>
+						<Vector2 name="ImageRectSize">
+							<X>0</X>
+							<Y>0</Y>
+						</Vector2>
+						<string name="Name">hurtOverlay</string>
+						<UDim2 name="Position">
+							<XS>2</XS>
+							<XO>0</XO>
+							<YS>0</YS>
+							<YO>-22</YO>
+						</UDim2>
+						<float name="Rotation">0</float>
+						<UDim2 name="Size">
+							<XS>1</XS>
+							<XO>0</XO>
+							<YS>1.1500001</YS>
+							<YO>30</YO>
+						</UDim2>
+						<token name="SizeConstraint">0</token>
+						<bool name="Visible">true</bool>
+						<int name="ZIndex">1</int>
+					</Properties>
+				</Item>
+				<Item class="Frame" referent="RBX68">
+					<Properties>
+						<bool name="Active">false</bool>
+						<Color3 name="BackgroundColor3">4285215356</Color3>
+						<float name="BackgroundTransparency">1</float>
+						<Color3 name="BorderColor3">4279970357</Color3>
+						<int name="BorderSizePixel">1</int>
+						<bool name="ClipsDescendants">false</bool>
+						<bool name="Draggable">false</bool>
+						<string name="Name">tray</string>
+						<UDim2 name="Position">
+							<XS>0.5</XS>
+							<XO>-44</XO>
+							<YS>1</YS>
+							<YO>-26</YO>
+						</UDim2>
+						<float name="Rotation">0</float>
+						<UDim2 name="Size">
+							<XS>0</XS>
+							<XO>170</XO>
+							<YS>0</YS>
+							<YO>18</YO>
+						</UDim2>
+						<token name="SizeConstraint">2</token>
+						<token name="Style">0</token>
+						<bool name="Visible">true</bool>
+						<int name="ZIndex">1</int>
+					</Properties>
+					<Item class="ImageLabel" referent="RBX69">
+						<Properties>
+							<bool name="Active">false</bool>
+							<Color3 name="BackgroundColor3">4294967295</Color3>
+							<float name="BackgroundTransparency">1</float>
+							<Color3 name="BorderColor3">4279970357</Color3>
+							<int name="BorderSizePixel">1</int>
+							<bool name="ClipsDescendants">false</bool>
+							<bool name="Draggable">false</bool>
+							<Content name="Image"><url>http://www.mulrbx.com/asset/?id=35238000</url></Content>
+							<Vector2 name="ImageRectOffset">
+								<X>0</X>
+								<Y>0</Y>
+							</Vector2>
+							<Vector2 name="ImageRectSize">
+								<X>0</X>
+								<Y>0</Y>
+							</Vector2>
+							<string name="Name">bkg</string>
+							<UDim2 name="Position">
+								<XS>0</XS>
+								<XO>0</XO>
+								<YS>0</YS>
+								<YO>0</YO>
+							</UDim2>
+							<float name="Rotation">0</float>
+							<UDim2 name="Size">
+								<XS>1</XS>
+								<XO>0</XO>
+								<YS>1</YS>
+								<YO>0</YO>
+							</UDim2>
+							<token name="SizeConstraint">0</token>
+							<bool name="Visible">true</bool>
+							<int name="ZIndex">1</int>
+						</Properties>
+					</Item>
+					<Item class="ImageLabel" referent="RBX70">
+						<Properties>
+							<bool name="Active">false</bool>
+							<Color3 name="BackgroundColor3">4294967295</Color3>
+							<float name="BackgroundTransparency">1</float>
+							<Color3 name="BorderColor3">4279970357</Color3>
+							<int name="BorderSizePixel">1</int>
+							<bool name="ClipsDescendants">false</bool>
+							<bool name="Draggable">false</bool>
+							<Content name="Image"><url>http://www.mulrbx.com/asset/?id=35238036</url></Content>
+							<Vector2 name="ImageRectOffset">
+								<X>0</X>
+								<Y>0</Y>
+							</Vector2>
+							<Vector2 name="ImageRectSize">
+								<X>0</X>
+								<Y>0</Y>
+							</Vector2>
+							<string name="Name">barRed</string>
+							<UDim2 name="Position">
+								<XS>0.0189999994</XS>
+								<XO>0</XO>
+								<YS>0.100000001</YS>
+								<YO>0</YO>
+							</UDim2>
+							<float name="Rotation">0</float>
+							<UDim2 name="Size">
+								<XS>0</XS>
+								<XO>0</XO>
+								<YS>0</YS>
+								<YO>0</YO>
+							</UDim2>
+							<token name="SizeConstraint">0</token>
+							<bool name="Visible">true</bool>
+							<int name="ZIndex">1</int>
+						</Properties>
+					</Item>
+					<Item class="Frame" referent="RBX71">
+						<Properties>
+							<bool name="Active">false</bool>
+							<Color3 name="BackgroundColor3">4294967295</Color3>
+							<float name="BackgroundTransparency">1.00000012</float>
+							<Color3 name="BorderColor3">4279970357</Color3>
+							<int name="BorderSizePixel">0</int>
+							<bool name="ClipsDescendants">false</bool>
+							<bool name="Draggable">false</bool>
+							<string name="Name">bar2</string>
+							<UDim2 name="Position">
+								<XS>0.0189999994</XS>
+								<XO>0</XO>
+								<YS>0.100000001</YS>
+								<YO>0</YO>
+							</UDim2>
+							<float name="Rotation">0</float>
+							<UDim2 name="Size">
+								<XS>0.192000002</XS>
+								<XO>0</XO>
+								<YS>0.829999983</YS>
+								<YO>0</YO>
+							</UDim2>
+							<token name="SizeConstraint">0</token>
+							<token name="Style">0</token>
+							<bool name="Visible">true</bool>
+							<int name="ZIndex">1</int>
+						</Properties>
+					</Item>
+					<Item class="ImageLabel" referent="RBX72">
+						<Properties>
+							<bool name="Active">false</bool>
+							<Color3 name="BackgroundColor3">4294967295</Color3>
+							<float name="BackgroundTransparency">1</float>
+							<Color3 name="BorderColor3">4279970357</Color3>
+							<int name="BorderSizePixel">1</int>
+							<bool name="ClipsDescendants">false</bool>
+							<bool name="Draggable">false</bool>
+							<Content name="Image"><url>http://www.mulrbx.com/asset/?id=35238053</url></Content>
+							<Vector2 name="ImageRectOffset">
+								<X>0</X>
+								<Y>0</Y>
+							</Vector2>
+							<Vector2 name="ImageRectSize">
+								<X>0</X>
+								<Y>0</Y>
+							</Vector2>
+							<string name="Name">bar</string>
+							<UDim2 name="Position">
+								<XS>0.0189999994</XS>
+								<XO>0</XO>
+								<YS>0.100000001</YS>
+								<YO>0</YO>
+							</UDim2>
+							<float name="Rotation">0</float>
+							<UDim2 name="Size">
+								<XS>0.959999979</XS>
+								<XO>0</XO>
+								<YS>0.829999983</YS>
+								<YO>0</YO>
+							</UDim2>
+							<token name="SizeConstraint">0</token>
+							<bool name="Visible">true</bool>
+							<int name="ZIndex">1</int>
+						</Properties>
+					</Item>
+					<Item class="ImageLabel" referent="RBX73">
+						<Properties>
+							<bool name="Active">false</bool>
+							<Color3 name="BackgroundColor3">4294967295</Color3>
+							<float name="BackgroundTransparency">1</float>
+							<Color3 name="BorderColor3">4279970357</Color3>
+							<int name="BorderSizePixel">0</int>
+							<bool name="ClipsDescendants">false</bool>
+							<bool name="Draggable">false</bool>
+							<Content name="Image"><url>http://www.mulrbx.com/asset/?id=34816363</url></Content>
+							<Vector2 name="ImageRectOffset">
+								<X>0</X>
+								<Y>0</Y>
+							</Vector2>
+							<Vector2 name="ImageRectSize">
+								<X>0</X>
+								<Y>0</Y>
+							</Vector2>
+							<string name="Name">label</string>
+							<UDim2 name="Position">
+								<XS>0.680000007</XS>
+								<XO>0</XO>
+								<YS>0.300000012</YS>
+								<YO>0</YO>
+							</UDim2>
+							<float name="Rotation">0</float>
+							<UDim2 name="Size">
+								<XS>0.25</XS>
+								<XO>0</XO>
+								<YS>0.349999994</YS>
+								<YO>0</YO>
+							</UDim2>
+							<token name="SizeConstraint">0</token>
+							<bool name="Visible">true</bool>
+							<int name="ZIndex">1</int>
+						</Properties>
+					</Item>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="Script" referent="RBX74">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">HatManager</string>
+				<ProtectedString name="Source">repeat wait () until game.Players:GetPlayerFromCharacter(script.Parent) ~= nil
+player = game.Players:GetPlayerFromCharacter(script.Parent)
+repeat wait () until player:findFirstChild(&quot;PurchasedHats&quot;) ~= nil
+repeat wait () until player.PurchasedHats:findFirstChild(&quot;CurrentHat&quot;) ~= nil
+repeat wait () until player.PurchasedHats:findFirstChild(&quot;CurrentHat2&quot;) ~= nil
+
+local hats = {104274701,104275207,104275862,104276581,104277614,104278070,104279022,104280320,104281604,105583697,105584278,105585445,105586405,105616686,105617463,105618236,105618722,105618876,110608208,110608349,110608423,110608630,110608765,110609057,110609247,110609316,110609352,113464337,113464728,113465607,113467133,113468960,113469685,113469088,113469492,113470070,119147787,119147814,119147839,119147886,119147922,119147952,119147972,119148055,119148080,125934582,125934737,125934829,125934896,125934953,125978747,125981741,125982110,125982623,131085917,131085974,131086599,131086814,131181531,131181831,131181961,131182204,131183434,104388248,104784925,104895513,106715970,107280899,109209378,114634281,123783152,129815366}
+
+function updateHats()
+&#9;for _,v in pairs(script.Parent:GetChildren()) do
+&#9;&#9;if v.Name == &quot;CombineHat&quot; then
+&#9;&#9;&#9;v:Destroy()
+&#9;&#9;end
+&#9;end
+&#9;if player.PurchasedHats.CurrentHat.Value ~= 0 then
+&#9;&#9;local hat = game:GetService(&quot;InsertService&quot;):LoadAsset(hats[player.PurchasedHats.CurrentHat.Value]):WaitForChild(&quot;CombineHat&quot;)
+&#9;&#9;hat.Parent = script.Parent
+&#9;end
+&#9;if player.PurchasedHats.CurrentHat2.Value ~= 0 then
+&#9;&#9;local hat = game:GetService(&quot;InsertService&quot;):LoadAsset(hats[player.PurchasedHats.CurrentHat2.Value]):WaitForChild(&quot;CombineHat&quot;)
+&#9;&#9;hat.Parent = script.Parent
+&#9;end&#9;
+end
+
+updateHats()
+
+player.PurchasedHats.CurrentHat.Changed:connect(updateHats)
+player.PurchasedHats.CurrentHat2.Changed:connect(updateHats)</ProtectedString>
+			</Properties>
+		</Item>
+		<Item class="Script" referent="RBX75">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">EyeWelds</string>
+				<ProtectedString name="Source">local prev
+local parts = {script.Parent.Eye,script.Parent.Eye2,script.Parent.Head}
+for i = 1,#parts do
+--remove any of the following parts that say &quot;(parts[i].className == [className])&quot; if you want to exclude that particular className type from the Weld
+&#9;if ((parts[i].className == &quot;Part&quot;) or (parts[i].className == &quot;Seat&quot;) or (parts[i].className == &quot;TrussPart&quot;) or (parts[i].className == &quot;VehicleSeat&quot;) or (parts[i].className == &quot;SkateboardPlatform&quot;)) then
+&#9;&#9;if (prev ~= nil) then
+&#9;&#9;&#9;local weld = Instance.new(&quot;Weld&quot;)
+&#9;&#9;&#9;weld.Part0 = prev
+&#9;&#9;&#9;weld.Part1 = parts[i]
+&#9;&#9;&#9;weld.C0 = prev.CFrame:inverse()
+&#9;&#9;&#9;weld.C1 = parts[i].CFrame:inverse()
+&#9;&#9;&#9;weld.Parent = prev
+&#9;&#9;&#9;parts[i].Anchored = false
+&#9;&#9;end
+&#9;&#9;prev = parts[i]
+&#9;end
+end
+wait(3)
+</ProtectedString>
+			</Properties>
+		</Item>
+		<Item class="Script" referent="RBX76">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">Death</string>
+				<ProtectedString name="Source">function isInLobby()
+&#9;local lobbyRegion = game.Workspace:FindPartsInRegion3(Region3.new(Vector3.new(-357, 184, -83),Vector3.new(-254, 219, 19)))
+&#9;for i,v in pairs(lobbyRegion) do
+&#9;&#9;if v:IsDescendantOf(script.Parent) then
+&#9;&#9;&#9;return true
+&#9;&#9;end
+&#9;end
+end
+
+function onDied()
+&#9;local id = nil
+&#9;local v = Instance.new(&quot;IntValue&quot;)
+&#9;v.Value = 1
+&#9;v.Name = &quot;Upgrade&quot;
+&#9;local player = game.Players:GetPlayerFromCharacter(script.Parent)
+&#9;if player ~= nil then
+&#9;&#9;v.Value = player.PurchasedUpgrades.CurrentUpgrade.Value
+&#9;else
+&#9;&#9;print(&quot;Can&apos;t find player&quot;)
+&#9;end
+&#9;if script.Parent.MakeStalker.Value == true then
+&#9;&#9;id = 130951292
+&#9;else
+&#9;&#9;if player.PurchasedUpgrades.CurrentUpgrade.Value == 7 then
+&#9;&#9;&#9;id = 126014152
+&#9;&#9;else
+&#9;&#9;&#9;id = 130948290
+&#9;&#9;end
+&#9;end
+&#9;local pos = script.Parent.Torso.Position
+&#9;local me = script.Parent
+&#9;if isInLobby() then return end
+&#9;script.Parent = game.Workspace
+&#9;local stuff = me:GetChildren()
+&#9;local hats = {}
+&#9;local ragdoll = game:GetService(&quot;InsertService&quot;):LoadAsset(id).Ragdoll
+&#9;ragdoll.Parent = game.Workspace
+&#9;ragdoll:MoveTo(pos)
+&#9;v.Parent = ragdoll
+&#9;if id == 130948290 then
+&#9;&#9;for i,v in pairs(ragdoll:GetChildren()) do
+&#9;&#9;&#9;if v:IsA(&quot;Shirt&quot;) then
+&#9;&#9;&#9;&#9;v.ShirtTemplate = me.Shirt.ShirtTemplate
+&#9;&#9;&#9;elseif v:IsA(&quot;Pants&quot;) then
+&#9;&#9;&#9;&#9;v.PantsTemplate = me.Pants.PantsTemplate
+&#9;&#9;&#9;elseif v:IsA(&quot;CharacterMesh&quot;) then
+&#9;&#9;&#9;&#9;v.BaseTextureId = me.SpaceTrooperTorso.BaseTextureId
+&#9;&#9;&#9;end
+&#9;&#9;end
+&#9;&#9;ragdoll.Hat.Handle.Mesh.TextureId = me.Head.Mesh.TextureId
+&#9;end
+&#9;for i = 1,#stuff do
+&#9;&#9;if stuff[i].Name == &quot;CombineHat&quot; then
+&#9;&#9;&#9;table.insert(hats,stuff[i])
+&#9;&#9;&#9;stuff[i].Parent = game.Lighting
+&#9;&#9;else
+&#9;&#9;&#9;stuff[i]:Destroy()
+&#9;&#9;end
+&#9;end
+&#9;if #hats &gt; 0 then
+&#9;&#9;for _,v in pairs(hats) do
+&#9;&#9;&#9;v.Parent = ragdoll
+&#9;&#9;end
+&#9;end
+&#9;script:Destroy()
+end
+
+script.Parent.Humanoid.Died:connect(onDied)</ProtectedString>
+			</Properties>
+		</Item>
+		<Item class="Part" referent="RBX77">
+			<Properties>
+				<bool name="Anchored">false</bool>
+				<float name="BackParamA">-0.5</float>
+				<float name="BackParamB">0.5</float>
+				<token name="BackSurface">2</token>
+				<token name="BackSurfaceInput">0</token>
+				<float name="BottomParamA">-0.5</float>
+				<float name="BottomParamB">0.5</float>
+				<token name="BottomSurface">2</token>
+				<token name="BottomSurfaceInput">0</token>
+				<int name="BrickColor">194</int>
+				<CoordinateFrame name="CFrame">
+					<X>-113.822014</X>
+					<Y>247.415009</Y>
+					<Z>-257.440033</Z>
+					<R00>-0.959213257</R00>
+					<R01>6.97105529e-009</R01>
+					<R02>0.282678783</R02>
+					<R10>9.06099995e-009</R10>
+					<R11>1</R11>
+					<R12>6.07890094e-009</R12>
+					<R20>-0.282678783</R20>
+					<R21>8.39760084e-009</R21>
+					<R22>-0.959213257</R22>
+				</CoordinateFrame>
+				<bool name="CanCollide">false</bool>
+				<float name="Elasticity">0.5</float>
+				<float name="Friction">0.300000012</float>
+				<float name="FrontParamA">-0.5</float>
+				<float name="FrontParamB">0.5</float>
+				<token name="FrontSurface">2</token>
+				<token name="FrontSurfaceInput">0</token>
+				<float name="LeftParamA">-0.5</float>
+				<float name="LeftParamB">0.5</float>
+				<token name="LeftSurface">2</token>
+				<token name="LeftSurfaceInput">0</token>
+				<bool name="Locked">false</bool>
+				<token name="Material">256</token>
+				<string name="Name">Eye2</string>
+				<float name="Reflectance">0</float>
+				<float name="RightParamA">-0.5</float>
+				<float name="RightParamB">0.5</float>
+				<token name="RightSurface">2</token>
+				<token name="RightSurfaceInput">0</token>
+				<Vector3 name="RotVelocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<float name="TopParamA">-0.5</float>
+				<float name="TopParamB">0.5</float>
+				<token name="TopSurface">2</token>
+				<token name="TopSurfaceInput">0</token>
+				<float name="Transparency">1</float>
+				<Vector3 name="Velocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<token name="formFactorRaw">3</token>
+				<token name="shape">1</token>
+				<Vector3 name="size">
+					<X>0.200000003</X>
+					<Y>0.210000008</Y>
+					<Z>0.200000003</Z>
+				</Vector3>
+			</Properties>
+			<Item class="BillboardGui" referent="RBX78">
+				<Properties>
+					<bool name="Active">false</bool>
+					<Ref name="Adornee">null</Ref>
+					<bool name="AlwaysOnTop">false</bool>
+					<bool name="Enabled">true</bool>
+					<Vector3 name="ExtentsOffset">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>1</Z>
+					</Vector3>
+					<string name="Name">Light</string>
+					<Ref name="PlayerToHideFrom">null</Ref>
+					<UDim2 name="Size">
+						<XS>0.5</XS>
+						<XO>0</XO>
+						<YS>0.5</YS>
+						<YO>0</YO>
+					</UDim2>
+					<Vector2 name="SizeOffset">
+						<X>0</X>
+						<Y>0</Y>
+					</Vector2>
+					<Vector3 name="StudsOffset">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+				</Properties>
+				<Item class="ImageLabel" referent="RBX79">
+					<Properties>
+						<bool name="Active">false</bool>
+						<Color3 name="BackgroundColor3">4288914085</Color3>
+						<float name="BackgroundTransparency">1</float>
+						<Color3 name="BorderColor3">4279970357</Color3>
+						<int name="BorderSizePixel">1</int>
+						<bool name="ClipsDescendants">false</bool>
+						<bool name="Draggable">false</bool>
+						<Content name="Image"><url>http://www.mulrbx.com/asset/?id=42132177</url></Content>
+						<Vector2 name="ImageRectOffset">
+							<X>0</X>
+							<Y>0</Y>
+						</Vector2>
+						<Vector2 name="ImageRectSize">
+							<X>0</X>
+							<Y>0</Y>
+						</Vector2>
+						<string name="Name">Light</string>
+						<UDim2 name="Position">
+							<XS>0</XS>
+							<XO>0</XO>
+							<YS>0</YS>
+							<YO>0</YO>
+						</UDim2>
+						<float name="Rotation">0</float>
+						<UDim2 name="Size">
+							<XS>1</XS>
+							<XO>0</XO>
+							<YS>1</YS>
+							<YO>0</YO>
+						</UDim2>
+						<token name="SizeConstraint">0</token>
+						<bool name="Visible">true</bool>
+						<int name="ZIndex">1</int>
+					</Properties>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="Part" referent="RBX80">
+			<Properties>
+				<bool name="Anchored">false</bool>
+				<float name="BackParamA">-0.5</float>
+				<float name="BackParamB">0.5</float>
+				<token name="BackSurface">2</token>
+				<token name="BackSurfaceInput">0</token>
+				<float name="BottomParamA">-0.5</float>
+				<float name="BottomParamB">0.5</float>
+				<token name="BottomSurface">2</token>
+				<token name="BottomSurfaceInput">0</token>
+				<int name="BrickColor">194</int>
+				<CoordinateFrame name="CFrame">
+					<X>-113.388008</X>
+					<Y>247.415009</Y>
+					<Z>-257.465027</Z>
+					<R00>-0.87814945</R00>
+					<R01>6.97105529e-009</R01>
+					<R02>-0.478381723</R02>
+					<R10>2.10865947e-009</R10>
+					<R11>1</R11>
+					<R12>1.07055165e-008</R12>
+					<R20>0.478381723</R20>
+					<R21>8.39760084e-009</R21>
+					<R22>-0.87814945</R22>
+				</CoordinateFrame>
+				<bool name="CanCollide">false</bool>
+				<float name="Elasticity">0.5</float>
+				<float name="Friction">0.300000012</float>
+				<float name="FrontParamA">-0.5</float>
+				<float name="FrontParamB">0.5</float>
+				<token name="FrontSurface">2</token>
+				<token name="FrontSurfaceInput">0</token>
+				<float name="LeftParamA">-0.5</float>
+				<float name="LeftParamB">0.5</float>
+				<token name="LeftSurface">2</token>
+				<token name="LeftSurfaceInput">0</token>
+				<bool name="Locked">false</bool>
+				<token name="Material">256</token>
+				<string name="Name">Eye</string>
+				<float name="Reflectance">0</float>
+				<float name="RightParamA">-0.5</float>
+				<float name="RightParamB">0.5</float>
+				<token name="RightSurface">2</token>
+				<token name="RightSurfaceInput">0</token>
+				<Vector3 name="RotVelocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<float name="TopParamA">-0.5</float>
+				<float name="TopParamB">0.5</float>
+				<token name="TopSurface">2</token>
+				<token name="TopSurfaceInput">0</token>
+				<float name="Transparency">1</float>
+				<Vector3 name="Velocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<token name="formFactorRaw">3</token>
+				<token name="shape">1</token>
+				<Vector3 name="size">
+					<X>0.200000003</X>
+					<Y>0.210000008</Y>
+					<Z>0.200000003</Z>
+				</Vector3>
+			</Properties>
+			<Item class="BillboardGui" referent="RBX81">
+				<Properties>
+					<bool name="Active">false</bool>
+					<Ref name="Adornee">null</Ref>
+					<bool name="AlwaysOnTop">false</bool>
+					<bool name="Enabled">true</bool>
+					<Vector3 name="ExtentsOffset">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>1</Z>
+					</Vector3>
+					<string name="Name">Light</string>
+					<Ref name="PlayerToHideFrom">null</Ref>
+					<UDim2 name="Size">
+						<XS>0.5</XS>
+						<XO>0</XO>
+						<YS>0.5</YS>
+						<YO>0</YO>
+					</UDim2>
+					<Vector2 name="SizeOffset">
+						<X>0</X>
+						<Y>0</Y>
+					</Vector2>
+					<Vector3 name="StudsOffset">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+				</Properties>
+				<Item class="ImageLabel" referent="RBX82">
+					<Properties>
+						<bool name="Active">false</bool>
+						<Color3 name="BackgroundColor3">4288914085</Color3>
+						<float name="BackgroundTransparency">1</float>
+						<Color3 name="BorderColor3">4279970357</Color3>
+						<int name="BorderSizePixel">1</int>
+						<bool name="ClipsDescendants">false</bool>
+						<bool name="Draggable">false</bool>
+						<Content name="Image"><url>http://www.mulrbx.com/asset/?id=42132177</url></Content>
+						<Vector2 name="ImageRectOffset">
+							<X>0</X>
+							<Y>0</Y>
+						</Vector2>
+						<Vector2 name="ImageRectSize">
+							<X>0</X>
+							<Y>0</Y>
+						</Vector2>
+						<string name="Name">Light</string>
+						<UDim2 name="Position">
+							<XS>0</XS>
+							<XO>0</XO>
+							<YS>0</YS>
+							<YO>0</YO>
+						</UDim2>
+						<float name="Rotation">0</float>
+						<UDim2 name="Size">
+							<XS>1</XS>
+							<XO>0</XO>
+							<YS>1</YS>
+							<YO>0</YO>
+						</UDim2>
+						<token name="SizeConstraint">0</token>
+						<bool name="Visible">true</bool>
+						<int name="ZIndex">1</int>
+					</Properties>
+				</Item>
+			</Item>
+		</Item>
+	</Item>
+</roblox>

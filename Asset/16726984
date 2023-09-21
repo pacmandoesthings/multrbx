@@ -1,0 +1,573 @@
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mulrbx.com/roblox.xsd" version="4">
+	<External>null</External>
+	<External>nil</External>
+	<Item class="Tool" referent="RBX5FF4545189FA4CF1ABFBF858E948CEA5">
+		<Properties>
+			<bool name="CanBeDropped">true</bool>
+			<bool name="Enabled">true</bool>
+			<CoordinateFrame name="Grip">
+				<X>0</X>
+				<Y>-0.699999988</Y>
+				<Z>-0.200000003</Z>
+				<R00>1</R00>
+				<R01>0</R01>
+				<R02>0</R02>
+				<R10>0</R10>
+				<R11>0</R11>
+				<R12>-1</R12>
+				<R20>0</R20>
+				<R21>1</R21>
+				<R22>0</R22>
+			</CoordinateFrame>
+			<bool name="ManualActivationOnly">false</bool>
+			<string name="Name">Pirate&apos;sFlintlock</string>
+			<bool name="RequiresHandle">true</bool>
+			<Content name="TextureId"><url>http://www.mulrbx.com/asset/?id=13508020</url></Content>
+			<string name="ToolTip"></string>
+		</Properties>
+		<Item class="Part" referent="RBX97FA4CAAC9B448089DA9F524AA21A714">
+			<Properties>
+				<bool name="Anchored">false</bool>
+				<float name="BackParamA">-0.5</float>
+				<float name="BackParamB">0.5</float>
+				<token name="BackSurface">0</token>
+				<token name="BackSurfaceInput">0</token>
+				<float name="BottomParamA">-0.5</float>
+				<float name="BottomParamB">0.5</float>
+				<token name="BottomSurface">0</token>
+				<token name="BottomSurfaceInput">0</token>
+				<int name="BrickColor">26</int>
+				<CoordinateFrame name="CFrame">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+					<R00>1</R00>
+					<R01>0</R01>
+					<R02>0</R02>
+					<R10>0</R10>
+					<R11>0</R11>
+					<R12>0.99999994</R12>
+					<R20>0</R20>
+					<R21>-0.99999994</R21>
+					<R22>0</R22>
+				</CoordinateFrame>
+				<bool name="CanCollide">true</bool>
+				<PhysicalProperties name="CustomPhysicalProperties">
+					<CustomPhysics>false</CustomPhysics>
+				</PhysicalProperties>
+				<float name="Elasticity">0.5</float>
+				<float name="Friction">0.300000012</float>
+				<float name="FrontParamA">-0.5</float>
+				<float name="FrontParamB">0.5</float>
+				<token name="FrontSurface">0</token>
+				<token name="FrontSurfaceInput">0</token>
+				<float name="LeftParamA">-0.5</float>
+				<float name="LeftParamB">0.5</float>
+				<token name="LeftSurface">0</token>
+				<token name="LeftSurfaceInput">0</token>
+				<bool name="Locked">true</bool>
+				<token name="Material">256</token>
+				<string name="Name">Handle</string>
+				<float name="Reflectance">0</float>
+				<float name="RightParamA">-0.5</float>
+				<float name="RightParamB">0.5</float>
+				<token name="RightSurface">0</token>
+				<token name="RightSurfaceInput">0</token>
+				<Vector3 name="RotVelocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<float name="TopParamA">-0.5</float>
+				<float name="TopParamB">0.5</float>
+				<token name="TopSurface">0</token>
+				<token name="TopSurfaceInput">0</token>
+				<float name="Transparency">0</float>
+				<Vector3 name="Velocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<token name="formFactorRaw">3</token>
+				<token name="shape">1</token>
+				<Vector3 name="size">
+					<X>1</X>
+					<Y>2</Y>
+					<Z>1</Z>
+				</Vector3>
+			</Properties>
+			<Item class="Sound" referent="RBX3051E7BD7E434B20AA94C030274CDAA5">
+				<Properties>
+					<float name="EmitterSize">10</float>
+					<bool name="Looped">false</bool>
+					<string name="Name">EquipSound</string>
+					<bool name="PlayOnRemove">false</bool>
+					<float name="PlaybackSpeed">1</float>
+					<bool name="Playing">false</bool>
+					<token name="RollOffMode">0</token>
+					<Ref name="SoundGroup">null</Ref>
+					<Content name="SoundId"><url>http://www.mulrbx.com/asset/?id=13510737</url></Content>
+					<double name="TimePosition">0</double>
+					<float name="Volume">1</float>
+					<float name="xmlRead_MaxDistance_3">10000</float>
+				</Properties>
+			</Item>
+			<Item class="SpecialMesh" referent="RBX0D1A5FAC70D0491F800EB5D0170A4FBD">
+				<Properties>
+					<token name="LODX">2</token>
+					<token name="LODY">2</token>
+					<Content name="MeshId"><url>http://www.mulrbx.com/asset/?id=13508017</url></Content>
+					<token name="MeshType">5</token>
+					<string name="Name">Mesh</string>
+					<Vector3 name="Offset">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+					<Vector3 name="Scale">
+						<X>1.5</X>
+						<Y>1.5</Y>
+						<Z>1.5</Z>
+					</Vector3>
+					<Content name="TextureId"><url>http://www.mulrbx.com/asset/?id=13508018</url></Content>
+					<Vector3 name="VertexColor">
+						<X>1</X>
+						<Y>1</Y>
+						<Z>1</Z>
+					</Vector3>
+				</Properties>
+			</Item>
+			<Item class="Sound" referent="RBX2A671C270B084A4BAD6B2B52486B3496">
+				<Properties>
+					<float name="EmitterSize">10</float>
+					<bool name="Looped">false</bool>
+					<string name="Name">PewPew</string>
+					<bool name="PlayOnRemove">false</bool>
+					<float name="PlaybackSpeed">0.850000024</float>
+					<bool name="Playing">false</bool>
+					<token name="RollOffMode">0</token>
+					<Ref name="SoundGroup">null</Ref>
+					<Content name="SoundId"><url>http://www.mulrbx.com/asset/?id=13510352</url></Content>
+					<double name="TimePosition">0</double>
+					<float name="Volume">1</float>
+					<float name="xmlRead_MaxDistance_3">10000</float>
+				</Properties>
+			</Item>
+			<Item class="Sound" referent="RBX20A9C885FA074A03963A034B728E59F1">
+				<Properties>
+					<float name="EmitterSize">10</float>
+					<bool name="Looped">false</bool>
+					<string name="Name">HitSound</string>
+					<bool name="PlayOnRemove">false</bool>
+					<float name="PlaybackSpeed">0.5</float>
+					<bool name="Playing">false</bool>
+					<token name="RollOffMode">0</token>
+					<Ref name="SoundGroup">null</Ref>
+					<Content name="SoundId"><url>http://www.mulrbx.com/asset/?id=11945266</url></Content>
+					<double name="TimePosition">0</double>
+					<float name="Volume">0.5</float>
+					<float name="xmlRead_MaxDistance_3">10000</float>
+				</Properties>
+			</Item>
+			<Item class="Attachment" referent="RBXDDE7EDD968ED4B85A4D9E548C44D7CBF">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>-1</Y>
+						<Z>0</Z>
+						<R00>0</R00>
+						<R01>1</R01>
+						<R02>-0</R02>
+						<R10>-1</R10>
+						<R11>0</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<string name="Name">RightGripAttachment</string>
+					<bool name="Visible">false</bool>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="Script" referent="RBXA7D4C2C32C1448B98E8A169E5080CE34">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">RayGun</string>
+				<string name="ScriptGuid">{890B7F23-6451-443D-AC12-E1A88160E24A}</string>
+				<ProtectedString name="Source"><![CDATA[--Fixed by Luckymaxer
+
+Tool = script.Parent
+Handle = Tool:WaitForChild("Handle")
+
+Players = game:GetService("Players")
+Debris = game:GetService("Debris")
+
+ServerControl = (Tool:FindFirstChild("ServerControl") or Instance.new("RemoteFunction"))
+ServerControl.Name = "ServerControl"
+ServerControl.Parent = Tool
+
+ClientControl = (Tool:FindFirstChild("ClientControl") or Instance.new("RemoteFunction"))
+ClientControl.Name = "ClientControl"
+ClientControl.Parent = Tool
+
+Tool.Enabled = true
+
+function fire(v)
+
+	local missile = Instance.new("Part")
+
+	local noise = Vector3.new(math.random() - .5, math.random() - .5, math.random() - .5).unit
+
+	v = (v + (noise * .1)).unit
+
+
+	local spawnPos = Handle.Position
+	
+	local PewPew = Tool.Handle:FindFirstChild("PewPew")	
+
+	spawnPos  = spawnPos + (v * 2)
+
+	
+	missile.Position = spawnPos
+	missile.Size = Vector3.new(1,1,1)
+	missile.Velocity = v * 150
+	missile.BrickColor = BrickColor.new(199)
+	missile.Shape = 0
+	missile.BottomSurface = 0
+	missile.TopSurface = 0
+	missile.Material = Enum.Material.CorrodedMetal
+	missile.Elasticity = .05
+	missile.Friction = .7
+	missile.Name = "Bullet"
+	
+	Handle.HitSound:Clone().Parent = missile
+
+
+	local force = Instance.new("BodyForce")
+	force.Name = "BulletFloat"
+	force.force = Vector3.new(0,98,0)
+	force.Parent = missile
+
+	local creator_tag = Instance.new("ObjectValue")
+	creator_tag.Value = Player
+	creator_tag.Name = "creator"
+	creator_tag.Parent = missile
+	
+	local new_script = script.LaserBlast:clone()
+	new_script.Disabled = false
+	new_script.Parent = missile
+	
+	Debris:AddItem(missile, 10)
+
+	missile.Parent = game:GetService("Workspace")
+
+	Handle.PewPew:Play()
+
+end
+
+
+
+function gunUp()
+	Tool.GripForward = Vector3.new(0,.981,-.196)
+	Tool.GripRight = Vector3.new(1,0,0)
+	Tool.GripUp = Vector3.new(0,.196,.981)
+end
+
+function gunOut()
+	Tool.GripForward = Vector3.new(0,1,0)
+	Tool.GripRight = Vector3.new(1,0,0)
+	Tool.GripUp = Vector3.new(0,0,1)
+end
+
+function onActivated()
+	if not Tool.Enabled or not ToolEquipped or not CheckIfAlive() then
+		return
+	end
+
+	Tool.Enabled = false
+
+	local targetPos = InvokeClient("MousePosition").Position
+	local lookAt = (targetPos - Handle.Position).unit
+
+	local reload = .1
+
+	gunUp()
+	fire(lookAt)
+	wait(reload)
+	gunOut()
+	wait(reload)
+
+	Tool.Enabled = true
+
+end
+
+function CheckIfAlive()
+	return (((Character and Character.Parent and Humanoid and Humanoid.Parent and Humanoid.Health > 0 and Player and Player.Parent) and true) or false)
+end
+
+function onEquipped(Mouse)
+	Character = Tool.Parent
+	Humanoid = Character:FindFirstChild("Humanoid")
+	Player = Players:GetPlayerFromCharacter(Character)
+	if not CheckIfAlive() then
+		return
+	end
+	Handle.EquipSound:play()
+	ToolEquipped = true
+end
+
+function onUnequipped()
+	ToolEquipped = false
+end
+
+function InvokeClient(Mode, Value)
+	local ClientReturn = nil
+	pcall(function()
+		ClientReturn = ClientControl:InvokeClient(Player, Mode, Value)
+	end)
+	return ClientReturn
+end
+
+function OnServerInvoke(player, mode, value)
+	if player ~= Player or not ToolEquipped or not value or not CheckIfAlive() or not Tool.Enabled then
+		return
+	end
+end
+
+--ServerControl.OnServerInvoke = OnServerInvoke
+
+Tool.Activated:connect(onActivated)
+Tool.Equipped:connect(onEquipped)
+Tool.Unequipped:connect(onUnequipped)]]></ProtectedString>
+			</Properties>
+			<Item class="Script" referent="RBXE84F288213A84B558E1949396BA045D7">
+				<Properties>
+					<bool name="Disabled">true</bool>
+					<Content name="LinkedSource"><null></null></Content>
+					<string name="Name">LaserBlast</string>
+					<string name="ScriptGuid">{3A479D17-5D17-48B0-9B72-AE798BBE9815}</string>
+					<ProtectedString name="Source"><![CDATA[--Rescripted by Luckymaxer
+
+Pellet = script.Parent
+
+Players = game:GetService("Players")
+Debris = game:GetService("Debris")
+
+Creator = Pellet:FindFirstChild("creator")
+
+HitSound = Pellet:FindFirstChild("HitSound")
+
+Stuck = false
+
+Damage = 25
+
+function IsHuntedVictim(character)
+	return character:FindFirstChild("NinjaMaskOfShadows")
+end
+
+function TagHumanoid(humanoid, player)
+	local Creator_Tag = Instance.new("ObjectValue")
+	Creator_Tag.Name = "creator"
+	Creator_Tag.Value = player
+	Debris:AddItem(Creator_Tag, 2)
+	Creator_Tag.Parent = humanoid
+end
+
+function UntagHumanoid(humanoid)
+	for i, v in pairs(humanoid:GetChildren()) do
+		if v:IsA("ObjectValue") and v.Name == "creator" then
+			v:Destroy()
+		end
+	end
+end
+
+function IsTeamMate(Player1, Player2)
+	return (Player1 and Player2 and not Player1.Neutral and not Player2.Neutral and Player1.TeamColor == Player2.TeamColor)
+end
+
+function Touched(Hit)
+	if not Hit or not Hit.Parent or Stuck then
+		return
+	end
+	local character = Hit.Parent
+	if character:IsA("Hat") or character:IsA("Tool") then
+		character = character.Parent
+	end
+	local CreatorPlayer
+	if Creator and Creator.Value and Creator.Value:IsA("Player") and Creator.Value.Character then
+		CreatorPlayer = Creator.Value
+	end
+	if CreatorPlayer and CreatorPlayer.Character == character then
+		return
+	end
+	local player = Players:GetPlayerFromCharacter(character)
+	if CreatorPlayer and player and IsTeamMate(CreatorPlayer, player) then
+		return
+	end
+	Stuck = true
+	if HitSound then
+		HitSound:Play()
+	end
+	local humanoid = character:FindFirstChild("Humanoid")
+	if humanoid and humanoid.Health > 0 then
+		UntagHumanoid(humanoid)
+		if CreatorPlayer then
+			TagHumanoid(humanoid, CreatorPlayer)
+		end
+		humanoid:TakeDamage(Damage)
+	end
+end
+	
+Pellet.Touched:connect(Touched)]]></ProtectedString>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="LocalScript" referent="RBX5348CF00ED30447085C4C33D1B069287">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">MouseIcon</string>
+				<string name="ScriptGuid"></string>
+				<ProtectedString name="Source"><![CDATA[--Made by Luckymaxer
+
+Mouse_Icon = "rbxasset://textures/GunCursor.png"
+Reloading_Icon = "rbxasset://textures/GunWaitCursor.png"
+
+Tool = script.Parent
+
+Mouse = nil
+
+function UpdateIcon()
+	if Mouse then
+		Mouse.Icon = Tool.Enabled and Mouse_Icon or Reloading_Icon
+	end
+end
+
+function OnEquipped(ToolMouse)
+	Mouse = ToolMouse
+	UpdateIcon()
+end
+
+function OnChanged(Property)
+	if Property == "Enabled" then
+		UpdateIcon()
+	end
+end
+
+Tool.Equipped:connect(OnEquipped)
+Tool.Changed:connect(OnChanged)
+]]></ProtectedString>
+			</Properties>
+		</Item>
+		<Item class="LocalScript" referent="RBX6DD27AEEDB2443D985DF6800890D90DA">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">LocalScript</string>
+				<string name="ScriptGuid">{5422B783-DF04-427E-AEBA-E5EE4A357AD8}</string>
+				<ProtectedString name="Source"><![CDATA[--Made by Luckymaxer
+
+Tool = script.Parent
+Handle = Tool:WaitForChild("Handle")
+
+Players = game:GetService("Players")
+RunService = game:GetService("RunService")
+
+Animations = {}
+
+ServerControl = Tool:WaitForChild("ServerControl")
+ClientControl = Tool:WaitForChild("ClientControl")
+
+ToolEquipped = false
+
+function SetAnimation(mode, value)
+	if mode == "PlayAnimation" and value and ToolEquipped and Humanoid then
+		for i, v in pairs(Animations) do
+			if v.Animation == value.Animation then
+				v.AnimationTrack:Stop()
+				table.remove(Animations, i)
+			end
+		end
+		local AnimationTrack = Humanoid:LoadAnimation(value.Animation)
+		table.insert(Animations, {Animation = value.Animation, AnimationTrack = AnimationTrack})
+		AnimationTrack:Play(value.FadeTime, value.Weight, value.Speed)
+	elseif mode == "StopAnimation" and value then
+		for i, v in pairs(Animations) do
+			if v.Animation == value.Animation then
+				v.AnimationTrack:Stop()
+				table.remove(Animations, i)
+			end
+		end
+	end
+end
+
+function CheckIfAlive()
+	return (((Character and Character.Parent and Humanoid and Humanoid.Parent and Humanoid.Health > 0 and Player and Player.Parent) and true) or false)
+end
+
+function Equipped(Mouse)
+	Character = Tool.Parent
+	Player = Players:GetPlayerFromCharacter(Character)
+	Humanoid = Character:FindFirstChild("Humanoid")
+	ToolEquipped = true
+	if not CheckIfAlive() then
+		return
+	end
+	PlayerMouse = Player:GetMouse()
+	Mouse.Button1Down:connect(function()
+		InvokeServer("MouseClick", {Down = true})
+	end)
+	Mouse.Button1Up:connect(function()
+		InvokeServer("MouseClick", {Down = false})
+	end)
+	Mouse.KeyDown:connect(function(Key)
+		InvokeServer("KeyPress", {Key = Key, Down = true})
+	end)
+	Mouse.KeyUp:connect(function(Key)
+		InvokeServer("KeyPress", {Key = Key, Down = false})
+	end)
+	Mouse.Move:connect(function()
+		InvokeServer("MouseMove", {Position = Mouse.Hit.p, Target = Mouse.Target})
+	end)
+end
+
+function Unequipped()
+	for i, v in pairs(Animations) do
+		if v and v.AnimationTrack then
+			v.AnimationTrack:Stop()
+		end
+	end
+	Animations = {}
+	ToolEquipped = false
+end
+
+function InvokeServer(mode, value)
+	pcall(function()
+		local ServerReturn = ServerControl:InvokeServer(mode, value)
+		return ServerReturn
+	end)
+end
+
+function OnClientInvoke(mode, value)
+	if mode == "PlayAnimation" and value and ToolEquipped and Humanoid then
+		SetAnimation("PlayAnimation", value)
+	elseif mode == "StopAnimation" and value then
+		SetAnimation("StopAnimation", value)
+	elseif mode == "PlaySound" and value then
+		value:Play()
+	elseif mode == "StopSound" and value then
+		value:Stop()
+	elseif mode == "MousePosition" then
+		return {Position = PlayerMouse.Hit.p, Target = PlayerMouse.Target}
+	end
+end
+
+ClientControl.OnClientInvoke = OnClientInvoke
+Tool.Equipped:connect(Equipped)
+Tool.Unequipped:connect(Unequipped)]]></ProtectedString>
+			</Properties>
+		</Item>
+	</Item>
+</roblox>

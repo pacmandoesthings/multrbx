@@ -1,0 +1,1290 @@
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mulrbx.com/roblox.xsd" version="4">
+	<Meta name="ExplicitAutoJoints">false</Meta>
+	<External>null</External>
+	<External>nil</External>
+	<Item class="Tool" referent="RBX4C0154B58DEB4539B216746CF6EDEBD7">
+		<Properties>
+			<bool name="CanBeDropped">true</bool>
+			<bool name="Enabled">true</bool>
+			<CoordinateFrame name="Grip">
+				<X>0</X>
+				<Y>-2</Y>
+				<Z>0</Z>
+				<R00>1</R00>
+				<R01>0</R01>
+				<R02>0</R02>
+				<R10>0</R10>
+				<R11>1</R11>
+				<R12>0</R12>
+				<R20>0</R20>
+				<R21>0</R21>
+				<R22>1</R22>
+			</CoordinateFrame>
+			<bool name="ManualActivationOnly">false</bool>
+			<string name="Name">FestivePeriastron</string>
+			<bool name="RequiresHandle">true</bool>
+			<BinaryString name="Tags"></BinaryString>
+			<Content name="TextureId"><url>rbxassetid://139140033</url></Content>
+			<string name="ToolTip">Festive Ornamentation!</string>
+		</Properties>
+		<Item class="LocalScript" referent="RBX78C53A2E09AB46F38032C3B4AAE37FD9">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">Client</string>
+				<string name="ScriptGuid">{9870AF51-A859-4A12-AD29-36B9C44DE896}</string>
+				<ProtectedString name="Source"><![CDATA[local Tool = script.Parent
+
+local Remote = Tool:WaitForChild("Remote",10)
+
+local MouseInput = Tool:WaitForChild("MouseInput",10)
+
+local Services = {
+	Players = (game:FindService("Players") or game:GetService("Players")),
+	TweenService = (game:FindService("TweenService") or game:GetService("TweenService")),
+	RunService = (game:FindService("RunService") or game:GetService("RunService")),
+	Input = (game:FindService("ContextActionService") or game:GetService("ContextActionService"))
+}
+
+local Player,Character,Humanoid
+
+
+function PeriPrimary(actionName, inputState, inputObj)
+	if inputState == Enum.UserInputState.Begin then 
+		Remote:FireServer(Enum.KeyCode.Q)
+	end
+end
+
+function PeriSecondary(actionName, inputState, inputObj)
+	if inputState == Enum.UserInputState.Begin then 
+		Remote:FireServer(Enum.KeyCode.E)
+	end
+end
+
+
+function Equipped()
+	Player = Services.Players.LocalPlayer
+	Character = Player.Character
+	Humanoid = Character:FindFirstChildOfClass("Humanoid")
+	if not Humanoid or not Humanoid.Parent or Humanoid.Health <= 0 then return end
+	
+	Services.Input:BindAction("PeriPrimary",PeriPrimary,true,Enum.KeyCode.Q,Enum.KeyCode.ButtonY)
+	--Services.Input:BindAction("PeriSecondary",PeriSecondary,true,Enum.KeyCode.E,Enum.KeyCode.ButtonY)
+	Services.Input:SetTitle("PeriPrimary","Orna-Roll")
+	--Services.Input:SetTitle("PeriSecondary","")
+	Services.Input:SetPosition("PeriPrimary",UDim2.new(.5,0,-.5,0))
+	--Services.Input:SetPosition("PeriSecondary",UDim2.new(.5,0,0,0))
+end
+
+function Unequipped()
+	Services.Input:UnbindAction("PeriPrimary")
+	--Services.Input:UnbindAction("PeriSecondary")		
+end
+
+Tool.Equipped:Connect(Equipped)
+Tool.Unequipped:Connect(Unequipped)
+
+
+function MouseInput.OnClientInvoke()
+	return game.Players.LocalPlayer:GetMouse().Hit.p
+end]]></ProtectedString>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+		<Item class="Folder" referent="RBX9A18FAE506BD4B97A873849708A48865">
+			<Properties>
+				<string name="Name">Animations</string>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+			<Item class="Folder" referent="RBX56772ECB38A24A61AFDF0AF3DC98DF98">
+				<Properties>
+					<string name="Name">R6</string>
+					<BinaryString name="Tags"></BinaryString>
+				</Properties>
+				<Item class="Animation" referent="RBX8316318DB1414090B7BA0E45CA26F456">
+					<Properties>
+						<Content name="AnimationId"><url>http://www.mulrbx.com/Asset?ID=54611484</url></Content>
+						<string name="Name">RightSlash</string>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="Animation" referent="RBXB953D79244CA4621B55DAD5487E3161B">
+					<Properties>
+						<Content name="AnimationId"><url>http://www.mulrbx.com/Asset?ID=54432537</url></Content>
+						<string name="Name">Slash</string>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="Animation" referent="RBXAB789CB172D4414DBE2BAB196C4B62F6">
+					<Properties>
+						<Content name="AnimationId"><url>http://www.mulrbx.com/Asset?ID=63718551</url></Content>
+						<string name="Name">SlashAnim</string>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+			</Item>
+			<Item class="Folder" referent="RBX8AE00012CF00430CB72E68793F9F1DB6">
+				<Properties>
+					<string name="Name">R15</string>
+					<BinaryString name="Tags"></BinaryString>
+				</Properties>
+				<Item class="Animation" referent="RBXCED72F3AD3304937B6A1E0DA4F1CC05D">
+					<Properties>
+						<Content name="AnimationId"><url>rbxassetid://2410679501</url></Content>
+						<string name="Name">RightSlash</string>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="Animation" referent="RBX7E9AE4ADD2C04463BD6B04543FE7533F">
+					<Properties>
+						<Content name="AnimationId"><url>rbxassetid://2441858691</url></Content>
+						<string name="Name">Slash</string>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="Animation" referent="RBXC4B9EED69CD64124AAB9F67804C3D47B">
+					<Properties>
+						<Content name="AnimationId"><url>rbxassetid://2443689022</url></Content>
+						<string name="Name">SlashAnim</string>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="Script" referent="RBX3B525A22FE6145898E9AA46F3FDECD81">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">Server</string>
+				<string name="ScriptGuid">{1947B029-8E86-46BA-B417-564A2178106F}</string>
+				<ProtectedString name="Source"><![CDATA[--Rescripted by TakeoHonorable
+--Revamped Periastrons: The Periastron of Holly Jolly (Festive)
+
+function Create(ty)
+	return function(data)
+		local obj = Instance.new(ty)
+		for k, v in pairs(data) do
+			if type(k) == 'number' then
+				v.Parent = obj
+			else
+				obj[k] = v
+			end
+		end
+		return obj
+	end
+end
+
+
+local Seed = Random.new(tick())
+
+local Tool = script.Parent
+Tool.Enabled = true
+
+local Handle = Tool:WaitForChild("Handle",10)
+
+local PointLight = Handle:WaitForChild("PointLight",10)
+
+local Sparkles = Handle:FindFirstChildOfClass("Sparkles")
+
+local Animations = Tool:WaitForChild("Animations",10)
+
+local Deletables = {} --Send all deletables here
+
+local Sounds = {
+	LungeSound = Handle:WaitForChild("LungeSound",10),
+	SlashSound = Handle:WaitForChild("SlashSound",10),
+	Jingle = Handle:WaitForChild("Jingle",10),
+}
+
+local AttackAnims
+
+local Services = {
+	Players = (game:FindService("Players") or game:GetService("Players")),
+	TweenService = (game:FindService("TweenService") or game:GetService("TweenService")),
+	RunService = (game:FindService("RunService") or game:GetService("RunService")),
+	Debris = (game:FindService("Debris") or game:GetService("Debris")),
+	ReplicatedStorage = (game:FindService("ReplicatedStorage") or game:GetService("ReplicatedStorage")),
+	Lighting = (game:FindService("Lighting") or game:GetService("Lighting"))
+}
+
+local Components = {
+	PeriSparkle = Handle:WaitForChild("Particle",10):GetChildren(),
+	--PeriTrail = Handle:WaitForChild("Trail",10),
+	MouseInput = Tool:WaitForChild("MouseInput",10)
+}
+--Components.PeriSparkle.Enabled = true
+--Components.PeriTrail.Enabled = false
+PointLight.Enabled = true
+
+
+
+local Player,Character,Humanoid,Root,Torso
+
+local Properties = {
+	BaseDamage = 27,
+	SpecialCooldown = 60,
+	OrnamentDuration = 20,
+	OrnamentScaleRadius = 18.36,
+	BaseUrl = "rbxassetid://"
+}
+
+local Remote = (Tool:FindFirstChild("Remote") or Instance.new("RemoteEvent"));Remote.Name = "Remote";Remote.Parent = Tool
+
+local Grips = {
+	Normal = Tool:WaitForChild("NormalGrip").Value,
+	--BackR6 = Tool:WaitForChild("BackGrip").Value,
+	--BackR15 = Tool:WaitForChild("BackGrip").Value+Vector3.new(-.7,0,-.7)
+}
+Tool.Grip = Grips.Normal
+
+local SnowFlakeBase = Create("Part"){
+	Anchored = false,
+	Locked = true,
+	CanCollide = false,
+	Size = Vector3.new(0.9, 0.2, 0.9),
+	Material = Enum.Material.Plastic,
+	Name = "Snowflake",
+}
+
+local SnowFlakeMeshBase = Create("SpecialMesh"){
+	MeshType = Enum.MeshType.FileMesh,
+	Scale = Vector3.new(2,2,2),
+}
+
+local SnowFlake1,SnowFlake2,SnowFlake3 = SnowFlakeBase:Clone(), SnowFlakeBase:Clone(), SnowFlakeBase:Clone()
+
+local SnowFlake1Mesh = SnowFlakeMeshBase:Clone();SnowFlake1Mesh.MeshId = Properties.BaseUrl .. "187687175";SnowFlake1Mesh.TextureId = Properties.BaseUrl .. "187687219";SnowFlake1Mesh.Parent = SnowFlake1
+local SnowFlake2Mesh = SnowFlakeMeshBase:Clone();SnowFlake2Mesh.MeshId = Properties.BaseUrl .. "187687161";SnowFlake2Mesh.TextureId = Properties.BaseUrl .. "187687219";SnowFlake2Mesh.Parent = SnowFlake2
+local SnowFlake3Mesh = SnowFlakeMeshBase:Clone();SnowFlake3Mesh.MeshId = Properties.BaseUrl .. "187687193";SnowFlake3Mesh.TextureId = Properties.BaseUrl .. "187687219";SnowFlake3Mesh.Parent = SnowFlake3
+
+
+
+local SnowBank = {SnowFlake1,SnowFlake2,SnowFlake3}
+
+function RayCast(Pos, Dir, Max, IgnoreList)
+	return game:GetService("Workspace"):FindPartOnRayWithIgnoreList(Ray.new(Pos, Dir.unit * (Max or 999.999)), IgnoreList) 
+end
+
+function IsInTable(Table,Value)
+	for _,v in pairs(Table) do
+		if v == Value then
+			return true
+		end
+	end
+	return false
+end
+
+local function Wait(para) -- bypasses the latency
+	local Initial = tick()
+	repeat
+		Services.RunService.Heartbeat:Wait()
+	until tick()-Initial >= para
+end
+
+function IsTeamMate(Player1, Player2)
+	return (Player1 and Player2 and not Player1.Neutral and not Player2.Neutral and Player1.TeamColor == Player2.TeamColor)
+end
+
+function TagHumanoid(humanoid, player)
+	local Creator_Tag = Instance.new("ObjectValue")
+	Creator_Tag.Name = "creator"
+	Creator_Tag.Value = player
+	Services.Debris:AddItem(Creator_Tag, 2)
+	Creator_Tag.Parent = humanoid
+end
+
+function UntagHumanoid(humanoid)
+	for i, v in pairs(humanoid:GetChildren()) do
+		if v:IsA("ObjectValue") and v.Name == "creator" then
+			v:Destroy()
+		end
+	end
+end
+
+
+local function IsPeriSparkling()
+	for _,particle in pairs(Components.PeriSparkle) do
+		if particle:IsA("ParticleEmitter") and particle.Enabled then
+			return true
+		end
+	end
+	return false
+end
+
+local function UpdateSparkles(verdict)
+	for _,particle in pairs(Components.PeriSparkle) do
+		if particle:IsA("ParticleEmitter") then
+			particle.Enabled = verdict
+		end
+	end
+end
+
+UpdateSparkles(true)
+
+local function GetNearestTorso(MarkedPosition,TorsoPopulationTable)
+	local ClosestDistance = math.huge
+	local ClosestTorso
+	for i=1,#TorsoPopulationTable do
+		local distance = (TorsoPopulationTable[i].CFrame.p-MarkedPosition).magnitude
+		if TorsoPopulationTable[i] and  distance < ClosestDistance then
+			ClosestDistance = distance
+			ClosestTorso = TorsoPopulationTable[i]
+		end
+	end
+	--warn("The Closest Person is: "..ClosestTorso.Parent.Name)
+	return ClosestTorso
+end
+
+
+
+local CurrentTime,LastTime = tick(),tick()
+function Activated()
+	if not Tool.Enabled then return end
+	Tool.Enabled = false
+	CurrentTime = tick()
+	if (CurrentTime-LastTime) <= 0.2 then
+		--print("Lunge")
+		Sounds.LungeSound:Play()
+		--Components.PeriTrail.Enabled = true
+		local MousePosition = Components.MouseInput:InvokeClient(Player)
+		local Direction = CFrame.new(Root.Position, Vector3.new(MousePosition.X, Root.Position.Y, MousePosition.Z))
+		local BodyVelocity = Instance.new("BodyVelocity")
+		BodyVelocity.MaxForce = Vector3.new(math.huge, 0, math.huge)
+		BodyVelocity.Velocity = Direction.lookVector * 100
+		Services.Debris:AddItem(BodyVelocity, 0.5)
+		BodyVelocity.Parent = Root
+		--[[delay(.5,function()
+			Components.PeriTrail.Enabled = false
+		end)]]
+		Root.CFrame = CFrame.new(Root.CFrame.p,Root.CFrame.p+Direction.lookVector)
+		wait(1.5)
+	else
+		local SwingAnims = {AttackAnims.Slash,AttackAnims.SlashAnim,AttackAnims.RightSlash}
+		local AttackAnim = SwingAnims[Seed:NextInteger(1,#SwingAnims)]
+		spawn(function()
+			if AttackAnim ~= AttackAnims.SlashAnim then
+				Sounds.SlashSound:Play()
+				else
+				Sounds.SlashSound:Play()
+				wait(.5)
+				Sounds.SlashSound:Play()
+			end	
+		end)
+
+		AttackAnim:Play()
+	--wait(.4)
+	end
+	LastTime = CurrentTime
+	Tool.Enabled = true
+end
+
+local Touch
+local Debounce = false
+local PassiveConnection
+
+function Equipped(Mouse)
+	Character = Tool.Parent
+	Root = Character:FindFirstChild("HumanoidRootPart")
+	Player = Services.Players:GetPlayerFromCharacter(Character)
+	Humanoid = Character:FindFirstChildOfClass("Humanoid")
+	AttackAnims = {
+		Slash = Animations:WaitForChild(Humanoid.RigType.Name,10):WaitForChild("Slash",10),
+		RightSlash = Animations:WaitForChild(Humanoid.RigType.Name,10):WaitForChild("RightSlash",10),
+		SlashAnim = Animations:WaitForChild(Humanoid.RigType.Name,10):WaitForChild("SlashAnim",10),
+	}
+	
+	for i,v in pairs(AttackAnims) do
+		AttackAnims[i] = Humanoid:LoadAnimation(v)
+	end
+	
+	Touch = Handle.Touched:Connect(function(hit)
+		Damage(hit,Properties.BaseDamage,false)
+	end)
+	
+	wait(1)
+	
+	if Tool:IsDescendantOf(Character) then
+		Sounds.Jingle:Play()
+	end
+
+	PassiveConnection = Services.RunService.Heartbeat:Connect(function()
+		if not Player or Debounce or not Tool:IsDescendantOf(Character) then return end
+		Debounce = true
+		for i=1,15,1 do
+			local Scale = Seed:NextNumber(1,3)
+			local Snow = SnowBank[Seed:NextInteger(1,#SnowBank)]:Clone();Snow.Size = Snow.Size * Scale
+			local SnowMesh = Snow:FindFirstChildOfClass("SpecialMesh");SnowMesh.Scale = SnowMesh.Scale * Scale
+			Snow.CFrame = Root.CFrame + Vector3.new(Seed:NextInteger(-60,60),Seed:NextInteger(40,60),Seed:NextInteger(-60,60))
+			local BodyForce = Instance.new("BodyForce")
+			BodyForce.Force = Vector3.new(0,(Snow:GetMass()*workspace.Gravity)*.95,0);BodyForce.Parent = Snow
+			Snow.RotVelocity = Vector3.new(Seed:NextInteger(0,10),Seed:NextInteger(0,10),Seed:NextInteger(0,10))
+			Snow.Velocity = Snow.Velocity + Vector3.new(Seed:NextInteger(-20,20),0,Seed:NextInteger(-20,20))
+			Snow.Parent = workspace
+			Services.Debris:AddItem(Snow,60)
+			--Snow:SetNetworkOwner(nil)
+			Snow:SetNetworkOwner(Player)
+			Snow.Touched:Connect(function(hit)
+				if not hit or not hit.Parent then return end
+				local Directory = hit.Parent
+				if hit:FindFirstAncestorWhichIsA("Accessory") then
+					Directory = hit:FindFirstAncestorWhichIsA("Accessory")
+				end
+				local Hum = Directory:FindFirstChildOfClass("Humanoid")
+				if Hum and Hum ~= Humanoid and not IsTeamMate(Player,Services.Players:GetPlayerFromCharacter(Hum.Parent)) then
+					Hum.WalkSpeed = 10
+				end
+				Snow:Destroy()
+			end)
+		end
+		wait(1)
+		Debounce = false
+	end) -- Snow masterpiece
+end
+
+
+local OrnamentBall,OrnamentControl,OrnamentTouch
+function Unequipped()
+	if Touch then Touch:Disconnect();Touch = nil end
+	if PassiveConnection then PassiveConnection:Disconnect(); PassiveConnection = nil end
+	if OrnamentTouch then OrnamentTouch:Disconnect();OrnamentTouch = nil end
+	Humanoid.PlatformStand = false
+	for i,v in pairs(AttackAnims) do
+		v:Stop()
+	end
+	for _,delete in pairs(Deletables) do
+		if delete then
+			delete:Destroy()
+		end
+	end
+	Sounds.Jingle:Stop()
+	Deletables = {}
+end
+
+
+
+local HitHumanoids = {}
+function Damage(hit,TotalDamage)
+	if not hit or not hit.Parent then return end
+	local Hum = hit.Parent:FindFirstChildOfClass("Humanoid")
+	local ForceField = hit.Parent:FindFirstChildOfClass("ForceField")
+	if not Hum or Hum.Health <=0 or Hum == Humanoid or ForceField then return end
+	
+	if IsTeamMate(Player,Services.Players:GetPlayerFromCharacter(Hum.Parent)) then return end
+	
+	--spawn(function()
+		UntagHumanoid(Hum)
+		TagHumanoid(Hum,Player)
+		HitHumanoids[#HitHumanoids+1]=Hum
+		Hum:TakeDamage(TotalDamage)
+		--wait(.5)
+	--end)
+end
+
+Tool.Activated:Connect(Activated)
+Tool.Equipped:Connect(Equipped)
+Tool.Unequipped:Connect(Unequipped)
+
+
+function OrnamentAttack()
+	Tool.Enabled = false
+	UpdateSparkles(false)
+	
+	local OrnamentSummon = script:WaitForChild("OrnamentSummon",10):Clone()
+	OrnamentSummon.Parent = Character
+	OrnamentSummon.Disabled = false
+	
+	repeat
+		Services.RunService.Heartbeat:Wait()
+	until not OrnamentSummon or not OrnamentSummon:IsDescendantOf(Character)
+	
+	Tool.Enabled = true
+	wait(Properties.SpecialCooldown)
+	UpdateSparkles(true)
+	
+end
+
+Remote.OnServerEvent:Connect(function(Client,Key)
+	if not Player or not Client or Client ~= Player or not Key or not Tool.Enabled then return end
+	if Key == Enum.KeyCode.Q then
+		if IsPeriSparkling() then
+			OrnamentAttack()
+		end
+	elseif Key == Enum.KeyCode.E then
+		
+	end	
+end)]]></ProtectedString>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+			<Item class="Script" referent="RBX0C6B1FB1AAF44E0A83D19250A1F1711A">
+				<Properties>
+					<bool name="Disabled">true</bool>
+					<Content name="LinkedSource"><null></null></Content>
+					<string name="Name">OrnamentSummon</string>
+					<string name="ScriptGuid">{2816ADA5-5E03-4DF1-8D52-57C45B46340D}</string>
+					<ProtectedString name="Source"><![CDATA[local Character = script.Parent
+
+local Root = Character:WaitForChild("HumanoidRootPart",10)
+
+local OrnamentControl = script:WaitForChild("OrnamentControl",10)
+
+local Humanoid = Character:FindFirstChildOfClass("Humanoid")
+
+local Tool = script:WaitForChild("Tool",10).Value
+
+if not Humanoid or Humanoid.Health <= 0 or not Root then script:Destroy() end
+
+
+local Services = {
+	Players = (game:FindService("Players") or game:GetService("Players")),
+	TweenService = (game:FindService("TweenService") or game:GetService("TweenService")),
+	RunService = (game:FindService("RunService") or game:GetService("RunService")),
+	Debris = (game:FindService("Debris") or game:GetService("Debris")),
+	ReplicatedStorage = (game:FindService("ReplicatedStorage") or game:GetService("ReplicatedStorage")),
+	Lighting = (game:FindService("Lighting") or game:GetService("Lighting"))
+}
+
+
+local Properties = {
+	OrnamentDuration = 20,
+	OrnamentScaleRadius = 18.36,
+	BaseUrl = "rbxassetid://"
+}
+
+
+function Create(ty)
+	return function(data)
+		local obj = Instance.new(ty)
+		for k, v in pairs(data) do
+			if type(k) == 'number' then
+				v.Parent = obj
+			else
+				obj[k] = v
+			end
+		end
+		return obj
+	end
+end
+
+
+local function weldBetween(a, b)
+    local weld = Instance.new("Weld")
+    weld.Part0 = a
+    weld.Part1 = b
+    weld.C0 = CFrame.new()
+    weld.C1 = b.CFrame:inverse() * a.CFrame
+    weld.Parent = a
+    return weld;
+end
+
+function IsTeamMate(Player1, Player2)
+	return (Player1 and Player2 and not Player1.Neutral and not Player2.Neutral and Player1.TeamColor == Player2.TeamColor)
+end
+
+function TagHumanoid(humanoid, player)
+	local Creator_Tag = Instance.new("ObjectValue")
+	Creator_Tag.Name = "creator"
+	Creator_Tag.Value = player
+	Services.Debris:AddItem(Creator_Tag, 2)
+	Creator_Tag.Parent = humanoid
+end
+
+function UntagHumanoid(humanoid)
+	for i, v in pairs(humanoid:GetChildren()) do
+		if v:IsA("ObjectValue") and v.Name == "creator" then
+			v:Destroy()
+		end
+	end
+end
+
+local OrnamentBall
+local HoHoHo = script:WaitForChild("HoHoHo",10)
+
+
+function Cleanup()
+	Humanoid.PlatformStand = false
+	OrnamentBall:Destroy()
+	OrnamentControl:Destroy()
+	script:Destroy()
+end
+
+OrnamentBall = Create("Part"){
+		Anchored = false,
+		CanCollide = true,
+		Locked = true,
+		Shape = Enum.PartType.Ball,
+		Color = Color3.fromRGB(255,0,0),
+		Material = Enum.Material.SmoothPlastic,
+		Size = Vector3.new(1,1,1) * Properties.OrnamentScaleRadius,
+		CFrame = Root.CFrame,
+	}
+	HoHoHo.Parent = OrnamentBall
+	local OrnamentMesh = Create("SpecialMesh"){
+		Scale = (Vector3.new(1,1,1)*2.7) * Properties.OrnamentScaleRadius,
+		Offset = Vector3.new(0,0,0),
+		MeshType = Enum.MeshType.FileMesh,
+		MeshId = Properties.BaseUrl .. "99795003",
+		TextureId = Properties.BaseUrl .. "99795207",
+		Parent = OrnamentBall,
+		VertexColor = Vector3.new(1,1,1),
+	}
+	
+	local OrnaWeld = Create("WeldConstraint"){
+		Part0 = Root,
+		Part1 = OrnamentBall,
+		Parent = OrnamentBall
+	}
+	
+	OrnamentControl = script:WaitForChild("OrnamentControl"):Clone()
+
+	OrnamentControl:WaitForChild("Orb",10).Value = OrnamentBall
+	OrnamentControl.Parent = Character
+	OrnamentControl.Disabled = false
+	
+	OrnamentBall.CFrame = Root.CFrame
+	OrnamentBall.Parent = workspace
+
+
+local OrnamentCleanup = script:WaitForChild("OrnamentCleanup",5)
+OrnamentCleanup.Parent = OrnamentBall
+OrnamentCleanup.Disabled = false
+
+OrnamentControl.Disabled = false -- Let's go!!!
+
+Tool.Unequipped:Connect(function()
+	Cleanup()
+end)	
+	
+Humanoid.Died:Connect(function()
+	Cleanup()
+end)
+
+spawn(function()
+	repeat
+		Services.RunService.Heartbeat:Wait()
+	until not OrnamentBall or not OrnamentBall:IsDescendantOf(workspace)
+	Cleanup()
+end)
+
+local OrnamentTouch = OrnamentBall.Touched:Connect(function(hit)
+		
+		if not hit or not hit.Parent or hit.Anchored then return end
+		
+		local Hum = hit.Parent:FindFirstChildOfClass("Humanoid")
+		local ForceField = hit.Parent:FindFirstChildOfClass("ForceField")
+
+		if not Hum or Hum == Humanoid or Hum.Health <= 0 or IsTeamMate(Services.Players:GetPlayerFromCharacter(Humanoid.Parent),Services.Players:GetPlayerFromCharacter(Hum.Parent)) or ForceField or Hum:IsDescendantOf(OrnamentBall) then return end
+		UntagHumanoid(Hum)
+		TagHumanoid(Hum,Services.Players:GetPlayerFromCharacter(Humanoid.Parent))
+		Hum.Parent:BreakJoints()--Temporary
+		HoHoHo:Play()
+		
+		local FakeChar = Create("Model"){
+			Parent = OrnamentBall
+		}
+		Services.Debris:AddItem(FakeChar,4)
+		for _,v in pairs(Hum.Parent:GetChildren()) do
+			local Clone
+			if not v:IsA("Humanoid") then
+				Clone = v:Clone();Clone.Parent = FakeChar
+			end
+			
+			if Clone and Clone:IsA("BasePart") then
+				Clone.CanCollide = false
+				Clone.Anchored = false
+				weldBetween(Clone,OrnamentBall)
+			end
+			
+			if v:IsA("BasePart") or v:IsA("Accessory") then
+				v:Destroy()
+			end
+		end
+	end)
+	
+	Humanoid.PlatformStand = true
+	
+	wait(Properties.OrnamentDuration)
+	Cleanup()
+	
+	
+	]]></ProtectedString>
+					<BinaryString name="Tags"></BinaryString>
+				</Properties>
+				<Item class="LocalScript" referent="RBX82DCFD8651584B39A6845506C1143F6B">
+					<Properties>
+						<bool name="Disabled">true</bool>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">OrnamentControl</string>
+						<string name="ScriptGuid">{B6808982-1A82-4F2B-A203-5857AF5FCEF8}</string>
+						<ProtectedString name="Source"><![CDATA[--Script to become the Indiana Jones boulder!
+
+local Character = script.Parent
+
+local Humanoid = Character:FindFirstChildOfClass("Humanoid")
+
+local Root = Character:WaitForChild("HumanoidRootPart",10)
+
+local Orb = script:WaitForChild("Orb",10).Value
+
+local Camera = workspace.CurrentCamera
+
+local Services = {
+	Players = (game:FindService("Players") or game:GetService("Players")),
+	TweenService = (game:FindService("TweenService") or game:GetService("TweenService")),
+	RunService = (game:FindService("RunService") or game:GetService("RunService")),
+	Input = (game:FindService("ContextActionService") or game:GetService("ContextActionService"))
+}
+
+
+
+local Moving = false
+
+
+Services.RunService.RenderStepped:Connect(function()
+	if Humanoid.MoveDirection.Magnitude > 0 then
+		Orb.Velocity = Orb.Velocity + Humanoid.MoveDirection * 2
+	end
+end)]]></ProtectedString>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+					<Item class="ObjectValue" referent="RBXEA5212F3A49D4D6AB9C9FFE24D22B81C">
+						<Properties>
+							<string name="Name">Orb</string>
+							<BinaryString name="Tags"></BinaryString>
+							<Ref name="Value">null</Ref>
+						</Properties>
+					</Item>
+				</Item>
+				<Item class="ObjectValue" referent="RBX050B305E3C434B7F82977FA72ECCF553">
+					<Properties>
+						<string name="Name">Tool</string>
+						<BinaryString name="Tags"></BinaryString>
+						<Ref name="Value">RBX4C0154B58DEB4539B216746CF6EDEBD7</Ref>
+					</Properties>
+				</Item>
+				<Item class="Sound" referent="RBX02E0F3872760481F92C8E4BDC464345C">
+					<Properties>
+						<float name="EmitterSize">10</float>
+						<bool name="Looped">false</bool>
+						<string name="Name">HoHoHo</string>
+						<bool name="PlayOnRemove">false</bool>
+						<float name="PlaybackSpeed">1</float>
+						<bool name="Playing">false</bool>
+						<token name="RollOffMode">0</token>
+						<Ref name="SoundGroup">null</Ref>
+						<Content name="SoundId"><url>rbxassetid://99800145</url></Content>
+						<BinaryString name="Tags"></BinaryString>
+						<double name="TimePosition">0</double>
+						<float name="Volume">1</float>
+						<float name="xmlRead_MaxDistance_3">10000</float>
+					</Properties>
+				</Item>
+				<Item class="Script" referent="RBXCB9F43CE915E4855AA395360180B74EA">
+					<Properties>
+						<bool name="Disabled">true</bool>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">OrnamentCleanup</string>
+						<string name="ScriptGuid">{231E7AF5-2186-448D-8029-616BF0D7AF1C}</string>
+						<ProtectedString name="Source"><![CDATA[local Ornament = script.Parent
+
+delay(25,function()
+	Ornament:Destroy()
+end)]]></ProtectedString>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="Part" referent="RBX502F62A90D2A40BCA665F629D002D26A">
+			<Properties>
+				<bool name="Anchored">false</bool>
+				<float name="BackParamA">-0.5</float>
+				<float name="BackParamB">0.5</float>
+				<token name="BackSurface">0</token>
+				<token name="BackSurfaceInput">0</token>
+				<float name="BottomParamA">-0.5</float>
+				<float name="BottomParamB">0.5</float>
+				<token name="BottomSurface">0</token>
+				<token name="BottomSurfaceInput">0</token>
+				<CoordinateFrame name="CFrame">
+					<X>-4.07008886</X>
+					<Y>2.54000092</Y>
+					<Z>8.67000008</Z>
+					<R00>0</R00>
+					<R01>0.707105815</R01>
+					<R02>-0.707107842</R02>
+					<R10>0</R10>
+					<R11>0.707107842</R11>
+					<R12>0.707105815</R12>
+					<R20>1</R20>
+					<R21>0</R21>
+					<R22>0</R22>
+				</CoordinateFrame>
+				<bool name="CanCollide">true</bool>
+				<int name="CollisionGroupId">0</int>
+				<Color3uint8 name="Color3uint8">4284702562</Color3uint8>
+				<PhysicalProperties name="CustomPhysicalProperties">
+					<CustomPhysics>false</CustomPhysics>
+				</PhysicalProperties>
+				<float name="FrontParamA">-0.5</float>
+				<float name="FrontParamB">0.5</float>
+				<token name="FrontSurface">0</token>
+				<token name="FrontSurfaceInput">0</token>
+				<float name="LeftParamA">-0.5</float>
+				<float name="LeftParamB">0.5</float>
+				<token name="LeftSurface">0</token>
+				<token name="LeftSurfaceInput">0</token>
+				<bool name="Locked">true</bool>
+				<bool name="Massless">false</bool>
+				<token name="Material">256</token>
+				<string name="Name">Handle</string>
+				<float name="Reflectance">0.400000006</float>
+				<float name="RightParamA">-0.5</float>
+				<float name="RightParamB">0.5</float>
+				<token name="RightSurface">0</token>
+				<token name="RightSurfaceInput">0</token>
+				<int name="RootPriority">0</int>
+				<Vector3 name="RotVelocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<BinaryString name="Tags"></BinaryString>
+				<float name="TopParamA">-0.5</float>
+				<float name="TopParamB">0.5</float>
+				<token name="TopSurface">0</token>
+				<token name="TopSurfaceInput">0</token>
+				<float name="Transparency">0</float>
+				<Vector3 name="Velocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<token name="formFactorRaw">3</token>
+				<token name="shape">1</token>
+				<Vector3 name="size">
+					<X>0.600000024</X>
+					<Y>5.25</Y>
+					<Z>1</Z>
+				</Vector3>
+			</Properties>
+			<Item class="Sound" referent="RBX6D8BDA18D6FF4C5AB7D9164FE1F6EB02">
+				<Properties>
+					<float name="EmitterSize">10</float>
+					<bool name="Looped">false</bool>
+					<string name="Name">SlashSound</string>
+					<bool name="PlayOnRemove">false</bool>
+					<float name="PlaybackSpeed">1</float>
+					<bool name="Playing">false</bool>
+					<token name="RollOffMode">0</token>
+					<Ref name="SoundGroup">null</Ref>
+					<Content name="SoundId"><url>rbxassetid://12222216</url></Content>
+					<BinaryString name="Tags"></BinaryString>
+					<double name="TimePosition">0</double>
+					<float name="Volume">0.600000024</float>
+					<float name="xmlRead_MaxDistance_3">10000</float>
+				</Properties>
+			</Item>
+			<Item class="Sound" referent="RBX3DDF55F11EC248BE87255E28EABBACDC">
+				<Properties>
+					<float name="EmitterSize">10</float>
+					<bool name="Looped">false</bool>
+					<string name="Name">LungeSound</string>
+					<bool name="PlayOnRemove">false</bool>
+					<float name="PlaybackSpeed">1</float>
+					<bool name="Playing">false</bool>
+					<token name="RollOffMode">0</token>
+					<Ref name="SoundGroup">null</Ref>
+					<Content name="SoundId"><url>rbxassetid://701269479</url></Content>
+					<BinaryString name="Tags"></BinaryString>
+					<double name="TimePosition">0</double>
+					<float name="Volume">1</float>
+					<float name="xmlRead_MaxDistance_3">10000</float>
+				</Properties>
+			</Item>
+			<Item class="Attachment" referent="RBXA624EA189C4142EAA8B585C4A39C9B71">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<string name="Name">Particle</string>
+					<BinaryString name="Tags"></BinaryString>
+					<bool name="Visible">false</bool>
+				</Properties>
+				<Item class="ParticleEmitter" referent="RBXF6025187B8074DFDBFAEADCFF5138A3B">
+					<Properties>
+						<Vector3 name="Acceleration">
+							<X>0</X>
+							<Y>-25</Y>
+							<Z>0</Z>
+						</Vector3>
+						<ColorSequence name="Color">0 1 1 1 0 1 1 1 1 0 </ColorSequence>
+						<float name="Drag">1</float>
+						<token name="EmissionDirection">1</token>
+						<bool name="Enabled">true</bool>
+						<NumberRange name="Lifetime">0.5 1 </NumberRange>
+						<float name="LightEmission">0</float>
+						<float name="LightInfluence">0</float>
+						<bool name="LockedToPart">false</bool>
+						<string name="Name">OrnamentG</string>
+						<float name="Rate">4</float>
+						<NumberRange name="RotSpeed">-360 360 </NumberRange>
+						<NumberRange name="Rotation">-180 180 </NumberRange>
+						<NumberSequence name="Size">0 0.5 0 1 0.5 0 </NumberSequence>
+						<NumberRange name="Speed">10 15 </NumberRange>
+						<Vector2 name="SpreadAngle">
+							<X>-45</X>
+							<Y>45</Y>
+						</Vector2>
+						<BinaryString name="Tags"></BinaryString>
+						<Content name="Texture"><url>rbxassetid://137829230</url></Content>
+						<NumberSequence name="Transparency">0 0 0 0.800403 0 0 1 1 0 </NumberSequence>
+						<float name="VelocityInheritance">0</float>
+						<float name="ZOffset">0</float>
+					</Properties>
+				</Item>
+				<Item class="ParticleEmitter" referent="RBX7A42CD2CFF16420B8DB8EC2F67A6C2D6">
+					<Properties>
+						<Vector3 name="Acceleration">
+							<X>0</X>
+							<Y>-25</Y>
+							<Z>0</Z>
+						</Vector3>
+						<ColorSequence name="Color">0 1 1 1 0 1 1 1 1 0 </ColorSequence>
+						<float name="Drag">1</float>
+						<token name="EmissionDirection">1</token>
+						<bool name="Enabled">true</bool>
+						<NumberRange name="Lifetime">0.5 1 </NumberRange>
+						<float name="LightEmission">0</float>
+						<float name="LightInfluence">0</float>
+						<bool name="LockedToPart">false</bool>
+						<string name="Name">OrnamentR</string>
+						<float name="Rate">4</float>
+						<NumberRange name="RotSpeed">-360 360 </NumberRange>
+						<NumberRange name="Rotation">-180 180 </NumberRange>
+						<NumberSequence name="Size">0 0.5 0 1 0.5 0 </NumberSequence>
+						<NumberRange name="Speed">5 10 </NumberRange>
+						<Vector2 name="SpreadAngle">
+							<X>-45</X>
+							<Y>45</Y>
+						</Vector2>
+						<BinaryString name="Tags"></BinaryString>
+						<Content name="Texture"><url>rbxassetid://137834384</url></Content>
+						<NumberSequence name="Transparency">0 0 0 0.800403 0 0 1 1 0 </NumberSequence>
+						<float name="VelocityInheritance">0</float>
+						<float name="ZOffset">0</float>
+					</Properties>
+				</Item>
+			</Item>
+			<Item class="SpecialMesh" referent="RBXC285BACEBF314C55BB87FE53624C57F9">
+				<Properties>
+					<token name="LODX">2</token>
+					<token name="LODY">2</token>
+					<Content name="MeshId"><url>http://www.mulrbx.com/asset?id=139139647</url></Content>
+					<token name="MeshType">5</token>
+					<string name="Name">Mesh</string>
+					<Vector3 name="Offset">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+					<Vector3 name="Scale">
+						<X>1</X>
+						<Y>1</Y>
+						<Z>1</Z>
+					</Vector3>
+					<BinaryString name="Tags"></BinaryString>
+					<Content name="TextureId"><url>http://www.mulrbx.com/asset?id=139139925</url></Content>
+					<Vector3 name="VertexColor">
+						<X>1</X>
+						<Y>1</Y>
+						<Z>1</Z>
+					</Vector3>
+				</Properties>
+			</Item>
+			<Item class="Sound" referent="RBX9295BB5A3CDB4B5C872F84588C8CCCAD">
+				<Properties>
+					<float name="EmitterSize">10</float>
+					<bool name="Looped">true</bool>
+					<string name="Name">Jingle</string>
+					<bool name="PlayOnRemove">false</bool>
+					<float name="PlaybackSpeed">1</float>
+					<bool name="Playing">false</bool>
+					<token name="RollOffMode">0</token>
+					<Ref name="SoundGroup">null</Ref>
+					<Content name="SoundId"><url>rbxassetid://1271963126</url></Content>
+					<BinaryString name="Tags"></BinaryString>
+					<double name="TimePosition">0</double>
+					<float name="Volume">0.300000012</float>
+					<float name="xmlRead_MaxDistance_3">10000</float>
+				</Properties>
+			</Item>
+			<Item class="Attachment" referent="RBXB0E243DF09B649768A51751AA9BFB221">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>-2.00000024</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<string name="Name">RightGripAttachment</string>
+					<BinaryString name="Tags"></BinaryString>
+					<bool name="Visible">false</bool>
+				</Properties>
+			</Item>
+			<Item class="PointLight" referent="RBXA0451F16499A4328B613B2AE3EEBCE4C">
+				<Properties>
+					<float name="Brightness">10</float>
+					<Color3 name="Color">4294901760</Color3>
+					<bool name="Enabled">true</bool>
+					<string name="Name">PointLight</string>
+					<float name="Range">5</float>
+					<bool name="Shadows">false</bool>
+					<BinaryString name="Tags"></BinaryString>
+				</Properties>
+				<Item class="Script" referent="RBXD7FAEEB006944152A7B8229D557720C2">
+					<Properties>
+						<bool name="Disabled">false</bool>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">LightFade</string>
+						<string name="ScriptGuid">{3103E3A9-761D-4A41-B673-77305AFD69F2}</string>
+						<ProtectedString name="Source"><![CDATA[local Light = script.Parent
+local TweenService = (game:FindService("TweenService") or game:GetService("TweenService"))
+local LightFade = TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.In,0,false,0)
+local ColorCycle = {}
+ColorCycle[#ColorCycle+1]=Color3.fromRGB(255,0,0)
+ColorCycle[#ColorCycle+1]=Color3.fromRGB(0,255,0)
+while Light do
+	for _,Colors in pairs(ColorCycle) do
+		local Tween = TweenService:Create(Light,LightFade,{Color = Colors})
+		Tween:Play()
+		Tween.Completed:Wait()
+	end
+end]]></ProtectedString>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="LocalScript" referent="RBXBD18193099A64AD38C2A54500715FC50">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">MouseIcon</string>
+				<string name="ScriptGuid">{79EC3B37-3BD3-4411-908D-119F1A9D4B43}</string>
+				<ProtectedString name="Source"><![CDATA[--Rescripted by Luckymaxer
+
+Mouse_Icon = "rbxasset://textures/GunCursor.png"
+Reloading_Icon = "rbxasset://textures/GunWaitCursor.png"
+
+Tool = script.Parent
+
+Mouse = nil
+
+function UpdateIcon()
+	if Mouse then
+		Mouse.Icon = Tool.Enabled and Mouse_Icon or Reloading_Icon
+	end
+end
+
+function OnEquipped(ToolMouse)
+	Mouse = ToolMouse
+	UpdateIcon()
+end
+
+function OnChanged(Property)
+	if Property == "Enabled" then
+		UpdateIcon()
+	end
+end
+
+Tool.Equipped:Connect(OnEquipped)
+Tool.Changed:Connect(OnChanged)
+]]></ProtectedString>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+		<Item class="RemoteFunction" referent="RBXD1EAD8A5F13244BC8F00D3DD355DA661">
+			<Properties>
+				<string name="Name">MouseInput</string>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+		<Item class="Keyframe" referent="RBX4B7899C49B1A4F3B8AEE281B24080718">
+			<Properties>
+				<string name="Name">ThumbnailPose</string>
+				<BinaryString name="Tags"></BinaryString>
+				<float name="Time">0</float>
+			</Properties>
+			<Item class="Pose" referent="RBX697710A3BC78455A9A448D648A9DCDAF">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<token name="EasingDirection">1</token>
+					<token name="EasingStyle">0</token>
+					<string name="Name">UpperTorso</string>
+					<BinaryString name="Tags"></BinaryString>
+					<float name="Weight">0</float>
+				</Properties>
+				<Item class="Pose" referent="RBX8E492307E04348E3A713F9043EB164E4">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0</X>
+							<Y>-6.70552254e-08</Y>
+							<Z>-5.96046448e-08</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0.173648193</R11>
+							<R12>-0.98480773</R12>
+							<R20>0</R20>
+							<R21>0.98480773</R21>
+							<R22>0.173648193</R22>
+						</CoordinateFrame>
+						<token name="EasingDirection">1</token>
+						<token name="EasingStyle">0</token>
+						<string name="Name">RightUpperArm</string>
+						<BinaryString name="Tags"></BinaryString>
+						<float name="Weight">1</float>
+					</Properties>
+					<Item class="Pose" referent="RBXFF408B25E9F64E8ABE7B4053A1DD4D15">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>0</X>
+								<Y>-1.49011612e-08</Y>
+								<Z>3.7252903e-09</Z>
+								<R00>1</R00>
+								<R01>0</R01>
+								<R02>0</R02>
+								<R10>0</R10>
+								<R11>0.98480773</R11>
+								<R12>-0.173648179</R12>
+								<R20>0</R20>
+								<R21>0.173648179</R21>
+								<R22>0.98480773</R22>
+							</CoordinateFrame>
+							<token name="EasingDirection">1</token>
+							<token name="EasingStyle">0</token>
+							<string name="Name">RightLowerArm</string>
+							<BinaryString name="Tags"></BinaryString>
+							<float name="Weight">1</float>
+						</Properties>
+						<Item class="Pose" referent="RBX6A2175C9698A410580D748F891907B7B">
+							<Properties>
+								<CoordinateFrame name="CFrame">
+									<X>0</X>
+									<Y>0</Y>
+									<Z>0</Z>
+									<R00>1</R00>
+									<R01>0</R01>
+									<R02>0</R02>
+									<R10>0</R10>
+									<R11>1</R11>
+									<R12>0</R12>
+									<R20>0</R20>
+									<R21>0</R21>
+									<R22>1</R22>
+								</CoordinateFrame>
+								<token name="EasingDirection">1</token>
+								<token name="EasingStyle">0</token>
+								<string name="Name">RightHand</string>
+								<BinaryString name="Tags"></BinaryString>
+								<float name="Weight">1</float>
+							</Properties>
+						</Item>
+					</Item>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="CFrameValue" referent="RBX341A44CDD29F4286920D838A37CC95A7">
+			<Properties>
+				<string name="Name">NormalGrip</string>
+				<BinaryString name="Tags"></BinaryString>
+				<CoordinateFrame name="Value">
+					<X>0</X>
+					<Y>-2</Y>
+					<Z>0</Z>
+					<R00>1</R00>
+					<R01>0</R01>
+					<R02>0</R02>
+					<R10>0</R10>
+					<R11>1</R11>
+					<R12>0</R12>
+					<R20>0</R20>
+					<R21>0</R21>
+					<R22>1</R22>
+				</CoordinateFrame>
+			</Properties>
+		</Item>
+		<Item class="Camera" referent="RBXBDA5C0683FB8484980075BF096769ACC">
+			<Properties>
+				<CoordinateFrame name="CFrame">
+					<X>-3.81058192</X>
+					<Y>2.6831212</Y>
+					<Z>11.8539734</Z>
+					<R00>0.996588051</R00>
+					<R01>-0.0037382429</R01>
+					<R02>0.082452409</R02>
+					<R10>-0</R10>
+					<R11>0.998973846</R11>
+					<R12>0.0452916585</R12>
+					<R20>-0.0825371146</R20>
+					<R21>-0.045137126</R21>
+					<R22>0.995565295</R22>
+				</CoordinateFrame>
+				<Ref name="CameraSubject">null</Ref>
+				<token name="CameraType">0</token>
+				<float name="FieldOfView">70</float>
+				<CoordinateFrame name="Focus">
+					<X>-3.97548676</X>
+					<Y>2.59253788</Y>
+					<Z>9.86284256</Z>
+					<R00>1</R00>
+					<R01>0</R01>
+					<R02>0</R02>
+					<R10>0</R10>
+					<R11>1</R11>
+					<R12>0</R12>
+					<R20>0</R20>
+					<R21>0</R21>
+					<R22>1</R22>
+				</CoordinateFrame>
+				<bool name="HeadLocked">true</bool>
+				<float name="HeadScale">1</float>
+				<string name="Name">ThumbnailCamera</string>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+	</Item>
+</roblox>

@@ -1,0 +1,2678 @@
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mulrbx.com/roblox.xsd" version="4">
+	<Meta name="ExplicitAutoJoints">true</Meta>
+	<External>null</External>
+	<External>nil</External>
+	<Item class="Tool" referent="RBXC4E67A34788747678ADFB4A50B3D7530">
+		<Properties>
+			<bool name="CanBeDropped">true</bool>
+			<bool name="Enabled">true</bool>
+			<CoordinateFrame name="Grip">
+				<X>0</X>
+				<Y>0</Y>
+				<Z>-2.29999995</Z>
+				<R00>-0.587933838</R00>
+				<R01>0</R01>
+				<R02>0.808908999</R02>
+				<R10>0.808908999</R10>
+				<R11>-0</R11>
+				<R12>0.587933838</R12>
+				<R20>0</R20>
+				<R21>1</R21>
+				<R22>0</R22>
+			</CoordinateFrame>
+			<bool name="ManualActivationOnly">false</bool>
+			<string name="Name">BatKnightBatSword</string>
+			<bool name="RequiresHandle">true</bool>
+			<BinaryString name="Tags"></BinaryString>
+			<Content name="TextureId"><url>http://www.mulrbx.com/asset/?id=17674026 </url></Content>
+			<string name="ToolTip">You can never have too many bats.</string>
+		</Properties>
+		<Item class="Script" referent="RBX0A20E4251C394A19943912A242A4865C">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">Server</string>
+				<string name="ScriptGuid">{B65756D6-7F9F-4F12-85AF-45445B9C3AD2}</string>
+				<ProtectedString name="Source"><![CDATA[function Create(ty)
+	return function(data)
+		local obj = Instance.new(ty)
+		for k, v in pairs(data) do
+			if type(k) == 'number' then
+				v.Parent = obj
+			else
+				obj[k] = v
+			end
+		end
+		return obj
+	end
+end
+
+local Tool = script.Parent
+Tool.Enabled = true
+
+local Handle = Tool:WaitForChild("Handle")
+
+local Cframe,Angles,Vec3,rad = CFrame.new,CFrame.Angles,Vector3.new,math.rad
+
+local Remote = (Tool:FindFirstChildOfClass("RemoteEvent") or Create("RemoteEvent"){
+	Name = "Remote",
+	Parent = Tool
+})
+
+local Grips = {
+	Up = Cframe(0, 0, -2.29999995, -0.587933838, 0, 0.808908999, 0.808908999, -0, 0.587933838, 0, 1, 0),
+}
+local Events = {}
+local Animations = {}
+local Deletables = {}
+local Player,Character,Humanoid,Torso
+
+local Region = require(script:WaitForChild("RegionModule"))
+
+local Services = {
+	Players = (game:FindService("Players") or game:GetService("Players")),
+	Debris = (game:FindService("Debris") or game:GetService("Debris")),
+	ServerScriptService = (game:FindService("ServerScriptService") or game:GetService("ServerScriptService"))
+}
+
+local Sounds = {
+	Equip = Handle:WaitForChild("Equip"),
+	Slash = Handle:WaitForChild("Slash"),
+	Lunge = Handle:WaitForChild("Lunge")
+}
+
+local BatParticles = Handle:WaitForChild("Bats")
+BatParticles.Enabled = true
+
+function IsTeamMate(Player1, Player2)
+	return (Player1 and Player2 and not Player1.Neutral and not Player2.Neutral and Player1.TeamColor == Player2.TeamColor)
+end
+
+local function IsInTable(Table,Value)
+	for _,v in pairs(Table) do
+		if v == Value then
+			return true
+		end
+	end
+	return false
+end
+
+function TagHumanoid(humanoid, player)
+	local Creator_Tag = Instance.new("ObjectValue")
+	Creator_Tag.Name = "creator"
+	Creator_Tag.Value = player
+	Services.Debris:AddItem(Creator_Tag, 2)
+	Creator_Tag.Parent = humanoid
+end
+
+function UntagHumanoid(humanoid)
+	for i, v in pairs(humanoid:GetChildren()) do
+		if v:IsA("ObjectValue") and v.Name == "creator" then
+			v:Destroy()
+		end
+	end
+end
+
+function CastScripts(Duration,ScriptEntries) -- Could be used for ServerScripts, but we'll use LocalScripts in this case
+	local LoggedScripts = {} -- Keeps track of the current scripts
+	local Players = Services.Players:GetPlayers()
+	for p=1,#Players do
+		if Players[p] then
+			for i=1,#ScriptEntries do
+				if ScriptEntries[i] and ScriptEntries[i]:IsA("LocalScript") and Players[p]:FindFirstChild("PlayerGui")then
+					local Clone = ScriptEntries[i]:Clone()
+					Clone.Parent = Players[p]:FindFirstChild("PlayerGui") -- The best spot to place it at
+					Clone.Disabled = false
+					LoggedScripts[#LoggedScripts+1] = Clone
+				end
+			end
+		end
+	end
+	
+	local function Clean()
+		--print("CLEANING")
+		for s=1,#LoggedScripts do
+			
+			if LoggedScripts[s] then
+				--LoggedScripts[s]:Destroy()
+				Services.Debris:AddItem(LoggedScripts[s],(Duration or 1)+1)
+			end
+		end
+		LoggedScripts = {} -- Clear the Memory
+	end
+	
+	Clean()
+	
+end
+
+local function HasFinisher(Hum) -- Quick check to see if they're not stunned
+	local Children = Services.ServerScriptService:GetChildren()
+	for i=1, #Children do
+		if Children[i]:IsA("Script") and Children[i].Name == "Finisher" and Children[i]:FindFirstChild("Target") and Children[i]:FindFirstChild("Target").Value == Hum.Parent then
+			return true
+		end
+	end
+	return false
+end
+
+--[[local function VisualizeRay(ray,RayLength,Color)
+	local RayCast = Create("Part"){
+		Material = Enum.Material.Neon,
+		Color = Color or Color3.new(0,1,0),
+		Size = Vector3.new(0.3,0.3,(RayLength or 5)),
+		CFrame = CFrame.new(ray.Origin, ray.Origin+ray.Direction) * CFrame.new(0, 0, -(RayLength or 5) / 2),
+		Anchored = true,
+		CanCollide = false,
+		Parent = workspace
+	}
+	game:GetService("Debris"):AddItem(RayCast,0.5)
+end]]
+
+
+local ray = Ray.new
+local Abilities = {
+	[Enum.KeyCode.Q] = {
+		Ready = true,
+		Reload = 30,
+		Function = function()
+			--print("Executing bat transform ability")
+			local BatTransform = script:WaitForChild("BatTransform"):Clone()
+			delay(30,function()
+				BatParticles.Enabled = true
+			end)
+			BatParticles.Enabled = false
+			Create("ObjectValue"){
+				Name = "Target",
+				Value = Character,
+				Parent = BatTransform
+			}
+			Create("NumberValue"){
+				Name = "Duration",
+				Value = 5,
+				Parent = BatTransform
+			}
+			BatTransform.Parent = Services.ServerScriptService
+			BatTransform.Disabled = false
+		end
+	},
+	[Enum.KeyCode.E] = {
+		Ready = true,
+		Reload = 3.5,
+		Function = function()
+			--print("Executing Dash ability")
+			--wait(.3)
+			if not Tool:IsDescendantOf(Character) then return end
+			Sounds.Lunge:Play()
+			Tool.Grip = Grips.Up*Angles(math.rad(90),0,0)
+			--print("Lunge")
+			Create("StringValue"){
+			Name = "toolanim",
+			Value = "Lunge",
+			Parent = Tool
+			}
+			wait(1/10)
+			local cframe = Torso.CFrame
+			local MaxDistance = 55
+			local DashRay = ray(cframe.p,(cframe.lookVector).Unit * MaxDistance)
+			local hit,pos = workspace:FindPartOnRayWithIgnoreList(DashRay,{Character},false,true)
+			local ModifiedDistance = ((pos-cframe.p).Magnitude ~= MaxDistance and (pos-cframe.p).Magnitude - 5) or MaxDistance
+			local final = Cframe((cframe * Cframe(0,0,-(ModifiedDistance)).p))*(cframe-cframe.p)--CFrame.new(pos)*(cframe-cframe.p)
+			
+			if Character.PrimaryPart then
+				Character:SetPrimaryPartCFrame(final)
+				Character.PrimaryPart.Velocity = Vec3(0,0,0)
+			else
+				Torso.CFrame = final
+				Torso.Velocity = Vec3(0,0,0)
+			end
+			
+
+			--VisualizeRay(DashRay,(pos-cframe.p).Magnitude+(2),Color3.new(0,1,0))
+			local DashClient = script:WaitForChild("Dash"):Clone()
+			Create("ObjectValue"){
+				Name = "Torso",
+				Value = Torso,
+				Parent = DashClient
+			}
+			Create("Vector3Value"){
+				Name = "EndPosition",
+				Value = final.p,
+				Parent = DashClient
+			}
+			Create("CFrameValue"){
+				Name = "Begin",
+				Value = cframe,
+				Parent = DashClient
+			}
+			CastScripts(2,{DashClient})
+			
+			local HitHumanoids = {}
+			local Cast = Region.new(cframe,Vec3(Torso.Size.X*3.5,Torso.Size.Y*3.5,(pos-cframe.p).Magnitude)):Cast({Character})
+			for i=1,#Cast do
+				if Cast[i] and Cast[i].Parent then
+					local Hum,FF =  Cast[i].Parent:FindFirstChildOfClass("Humanoid"),Cast[i].Parent:FindFirstChildOfClass("ForceField")
+					if Hum and not IsInTable(HitHumanoids,Hum) and not FF and not IsTeamMate(Player,Services.Players:GetPlayerFromCharacter(Hum.Parent)) then
+						HitHumanoids[#HitHumanoids+1] = Hum
+						if Services.Players:GetPlayerFromCharacter(Hum.Parent) then
+							local Tool = Hum.Parent:FindFirstChildOfClass("Tool")
+							if Tool then
+								Tool.Parent = Player:WaitForChild("Backpack") -- Swipe their current tool
+							end
+						end
+						Humanoid.Health = Humanoid.Health + 35 -- Gain heals from the as well
+						Touched(Cast[i],35)
+					end
+				end
+				--warn(Cast[i])
+			end
+			wait(1/2)
+			Tool.Grip = Grips.Up
+		end
+	}
+}
+
+local stamp = 0
+function Activated()
+	if not Tool.Enabled then return end
+	local Tick = tick()
+	if (Tick-stamp) > .2 then
+		--Slash
+		--print("Slash")
+		Sounds.Slash:Play()
+		 Create("StringValue"){
+			Name = "toolanim",
+			Value = "Slash",
+			Parent = Tool
+		}
+	
+	else
+		Tool.Enabled = false
+		Sounds.Lunge:Play()
+		Tool.Grip = Grips.Up*Angles(rad(90),0,0)
+		--print("Lunge")
+		Create("StringValue"){
+		Name = "toolanim",
+		Value = "Lunge",
+		Parent = Tool
+		}
+		wait(.5)
+		Tool.Grip = Grips.Up
+		wait(.6)
+		Tool.Enabled = true
+		--Lunge
+		
+	end
+	stamp = Tick
+end
+
+function Touched(hit,damage)
+	if not hit or not hit.Parent then return end
+	local Hum,FF = hit.Parent:FindFirstChildOfClass("Humanoid"),hit.Parent:FindFirstChildOfClass("ForceField")
+	if Hum and Hum ~= Humanoid and Hum.Health > 0 and not FF and not IsTeamMate(Player, Services.Players:GetPlayerFromCharacter(Hum.Parent)) then
+		UntagHumanoid(Hum)
+		TagHumanoid(Hum,Player)
+		if (Hum.Health/Hum.MaxHealth)*100 <= 30 then
+			if not HasFinisher(Hum)  then
+				--Cue the finisher instead
+				local Finisher = script:WaitForChild("Finisher"):Clone()
+				Create("ObjectValue"){
+					Name = "Target",
+					Value = Hum.Parent,
+					Parent = Finisher
+				}
+				Create("ObjectValue"){
+					Name = "Creator",
+					Value = Player,
+					Parent = Finisher
+				}
+				Finisher.Parent = Services.ServerScriptService
+				Finisher.Disabled = false
+			end
+		else
+			UntagHumanoid(Hum)
+			TagHumanoid(Hum,Player)
+			Hum:TakeDamage(damage or 0)
+			
+		end 
+	end
+end
+
+
+function Equipped()
+	Character = Tool.Parent
+	Player = Services.Players:GetPlayerFromCharacter(Character)
+	Humanoid = Character:FindFirstChildOfClass("Humanoid")
+	Torso = Character:FindFirstChild("HumanoidRootPart") or Character:FindFirstChild("Torso")
+	if not Humanoid or Humanoid.Health <= 0 or not Character or not Torso then return end
+	
+	--[[Animations = Tool:WaitForChild("Animations")
+	Animations = {
+		EquipAnim = Humanoid:LoadAnimation(Animations:WaitForChild(Humanoid.RigType.Name):WaitForChild("EquipAnim")),
+		ExecuteAnim = Humanoid:LoadAnimation(Animations:WaitForChild(Humanoid.RigType.Name):WaitForChild("ExecuteAnim")),
+		IdleAnim = Humanoid:LoadAnimation(Animations:WaitForChild(Humanoid.RigType.Name):WaitForChild("IdleAnim")),
+		SwingAnim = Humanoid:LoadAnimation(Animations:WaitForChild(Humanoid.RigType.Name):WaitForChild("SwingAnim"))
+	}]]
+	Events[#Events+1] = Tool.Activated:Connect(Activated)
+	Events[#Events+1] = Remote.OnServerEvent:Connect(function(client,Key)
+		if not Tool.Enabled or client ~= Player or not Key or Humanoid.Health <= 0 then return end
+		if not Abilities[Key].Ready then return end
+		Tool.Enabled = false
+		Abilities[Key].Ready = false
+		delay(Abilities[Key].Reload,function() Abilities[Key].Ready = true end)
+		Abilities[Key].Function()--Execute the respective ability
+		Tool.Enabled = true
+	end)
+	Events[#Events+1] = Handle.Touched:Connect(function(hit)
+		Touched(hit,14)
+	end)
+	Sounds.Equip:Play()
+end
+
+function Unequipped()
+		
+	for _,anim in pairs(Animations) do
+		if anim then
+			anim:Stop()
+		end
+	end
+	Animations = {}
+	
+	for i=1,#Events do
+		if Events[i] then Events[i]:Disconnect();Events[i] = nil end
+	end
+	Events = {}
+	
+	for i=1,#Deletables do
+		if Deletables[i] then Deletables[i]:Destroy() end
+	end
+	Deletables = {}
+end
+
+Tool.Equipped:Connect(Equipped)
+Tool.Unequipped:Connect(Unequipped)]]></ProtectedString>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+			<Item class="LocalScript" referent="RBX11146926E58940BE9CE4DCFD719E9C78">
+				<Properties>
+					<bool name="Disabled">true</bool>
+					<Content name="LinkedSource"><null></null></Content>
+					<string name="Name">Dash</string>
+					<string name="ScriptGuid">{51250B38-BEA0-4B7F-894D-37F21D2B0ABE}</string>
+					<ProtectedString name="Source"><![CDATA[--Creates dash particle effects on the client to reduce unecessary latency
+
+function Create(ty)
+	return function(data)
+		local obj = Instance.new(ty)
+		for k, v in pairs(data) do
+			if type(k) == 'number' then
+				v.Parent = obj
+			else
+				obj[k] = v
+			end
+		end
+		return obj
+	end
+end
+local Seed = Random.new()
+
+
+local Services = {
+	Debris = (game:FindService("Debris") or game:GetService("Debris")),
+	Tween = (game:FindService("TweenService") or game:GetService("TweenService")),
+}
+
+
+local Torso,pos,cframe = script:WaitForChild("Torso").Value,script:WaitForChild("EndPosition").Value,script:WaitForChild("Begin").Value
+local Bats = script:WaitForChild("Bats")
+local BaseLine = Create("Part"){
+	CastShadow = false,
+	Anchored = true,
+	Massless = true,
+	Size = Vector3.new(0,0,0),
+	Shape = Enum.PartType.Cylinder,
+	CanCollide = false,
+	Locked = true,
+	Transparency = 0.5,
+	Material = Enum.Material.Glass,
+	Name = "DashLine",
+	Color = Color3.fromRGB(38, 0, 0)
+}
+
+
+--local Lines = {}
+
+local BodyClone = Create("Model"){
+	Name = "DashBody",
+	--Parent = workspace
+}
+--[[local Humanoid = Create("Humanoid"){
+	HealthDisplayType = Enum.HumanoidHealthDisplayType.AlwaysOff,
+	MaxHealth = 0,
+	Health = 0,
+	BreakJointsOnDeath = false,
+	DisplayDistanceType = Enum.HumanoidDisplayDistanceType.None,
+	Parent = BodyClone
+}]]
+
+for _,part in pairs(Torso.Parent:GetDescendants()) do
+	if part:IsA("BasePart") or part:IsA("CharacterMesh") then
+		local Clone =  part:Clone()
+		if Clone.Name == "HumanoidRootPart" then
+			BodyClone.PrimaryPart = Clone
+		end
+		for _,v in pairs(Clone:GetDescendants()) do
+			if v:IsA("JointInstance") or v:IsA("FaceInstance") or v:IsA("Sound") or v:IsA("ParticleEmitter") then
+				v:Destroy()
+			end
+		end
+		--[[pcall(function()
+			if Clone["OverlayTextureId"] then
+				--Clone["OverlayTextureId"] = ""
+			end
+		end)]]
+		pcall(function()
+			if Clone:FindFirstChildOfClass("SpecialMesh") then
+				Clone:FindFirstChildOfClass("SpecialMesh").TextureId = ""
+				Clone:FindFirstChildOfClass("SpecialMesh").VertexColor = Vector3.new(1,1,1)
+			end
+		end)
+		
+		if Clone:IsA("BasePart") then
+			Clone.CastShadow = false
+			Clone.Anchored = true 
+			Clone.Massless = true
+			Clone.CanCollide = false
+			Clone.Material = Enum.Material.Glass
+			Clone.Color = Color3.fromRGB(38, 0, 0)
+			Clone.Transparency = .3
+		end
+		
+		Clone.Parent = BodyClone
+	end
+end
+
+local ObjectModel = Create("Model"){
+	Name = "DashEffect",
+	Parent = workspace
+}
+for i=0,1,1/6 do
+	local DashBody = BodyClone:Clone()
+	DashBody.Name = ""
+	DashBody:SetPrimaryPartCFrame(cframe:lerp(CFrame.new(pos)*(cframe-cframe.p),i))
+	DashBody.Parent = workspace
+	local parts = DashBody:GetDescendants()
+	for p=1,#parts,1 do
+		if parts[p]:IsA("BasePart") or parts[p]:IsA("FaceInstance") then
+			Services.Tween:Create(parts[p],TweenInfo.new(.5+(.5*i),Enum.EasingStyle.Linear,Enum.EasingDirection.Out,0,false,0),{Transparency = 1}):Play()
+		end
+	end
+	DashBody.Parent = ObjectModel
+	--Services.Debris:AddItem(DashBody,(3*(i*.5)))
+end
+
+
+for i=1,Seed:NextInteger(10,15)*math.max(Torso.Size.X,Torso.Size.Y,Torso.Size.Z),1 do -- create scattered dash lines
+	local DashLine = BaseLine:Clone()
+	DashLine.Size = Vector3.new((pos-cframe.p).Magnitude+(Seed:NextNumber(0,3)),0.1,0.1)
+	--DashLine.CFrame = (CFrame.new(pos)*(cframe-cframe.p)) * CFrame.new(,Seed:NextNumber(-Torso.Size.X*.5,Torso.Size.X*.5),Seed:NextNumber(-Torso.Size.Y*.5,Torso.Size.Y*.5))* CFrame.Angles(math.rad(90),0,0)
+	DashLine.CFrame = (CFrame.new(pos)*(cframe-cframe.p)) * CFrame.Angles(0,math.rad(90),0) * CFrame.new(-((pos-cframe.p).Magnitude*.5+(2)),Seed:NextNumber(-Torso.Size.X*2,Torso.Size.X*2),Seed:NextNumber(-Torso.Size.Y*2,Torso.Size.Y*2))
+	DashLine.Parent = ObjectModel
+	local Bat = Bats:Clone()
+	Bat.Parent = DashLine
+	Bat:Emit(Bat.Rate)
+	pcall(function()
+		Services.Tween:Create(DashLine,TweenInfo.new(1.5,Enum.EasingStyle.Sine,Enum.EasingDirection.Out,0,false,0),{Transparency = 1}):Play()
+	end)
+	--Services.Debris:AddItem(DashLine,3)
+end
+
+
+Services.Debris:AddItem(ObjectModel,3)
+]]></ProtectedString>
+					<BinaryString name="Tags"></BinaryString>
+				</Properties>
+				<Item class="ParticleEmitter" referent="RBX576D072E216D43928FC448A41808AFE0">
+					<Properties>
+						<Vector3 name="Acceleration">
+							<X>0</X>
+							<Y>5</Y>
+							<Z>0</Z>
+						</Vector3>
+						<ColorSequence name="Color">0 0.14902 0 0 0 1 0.14902 0 0 0 </ColorSequence>
+						<float name="Drag">0</float>
+						<token name="EmissionDirection">2</token>
+						<bool name="Enabled">false</bool>
+						<NumberRange name="Lifetime">1 1.3 </NumberRange>
+						<float name="LightEmission">0</float>
+						<float name="LightInfluence">1</float>
+						<bool name="LockedToPart">false</bool>
+						<string name="Name">Bats</string>
+						<float name="Rate">10</float>
+						<NumberRange name="RotSpeed">0 0 </NumberRange>
+						<NumberRange name="Rotation">-60 60 </NumberRange>
+						<NumberSequence name="Size">0 0.5 0.5 1 0.5 0.437 </NumberSequence>
+						<NumberRange name="Speed">1 5 </NumberRange>
+						<Vector2 name="SpreadAngle">
+							<X>-90</X>
+							<Y>90</Y>
+						</Vector2>
+						<BinaryString name="Tags"></BinaryString>
+						<Content name="Texture"><url>rbxassetid://3268764099</url></Content>
+						<NumberSequence name="Transparency">0 1 0 0.05 0 0 0.900202 0 0 1 1 0 </NumberSequence>
+						<float name="VelocityInheritance">0</float>
+						<float name="ZOffset">0</float>
+					</Properties>
+				</Item>
+			</Item>
+			<Item class="ModuleScript" referent="RBX7E9D38A608BE448491D541895EFD0BBA">
+				<Properties>
+					<Content name="LinkedSource"><null></null></Content>
+					<string name="Name">RegionModule</string>
+					<string name="ScriptGuid">{C37002D7-86E1-4CE6-BC4B-3D9BC24E7BFD}</string>
+					<ProtectedString name="Source"><![CDATA[--[[
+By AxisAngle, (Trey Reynolds)
+Documentation
+http://www.mulrbx.com/item.aspx?id=227509468
+
+Region constructors:
+	Region Region.new(CFrame RegionCFrame, Vector3 RegionSize)
+		>Returns a new Region object
+
+	Region Region.FromPart(Instance Part)
+		>Returns a new Region objects
+
+
+Region methods:
+	table Region:Cast([Instance or table Ignore])
+		>Returns all parts in the Region, ignoring the Ignore
+
+	bool Region:CastPart(Instance Part)
+		>Returns true if Part is within Region, false otherwise
+
+	table Region:CastParts(table Parts)
+		>Returns a table of all parts within the region
+
+	bool Region:CastPoint(Vector3 Point)
+		>Returns true if Point intersects Region, false otherwise
+
+	bool Region:CastSphere(Vector3 SphereCenter, number SphereRadius)
+		>Returns true if Sphere intersects Region, false otherwise
+
+	bool Region:CastBox(CFrame BoxCFrame, Vector3 BoxSize)
+		>Returns true if Box intersects Region, false otherwise
+
+
+
+Region properties: (Regions are mutable)
+	CFrame	CFrame
+	Vector3	Size
+	Region3	Region3
+
+
+
+Region functions:
+	Region3 Region.Region3BoundingBox(CFrame BoxCFrame, Vector3 BoxSize)
+		>Returns the enclosing boundingbox of Box
+
+	table Region.FindAllPartsInRegion3(Region3 Region3, [Instance or table Ignore])
+		>Returns all parts within a Region3 of any size
+
+	bool Region.BoxPointCollision(CFrame BoxCFrame, Vector3 BoxSize, Vector3 Point)
+		>Returns true if the Point is intersecting the Box, false otherwise
+
+	bool Region.BoxSphereCollision(CFrame BoxCFrame, Vector3 BoxSize, Vector3 SphereCenter, number SphereRadius)
+		>Returns true if the Sphere is intersecting the Box, false otherwise
+
+	bool Region.BoxCollision(CFrame Box0CFrame, Vector3 Box0Size, CFrame Box1CFrame, Vector3 Box1Size, [bool AssumeTrue])
+		>Returns true if the boxes are intersecting, false otherwise
+		If AssumeTrue is left blank, it does the full check to see if Box0 is intersecting Box1
+		If AssumeTrue is true, it skips the heavy check and assumes that any part that could possibly be in the Region is
+		If AssumeTrue is false, it skips the heavy check and assumes that any part that could possible be outside the Region is
+	
+	bool Region.CastPoint(Vector3 Point, [Instance or table Ignore])
+		>Returns true if the point intersects a part, false otherwise
+]]
+
+local Region={}
+
+
+
+local BoxPointCollision do
+	local VecDiv=CFrame.new().pointToObjectSpace--Right Division, yo.
+	function BoxPointCollision(CFrame,Size,Point)
+		local Relative	=VecDiv(CFrame,Point)
+		local sx,sy,sz	=Size.x/2,Size.y/2,Size.z/2
+		local rx,ry,rz	=Relative.x,Relative.y,Relative.z
+		return			rx*rx<sx*sx and rx*rx<sx*sx and rx*rx<sx*sx
+	end
+end
+
+
+
+local BoxSphereCollision do
+	local VecDiv=CFrame.new().pointToObjectSpace--Right Division, yo.
+	function BoxSphereCollision(CFrame,Size,Center,Radius)
+		local Relative	=VecDiv(CFrame,Center)
+		local sx,sy,sz	=Size.x/2,Size.y/2,Size.z/2
+		local rx,ry,rz	=Relative.x,Relative.y,Relative.z
+		local dx		=rx>sx and rx-sx--Faster than if statement
+						or rx<-sx and rx+sx
+						or 0
+		local dy		=ry>sy and ry-sy
+						or ry<-sy and ry+sy
+						or 0
+		local dz		=rz>sz and rz-sz
+						or rz<-sz and rz+sz
+						or 0
+		return dx*dx+dy*dy+dz*dz<Radius*Radius
+	end
+end
+
+
+
+--There's a reason why this hasn't been done before by ROBLOX users (as far as I know)
+--It's really mathy, really long, and really confusing.
+--0.000033 seconds is the worst, 0.000018 looks like the average case.
+--Also I ran out of local variables so I had to redo everything so that I could reuse the names lol.
+--So don't even try to read it.
+local BoxCollision do
+	local components=CFrame.new().components
+	function BoxCollision(CFrame0,Size0,CFrame1,Size1,AssumeTrue)
+		local	m00,m01,m02,
+				m03,m04,m05,
+				m06,m07,m08,
+				m09,m10,m11	=components(CFrame0)
+		local	m12,m13,m14,
+				m15,m16,m17,
+				m18,m19,m20,
+				m21,m22,m23	=components(CFrame1)
+		local	m24,m25,m26	=Size0.x/2,Size0.y/2,Size0.z/2
+		local	m27,m28,m29	=Size1.x/2,Size1.y/2,Size1.z/2
+		local	m30,m31,m32	=m12-m00,m13-m01,m14-m02
+		local	m00			=m03*m30+m06*m31+m09*m32
+		local	m01			=m04*m30+m07*m31+m10*m32
+		local	m02			=m05*m30+m08*m31+m11*m32
+		local	m12			=m15*m30+m18*m31+m21*m32
+		local	m13			=m16*m30+m19*m31+m22*m32
+		local	m14			=m17*m30+m20*m31+m23*m32
+		local	m30			=m12>m27 and m12-m27
+							or m12<-m27 and m12+m27
+							or 0
+		local	m31			=m13>m28 and m13-m28
+							or m13<-m28 and m13+m28
+							or 0
+		local	m32			=m14>m29 and m14-m29
+							or m14<-m29 and m14+m29
+							or 0
+		local	m33			=m00>m24 and m00-m24
+							or m00<-m24 and m00+m24
+							or 0
+		local	m34			=m01>m25 and m01-m25
+							or m01<-m25 and m01+m25
+							or 0
+		local	m35			=m02>m26 and m02-m26
+							or m02<-m26 and m02+m26
+							or 0
+		local	m36			=m30*m30+m31*m31+m32*m32
+		local	m30			=m33*m33+m34*m34+m35*m35
+		local	m31			=m24<m25 and (m24<m26 and m24 or m26)
+							or (m25<m26 and m25 or m26)
+		local	m32			=m27<m28 and (m27<m29 and m27 or m29)
+							or (m28<m29 and m28 or m29)
+		if m36<m31*m31 or m30<m32*m32 then
+			return true
+		elseif m36>m24*m24+m25*m25+m26*m26 or m30>m27*m27+m28*m28+m29*m29 then
+			return false
+		elseif AssumeTrue==nil then
+			--LOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOL
+			--(This is how you tell if something was made by Axis Angle)
+			local m30=m03*m15+m06*m18+m09*m21
+			local m31=m03*m16+m06*m19+m09*m22
+			local m32=m03*m17+m06*m20+m09*m23
+			local m03=m04*m15+m07*m18+m10*m21
+			local m06=m04*m16+m07*m19+m10*m22
+			local m09=m04*m17+m07*m20+m10*m23
+			local m04=m05*m15+m08*m18+m11*m21
+			local m07=m05*m16+m08*m19+m11*m22
+			local m10=m05*m17+m08*m20+m11*m23
+			local m05=m29*m29
+			local m08=m27*m27
+			local m11=m28*m28
+			local m15=m24*m30
+			local m16=m25*m03
+			local m17=m26*m04
+			local m18=m24*m31
+			local m19=m25*m06
+			local m20=m26*m07
+			local m21=m24*m32
+			local m22=m25*m09
+			local m23=m26*m10
+			local m33=m15+m16+m17-m12;if m33*m33<m08 then local m34=m18+m19+m20-m13;if m34*m34<m11 then local m35=m21+m22+m23-m14;if m35*m35<m05 then return true;end;end;end;
+			local m33=-m15+m16+m17-m12;if m33*m33<m08 then local m34=-m18+m19+m20-m13;if m34*m34<m11 then local m35=-m21+m22+m23-m14;if m35*m35<m05 then return true;end;end;end;
+			local m33=m15-m16+m17-m12;if m33*m33<m08 then local m34=m18-m19+m20-m13;if m34*m34<m11 then local m35=m21-m22+m23-m14;if m35*m35<m05 then return true;end;end;end;
+			local m33=-m15-m16+m17-m12;if m33*m33<m08 then local m34=-m18-m19+m20-m13;if m34*m34<m11 then local m35=-m21-m22+m23-m14;if m35*m35<m05 then return true;end;end;end;
+			local m33=m15+m16-m17-m12;if m33*m33<m08 then local m34=m18+m19-m20-m13;if m34*m34<m11 then local m35=m21+m22-m23-m14;if m35*m35<m05 then return true;end;end;end;
+			local m33=-m15+m16-m17-m12;if m33*m33<m08 then local m34=-m18+m19-m20-m13;if m34*m34<m11 then local m35=-m21+m22-m23-m14;if m35*m35<m05 then return true;end;end;end;
+			local m33=m15-m16-m17-m12;if m33*m33<m08 then local m34=m18-m19-m20-m13;if m34*m34<m11 then local m35=m21-m22-m23-m14;if m35*m35<m05 then return true;end;end;end;
+			local m33=-m15-m16-m17-m12;if m33*m33<m08 then local m34=-m18-m19-m20-m13;if m34*m34<m11 then local m35=-m21-m22-m23-m14;if m35*m35<m05 then return true;end;end;end;
+			local m12=m24*m24
+			local m13=m25*m25
+			local m14=m26*m26
+			local m15=m27*m04
+			local m16=m28*m07
+			local m17=m27*m30
+			local m18=m28*m31
+			local m19=m27*m03
+			local m20=m28*m06
+			local m21=m29*m10
+			local m22=m29*m32
+			local m23=m29*m09
+			local m35=(m02-m26+m15+m16)/m10;if m35*m35<m05 then local m33=m00+m17+m18-m35*m32;if m33*m33<m12 then local m34=m01+m19+m20-m35*m09;if m34*m34<m13 then return true;end;end;end;
+			local m35=(m02+m26+m15+m16)/m10;if m35*m35<m05 then local m33=m00+m17+m18-m35*m32;if m33*m33<m12 then local m34=m01+m19+m20-m35*m09;if m34*m34<m13 then return true;end;end;end;
+			local m35=(m02-m26-m15+m16)/m10;if m35*m35<m05 then local m33=m00-m17+m18-m35*m32;if m33*m33<m12 then local m34=m01-m19+m20-m35*m09;if m34*m34<m13 then return true;end;end;end;
+			local m35=(m02+m26-m15+m16)/m10;if m35*m35<m05 then local m33=m00-m17+m18-m35*m32;if m33*m33<m12 then local m34=m01-m19+m20-m35*m09;if m34*m34<m13 then return true;end;end;end;
+			local m35=(m02-m26+m15-m16)/m10;if m35*m35<m05 then local m33=m00+m17-m18-m35*m32;if m33*m33<m12 then local m34=m01+m19-m20-m35*m09;if m34*m34<m13 then return true;end;end;end;
+			local m35=(m02+m26+m15-m16)/m10;if m35*m35<m05 then local m33=m00+m17-m18-m35*m32;if m33*m33<m12 then local m34=m01+m19-m20-m35*m09;if m34*m34<m13 then return true;end;end;end;
+			local m35=(m02-m26-m15-m16)/m10;if m35*m35<m05 then local m33=m00-m17-m18-m35*m32;if m33*m33<m12 then local m34=m01-m19-m20-m35*m09;if m34*m34<m13 then return true;end;end;end;
+			local m35=(m02+m26-m15-m16)/m10;if m35*m35<m05 then local m33=m00-m17-m18-m35*m32;if m33*m33<m12 then local m34=m01-m19-m20-m35*m09;if m34*m34<m13 then return true;end;end;end;
+			local m35=(m00-m24+m17+m18)/m32;if m35*m35<m05 then local m33=m01+m19+m20-m35*m09;if m33*m33<m13 then local m34=m02+m15+m16-m35*m10;if m34*m34<m14 then return true;end;end;end;
+			local m35=(m00+m24+m17+m18)/m32;if m35*m35<m05 then local m33=m01+m19+m20-m35*m09;if m33*m33<m13 then local m34=m02+m15+m16-m35*m10;if m34*m34<m14 then return true;end;end;end;
+			local m35=(m00-m24-m17+m18)/m32;if m35*m35<m05 then local m33=m01-m19+m20-m35*m09;if m33*m33<m13 then local m34=m02-m15+m16-m35*m10;if m34*m34<m14 then return true;end;end;end;
+			local m35=(m00+m24-m17+m18)/m32;if m35*m35<m05 then local m33=m01-m19+m20-m35*m09;if m33*m33<m13 then local m34=m02-m15+m16-m35*m10;if m34*m34<m14 then return true;end;end;end;
+			local m35=(m00-m24+m17-m18)/m32;if m35*m35<m05 then local m33=m01+m19-m20-m35*m09;if m33*m33<m13 then local m34=m02+m15-m16-m35*m10;if m34*m34<m14 then return true;end;end;end;
+			local m35=(m00+m24+m17-m18)/m32;if m35*m35<m05 then local m33=m01+m19-m20-m35*m09;if m33*m33<m13 then local m34=m02+m15-m16-m35*m10;if m34*m34<m14 then return true;end;end;end;
+			local m35=(m00-m24-m17-m18)/m32;if m35*m35<m05 then local m33=m01-m19-m20-m35*m09;if m33*m33<m13 then local m34=m02-m15-m16-m35*m10;if m34*m34<m14 then return true;end;end;end;
+			local m35=(m00+m24-m17-m18)/m32;if m35*m35<m05 then local m33=m01-m19-m20-m35*m09;if m33*m33<m13 then local m34=m02-m15-m16-m35*m10;if m34*m34<m14 then return true;end;end;end;
+			local m35=(m01-m25+m19+m20)/m09;if m35*m35<m05 then local m33=m02+m15+m16-m35*m10;if m33*m33<m14 then local m34=m00+m17+m18-m35*m32;if m34*m34<m12 then return true;end;end;end;
+			local m35=(m01+m25+m19+m20)/m09;if m35*m35<m05 then local m33=m02+m15+m16-m35*m10;if m33*m33<m14 then local m34=m00+m17+m18-m35*m32;if m34*m34<m12 then return true;end;end;end;
+			local m35=(m01-m25-m19+m20)/m09;if m35*m35<m05 then local m33=m02-m15+m16-m35*m10;if m33*m33<m14 then local m34=m00-m17+m18-m35*m32;if m34*m34<m12 then return true;end;end;end;
+			local m35=(m01+m25-m19+m20)/m09;if m35*m35<m05 then local m33=m02-m15+m16-m35*m10;if m33*m33<m14 then local m34=m00-m17+m18-m35*m32;if m34*m34<m12 then return true;end;end;end;
+			local m35=(m01-m25+m19-m20)/m09;if m35*m35<m05 then local m33=m02+m15-m16-m35*m10;if m33*m33<m14 then local m34=m00+m17-m18-m35*m32;if m34*m34<m12 then return true;end;end;end;
+			local m35=(m01+m25+m19-m20)/m09;if m35*m35<m05 then local m33=m02+m15-m16-m35*m10;if m33*m33<m14 then local m34=m00+m17-m18-m35*m32;if m34*m34<m12 then return true;end;end;end;
+			local m35=(m01-m25-m19-m20)/m09;if m35*m35<m05 then local m33=m02-m15-m16-m35*m10;if m33*m33<m14 then local m34=m00-m17-m18-m35*m32;if m34*m34<m12 then return true;end;end;end;
+			local m35=(m01+m25-m19-m20)/m09;if m35*m35<m05 then local m33=m02-m15-m16-m35*m10;if m33*m33<m14 then local m34=m00-m17-m18-m35*m32;if m34*m34<m12 then return true;end;end;end;
+			local m35=(m02-m26+m16+m21)/m04;if m35*m35<m08 then local m33=m00+m18+m22-m35*m30;if m33*m33<m12 then local m34=m01+m20+m23-m35*m03;if m34*m34<m13 then return true;end;end;end;
+			local m35=(m02+m26+m16+m21)/m04;if m35*m35<m08 then local m33=m00+m18+m22-m35*m30;if m33*m33<m12 then local m34=m01+m20+m23-m35*m03;if m34*m34<m13 then return true;end;end;end;
+			local m35=(m02-m26-m16+m21)/m04;if m35*m35<m08 then local m33=m00-m18+m22-m35*m30;if m33*m33<m12 then local m34=m01-m20+m23-m35*m03;if m34*m34<m13 then return true;end;end;end;
+			local m35=(m02+m26-m16+m21)/m04;if m35*m35<m08 then local m33=m00-m18+m22-m35*m30;if m33*m33<m12 then local m34=m01-m20+m23-m35*m03;if m34*m34<m13 then return true;end;end;end;
+			local m35=(m02-m26+m16-m21)/m04;if m35*m35<m08 then local m33=m00+m18-m22-m35*m30;if m33*m33<m12 then local Axi=m01+m20-m23-m35*m03;if Axi*Axi<m13 then return true;end;end;end;
+			local m35=(m02+m26+m16-m21)/m04;if m35*m35<m08 then local m33=m00+m18-m22-m35*m30;if m33*m33<m12 then local sAn=m01+m20-m23-m35*m03;if sAn*sAn<m13 then return true;end;end;end;
+			local m35=(m02-m26-m16-m21)/m04;if m35*m35<m08 then local m33=m00-m18-m22-m35*m30;if m33*m33<m12 then local gle=m01-m20-m23-m35*m03;if gle*gle<m13 then return true;end;end;end;
+			local m35=(m02+m26-m16-m21)/m04;if m35*m35<m08 then local m33=m00-m18-m22-m35*m30;if m33*m33<m12 then local m34=m01-m20-m23-m35*m03;if m34*m34<m13 then return true;end;end;end;
+			local m35=(m00-m24+m18+m22)/m30;if m35*m35<m08 then local m33=m01+m20+m23-m35*m03;if m33*m33<m13 then local m34=m02+m16+m21-m35*m04;if m34*m34<m14 then return true;end;end;end;
+			local m35=(m00+m24+m18+m22)/m30;if m35*m35<m08 then local m33=m01+m20+m23-m35*m03;if m33*m33<m13 then local m34=m02+m16+m21-m35*m04;if m34*m34<m14 then return true;end;end;end;
+			local m35=(m00-m24-m18+m22)/m30;if m35*m35<m08 then local m33=m01-m20+m23-m35*m03;if m33*m33<m13 then local m34=m02-m16+m21-m35*m04;if m34*m34<m14 then return true;end;end;end;
+			local m35=(m00+m24-m18+m22)/m30;if m35*m35<m08 then local m33=m01-m20+m23-m35*m03;if m33*m33<m13 then local m34=m02-m16+m21-m35*m04;if m34*m34<m14 then return true;end;end;end;
+			local m35=(m00-m24+m18-m22)/m30;if m35*m35<m08 then local m33=m01+m20-m23-m35*m03;if m33*m33<m13 then local m34=m02+m16-m21-m35*m04;if m34*m34<m14 then return true;end;end;end;
+			local m35=(m00+m24+m18-m22)/m30;if m35*m35<m08 then local m33=m01+m20-m23-m35*m03;if m33*m33<m13 then local m34=m02+m16-m21-m35*m04;if m34*m34<m14 then return true;end;end;end;
+			local m35=(m00-m24-m18-m22)/m30;if m35*m35<m08 then local m33=m01-m20-m23-m35*m03;if m33*m33<m13 then local m34=m02-m16-m21-m35*m04;if m34*m34<m14 then return true;end;end;end;
+			local m35=(m00+m24-m18-m22)/m30;if m35*m35<m08 then local m33=m01-m20-m23-m35*m03;if m33*m33<m13 then local m34=m02-m16-m21-m35*m04;if m34*m34<m14 then return true;end;end;end;
+			local m35=(m01-m25+m20+m23)/m03;if m35*m35<m08 then local m33=m02+m16+m21-m35*m04;if m33*m33<m14 then local m34=m00+m18+m22-m35*m30;if m34*m34<m12 then return true;end;end;end;
+			local m35=(m01+m25+m20+m23)/m03;if m35*m35<m08 then local m33=m02+m16+m21-m35*m04;if m33*m33<m14 then local m34=m00+m18+m22-m35*m30;if m34*m34<m12 then return true;end;end;end;
+			local m35=(m01-m25-m20+m23)/m03;if m35*m35<m08 then local m33=m02-m16+m21-m35*m04;if m33*m33<m14 then local m34=m00-m18+m22-m35*m30;if m34*m34<m12 then return true;end;end;end;
+			local m35=(m01+m25-m20+m23)/m03;if m35*m35<m08 then local m33=m02-m16+m21-m35*m04;if m33*m33<m14 then local m34=m00-m18+m22-m35*m30;if m34*m34<m12 then return true;end;end;end;
+			local m35=(m01-m25+m20-m23)/m03;if m35*m35<m08 then local m33=m02+m16-m21-m35*m04;if m33*m33<m14 then local m34=m00+m18-m22-m35*m30;if m34*m34<m12 then return true;end;end;end;
+			local m35=(m01+m25+m20-m23)/m03;if m35*m35<m08 then local m33=m02+m16-m21-m35*m04;if m33*m33<m14 then local m34=m00+m18-m22-m35*m30;if m34*m34<m12 then return true;end;end;end;
+			local m35=(m01-m25-m20-m23)/m03;if m35*m35<m08 then local m33=m02-m16-m21-m35*m04;if m33*m33<m14 then local m34=m00-m18-m22-m35*m30;if m34*m34<m12 then return true;end;end;end;
+			local m35=(m01+m25-m20-m23)/m03;if m35*m35<m08 then local m33=m02-m16-m21-m35*m04;if m33*m33<m14 then local m34=m00-m18-m22-m35*m30;if m34*m34<m12 then return true;end;end;end;
+			local m35=(m02-m26+m21+m15)/m07;if m35*m35<m11 then local m33=m00+m22+m17-m35*m31;if m33*m33<m12 then local m34=m01+m23+m19-m35*m06;if m34*m34<m13 then return true;end;end;end;
+			local m35=(m02+m26+m21+m15)/m07;if m35*m35<m11 then local m33=m00+m22+m17-m35*m31;if m33*m33<m12 then local m34=m01+m23+m19-m35*m06;if m34*m34<m13 then return true;end;end;end;
+			local m35=(m02-m26-m21+m15)/m07;if m35*m35<m11 then local m33=m00-m22+m17-m35*m31;if m33*m33<m12 then local m34=m01-m23+m19-m35*m06;if m34*m34<m13 then return true;end;end;end;
+			local m35=(m02+m26-m21+m15)/m07;if m35*m35<m11 then local m33=m00-m22+m17-m35*m31;if m33*m33<m12 then local m34=m01-m23+m19-m35*m06;if m34*m34<m13 then return true;end;end;end;
+			local m35=(m02-m26+m21-m15)/m07;if m35*m35<m11 then local m33=m00+m22-m17-m35*m31;if m33*m33<m12 then local m34=m01+m23-m19-m35*m06;if m34*m34<m13 then return true;end;end;end;
+			local m35=(m02+m26+m21-m15)/m07;if m35*m35<m11 then local m33=m00+m22-m17-m35*m31;if m33*m33<m12 then local m34=m01+m23-m19-m35*m06;if m34*m34<m13 then return true;end;end;end;
+			local m35=(m02-m26-m21-m15)/m07;if m35*m35<m11 then local m33=m00-m22-m17-m35*m31;if m33*m33<m12 then local m34=m01-m23-m19-m35*m06;if m34*m34<m13 then return true;end;end;end;
+			local m35=(m02+m26-m21-m15)/m07;if m35*m35<m11 then local m33=m00-m22-m17-m35*m31;if m33*m33<m12 then local m34=m01-m23-m19-m35*m06;if m34*m34<m13 then return true;end;end;end;
+			local m35=(m00-m24+m22+m17)/m31;if m35*m35<m11 then local m33=m01+m23+m19-m35*m06;if m33*m33<m13 then local m34=m02+m21+m15-m35*m07;if m34*m34<m14 then return true;end;end;end;
+			local m35=(m00+m24+m22+m17)/m31;if m35*m35<m11 then local m33=m01+m23+m19-m35*m06;if m33*m33<m13 then local m34=m02+m21+m15-m35*m07;if m34*m34<m14 then return true;end;end;end;
+			local m35=(m00-m24-m22+m17)/m31;if m35*m35<m11 then local m33=m01-m23+m19-m35*m06;if m33*m33<m13 then local m34=m02-m21+m15-m35*m07;if m34*m34<m14 then return true;end;end;end;
+			local m35=(m00+m24-m22+m17)/m31;if m35*m35<m11 then local m33=m01-m23+m19-m35*m06;if m33*m33<m13 then local m34=m02-m21+m15-m35*m07;if m34*m34<m14 then return true;end;end;end;
+			local m35=(m00-m24+m22-m17)/m31;if m35*m35<m11 then local m33=m01+m23-m19-m35*m06;if m33*m33<m13 then local m34=m02+m21-m15-m35*m07;if m34*m34<m14 then return true;end;end;end;
+			local m35=(m00+m24+m22-m17)/m31;if m35*m35<m11 then local m33=m01+m23-m19-m35*m06;if m33*m33<m13 then local m34=m02+m21-m15-m35*m07;if m34*m34<m14 then return true;end;end;end;
+			local m35=(m00-m24-m22-m17)/m31;if m35*m35<m11 then local m33=m01-m23-m19-m35*m06;if m33*m33<m13 then local m34=m02-m21-m15-m35*m07;if m34*m34<m14 then return true;end;end;end;
+			local m35=(m00+m24-m22-m17)/m31;if m35*m35<m11 then local m33=m01-m23-m19-m35*m06;if m33*m33<m13 then local m34=m02-m21-m15-m35*m07;if m34*m34<m14 then return true;end;end;end;
+			local m35=(m01-m25+m23+m19)/m06;if m35*m35<m11 then local m33=m02+m21+m15-m35*m07;if m33*m33<m14 then local m34=m00+m22+m17-m35*m31;if m34*m34<m12 then return true;end;end;end;
+			local m35=(m01+m25+m23+m19)/m06;if m35*m35<m11 then local m33=m02+m21+m15-m35*m07;if m33*m33<m14 then local m34=m00+m22+m17-m35*m31;if m34*m34<m12 then return true;end;end;end;
+			local m35=(m01-m25-m23+m19)/m06;if m35*m35<m11 then local m33=m02-m21+m15-m35*m07;if m33*m33<m14 then local m34=m00-m22+m17-m35*m31;if m34*m34<m12 then return true;end;end;end;
+			local m35=(m01+m25-m23+m19)/m06;if m35*m35<m11 then local m33=m02-m21+m15-m35*m07;if m33*m33<m14 then local m34=m00-m22+m17-m35*m31;if m34*m34<m12 then return true;end;end;end;
+			local m35=(m01-m25+m23-m19)/m06;if m35*m35<m11 then local m33=m02+m21-m15-m35*m07;if m33*m33<m14 then local m34=m00+m22-m17-m35*m31;if m34*m34<m12 then return true;end;end;end;
+			local m35=(m01+m25+m23-m19)/m06;if m35*m35<m11 then local m33=m02+m21-m15-m35*m07;if m33*m33<m14 then local m34=m00+m22-m17-m35*m31;if m34*m34<m12 then return true;end;end;end;
+			local m35=(m01-m25-m23-m19)/m06;if m35*m35<m11 then local m33=m02-m21-m15-m35*m07;if m33*m33<m14 then local m34=m00-m22-m17-m35*m31;if m34*m34<m12 then return true;end;end;end;
+			local m35=(m01+m25-m23-m19)/m06;if m35*m35<m11 then local m33=m02-m21-m15-m35*m07;if m33*m33<m14 then local m34=m00-m22-m17-m35*m31;if m34*m34<m12 then return true;end;end;end;
+			return false
+		else
+			return AssumeTrue
+		end
+	end
+end
+
+
+local setmetatable	=setmetatable
+local components	=CFrame.new().components
+local Workspace		=Workspace
+local BoxCast		=Workspace.FindPartsInRegion3WithIgnoreList
+local unpack		=unpack
+local type			=type
+local IsA			=game.IsA
+local r3			=Region3.new
+local v3			=Vector3.new
+
+
+
+local function Region3BoundingBox(CFrame,Size)
+ 	local	x,y,z,
+			xx,yx,zx,
+			xy,yy,zy,
+			xz,yz,zz=components(CFrame)
+	local	sx,sy,sz=Size.x/2,Size.y/2,Size.z/2
+	local	px		=sx*(xx<0 and -xx or xx)
+					+sy*(yx<0 and -yx or yx)
+					+sz*(zx<0 and -zx or zx)
+	local	py		=sx*(xy<0 and -xy or xy)
+					+sy*(yy<0 and -yy or yy)
+					+sz*(zy<0 and -zy or zy)
+	local	pz		=sx*(xz<0 and -xz or xz)
+					+sy*(yz<0 and -yz or yz)
+					+sz*(zz<0 and -zz or zz)
+	return			r3(v3(x-px,y-py,z-pz),v3(x+px,y+py,z+pz))
+end
+
+
+
+local function FindAllPartsInRegion3(Region3,Ignore)
+	local Ignore=type(Ignore)=="table" and Ignore or {Ignore}
+	local Last=#Ignore
+	repeat
+		local Parts=BoxCast(Workspace,Region3,Ignore,100)
+		local Start=#Ignore
+		for i=1,#Parts do
+			Ignore[Start+i]=Parts[i]
+		end
+	until #Parts<100;
+	return {unpack(Ignore,Last+1,#Ignore)}
+end
+
+
+
+local function CastPoint(Region,Point)
+	return BoxPointCollision(Region.CFrame,Region.Size,Point)
+end
+
+
+
+local function CastSphere(Region,Center,Radius)
+	return BoxSphereCollision(Region.CFrame,Region.Size,Center,Radius)
+end
+
+
+
+local function CastBox(Region,CFrame,Size)
+	return BoxCollision(Region.CFrame,Region.Size,CFrame,Size)
+end
+
+
+
+local function CastPart(Region,Part)
+	return	(not IsA(Part,"Part") or Part.Shape=="Block") and
+			BoxCollision(Region.CFrame,Region.Size,Part.CFrame,Part.Size)
+			or BoxSphereCollision(Region.CFrame,Region.Size,Part.Position,Part.Size.x)
+end
+
+
+
+local function CastParts(Region,Parts)
+	local Inside={}
+	for i=1,#Parts do
+		if CastPart(Region,Parts[i]) then
+			Inside[#Inside+1]=Parts[i]
+		end
+	end
+	return Inside
+end
+
+
+
+local function Cast(Region,Ignore)
+	local Inside={}
+	local Parts=FindAllPartsInRegion3(Region.Region3,Ignore)
+	for i=1,#Parts do
+		if CastPart(Region,Parts[i]) then
+			Inside[#Inside+1]=Parts[i]
+		end
+	end
+	return Inside
+end
+
+
+
+local function NewRegion(CFrame,Size)
+	local Object	={
+		CFrame		=CFrame;
+		Size		=Size;
+		Region3		=Region3BoundingBox(CFrame,Size);
+		Cast		=Cast;
+		CastPart	=CastPart;
+		CastParts	=CastParts;
+		CastPoint	=CastPoint;
+		CastSphere	=CastSphere;
+		CastBox		=CastBox;
+					}
+	return			setmetatable({},{
+		__index=Object;
+		__newindex=function(_,Index,Value)
+			Object[Index]=Value
+			Object.Region3=Region3BoundingBox(Object.CFrame,Object.Size)
+		end;
+					})
+end
+
+
+
+Region.Region3BoundingBox	=Region3BoundingBox
+Region.FindAllPartsInRegion3=FindAllPartsInRegion3
+Region.BoxPointCollision	=BoxPointCollision
+Region.BoxSphereCollision	=BoxSphereCollision
+Region.BoxCollision			=BoxCollision
+Region.new					=NewRegion
+function Region.FromPart(Part)
+	return NewRegion(Part.CFrame,Part.Size)
+end
+
+return Region]]></ProtectedString>
+					<BinaryString name="Tags"></BinaryString>
+				</Properties>
+			</Item>
+			<Item class="Script" referent="RBXC9D03E9AD4074ED8A2BE0038E5AB9C9C">
+				<Properties>
+					<bool name="Disabled">true</bool>
+					<Content name="LinkedSource"><null></null></Content>
+					<string name="Name">BatTransform</string>
+					<string name="ScriptGuid">{66C680B3-6B43-4F07-8B94-D49858796C6D}</string>
+					<ProtectedString name="Source"><![CDATA[local Self = script
+
+local world = workspace
+
+local Target,Duration = Self:FindFirstChild("Target"),Self:FindFirstChild("Duration")
+
+
+if not Target or not Duration then Self:Destroy() end
+
+local Instant,Type,Vec3,random,cframe,Angles,Wait,rad,huge = Instance.new,type,Vector3.new,math.random,CFrame.new,CFrame.Angles,wait,math.rad,math.huge
+
+local Pcall,Wrap,SmoothSurface = pcall,coroutine.wrap,Enum.SurfaceType.Smooth
+
+local Services = {
+	Players = (game:FindService("Players") or game:GetService("Players")),
+	Debris = (game:FindService("Debris") or game:GetService("Debris")),
+	RunService = (game:FindService("RunService") or game:GetService("RunService"))
+}
+
+
+function Create(ty)
+	return function(data)
+		local obj = Instant(ty)
+		for k, v in pairs(data) do
+			if Type(k) == 'number' then
+				v.Parent = obj
+			else
+				obj[k] = v
+			end
+		end
+		return obj
+	end
+end
+
+function IsTeamMate(Player1, Player2)
+	return (Player1 and Player2 and not Player1.Neutral and not Player2.Neutral and Player1.TeamColor == Player2.TeamColor)
+end
+
+function TagHumanoid(humanoid, player)
+	local Creator_Tag = Instant("ObjectValue")
+	Creator_Tag.Name = "creator"
+	Creator_Tag.Value = player
+	Services.Debris:AddItem(Creator_Tag, 2)
+	Creator_Tag.Parent = humanoid
+end
+
+function UntagHumanoid(humanoid)
+	for i, v in pairs(humanoid:GetChildren()) do
+		if v:IsA("ObjectValue") and v.Name == "creator" then
+			v:Destroy()
+		end
+	end
+end
+
+
+Target = Target.Value
+Duration = Duration.Value
+
+local Torso = Target:FindFirstChild("HumanoidRootPart")
+local Humanoid = Target:FindFirstChildOfClass("Humanoid")
+
+if not Torso or not Humanoid then Self:Destroy() end
+
+
+
+local Invincibility = Create("ForceField"){
+	Visible = false,
+	Parent = Target
+}
+
+local PoofSmoke = Self:WaitForChild("PoofSmoke")
+PoofSmoke.Parent = Torso
+local PoofSound = Self:WaitForChild("PoofSound")
+PoofSound.Parent = Torso
+
+Humanoid.JumpPower = 0
+Humanoid.AutoRotate = false
+Humanoid:ChangeState(Enum.HumanoidStateType.Physics)
+
+function Damage(hit,Damage)	
+	if not hit or not hit.Parent then return end
+	local Hum,FF = hit.Parent:FindFirstChildOfClass("Humanoid"),hit.Parent:FindFirstChildOfClass("ForceField")
+	if not Hum or FF or Hum == Humanoid or IsTeamMate(Services.Players:GetPlayerFromCharacter(Target),Services.Players:GetPlayerFromCharacter(Hum.Parent)) then return end
+	UntagHumanoid(Hum)
+	TagHumanoid(Hum,Services.Players:GetPlayerFromCharacter(Target))
+	Hum:TakeDamage(Damage)
+end
+
+
+if Services.Players:GetPlayerFromCharacter(Target) then
+	local Disable = Self:WaitForChild("DisableBackpack")
+	Disable.Parent = Services.Players:GetPlayerFromCharacter(Target):WaitForChild("Backpack")
+	Disable.Disabled = false
+	Services.Debris:AddItem(Disable,1)
+	Services.Players:GetPlayerFromCharacter(Target).CharacterRemoving:Connect(function(Char)--keeps people from a hidden inventory
+		local Enable = Self:WaitForChild("EnableBackpack")
+		Enable.Parent = Services.Players:GetPlayerFromCharacter(Target):WaitForChild("Backpack")
+		Enable.Disabled = false
+		Services.Debris:AddItem(Enable,1)
+	end)
+end
+
+Humanoid:UnequipTools()
+
+local Deletables = {}
+Deletables[#Deletables+1] = Invincibility
+
+
+local meshes = {63693995, 63694839, 63694853}
+
+local Sounds = {
+	Self:WaitForChild("Squeak1"),
+	Self:WaitForChild("Squeak2"),
+	Self:WaitForChild("Squeak3")
+}
+
+
+local Offset = {Vec3(0,0,0),Vec3(0, 0, -0.31),Vec3(0, 0, 0.2)}
+
+--[[local bat = Create("Part"){
+	Size = Vec3(0.6, 0.6, 0.6),
+	CanCollide = true,
+	Anchored = false,
+	CastShadow = true,
+	Locked = true,
+	Transparency = 0.0,
+	Name = "Bat"
+}]]
+
+local batMesh = Create("SpecialMesh"){
+	MeshId = "http://www.mulrbx.com/asset/?id=63693995", -- front, 63694839  --back, 63694853  
+	TextureId = "http://www.mulrbx.com/asset/?id=63694777",
+	Scale = Vec3(1, 1, 1) * 4,
+	Parent = Torso
+}
+Deletables[#Deletables+1] = batMesh
+
+local Gyro = Create("BodyGyro"){
+	MaxTorque = Vec3(1,1,1)*huge,
+	D = 100,
+	P = 10^5,
+	CFrame = Torso.CFrame,
+	Parent = Torso
+}
+Deletables[#Deletables+1] = Gyro
+local Velo = Create("BodyVelocity"){
+	MaxForce = Vec3(1,1,1)*huge,
+	Velocity = Vec3(0,0,0),
+	Parent = Torso
+}
+Deletables[#Deletables+1] = Velo
+
+local Parts = Target:GetDescendants()
+
+for i=1,#Parts do
+	if Parts[i] and Parts[i] ~= Torso then
+		Pcall(function()
+			Parts[i].Transparency = 1
+		end)
+	end
+end
+
+Torso.Transparency = 0
+
+PoofSound:Play()
+PoofSmoke:Emit(PoofSmoke.Rate)
+
+
+local MiniBats = {}
+local Stop = false
+MiniBats[#MiniBats+1] = PoofSound
+MiniBats[#MiniBats+1] = PoofSmoke
+
+for i=1,#Sounds do
+	Sounds[i].Parent = Torso
+	MiniBats[#MiniBats+1] = Sounds[i]
+end
+
+Wrap(function()
+	repeat
+		for i=1,#Sounds do
+			if Sounds[i] then
+				Sounds[i]:Play();Sounds[i].Ended:Wait()
+				Wait(random(.1,.5))	
+			end
+		end
+	until Stop
+end)()
+
+Wrap(function()
+	for i=1,10,1 do
+		--print("Creating minibat#.."..i)
+		local MiniBat = Create("Part"){
+			Locked = true,
+			CanCollide = false,
+			Anchored = false,
+			Size = Vec3(2,2,2),
+			TopSurface = SmoothSurface,
+			Name = "MiniBat",
+			BottomSurface = SmoothSurface,
+			CFrame = Torso.CFrame,
+			--Parent = world
+		}
+		MiniBats[#MiniBats+1] = MiniBat
+		--Deletables[#Deletables+1] = MiniBat
+		local BatMesh = batMesh:Clone()
+		BatMesh.Parent = MiniBat
+		BatMesh.Scale = Vec3(1,1,1)*1.5
+		
+		local BatVelo = Velo:Clone()
+		BatVelo.Velocity = Vec3(0,0,0)
+		BatVelo.Parent = MiniBat
+		MiniBat.Parent = world
+		if MiniBat:CanSetNetworkOwnership() then
+			MiniBat:SetNetworkOwner(nil)
+		end
+		
+		MiniBat.Touched:Connect(function(hit)
+			Damage(hit,5)
+		end)
+		Services.RunService.Heartbeat:Wait()
+		--print(MiniBat.Parent)
+		Wrap(function()
+			repeat
+				for i=1,#meshes do
+					if BatMesh and BatMesh.Parent then
+						BatMesh.MeshId = "http://www.mulrbx.com/asset/?id="..meshes[i]
+						BatMesh.Offset = Offset[i]
+						Wait(1/15)
+					end
+				end
+				Services.RunService.Heartbeat:Wait()
+			until not BatMesh or not BatMesh.Parent
+		end)()
+	
+		Wrap(function()
+			repeat
+				if MiniBat and Torso then
+					BatVelo.Velocity = cframe(MiniBat.Position,Torso.Position + Vec3(random(-5,5),random(-5,5),random(-5,5))).LookVector * 45--(Torso.Position-MiniBat.Position).Unit * 50
+					MiniBat.RotVelocity = Vec3(random(-5,5),random(-5,5),random(-5,5))
+				end
+				Wait(.5)
+			until not MiniBat or not Torso or Stop
+		end)()
+	end
+	
+	Wrap(function()
+		repeat
+			for i=1,#meshes do
+				if batMesh and batMesh.Parent then
+					batMesh.MeshId = "http://www.mulrbx.com/asset/?id="..meshes[i]
+					batMesh.Offset = Offset[i]
+					Wait(1/15)
+				end
+			end
+			Services.RunService.Heartbeat:Wait()
+		until not batMesh or not batMesh.Parent
+	end)()
+end)()
+local Controls = Self:WaitForChild("BatControls")
+
+Create("ObjectValue"){
+	Name = "Velo",
+	Value = Velo,
+	Parent = Controls
+}
+Create("ObjectValue"){
+	Name = "Gyro",
+	Value = Gyro,
+	Parent = Controls
+}
+
+Controls.Parent = Target
+
+Controls.Disabled = false
+Deletables[#Deletables+1] = Controls
+
+Torso.Touched:Connect(function(hit)
+	Damage(hit,10)
+end)
+
+--Wait(Duration)
+local Current_Time = 0
+
+local FindTool = Target.FindFirstChildOfClass
+
+repeat
+	Current_Time = Current_Time + Services.RunService.Heartbeat:Wait()
+until Current_Time >= Duration or FindTool(Target,"Tool")
+
+if Services.Players:GetPlayerFromCharacter(Target) then	
+	local Enable = Self:WaitForChild("EnableBackpack")
+	Enable.Parent = Services.Players:GetPlayerFromCharacter(Target):WaitForChild("Backpack")
+	Enable.Disabled = false
+	Services.Debris:AddItem(Enable,1)
+end
+
+for i=1,#Parts do
+	if Parts[i] and Parts[i].Name ~= "HumanoidRootPart" then
+		Pcall(function()
+			Parts[i].Transparency = 0
+		end)
+	end
+end
+
+Torso.Transparency = 1
+
+for i=1,#Deletables do
+	if Deletables[i] then
+		Deletables[i]:Destroy()
+	end
+end
+Deletables = {}
+
+Humanoid.JumpPower = 50
+Humanoid.AutoRotate = true
+Humanoid:ChangeState(Enum.HumanoidStateType.Freefall)
+PoofSound:Play()
+PoofSmoke:Emit(PoofSmoke.Rate)
+--Humanoid.WalkSpeed = 16
+Stop = true
+for i=1,#MiniBats do
+	if MiniBats[i] and Torso then
+		if MiniBats[i]:FindFirstChildOfClass("BodyVelocity") then
+			MiniBats[i].CFrame = Torso.CFrame * Angles(rad(random(1,360)),rad(random(1,360)),rad(random(1,360)))
+			MiniBats[i]:FindFirstChildOfClass("BodyVelocity").Velocity = cframe(Torso.Position,Torso.Position + Vec3(random(-1,1),random(-1,1),random(-1,1))).lookVector * 75
+		end
+		Services.Debris:AddItem(MiniBats[i],5)
+	end
+end
+Wait(6)
+Self:Destroy()
+
+]]></ProtectedString>
+					<BinaryString name="Tags"></BinaryString>
+				</Properties>
+				<Item class="LocalScript" referent="RBXE2D723D8E5034F7487F95B216116736A">
+					<Properties>
+						<bool name="Disabled">true</bool>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">BatControls</string>
+						<string name="ScriptGuid">{EB19BC50-A567-4B4B-AE88-9CC568D91732}</string>
+						<ProtectedString name="Source"><![CDATA[local Velo,Gyro = script:WaitForChild("Velo",1),script:WaitForChild("Gyro",1)
+
+if not Velo or not Gyro then return end
+
+local Services = {
+	RunService = (game:FindService("RunService") or game:GetService("RunService"))
+}
+
+local Humanoid = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+local Center = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+local Camera = workspace.CurrentCamera
+
+if not Humanoid or not Center then return end
+
+
+Velo = Velo.Value
+Gyro = Gyro.Value
+
+
+Services.RunService.RenderStepped:Connect(function()
+	if Humanoid and Gyro and Velo and Camera then
+		local Final_Direction = Vector3.new(Humanoid.MoveDirection.X,Camera.CFrame.LookVector.Y,Humanoid.MoveDirection.Z)
+		--print(Final_Direction:Dot(Camera.CFrame.LookVector))
+		if Humanoid.MoveDirection.Magnitude > 0 then
+			Velo.Velocity = Camera.CFrame.LookVector * 50 * math.sign(Final_Direction:Dot(Camera.CFrame.LookVector))
+		else
+			Velo.Velocity = Camera.CFrame.LookVector * 0 * math.sign(Final_Direction:Dot(Camera.CFrame.LookVector))
+		end
+		Gyro.CFrame = Camera.CFrame
+	end
+end)]]></ProtectedString>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="LocalScript" referent="RBX769BA6BCA8E54D1E91F6CBB808244D52">
+					<Properties>
+						<bool name="Disabled">true</bool>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">DisableBackpack</string>
+						<string name="ScriptGuid">{4177D59E-71A9-480A-9792-E6D06FCE8DBD}</string>
+						<ProtectedString name="Source"><![CDATA[--Much efficient way to hide the backpack without causing lag
+
+local StarterGui = game:GetService("StarterGui")
+
+StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Backpack, false)]]></ProtectedString>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="LocalScript" referent="RBXC32A63DE6F5A44FBA06DFD82622647E0">
+					<Properties>
+						<bool name="Disabled">true</bool>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">EnableBackpack</string>
+						<string name="ScriptGuid">{1B400113-7F33-47BB-B93E-5E3497BB3E87}</string>
+						<ProtectedString name="Source"><![CDATA[--Much efficient way to hide the backpack without causing lag
+
+local StarterGui = game:GetService("StarterGui")
+
+StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Backpack, true)]]></ProtectedString>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="ParticleEmitter" referent="RBX37EE68DDB5064209B582D40A4C947F9E">
+					<Properties>
+						<Vector3 name="Acceleration">
+							<X>0</X>
+							<Y>5</Y>
+							<Z>0</Z>
+						</Vector3>
+						<ColorSequence name="Color">0 0.223529 0 0 0 1 0.223529 0 0 0 </ColorSequence>
+						<float name="Drag">0</float>
+						<token name="EmissionDirection">4</token>
+						<bool name="Enabled">false</bool>
+						<NumberRange name="Lifetime">1 3 </NumberRange>
+						<float name="LightEmission">0</float>
+						<float name="LightInfluence">1</float>
+						<bool name="LockedToPart">false</bool>
+						<string name="Name">PoofSmoke</string>
+						<float name="Rate">50</float>
+						<NumberRange name="RotSpeed">-200 200 </NumberRange>
+						<NumberRange name="Rotation">-180 180 </NumberRange>
+						<NumberSequence name="Size">0 1 0 0.3 5 0 1 5 0 </NumberSequence>
+						<NumberRange name="Speed">5 10 </NumberRange>
+						<Vector2 name="SpreadAngle">
+							<X>-180</X>
+							<Y>180</Y>
+						</Vector2>
+						<BinaryString name="Tags"></BinaryString>
+						<Content name="Texture"><url>rbxassetid://528256032</url></Content>
+						<NumberSequence name="Transparency">0 1 0 0.1 0.463 0.207589 1 1 0 </NumberSequence>
+						<float name="VelocityInheritance">0</float>
+						<float name="ZOffset">0</float>
+					</Properties>
+				</Item>
+				<Item class="Sound" referent="RBXD104ED4C6B2A4C1B961312354CC6906A">
+					<Properties>
+						<float name="EmitterSize">10</float>
+						<bool name="Looped">false</bool>
+						<string name="Name">Squeak1</string>
+						<bool name="PlayOnRemove">false</bool>
+						<float name="PlaybackSpeed">1</float>
+						<bool name="Playing">false</bool>
+						<token name="RollOffMode">0</token>
+						<Ref name="SoundGroup">null</Ref>
+						<Content name="SoundId"><url>http://www.mulrbx.com/asset/?id=94899284</url></Content>
+						<BinaryString name="Tags"></BinaryString>
+						<double name="TimePosition">0</double>
+						<float name="Volume">1</float>
+						<float name="xmlRead_MaxDistance_3">10000</float>
+					</Properties>
+				</Item>
+				<Item class="Sound" referent="RBXFBA3CE5174864D8ABF56C22573128D13">
+					<Properties>
+						<float name="EmitterSize">10</float>
+						<bool name="Looped">false</bool>
+						<string name="Name">Squeak2</string>
+						<bool name="PlayOnRemove">false</bool>
+						<float name="PlaybackSpeed">1</float>
+						<bool name="Playing">false</bool>
+						<token name="RollOffMode">0</token>
+						<Ref name="SoundGroup">null</Ref>
+						<Content name="SoundId"><url>http://www.mulrbx.com/asset/?id=94888905</url></Content>
+						<BinaryString name="Tags"></BinaryString>
+						<double name="TimePosition">0</double>
+						<float name="Volume">1</float>
+						<float name="xmlRead_MaxDistance_3">10000</float>
+					</Properties>
+				</Item>
+				<Item class="Sound" referent="RBX59CF55663C8E4D5289D9224625A46829">
+					<Properties>
+						<float name="EmitterSize">10</float>
+						<bool name="Looped">false</bool>
+						<string name="Name">Squeak3</string>
+						<bool name="PlayOnRemove">false</bool>
+						<float name="PlaybackSpeed">1</float>
+						<bool name="Playing">false</bool>
+						<token name="RollOffMode">0</token>
+						<Ref name="SoundGroup">null</Ref>
+						<Content name="SoundId"><url>http://www.mulrbx.com/asset/?id=94888934</url></Content>
+						<BinaryString name="Tags"></BinaryString>
+						<double name="TimePosition">0</double>
+						<float name="Volume">1</float>
+						<float name="xmlRead_MaxDistance_3">10000</float>
+					</Properties>
+				</Item>
+				<Item class="Sound" referent="RBX6A39EDAE309E4B80860027A44BE24E8A">
+					<Properties>
+						<float name="EmitterSize">10</float>
+						<bool name="Looped">false</bool>
+						<string name="Name">PoofSound</string>
+						<bool name="PlayOnRemove">false</bool>
+						<float name="PlaybackSpeed">1</float>
+						<bool name="Playing">false</bool>
+						<token name="RollOffMode">0</token>
+						<Ref name="SoundGroup">null</Ref>
+						<Content name="SoundId"><url>rbxassetid://402174682</url></Content>
+						<BinaryString name="Tags"></BinaryString>
+						<double name="TimePosition">0</double>
+						<float name="Volume">1</float>
+						<float name="xmlRead_MaxDistance_3">10000</float>
+					</Properties>
+				</Item>
+			</Item>
+			<Item class="Script" referent="RBX70F07CF75F4F4D21B4481C8EA5A8F38B">
+				<Properties>
+					<bool name="Disabled">true</bool>
+					<Content name="LinkedSource"><null></null></Content>
+					<string name="Name">Finisher</string>
+					<string name="ScriptGuid">{3133A9BD-6662-49BE-BCD8-641E98D0E119}</string>
+					<ProtectedString name="Source"><![CDATA[--Send them away by the bats!
+
+local Self = script
+
+local world = workspace
+
+local Instant,Type,Vec3,cframe,Angles = Instance.new,type,Vector3.new,CFrame.new,CFrame.Angles
+
+local random,huge,rad,Wait = math.random,math.huge,math.rad,wait
+
+local Pcall,Wrap = pcall,coroutine.wrap
+
+local Target,Creator = Self:FindFirstChild("Target"),Self:FindFirstChild("Creator")
+
+if not Target or not Creator then Self:Destroy() end
+Creator = Creator.Value
+Target = Target.Value
+
+local Humanoid = Target:FindFirstChildOfClass("Humanoid")
+
+function Create(ty)
+	return function(data)
+		local obj = Instant(ty)
+		for k, v in pairs(data) do
+			if Type(k) == 'number' then
+				v.Parent = obj
+			else
+				obj[k] = v
+			end
+		end
+		return obj
+	end
+end
+
+local Services = {
+	Players = (game:FindService("Players") or game:GetService("Players")),
+	Debris = (game:FindService("Debris") or game:GetService("Debris")),
+	RunService = (game:FindService("RunService") or game:GetService("RunService"))
+}
+
+function TagHumanoid(humanoid, player)
+	local Creator_Tag = Instant("ObjectValue")
+	Creator_Tag.Name = "creator"
+	Creator_Tag.Value = player
+	Services.Debris:AddItem(Creator_Tag, 2)
+	Creator_Tag.Parent = humanoid
+end
+
+function UntagHumanoid(humanoid)
+	for i, v in pairs(humanoid:GetChildren()) do
+		if v:IsA("ObjectValue") and v.Name == "creator" then
+			v:Destroy()
+		end
+	end
+end
+
+local Yell,BatSwarm = Self:WaitForChild("Yell"), Self:WaitForChild("BatSwarm")
+Target.Archivable = true
+
+local CharacterClone = Target:Clone()
+
+CharacterClone.PrimaryPart = CharacterClone.PrimaryPart or CharacterClone:FindFirstChild("HumanoidRootPart") or CharacterClone:FindFirstChild("Torso")
+
+Yell.Parent = CharacterClone.PrimaryPart
+BatSwarm.Parent = CharacterClone.PrimaryPart
+
+
+Create("ForceField"){
+	Visible = false,
+	Parent = CharacterClone
+}
+
+local Descendants = Target:GetDescendants()
+
+UntagHumanoid(Humanoid)
+TagHumanoid(Humanoid,Creator)
+
+for i=1,#Descendants do
+	if Descendants[i] and Descendants[i]:IsA("BasePart") then
+		Descendants[i]:Destroy()
+	end
+end
+
+local CloneDescendants = CharacterClone:GetDescendants()
+
+
+for i=1,#CloneDescendants do
+	if CloneDescendants[i] then
+		if CloneDescendants[i]:IsA("BaseScript") then
+			CloneDescendants[i]:Destroy()
+		elseif CloneDescendants[i]:IsA("BasePart") then
+			if CloneDescendants[i]:CanSetNetworkOwnership() then
+				CloneDescendants[i]:SetNetworkOwner(nil)
+			end
+		end
+	end	
+end
+
+CharacterClone.Parent = world
+local meshes = {63693995, 63694839, 63694853}
+local Offset = {Vec3(0,0,0),Vec3(0, 0, -0.31),Vec3(0, 0, 0.2)}
+
+local bat = Create("Part"){
+	Size = Vec3(0.6, 0.6, 0.6),
+	CanCollide = false,
+	Anchored = false,
+	CastShadow = true,
+	Locked = true,
+	Transparency = 0.0,
+	Name = "Bat"
+}
+
+local CharVelo
+Wrap(function()
+	Pcall(function()
+		local Angular = Create("BodyAngularVelocity"){
+			MaxTorque = Vec3(1,1,1)*huge,
+			--D = 100,
+			--P = 10^5,
+			AngularVelocity = Vec3(0,0,0),
+			Parent = CharacterClone.PrimaryPart
+		}
+		CharVelo = Create("BodyVelocity"){
+			MaxForce = Vec3(1,1,1)*huge,
+			Velocity = Vec3(random(-1,1),1,random(-1,1)) * 20,
+			Parent = CharacterClone.PrimaryPart
+		}
+		while Wait(.5) do
+			if Angular then
+				Angular.AngularVelocity = Vec3(random(-10,10),random(-10,10),random(-10,10))
+			end
+		end
+	end)
+end)()
+
+for i=1,20,1 do
+	local batclone = bat:Clone()
+	batclone.CFrame = CharacterClone.PrimaryPart.CFrame * Angles(rad(random(1,360)),rad(random(1,360)),rad(random(1,360)))
+	batclone.Parent = CharacterClone
+	if batclone:CanSetNetworkOwnership() then
+		batclone:SetNetworkOwner(nil)
+	end
+	local batMesh = Create("SpecialMesh"){
+		MeshId = "http://www.mulrbx.com/asset/?id=63693995", -- front, 63694839  --back, 63694853  
+		TextureId = "http://www.mulrbx.com/asset/?id=63694777",
+		Scale = Vec3(1, 1, 1) * 2,
+		Parent = batclone
+	}
+	local Velo = Create("BodyVelocity"){
+		MaxForce = Vec3(1,1,1)*huge,
+		Velocity = Vec3(0,0,0),
+		Parent = batclone
+	}
+	Wrap(function()
+		repeat
+			for i=1,#meshes do
+				if batMesh and batMesh.Parent then
+					batMesh.MeshId = "http://www.mulrbx.com/asset/?id="..meshes[i]
+					batMesh.Offset = Offset[i]/2
+					Wait(1/15)
+				end
+			end
+			Services.RunService.Heartbeat:Wait()
+		until not batMesh or not batMesh.Parent
+	end)()
+	Wrap(function()
+		repeat
+			if batclone and CharacterClone.PrimaryPart and CharVelo then
+				Velo.Velocity = cframe(batclone.Position,(CharacterClone.PrimaryPart.Position + CharVelo.Velocity.Unit * CharVelo.Velocity.Magnitude) --[[+ Vec3(random(-5,5),random(-5,5),random(-5,5))]]).LookVector * CharVelo.Velocity.Magnitude + Vec3(random(-20,20),random(-20,20),random(-20,20))
+				batclone.RotVelocity = Vec3(random(-5,5),random(-5,5),random(-5,5))
+			end
+			Wait(random(.2,.5))
+		until not batclone or not CharacterClone.PrimaryPart
+	end)()
+end
+
+
+
+
+BatSwarm:Play()
+Yell:Play()
+
+Wait(6)
+
+CharacterClone:Destroy()
+Self:Destroy()]]></ProtectedString>
+					<BinaryString name="Tags"></BinaryString>
+				</Properties>
+				<Item class="Sound" referent="RBXB1C1858ABD6F44898A6C47DC42F169E8">
+					<Properties>
+						<float name="EmitterSize">10</float>
+						<bool name="Looped">false</bool>
+						<string name="Name">Yell</string>
+						<bool name="PlayOnRemove">false</bool>
+						<float name="PlaybackSpeed">1</float>
+						<bool name="Playing">false</bool>
+						<token name="RollOffMode">0</token>
+						<Ref name="SoundGroup">null</Ref>
+						<Content name="SoundId"><url>rbxassetid://974793158</url></Content>
+						<BinaryString name="Tags"></BinaryString>
+						<double name="TimePosition">0</double>
+						<float name="Volume">1.5</float>
+						<float name="xmlRead_MaxDistance_3">10000</float>
+					</Properties>
+				</Item>
+				<Item class="Sound" referent="RBXB6C89A6618A04C3794B906F94B09CB66">
+					<Properties>
+						<float name="EmitterSize">10</float>
+						<bool name="Looped">false</bool>
+						<string name="Name">BatSwarm</string>
+						<bool name="PlayOnRemove">false</bool>
+						<float name="PlaybackSpeed">1</float>
+						<bool name="Playing">false</bool>
+						<token name="RollOffMode">0</token>
+						<Ref name="SoundGroup">null</Ref>
+						<Content name="SoundId"><url>rbxassetid://177429377</url></Content>
+						<BinaryString name="Tags"></BinaryString>
+						<double name="TimePosition">0</double>
+						<float name="Volume">1</float>
+						<float name="xmlRead_MaxDistance_3">10000</float>
+					</Properties>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="Part" referent="RBX38F53CD094E7470682FFC72BB87A4B08">
+			<Properties>
+				<bool name="Anchored">false</bool>
+				<float name="BackParamA">-0.5</float>
+				<float name="BackParamB">0.5</float>
+				<token name="BackSurface">0</token>
+				<token name="BackSurfaceInput">0</token>
+				<float name="BottomParamA">-0.5</float>
+				<float name="BottomParamB">0.5</float>
+				<token name="BottomSurface">0</token>
+				<token name="BottomSurfaceInput">0</token>
+				<CoordinateFrame name="CFrame">
+					<X>-199.5</X>
+					<Y>9.85061169</Y>
+					<Z>0.5</Z>
+					<R00>0</R00>
+					<R01>0.707106352</R01>
+					<R02>0.707107365</R02>
+					<R10>0</R10>
+					<R11>-0.707107365</R11>
+					<R12>0.707106352</R12>
+					<R20>1</R20>
+					<R21>0</R21>
+					<R22>0</R22>
+				</CoordinateFrame>
+				<bool name="CanCollide">true</bool>
+				<bool name="CastShadow">true</bool>
+				<int name="CollisionGroupId">0</int>
+				<Color3uint8 name="Color3uint8">4284702562</Color3uint8>
+				<PhysicalProperties name="CustomPhysicalProperties">
+					<CustomPhysics>false</CustomPhysics>
+				</PhysicalProperties>
+				<float name="FrontParamA">-0.5</float>
+				<float name="FrontParamB">0.5</float>
+				<token name="FrontSurface">0</token>
+				<token name="FrontSurfaceInput">0</token>
+				<float name="LeftParamA">-0.5</float>
+				<float name="LeftParamB">0.5</float>
+				<token name="LeftSurface">0</token>
+				<token name="LeftSurfaceInput">0</token>
+				<bool name="Locked">false</bool>
+				<bool name="Massless">false</bool>
+				<token name="Material">256</token>
+				<string name="Name">Handle</string>
+				<float name="Reflectance">0</float>
+				<float name="RightParamA">-0.5</float>
+				<float name="RightParamB">0.5</float>
+				<token name="RightSurface">0</token>
+				<token name="RightSurfaceInput">0</token>
+				<int name="RootPriority">0</int>
+				<Vector3 name="RotVelocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<BinaryString name="Tags"></BinaryString>
+				<float name="TopParamA">-0.5</float>
+				<float name="TopParamB">0.5</float>
+				<token name="TopSurface">0</token>
+				<token name="TopSurfaceInput">0</token>
+				<float name="Transparency">0</float>
+				<Vector3 name="Velocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<token name="formFactorRaw">2</token>
+				<token name="shape">1</token>
+				<Vector3 name="size">
+					<X>1</X>
+					<Y>0.800000012</Y>
+					<Z>5</Z>
+				</Vector3>
+			</Properties>
+			<Item class="SpecialMesh" referent="RBX26C0931014034A338D6474EADCE0172C">
+				<Properties>
+					<token name="LODX">2</token>
+					<token name="LODY">2</token>
+					<Content name="MeshId"><url>http://www.mulrbx.com/asset/?id=16424968</url></Content>
+					<token name="MeshType">5</token>
+					<string name="Name">Mesh</string>
+					<Vector3 name="Offset">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+					<Vector3 name="Scale">
+						<X>1</X>
+						<Y>1</Y>
+						<Z>1</Z>
+					</Vector3>
+					<BinaryString name="Tags"></BinaryString>
+					<Content name="TextureId"><url>http://www.mulrbx.com/asset/?id=17674188 </url></Content>
+					<Vector3 name="VertexColor">
+						<X>1</X>
+						<Y>1</Y>
+						<Z>1</Z>
+					</Vector3>
+				</Properties>
+			</Item>
+			<Item class="Sound" referent="RBX79137B3B709B424699EE403EA94BA711">
+				<Properties>
+					<float name="EmitterSize">10</float>
+					<bool name="Looped">false</bool>
+					<string name="Name">Equip</string>
+					<bool name="PlayOnRemove">false</bool>
+					<float name="PlaybackSpeed">1</float>
+					<bool name="Playing">false</bool>
+					<token name="RollOffMode">0</token>
+					<Ref name="SoundGroup">null</Ref>
+					<Content name="SoundId"><url>rbxassetid://16425587</url></Content>
+					<BinaryString name="Tags"></BinaryString>
+					<double name="TimePosition">0</double>
+					<float name="Volume">5</float>
+					<float name="xmlRead_MaxDistance_3">10000</float>
+				</Properties>
+			</Item>
+			<Item class="Sound" referent="RBXB0A9889CA91D43C7BFCC16A8DDA01293">
+				<Properties>
+					<float name="EmitterSize">10</float>
+					<bool name="Looped">false</bool>
+					<string name="Name">Lunge</string>
+					<bool name="PlayOnRemove">false</bool>
+					<float name="PlaybackSpeed">1</float>
+					<bool name="Playing">false</bool>
+					<token name="RollOffMode">0</token>
+					<Ref name="SoundGroup">null</Ref>
+					<Content name="SoundId"><url>http://www.mulrbx.com/asset/?id=12222208</url></Content>
+					<BinaryString name="Tags"></BinaryString>
+					<double name="TimePosition">0</double>
+					<float name="Volume">0.600000024</float>
+					<float name="xmlRead_MaxDistance_3">10000</float>
+				</Properties>
+			</Item>
+			<Item class="Sound" referent="RBXDE2CEDA2CFF543B8A4BA178DEEF6EDB5">
+				<Properties>
+					<float name="EmitterSize">10</float>
+					<bool name="Looped">false</bool>
+					<string name="Name">Slash</string>
+					<bool name="PlayOnRemove">false</bool>
+					<float name="PlaybackSpeed">1</float>
+					<bool name="Playing">false</bool>
+					<token name="RollOffMode">0</token>
+					<Ref name="SoundGroup">null</Ref>
+					<Content name="SoundId"><url>http://www.mulrbx.com/asset/?id=12222216</url></Content>
+					<BinaryString name="Tags"></BinaryString>
+					<double name="TimePosition">0</double>
+					<float name="Volume">0.699999988</float>
+					<float name="xmlRead_MaxDistance_3">10000</float>
+				</Properties>
+			</Item>
+			<Item class="ParticleEmitter" referent="RBXA49AEB7056B940008753C31A1D642753">
+				<Properties>
+					<Vector3 name="Acceleration">
+						<X>0</X>
+						<Y>5</Y>
+						<Z>0</Z>
+					</Vector3>
+					<ColorSequence name="Color">0 0.14902 0 0 0 1 0.14902 0 0 0 </ColorSequence>
+					<float name="Drag">0</float>
+					<token name="EmissionDirection">2</token>
+					<bool name="Enabled">true</bool>
+					<NumberRange name="Lifetime">1 1.5 </NumberRange>
+					<float name="LightEmission">0</float>
+					<float name="LightInfluence">1</float>
+					<bool name="LockedToPart">false</bool>
+					<string name="Name">Bats</string>
+					<float name="Rate">10</float>
+					<NumberRange name="RotSpeed">0 0 </NumberRange>
+					<NumberRange name="Rotation">-60 60 </NumberRange>
+					<NumberSequence name="Size">0 0.5 0.5 1 0.5 0.437 </NumberSequence>
+					<NumberRange name="Speed">1 5 </NumberRange>
+					<Vector2 name="SpreadAngle">
+						<X>-90</X>
+						<Y>90</Y>
+					</Vector2>
+					<BinaryString name="Tags"></BinaryString>
+					<Content name="Texture"><url>rbxassetid://3268764099</url></Content>
+					<NumberSequence name="Transparency">0 1 0 0.05 0 0 0.900202 0 0 1 1 0 </NumberSequence>
+					<float name="VelocityInheritance">0</float>
+					<float name="ZOffset">0</float>
+				</Properties>
+			</Item>
+			<Item class="Attachment" referent="RBXEEF50E96383747A3B5C245FC9B89214D">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>5.96046448e-08</Y>
+						<Z>-2.29999971</Z>
+						<R00>-0.587933838</R00>
+						<R01>0</R01>
+						<R02>0.808909059</R02>
+						<R10>0.808909059</R10>
+						<R11>0</R11>
+						<R12>0.587933838</R12>
+						<R20>0</R20>
+						<R21>1</R21>
+						<R22>-0</R22>
+					</CoordinateFrame>
+					<string name="Name">RightGripAttachment</string>
+					<BinaryString name="Tags"></BinaryString>
+					<bool name="Visible">false</bool>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="LocalScript" referent="RBXC8A37DE8BAB44B67983C3DA7390B5BE7">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">MouseIcon</string>
+				<string name="ScriptGuid">{D4BD0966-D551-465E-A5B4-05E11F7C55BB}</string>
+				<ProtectedString name="Source"><![CDATA[--Rescripted by Luckymaxer
+
+Mouse_Icon = "rbxasset://textures/GunCursor.png"
+Reloading_Icon = "rbxasset://textures/GunWaitCursor.png"
+
+Tool = script.Parent
+
+Mouse = nil
+
+function UpdateIcon()
+	if Mouse then
+		Mouse.Icon = Tool.Enabled and Mouse_Icon or Reloading_Icon
+	end
+end
+
+function OnEquipped(ToolMouse)
+	Mouse = ToolMouse
+	UpdateIcon()
+end
+
+function OnChanged(Property)
+	if Property == "Enabled" then
+		UpdateIcon()
+	end
+end
+
+Tool.Equipped:Connect(OnEquipped)
+Tool.Changed:Connect(OnChanged)
+]]></ProtectedString>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+		<Item class="LocalScript" referent="RBX727FED645DB94A4484811910807B4E05">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">Client</string>
+				<string name="ScriptGuid">{E35A8A57-B6EE-44C2-88DA-771818391787}</string>
+				<ProtectedString name="Source"><![CDATA[local Tool = script.Parent
+
+local Remote = Tool:WaitForChild("Remote",10)
+
+--local MouseInput = Tool:WaitForChild("MouseInput")
+
+local Services = {
+	Players = (game:FindService("Players") or game:GetService("Players")),
+	TweenService = (game:FindService("TweenService") or game:GetService("TweenService")),
+	RunService = (game:FindService("RunService") or game:GetService("RunService")),
+	Input = (game:FindService("ContextActionService") or game:GetService("ContextActionService"))
+}
+
+local Player,Character,Humanoid
+
+
+function Primary(actionName, inputState, inputObj)
+	if inputState == Enum.UserInputState.Begin then 
+		Remote:FireServer(Enum.KeyCode.E)
+	end
+end
+
+function Secondary(actionName, inputState, inputObj)
+	if inputState == Enum.UserInputState.Begin then 
+		Remote:FireServer(Enum.KeyCode.Q)
+	end
+end
+
+
+function Equipped()
+	Player = Services.Players.LocalPlayer
+	Character = Player.Character
+	Humanoid = Character:FindFirstChildOfClass("Humanoid")
+	if not Humanoid or not Humanoid.Parent or Humanoid.Health <= 0 then return end
+	Services.Input:BindAction("Primary",Primary,true,Enum.KeyCode.E,Enum.KeyCode.ButtonX)
+	Services.Input:SetTitle("Primary","Bat Dash")
+	Services.Input:SetPosition("Primary",UDim2.new(.5,0,-.5,0))
+	Services.Input:BindAction("Secondary",Secondary,true,Enum.KeyCode.Q,Enum.KeyCode.ButtonY)
+	Services.Input:SetTitle("Secondary","Bat Tranformation")
+	Services.Input:SetPosition("Secondary",UDim2.new(.5,0,0,0))
+end
+
+function Unequipped()
+	Services.Input:UnbindAction("Primary")
+	Services.Input:UnbindAction("Secondary")
+			
+end
+
+Tool.Equipped:Connect(Equipped)
+Tool.Unequipped:Connect(Unequipped)
+
+
+--[[function MouseInput.OnClientInvoke()
+	return game.Players.LocalPlayer:GetMouse().Hit.p
+end]]]]></ProtectedString>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+		<Item class="Keyframe" referent="RBX3DD5D3F41A2549FEB59D197F804AF412">
+			<Properties>
+				<string name="Name">ThumbnailPose</string>
+				<BinaryString name="Tags"></BinaryString>
+				<float name="Time">0</float>
+			</Properties>
+			<Item class="Pose" referent="RBX589CB3BADBE445E38057B909ADD50FDA">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<token name="EasingDirection">0</token>
+					<token name="EasingStyle">0</token>
+					<string name="Name">LowerTorso</string>
+					<BinaryString name="Tags"></BinaryString>
+					<float name="Weight">0</float>
+				</Properties>
+				<Item class="Pose" referent="RBX6BF8B86B866844A1B508B68111F5D7BB">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>7.4505806e-08</X>
+							<Y>-0.099999547</Y>
+							<Z>8.94069672e-08</Z>
+							<R00>0.766044378</R00>
+							<R01>0.166365489</R01>
+							<R02>0.620885015</R02>
+							<R10>0</R10>
+							<R11>0.965925872</R11>
+							<R12>-0.258818865</R12>
+							<R20>-0.642787337</R20>
+							<R21>0.198266715</R21>
+							<R22>0.739942074</R22>
+						</CoordinateFrame>
+						<token name="EasingDirection">0</token>
+						<token name="EasingStyle">0</token>
+						<string name="Name">LeftUpperLeg</string>
+						<BinaryString name="Tags"></BinaryString>
+						<float name="Weight">1</float>
+					</Properties>
+				</Item>
+				<Item class="Pose" referent="RBX7060423B3AE7488E8D9C16F4E74BE1B5">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>5.21540642e-07</X>
+							<Y>-0.0999990404</Y>
+							<Z>-1.49011612e-07</Z>
+							<R00>0.42261824</R00>
+							<R01>-0.309975505</R01>
+							<R02>-0.851650536</R02>
+							<R10>0</R10>
+							<R11>0.939692616</R11>
+							<R12>-0.342020124</R12>
+							<R20>0.906307697</R20>
+							<R21>0.144543946</R21>
+							<R22>0.397131145</R22>
+						</CoordinateFrame>
+						<token name="EasingDirection">0</token>
+						<token name="EasingStyle">0</token>
+						<string name="Name">RightUpperLeg</string>
+						<BinaryString name="Tags"></BinaryString>
+						<float name="Weight">1</float>
+					</Properties>
+				</Item>
+				<Item class="Pose" referent="RBXA14B7BDD216845E7A5133840819EA0A8">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0</X>
+							<Y>0</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0</R20>
+							<R21>0</R21>
+							<R22>1</R22>
+						</CoordinateFrame>
+						<token name="EasingDirection">0</token>
+						<token name="EasingStyle">0</token>
+						<string name="Name">UpperTorso</string>
+						<BinaryString name="Tags"></BinaryString>
+						<float name="Weight">1</float>
+					</Properties>
+				</Item>
+			</Item>
+			<Item class="Pose" referent="RBXD5998AE0CE3040D99342242AFFC62CE0">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<token name="EasingDirection">0</token>
+					<token name="EasingStyle">0</token>
+					<string name="Name">RightLowerArm</string>
+					<BinaryString name="Tags"></BinaryString>
+					<float name="Weight">0</float>
+				</Properties>
+				<Item class="Pose" referent="RBXC2035FE4C7654B66AA435EB4CE215B42">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>6.50063157e-07</X>
+							<Y>2.83122063e-07</Y>
+							<Z>-1.78813934e-07</Z>
+							<R00>0.921289563</R00>
+							<R01>-0.274909049</R01>
+							<R02>0.275044739</R02>
+							<R10>0.202773273</R10>
+							<R11>0.943121731</R11>
+							<R12>0.263448298</R12>
+							<R20>-0.331825286</R20>
+							<R21>-0.186939746</R21>
+							<R22>0.924632549</R22>
+						</CoordinateFrame>
+						<token name="EasingDirection">0</token>
+						<token name="EasingStyle">0</token>
+						<string name="Name">RightHand</string>
+						<BinaryString name="Tags"></BinaryString>
+						<float name="Weight">1</float>
+					</Properties>
+				</Item>
+			</Item>
+			<Item class="Pose" referent="RBX5576720294DD4B6885E2E0DD1F95F0AB">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<token name="EasingDirection">0</token>
+					<token name="EasingStyle">0</token>
+					<string name="Name">UpperTorso</string>
+					<BinaryString name="Tags"></BinaryString>
+					<float name="Weight">0</float>
+				</Properties>
+				<Item class="Pose" referent="RBX1C965421339746E6B92AF8842D24AEFC">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0</X>
+							<Y>-5.96046448e-08</Y>
+							<Z>0</Z>
+							<R00>0.99619472</R00>
+							<R01>0</R01>
+							<R02>0.087155737</R02>
+							<R10>0.029809</R10>
+							<R11>0.939692736</R11>
+							<R12>-0.340718478</R12>
+							<R20>-0.0818996131</R20>
+							<R21>0.342019945</R21>
+							<R22>0.936116934</R22>
+						</CoordinateFrame>
+						<token name="EasingDirection">0</token>
+						<token name="EasingStyle">0</token>
+						<string name="Name">RightUpperArm</string>
+						<BinaryString name="Tags"></BinaryString>
+						<float name="Weight">1</float>
+					</Properties>
+				</Item>
+				<Item class="Pose" referent="RBXBEA4422E3B8F4E4D9C1737F46BBAE72B">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>3.20374966e-07</X>
+							<Y>2.05636024e-06</Y>
+							<Z>0</Z>
+							<R00>0.388844192</R00>
+							<R01>-0.0683757961</R01>
+							<R02>-0.918762386</R02>
+							<R10>0.625275075</R10>
+							<R11>0.751989603</R11>
+							<R12>0.208668306</R12>
+							<R20>0.676632106</R20>
+							<R21>-0.655618548</R21>
+							<R22>0.335160583</R22>
+						</CoordinateFrame>
+						<token name="EasingDirection">0</token>
+						<token name="EasingStyle">0</token>
+						<string name="Name">LeftUpperArm</string>
+						<BinaryString name="Tags"></BinaryString>
+						<float name="Weight">1</float>
+					</Properties>
+				</Item>
+				<Item class="Pose" referent="RBXD34CF8C8A5E649DFBE0FAC08382B4299">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0</X>
+							<Y>0</Y>
+							<Z>0</Z>
+							<R00>0.819151938</R00>
+							<R01>0</R01>
+							<R02>-0.57357657</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0.57357657</R20>
+							<R21>0</R21>
+							<R22>0.819151938</R22>
+						</CoordinateFrame>
+						<token name="EasingDirection">0</token>
+						<token name="EasingStyle">0</token>
+						<string name="Name">Head</string>
+						<BinaryString name="Tags"></BinaryString>
+						<float name="Weight">1</float>
+					</Properties>
+				</Item>
+			</Item>
+			<Item class="Pose" referent="RBX8CD2A8FD5431486092D1CF1344297965">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<token name="EasingDirection">0</token>
+					<token name="EasingStyle">0</token>
+					<string name="Name">RightLowerLeg</string>
+					<BinaryString name="Tags"></BinaryString>
+					<float name="Weight">0</float>
+				</Properties>
+				<Item class="Pose" referent="RBX7E18AC8123C84349A8490960CCF197C5">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0</X>
+							<Y>0</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0</R20>
+							<R21>0</R21>
+							<R22>1</R22>
+						</CoordinateFrame>
+						<token name="EasingDirection">0</token>
+						<token name="EasingStyle">0</token>
+						<string name="Name">RightFoot</string>
+						<BinaryString name="Tags"></BinaryString>
+						<float name="Weight">1</float>
+					</Properties>
+				</Item>
+			</Item>
+			<Item class="Pose" referent="RBXC3C7BAE7E8CD4AC192D8ABFC7F62BC70">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<token name="EasingDirection">0</token>
+					<token name="EasingStyle">0</token>
+					<string name="Name">LeftLowerLeg</string>
+					<BinaryString name="Tags"></BinaryString>
+					<float name="Weight">0</float>
+				</Properties>
+				<Item class="Pose" referent="RBXC5DEDF3E86A1402C83536CA0D00ED428">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0</X>
+							<Y>0</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0</R20>
+							<R21>0</R21>
+							<R22>1</R22>
+						</CoordinateFrame>
+						<token name="EasingDirection">0</token>
+						<token name="EasingStyle">0</token>
+						<string name="Name">LeftFoot</string>
+						<BinaryString name="Tags"></BinaryString>
+						<float name="Weight">1</float>
+					</Properties>
+				</Item>
+			</Item>
+			<Item class="Pose" referent="RBXF6209FE6637A4107B167E5C58B05A3A4">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<token name="EasingDirection">0</token>
+					<token name="EasingStyle">0</token>
+					<string name="Name">RightUpperArm</string>
+					<BinaryString name="Tags"></BinaryString>
+					<float name="Weight">0</float>
+				</Properties>
+				<Item class="Pose" referent="RBXC9B96E7E9DA043BFA9561B9DCF90E950">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>1.11758709e-08</X>
+							<Y>-1.49011612e-08</Y>
+							<Z>0</Z>
+							<R00>0.965925813</R00>
+							<R01>0</R01>
+							<R02>0.258819044</R02>
+							<R10>0.25</R10>
+							<R11>0.258819073</R11>
+							<R12>-0.933012664</R12>
+							<R20>-0.0669873059</R20>
+							<R21>0.965925813</R21>
+							<R22>0.25000003</R22>
+						</CoordinateFrame>
+						<token name="EasingDirection">0</token>
+						<token name="EasingStyle">0</token>
+						<string name="Name">RightLowerArm</string>
+						<BinaryString name="Tags"></BinaryString>
+						<float name="Weight">1</float>
+					</Properties>
+				</Item>
+			</Item>
+			<Item class="Pose" referent="RBXA09D1142EBDD42C491CCAD4EC9C96F26">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<token name="EasingDirection">0</token>
+					<token name="EasingStyle">0</token>
+					<string name="Name">HumanoidRootPart</string>
+					<BinaryString name="Tags"></BinaryString>
+					<float name="Weight">0</float>
+				</Properties>
+				<Item class="Pose" referent="RBXA109BAE95FCA43B2B25E014577C4D9A2">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0</X>
+							<Y>0</Y>
+							<Z>0</Z>
+							<R00>0.766044438</R00>
+							<R01>0</R01>
+							<R02>0.642787576</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>-0.642787576</R20>
+							<R21>0</R21>
+							<R22>0.766044438</R22>
+						</CoordinateFrame>
+						<token name="EasingDirection">0</token>
+						<token name="EasingStyle">0</token>
+						<string name="Name">LowerTorso</string>
+						<BinaryString name="Tags"></BinaryString>
+						<float name="Weight">1</float>
+					</Properties>
+				</Item>
+			</Item>
+			<Item class="Pose" referent="RBX8B98AB8BD8FD44C7B4BB06293ED04057">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<token name="EasingDirection">0</token>
+					<token name="EasingStyle">0</token>
+					<string name="Name">LeftUpperLeg</string>
+					<BinaryString name="Tags"></BinaryString>
+					<float name="Weight">0</float>
+				</Properties>
+				<Item class="Pose" referent="RBX59CA969362B14748A9A1E202F589B3EC">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0</X>
+							<Y>2.98023224e-08</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0.965925753</R11>
+							<R12>0.258819461</R12>
+							<R20>0</R20>
+							<R21>-0.258819461</R21>
+							<R22>0.965925753</R22>
+						</CoordinateFrame>
+						<token name="EasingDirection">0</token>
+						<token name="EasingStyle">0</token>
+						<string name="Name">LeftLowerLeg</string>
+						<BinaryString name="Tags"></BinaryString>
+						<float name="Weight">1</float>
+					</Properties>
+				</Item>
+			</Item>
+			<Item class="Pose" referent="RBXE8677608B6094E96A144F1346A0AE7C7">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<token name="EasingDirection">0</token>
+					<token name="EasingStyle">0</token>
+					<string name="Name">LeftLowerArm</string>
+					<BinaryString name="Tags"></BinaryString>
+					<float name="Weight">0</float>
+				</Properties>
+				<Item class="Pose" referent="RBX529EC89B356D4F0EA1AA80E81DF4979F">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>-1.11013651e-06</X>
+							<Y>1.7285347e-06</Y>
+							<Z>1.04308128e-07</Z>
+							<R00>0.94366914</R00>
+							<R01>-0.163166031</R01>
+							<R02>0.287843049</R02>
+							<R10>0.113293499</R10>
+							<R11>0.976695478</R11>
+							<R12>0.182246074</R12>
+							<R20>-0.310879707</R20>
+							<R21>-0.139372051</R21>
+							<R22>0.940168381</R22>
+						</CoordinateFrame>
+						<token name="EasingDirection">0</token>
+						<token name="EasingStyle">0</token>
+						<string name="Name">LeftHand</string>
+						<BinaryString name="Tags"></BinaryString>
+						<float name="Weight">1</float>
+					</Properties>
+				</Item>
+			</Item>
+			<Item class="Pose" referent="RBX3D41CFC9C1D34379AA5F487EDD718127">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<token name="EasingDirection">0</token>
+					<token name="EasingStyle">0</token>
+					<string name="Name">LeftUpperArm</string>
+					<BinaryString name="Tags"></BinaryString>
+					<float name="Weight">0</float>
+				</Properties>
+				<Item class="Pose" referent="RBX851A97D738684295B21D00DFDB598831">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>-4.58955765e-06</X>
+							<Y>3.08454037e-06</Y>
+							<Z>4.47034836e-06</Z>
+							<R00>0.851848543</R00>
+							<R01>-0.520779133</R01>
+							<R02>0.0559955388</R02>
+							<R10>0.407824814</R10>
+							<R11>0.592371762</R11>
+							<R12>-0.694815397</R12>
+							<R20>0.328677982</R20>
+							<R21>0.614715636</R21>
+							<R22>0.716998577</R22>
+						</CoordinateFrame>
+						<token name="EasingDirection">0</token>
+						<token name="EasingStyle">0</token>
+						<string name="Name">LeftLowerArm</string>
+						<BinaryString name="Tags"></BinaryString>
+						<float name="Weight">1</float>
+					</Properties>
+				</Item>
+			</Item>
+			<Item class="Pose" referent="RBX6AACE39022A54DC49C232613565757B0">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<token name="EasingDirection">0</token>
+					<token name="EasingStyle">0</token>
+					<string name="Name">RightUpperLeg</string>
+					<BinaryString name="Tags"></BinaryString>
+					<float name="Weight">0</float>
+				</Properties>
+				<Item class="Pose" referent="RBX7DE634C924FB4619866C0CF284923A79">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0</X>
+							<Y>0</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0.939692557</R11>
+							<R12>0.342020363</R12>
+							<R20>0</R20>
+							<R21>-0.342020363</R21>
+							<R22>0.939692557</R22>
+						</CoordinateFrame>
+						<token name="EasingDirection">0</token>
+						<token name="EasingStyle">0</token>
+						<string name="Name">RightLowerLeg</string>
+						<BinaryString name="Tags"></BinaryString>
+						<float name="Weight">1</float>
+					</Properties>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="Camera" referent="RBXD7ACB63AF6EE4152AF8DF6C622BF1490">
+			<Properties>
+				<CoordinateFrame name="CFrame">
+					<X>-201.563919</X>
+					<Y>13.0036497</Y>
+					<Z>-7.6818862</Z>
+					<R00>-0.970308423</R00>
+					<R01>0.0890442654</R01>
+					<R02>-0.224884033</R02>
+					<R10>-7.4505806e-09</R10>
+					<R11>0.929767549</R11>
+					<R12>0.368147373</R12>
+					<R20>0.241871268</R20>
+					<R21>0.357216507</R21>
+					<R22>-0.902161121</R22>
+				</CoordinateFrame>
+				<Ref name="CameraSubject">null</Ref>
+				<token name="CameraType">0</token>
+				<float name="FieldOfView">30</float>
+				<CoordinateFrame name="Focus">
+					<X>-201.114151</X>
+					<Y>12.267355</Y>
+					<Z>-5.87756395</Z>
+					<R00>1</R00>
+					<R01>0</R01>
+					<R02>0</R02>
+					<R10>0</R10>
+					<R11>1</R11>
+					<R12>0</R12>
+					<R20>0</R20>
+					<R21>0</R21>
+					<R22>1</R22>
+				</CoordinateFrame>
+				<bool name="HeadLocked">true</bool>
+				<float name="HeadScale">1</float>
+				<string name="Name">ThumbnailCamera</string>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+	</Item>
+</roblox>

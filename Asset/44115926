@@ -1,0 +1,517 @@
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mulrbx.com/roblox.xsd" version="4">
+	<External>null</External>
+	<External>nil</External>
+	<Item class="Tool" referent="RBX0FD04F6E70C04960A88DB89EAC894266">
+		<Properties>
+			<bool name="CanBeDropped">true</bool>
+			<bool name="Enabled">true</bool>
+			<CoordinateFrame name="Grip">
+				<X>0</X>
+				<Y>-2.1500001</Y>
+				<Z>0</Z>
+				<R00>0</R00>
+				<R01>0</R01>
+				<R02>-1</R02>
+				<R10>0</R10>
+				<R11>1</R11>
+				<R12>0</R12>
+				<R20>1</R20>
+				<R21>0</R21>
+				<R22>0</R22>
+			</CoordinateFrame>
+			<bool name="ManualActivationOnly">false</bool>
+			<string name="Name">Umbrella</string>
+			<bool name="RequiresHandle">true</bool>
+			<BinaryString name="Tags"></BinaryString>
+			<Content name="TextureId"><url>http://www.mulrbx.com/asset/?id=43996751</url></Content>
+			<string name="ToolTip"></string>
+		</Properties>
+		<Item class="Part" referent="RBX7DE343B43A3248D3AC23A24C2F921A01">
+			<Properties>
+				<bool name="Anchored">false</bool>
+				<float name="BackParamA">-0.5</float>
+				<float name="BackParamB">0.5</float>
+				<token name="BackSurface">0</token>
+				<token name="BackSurfaceInput">0</token>
+				<float name="BottomParamA">-0.5</float>
+				<float name="BottomParamB">0.5</float>
+				<token name="BottomSurface">4</token>
+				<token name="BottomSurfaceInput">0</token>
+				<CoordinateFrame name="CFrame">
+					<X>1.50000298</X>
+					<Y>1.36750197</Y>
+					<Z>1.18750799</Z>
+					<R00>0</R00>
+					<R01>0</R01>
+					<R02>1</R02>
+					<R10>0</R10>
+					<R11>1</R11>
+					<R12>0</R12>
+					<R20>-1</R20>
+					<R21>0</R21>
+					<R22>0</R22>
+				</CoordinateFrame>
+				<bool name="CanCollide">true</bool>
+				<int name="CollisionGroupId">0</int>
+				<Color3uint8 name="Color3uint8">4278226844</Color3uint8>
+				<PhysicalProperties name="CustomPhysicalProperties">
+					<CustomPhysics>false</CustomPhysics>
+				</PhysicalProperties>
+				<float name="Elasticity">0.5</float>
+				<float name="Friction">0.300000012</float>
+				<float name="FrontParamA">-0.5</float>
+				<float name="FrontParamB">0.5</float>
+				<token name="FrontSurface">0</token>
+				<token name="FrontSurfaceInput">0</token>
+				<float name="LeftParamA">-0.5</float>
+				<float name="LeftParamB">0.5</float>
+				<token name="LeftSurface">0</token>
+				<token name="LeftSurfaceInput">0</token>
+				<bool name="Locked">true</bool>
+				<token name="Material">256</token>
+				<string name="Name">Handle</string>
+				<float name="Reflectance">0</float>
+				<float name="RightParamA">-0.5</float>
+				<float name="RightParamB">0.5</float>
+				<token name="RightSurface">0</token>
+				<token name="RightSurfaceInput">0</token>
+				<Vector3 name="RotVelocity">
+					<X>1</X>
+					<Y>1</Y>
+					<Z>1</Z>
+				</Vector3>
+				<BinaryString name="Tags"></BinaryString>
+				<float name="TopParamA">-0.5</float>
+				<float name="TopParamB">0.5</float>
+				<token name="TopSurface">3</token>
+				<token name="TopSurfaceInput">0</token>
+				<float name="Transparency">0</float>
+				<Vector3 name="Velocity">
+					<X>-1.40129846e-45</X>
+					<Y>0</Y>
+					<Z>1.40129846e-45</Z>
+				</Vector3>
+				<token name="formFactorRaw">3</token>
+				<token name="shape">1</token>
+				<Vector3 name="size">
+					<X>4.55000114</X>
+					<Y>4.03999805</Y>
+					<Z>4.17999887</Z>
+				</Vector3>
+			</Properties>
+			<Item class="SpecialMesh" referent="RBXFB28667607984431B7D7F3F45071E8B8">
+				<Properties>
+					<token name="LODX">2</token>
+					<token name="LODY">2</token>
+					<Content name="MeshId"><url>http://www.mulrbx.com/asset/?id=43996518</url></Content>
+					<token name="MeshType">5</token>
+					<string name="Name">Mesh</string>
+					<Vector3 name="Offset">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+					<Vector3 name="Scale">
+						<X>1.10000002</X>
+						<Y>1.10000002</Y>
+						<Z>1.10000002</Z>
+					</Vector3>
+					<BinaryString name="Tags"></BinaryString>
+					<Content name="TextureId"><url>http://www.mulrbx.com/asset/?id=43996783</url></Content>
+					<Vector3 name="VertexColor">
+						<X>1</X>
+						<Y>1</Y>
+						<Z>1</Z>
+					</Vector3>
+				</Properties>
+			</Item>
+			<Item class="Sound" referent="RBX21C6381297F34C5C8F9C1E052BAAB455">
+				<Properties>
+					<float name="EmitterSize">10</float>
+					<bool name="Looped">false</bool>
+					<string name="Name">ConfettiBang</string>
+					<bool name="PlayOnRemove">false</bool>
+					<float name="PlaybackSpeed">0.5</float>
+					<bool name="Playing">false</bool>
+					<token name="RollOffMode">0</token>
+					<Ref name="SoundGroup">null</Ref>
+					<Content name="SoundId"><url>rbxasset://sounds/swordslash.wav</url></Content>
+					<BinaryString name="Tags"></BinaryString>
+					<double name="TimePosition">0</double>
+					<float name="Volume">0</float>
+					<float name="xmlRead_MaxDistance_3">10000</float>
+				</Properties>
+			</Item>
+			<Item class="Attachment" referent="RBX1AA692966BDD46F98383EEEADB8696F5">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>-2.1500001</Y>
+						<Z>0</Z>
+						<R00>6.31088724e-30</R00>
+						<R01>0</R01>
+						<R02>-1</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>1</R20>
+						<R21>0</R21>
+						<R22>6.31088724e-30</R22>
+					</CoordinateFrame>
+					<string name="Name">RightGripAttachment</string>
+					<BinaryString name="Tags"></BinaryString>
+					<bool name="Visible">false</bool>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="LocalScript" referent="RBX24701AA0931B49D6B96B08BA2C202593">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">Local Gui</string>
+				<string name="ScriptGuid">{4652FFF9-243B-42C6-AAE0-5CF1F1492139}</string>
+				<ProtectedString name="Source"><![CDATA[local Tool = script.Parent;
+
+enabled = true
+function onButton1Down(mouse)
+	if not enabled then
+		return
+	end
+	print("ending")
+	enabled = false
+
+	while Tool.Enabled do
+		wait(.01)
+	end
+
+	print("Setting Mouse To Wait")
+	mouse.Icon = "rbxasset://textures\\GunWaitCursor.png"
+
+	while not Tool.Enabled do
+		wait(.01)
+	end
+
+	print("Setting Mouse to Go")
+	mouse.Icon = "rbxasset://textures\\GunCursor.png"
+
+	enabled = true
+end
+
+function onEquippedLocal(mouse)
+
+	if mouse == nil then
+		print("Mouse not found")
+		return 
+	end
+
+	mouse.Icon = "rbxasset://textures\\GunCursor.png"
+	mouse.Button1Down:connect(function() onButton1Down(mouse) end)
+end
+
+
+Tool.Equipped:connect(onEquippedLocal)
+]]></ProtectedString>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+		<Item class="Script" referent="RBX36C83649C33C479DBAD234095FC2D7C0">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">THawk</string>
+				<string name="ScriptGuid">{F4B71C1A-6852-4806-908A-54BB8B0DF2DF}</string>
+				<ProtectedString name="Source"><![CDATA[local Tool = script.Parent;
+
+
+local r = game:service("RunService")
+
+local vChar = Tool.Parent
+local torso = nil
+while vChar == nil or vChar.Name == "BackPack" or torso == nil do
+	vChar = Tool.Parent
+	if vChar ~= nil and vChar.Name ~= "BackPack" then
+		torso = vChar:FindFirstChild("Torso") or vChar:FindFirstChild("UpperTorso")
+	end
+	wait()
+end
+
+Tool.Enabled = true
+
+function recursiveGetLift(node)
+	local m = 0
+	local c = node:GetChildren()
+	if (node:FindFirstChild("Head") ~= nil) then head = node:FindFirstChild("Head") end -- nasty hack to detect when your parts get blown off
+
+	for i=1,#c do
+		if c[i].className == "Part" then	
+			if (head ~= nil and (c[i].Position - head.Position).magnitude < 10) then -- GROSS
+				if c[i].Name == "Handle" then
+					m = m + (c[i]:GetMass()) -- hack that makes hats weightless, so different hats don't change your jump height
+				else
+					m = m + (c[i]:GetMass())
+				end
+			end
+		end
+		m = m + recursiveGetLift(c[i])
+	end
+	return m
+end
+
+local floatForce = nil
+local airResistanceForce = nil
+local unequipped = true
+
+function onEquip()
+	unequipped = false
+	if floatForce == nil then floatForce = torso:FindFirstChild("MBrellaForce") end
+	if airResistanceForce == nil then airResistanceForce = torso:FindFirstChild("MBrellaAR") end
+	if floatForce == nil then
+		floatForce = Instance.new("BodyForce")
+		floatForce.force = Vector3.new(0,recursiveGetLift(vChar)*50,0) -- will mostly negate gravity
+		floatForce.Name = "MBrellaForce"
+		floatForce.Parent = torso
+	end
+	if airResistanceForce == nil then
+		airResistanceForce = Instance.new("BodyVelocity")
+		airResistanceForce.P = recursiveGetLift(vChar)*130
+		airResistanceForce.maxForce = Vector3.new(0,airResistanceForce.P,0)
+		airResistanceForce.velocity = Vector3.new(0, 10, 0)
+		airResistanceForce.Name = "MBrellaAR"
+		airResistanceForce.Parent = torso
+	end
+end
+
+function onUnequip()
+	unequipped = true
+	if floatForce ~= nil and floatForce.Parent ~= nil then
+		floatForce:Destroy()
+		floatForce = nil
+	end
+	if airResistanceForce ~= nil and airResistanceForce.Parent ~= nil then
+		airResistanceForce:Destroy()
+		airResistanceForce = nil
+	end
+end
+
+local canFloatAwayNow = true
+function floatAway()
+	canFloatAwayNow = false
+
+	local FakeUmbrella = Tool.Handle:Clone()
+	FakeUmbrella.CanCollide = true
+	FakeUmbrella.Position = Tool.Handle.Position
+	local floatVel = Instance.new("BodyVelocity")
+	floatVel.Name = "FakeUmbrellaBodyVelocity"
+	floatVel.P = 100000
+	floatVel.maxForce = Vector3.new(floatVel.P, floatVel.P, floatVel.P)
+	floatVel.velocity = Vector3.new((math.random()-0.5)*3, 3, (math.random()-0.5)*3)
+	floatVel.Parent = FakeUmbrella
+	FakeUmbrella.Parent = game.Workspace
+	local floatGyro = Instance.new("BodyGyro")
+	floatGyro.Name = "FakeUmbrellaBodyGyro"
+	floatGyro.P = 100
+	floatGyro.D = 1
+	floatGyro.maxTorque = Vector3.new(floatGyro.P, floatGyro.P, floatGyro.P)
+	floatGyro.cframe = CFrame.new()
+	floatGyro.Parent = FakeUmbrella
+
+	Tool.Handle.Transparency = 1
+
+	if floatForce ~= nil then floatForce.Parent = nil end
+	if airResistanceForce ~= nil then airResistanceForce.Parent = nil end
+
+	for i = 1, 10 do
+		floatVel.velocity = Vector3.new((math.random()-0.5)*3, 3, (math.random()-0.5)*3)
+		wait(.5)
+	end
+
+	wait(5)
+
+	if floatForce ~= nil and not unequipped then floatForce.Parent = torso
+	elseif floatForce ~= nil then floatForce:Destroy() floatForce = nil end
+	if airResistanceForce ~= nil and not unequipped then airResistanceForce.Parent = torso
+	elseif airResistanceForce ~= nil then airResistanceForce:Destroy() airResistanceForce = nil end
+
+	Tool.Handle.Transparency = 0
+	if FakeUmbrella ~= nil and FakeUmbrella.Parent ~= nil then FakeUmbrella.Parent = nil end
+	
+	canFloatAwayNow = true
+end
+
+function spinspinspin()
+	for i = 1, 20 do
+		angle = i*math.pi/10
+		Tool.GripForward = Vector3.new(math.cos(angle), 0, math.sin(angle))
+		Tool.GripRight = Vector3.new(math.sin(angle), 0, math.cos(angle))
+		wait(.1)
+	end
+end
+
+local last_attack = 0
+function onActivated()
+	if not Tool.Enabled and canFloatAwayNow then
+		t = r.Stepped:wait()
+		if (t - last_attack < .2) then
+			floatAway()
+		end
+		last_attack = t
+		return
+	end
+
+	t = r.Stepped:wait()
+	Tool.Enabled = false
+	spinspinspin()
+	last_attack = t
+	Tool.Enabled = true
+end
+
+script.Parent.Equipped:connect(onEquip)
+script.Parent.Activated:connect(onActivated)
+script.Parent.Unequipped:connect(onUnequip)]]></ProtectedString>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+		<Item class="Keyframe" referent="RBXF249E3D28B8342058C825E5B4836B931">
+			<Properties>
+				<string name="Name">ThumbnailPose</string>
+				<BinaryString name="Tags"></BinaryString>
+				<float name="Time">0</float>
+			</Properties>
+			<Item class="Pose" referent="RBX8213D5C986F840F885334FAB1FB930FD">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<token name="EasingDirection">1</token>
+					<token name="EasingStyle">0</token>
+					<float name="MaskWeight">0</float>
+					<string name="Name">UpperTorso</string>
+					<BinaryString name="Tags"></BinaryString>
+					<float name="Weight">0</float>
+				</Properties>
+				<Item class="Pose" referent="RBX79B4259AAAC0401FBC57314B089B01F4">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0</X>
+							<Y>-6.70552254e-08</Y>
+							<Z>-5.96046448e-08</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0.173648193</R11>
+							<R12>-0.98480773</R12>
+							<R20>0</R20>
+							<R21>0.98480773</R21>
+							<R22>0.173648193</R22>
+						</CoordinateFrame>
+						<token name="EasingDirection">1</token>
+						<token name="EasingStyle">0</token>
+						<float name="MaskWeight">0</float>
+						<string name="Name">RightUpperArm</string>
+						<BinaryString name="Tags"></BinaryString>
+						<float name="Weight">1</float>
+					</Properties>
+					<Item class="Pose" referent="RBX8CB86B337A7C4238B23E0AE938BA83DA">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>0</X>
+								<Y>-1.49011612e-08</Y>
+								<Z>3.7252903e-09</Z>
+								<R00>1</R00>
+								<R01>0</R01>
+								<R02>0</R02>
+								<R10>0</R10>
+								<R11>0.98480773</R11>
+								<R12>-0.173648179</R12>
+								<R20>0</R20>
+								<R21>0.173648179</R21>
+								<R22>0.98480773</R22>
+							</CoordinateFrame>
+							<token name="EasingDirection">1</token>
+							<token name="EasingStyle">0</token>
+							<float name="MaskWeight">0</float>
+							<string name="Name">RightLowerArm</string>
+							<BinaryString name="Tags"></BinaryString>
+							<float name="Weight">1</float>
+						</Properties>
+						<Item class="Pose" referent="RBX6F5BE0FD1EFD479D84CC906649A73FE1">
+							<Properties>
+								<CoordinateFrame name="CFrame">
+									<X>0</X>
+									<Y>0</Y>
+									<Z>0</Z>
+									<R00>1</R00>
+									<R01>0</R01>
+									<R02>0</R02>
+									<R10>0</R10>
+									<R11>1</R11>
+									<R12>0</R12>
+									<R20>0</R20>
+									<R21>0</R21>
+									<R22>1</R22>
+								</CoordinateFrame>
+								<token name="EasingDirection">1</token>
+								<token name="EasingStyle">0</token>
+								<float name="MaskWeight">0</float>
+								<string name="Name">RightHand</string>
+								<BinaryString name="Tags"></BinaryString>
+								<float name="Weight">1</float>
+							</Properties>
+						</Item>
+					</Item>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="Camera" referent="RBXAD69299AC69146CFBBC7650942385577">
+			<Properties>
+				<CoordinateFrame name="CFrame">
+					<X>9.99114227</X>
+					<Y>1.86921668</Y>
+					<Z>0.112066597</Z>
+					<R00>-0.12549293</R00>
+					<R01>-0.0469394885</R01>
+					<R02>0.990983486</R02>
+					<R10>-0</R10>
+					<R11>0.998880148</R11>
+					<R12>0.0473135263</R12>
+					<R20>-0.992094517</R20>
+					<R21>0.00593751296</R21>
+					<R22>-0.125352383</R22>
+				</CoordinateFrame>
+				<Ref name="CameraSubject">null</Ref>
+				<token name="CameraType">0</token>
+				<float name="FieldOfView">70</float>
+				<CoordinateFrame name="Focus">
+					<X>8.00917339</X>
+					<Y>1.77458954</Y>
+					<Z>0.3627716</Z>
+					<R00>1</R00>
+					<R01>0</R01>
+					<R02>0</R02>
+					<R10>0</R10>
+					<R11>1</R11>
+					<R12>0</R12>
+					<R20>0</R20>
+					<R21>0</R21>
+					<R22>1</R22>
+				</CoordinateFrame>
+				<bool name="HeadLocked">true</bool>
+				<float name="HeadScale">1</float>
+				<string name="Name">ThumbnailCamera</string>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+	</Item>
+</roblox>

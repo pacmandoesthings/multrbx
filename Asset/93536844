@@ -1,0 +1,519 @@
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mulrbx.com/roblox.xsd" version="4">
+	<External>null</External>
+	<External>nil</External>
+	<Item class="Tool" referent="RBX4D3FD92F58AF4581B4D604E16556AD09">
+		<Properties>
+			<bool name="CanBeDropped">true</bool>
+			<bool name="Enabled">true</bool>
+			<CoordinateFrame name="Grip">
+				<X>0</X>
+				<Y>-0.800000012</Y>
+				<Z>0.699999988</Z>
+				<R00>1</R00>
+				<R01>0</R01>
+				<R02>0</R02>
+				<R10>0</R10>
+				<R11>1</R11>
+				<R12>0</R12>
+				<R20>0</R20>
+				<R21>0</R21>
+				<R22>1</R22>
+			</CoordinateFrame>
+			<bool name="ManualActivationOnly">false</bool>
+			<string name="Name">ZombieLauncher</string>
+			<Content name="TextureId"><url>http://www.mulrbx.com/asset/?id=93632438</url></Content>
+			<string name="ToolTip">Launch Zombies!</string>
+		</Properties>
+		<Item class="Part" referent="RBXBEC69F2FEAA6462AAE17E539F72521A1">
+			<Properties>
+				<bool name="Anchored">false</bool>
+				<float name="BackParamA">-0.5</float>
+				<float name="BackParamB">0.5</float>
+				<token name="BackSurface">0</token>
+				<token name="BackSurfaceInput">0</token>
+				<float name="BottomParamA">-0.5</float>
+				<float name="BottomParamB">0.5</float>
+				<token name="BottomSurface">4</token>
+				<token name="BottomSurfaceInput">0</token>
+				<int name="BrickColor">194</int>
+				<CoordinateFrame name="CFrame">
+					<X>-0.0399999991</X>
+					<Y>1.63</Y>
+					<Z>-0.0199999996</Z>
+					<R00>-0.874780059</R00>
+					<R01>0.440507054</R01>
+					<R02>-0.20177196</R02>
+					<R10>0.478936404</R10>
+					<R11>0.723121226</R11>
+					<R12>-0.497710526</R12>
+					<R20>-0.0733395219</R20>
+					<R21>-0.532023191</R21>
+					<R22>-0.843546748</R22>
+				</CoordinateFrame>
+				<bool name="CanCollide">true</bool>
+				<float name="Elasticity">0.5</float>
+				<float name="Friction">0.300000012</float>
+				<float name="FrontParamA">-0.5</float>
+				<float name="FrontParamB">0.5</float>
+				<token name="FrontSurface">0</token>
+				<token name="FrontSurfaceInput">0</token>
+				<float name="LeftParamA">-0.5</float>
+				<float name="LeftParamB">0.5</float>
+				<token name="LeftSurface">0</token>
+				<token name="LeftSurfaceInput">0</token>
+				<bool name="Locked">false</bool>
+				<token name="Material">1088</token>
+				<string name="Name">Handle</string>
+				<float name="Reflectance">0</float>
+				<float name="RightParamA">-0.5</float>
+				<float name="RightParamB">0.5</float>
+				<token name="RightSurface">0</token>
+				<token name="RightSurfaceInput">0</token>
+				<Vector3 name="RotVelocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<float name="TopParamA">-0.5</float>
+				<float name="TopParamB">0.5</float>
+				<token name="TopSurface">3</token>
+				<token name="TopSurfaceInput">0</token>
+				<float name="Transparency">0</float>
+				<Vector3 name="Velocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<token name="formFactorRaw">3</token>
+				<token name="shape">1</token>
+				<Vector3 name="size">
+					<X>0.820000172</X>
+					<Y>1.75</Y>
+					<Z>3.20000076</Z>
+				</Vector3>
+			</Properties>
+			<Item class="SpecialMesh" referent="RBX7DAE669A031F4A7C8486FE299F7C5082">
+				<Properties>
+					<token name="LODX">2</token>
+					<token name="LODY">2</token>
+					<Content name="MeshId"><url>http://www.mulrbx.com/asset/?id=93632264</url></Content>
+					<token name="MeshType">5</token>
+					<string name="Name">Mesh</string>
+					<Vector3 name="Offset">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+					<Vector3 name="Scale">
+						<X>0.75</X>
+						<Y>0.75</Y>
+						<Z>0.75</Z>
+					</Vector3>
+					<Content name="TextureId"><url>http://www.mulrbx.com/asset/?id=93632365</url></Content>
+					<Vector3 name="VertexColor">
+						<X>1</X>
+						<Y>1</Y>
+						<Z>1</Z>
+					</Vector3>
+				</Properties>
+			</Item>
+			<Item class="Sound" referent="RBXD4DE4F6B6EDD4181B9CA036DF7EBA4E1">
+				<Properties>
+					<bool name="Looped">false</bool>
+					<string name="Name">Charge</string>
+					<float name="Pitch">1</float>
+					<bool name="PlayOnRemove">false</bool>
+					<Content name="SoundId"><url>http://www.mulrbx.com/asset?id=93724183</url></Content>
+					<float name="Volume">0.200000003</float>
+				</Properties>
+			</Item>
+			<Item class="Sound" referent="RBX942A81483E7240B9827AD1D5D3259EAD">
+				<Properties>
+					<bool name="Looped">false</bool>
+					<string name="Name">Fire</string>
+					<float name="Pitch">1</float>
+					<bool name="PlayOnRemove">false</bool>
+					<Content name="SoundId"><url>http://www.mulrbx.com/asset?id=93725061</url></Content>
+					<float name="Volume">0.5</float>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="Script" referent="RBX7B25B4468DA4489DBAD314C204757090">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">Script</string>
+				<ProtectedString name="Source"><![CDATA[--[[
+	Fixed by ArceusInator
+	1/22/2015 Zombies no longer randomly die, works with FE
+--]]
+
+-----------------
+--| Constants |--
+-----------------
+
+local NPC_ID = 93601062 -- Asset ID of the NPC to be launched
+
+local COOLDOWN = 6 -- Seconds until tool can be used again
+local TIME_TO_LIVE = 60 -- Seconds until NPC is cleaned up
+
+local LAUNCH_SPEED_MIN = 60 -- Minimum speed NPC will be launched
+local LAUNCH_SPEED_MAX = 300 -- Maximum speed NPC will be launched
+
+local LAUNCH_TIME_MIN = 0 -- Seconds until launch speed starts increasing beyond min
+local LAUNCH_TIME_MAX = 3 -- Seconds to reach max launch speed
+
+local CHANCE_TO_EXPLODE = 10 -- There is a 1 in X chance that the NPC will explode
+
+local Tool = script.Parent
+while Tool:FindFirstChild('Handle') == nil do wait() end 
+local ToolHandle = Tool.Handle
+
+-----------------
+--| Variables |--
+-----------------
+
+local InsertService = Game:GetService('InsertService')
+local DebrisService = Game:GetService('Debris')
+local PlayersService = Game:GetService('Players')
+
+local MyPlayer
+
+local Npc = InsertService:LoadAsset(NPC_ID):GetChildren()[1]
+Npc:MakeJoints()
+
+do	-- Give NPC a creator tag
+	local creatorTag = Instance.new('ObjectValue')
+	creatorTag.Name = 'creator'
+	creatorTag.Value = MyPlayer
+	creatorTag.Parent = Npc
+end
+
+local NpcClone = Npc:Clone()
+NpcClone:MakeJoints()
+
+local Mouse = nil
+local ClickTime = 0
+
+local SoundTable = {}
+local Holding = false
+
+-----------------
+--| Functions |--
+-----------------
+
+local function OnButton1Down()
+	local myModel = MyPlayer.Character
+	if Tool.Enabled and myModel and myModel:FindFirstChild('Humanoid') and myModel.Humanoid.Health > 0 then
+		ClickTime = time()
+		Holding = true
+	end
+end
+
+local function OnButton1Up(hitCF)
+	if not Holding then return end
+	
+	Holding = false
+	local myModel = MyPlayer.Character
+	if Tool.Enabled and myModel and myModel:FindFirstChild('Humanoid') and myModel.Humanoid.Health > 0 then
+		Tool.Enabled = false
+
+		-- Determine launch speed (based on how long click is held)
+		local launchSpeed = LAUNCH_SPEED_MIN
+		do
+			local timeHeldDown = time() - ClickTime
+			if timeHeldDown > LAUNCH_TIME_MIN then
+				local speedRange = LAUNCH_SPEED_MAX - LAUNCH_SPEED_MIN
+				local timeRatio = timeHeldDown / (LAUNCH_TIME_MAX - LAUNCH_TIME_MIN)
+				launchSpeed = launchSpeed + (speedRange * math.min(timeRatio, 1))
+			end
+		end
+
+		-- Give all the NPC's BaseParts a velocity, and make any Humanoids sit
+		local velocity = (hitCF.p - ToolHandle.CFrame.p).unit * launchSpeed
+		for _, child in pairs(NpcClone:GetChildren()) do
+			if child:IsA('BasePart') then
+				child.Velocity = velocity
+			elseif child:IsA('Humanoid') then
+				child.Sit = true --NOTE: Turns off the gyro until NPC jumps
+			end
+		end
+
+		-- Add the explode script if we get lucky
+		if math.random(CHANCE_TO_EXPLODE) == 1 then
+			local explodeScript = script:FindFirstChild('Explode')
+			if explodeScript then
+				local explodeScriptClone = explodeScript:Clone()
+				explodeScriptClone.Parent = NpcClone
+				explodeScriptClone.Disabled = false
+			end
+		end
+
+		-- Add the NPC to the world
+		DebrisService:AddItem(NpcClone, TIME_TO_LIVE)
+		NpcClone.Parent = Workspace
+		NpcClone.creator.Value = MyPlayer
+		NpcClone:MakeJoints()
+		NpcClone:MoveTo(ToolHandle.Position) --NOTE: Must already be in Workspace
+		NpcClone:MakeJoints()
+
+		-- Clone the next NPC
+		NpcClone = Npc:Clone()
+		NpcClone:MakeJoints()
+
+		wait(COOLDOWN)
+
+		Tool.Enabled = true
+	end
+end
+
+local function OnEquipped()
+	MyPlayer = PlayersService:GetPlayerFromCharacter(Tool.Parent)
+end
+
+-------------------
+--|   Remotes   |--
+-------------------
+
+Tool.MouseButton1Down.OnServerEvent:connect(function(client)
+	if client == MyPlayer then
+		OnButton1Down()
+	end
+end)
+Tool.MouseButton1Up.OnServerEvent:connect(function(client, hitCF)
+	if client == MyPlayer then
+		OnButton1Up(hitCF)
+	end
+end)
+
+--------------------
+--| Script Logic |--
+--------------------
+
+Tool.Equipped:connect(OnEquipped)
+]]></ProtectedString>
+			</Properties>
+			<Item class="Script" referent="RBX58F2FAD747F04A1D91F1F9F3BB1A434D">
+				<Properties>
+					<bool name="Disabled">true</bool>
+					<Content name="LinkedSource"><null></null></Content>
+					<string name="Name">Explode</string>
+					<ProtectedString name="Source"><![CDATA[local Model = script.Parent
+
+local BodyColors = Model:FindFirstChild('Body Colors')
+if BodyColors then -- Make BodyColors red
+	local red = BrickColor.new('Bright red')
+	BodyColors.HeadColor = red
+	BodyColors.LeftArmColor = red
+	BodyColors.LeftLegColor = red
+	BodyColors.RightArmColor = red
+	BodyColors.RightLegColor = red
+	BodyColors.TorsoColor = red
+end
+
+local HeadMesh = nil
+do -- Find HeadMesh
+	local head = Model:FindFirstChild('Head')
+	if head then
+		HeadMesh = head:FindFirstChild('Mesh')
+	end
+end
+
+-- Head flashy
+if HeadMesh then
+	local color = HeadMesh.VertexColor
+	local red = Vector3.new(2, 0, 0)
+	local function flashy(howLong)
+		HeadMesh.VertexColor = red
+		wait(howLong)
+		HeadMesh.VertexColor = color
+		wait(howLong)
+	end
+	local flashTime = 1
+	while flashTime > 0.025 do
+		flashy(flashTime)
+		flashTime = flashTime * 0.75
+	end
+else
+	wait(3)
+end
+
+Instance.new('Explosion', Workspace).Position = Model:GetModelCFrame().p
+
+local BoomSound = script:FindFirstChild('Boom')
+if BoomSound then
+	local torso = Model:FindFirstChild('Torso')
+	if torso then
+		BoomSound.Parent = torso
+	end
+	BoomSound:Play()
+end
+]]></ProtectedString>
+				</Properties>
+				<Item class="Sound" referent="RBX1DB512E2D6824029874774067D38D34B">
+					<Properties>
+						<bool name="Looped">false</bool>
+						<string name="Name">Boom</string>
+						<float name="Pitch">1</float>
+						<bool name="PlayOnRemove">false</bool>
+						<Content name="SoundId"><url>rbxasset://sounds/collide.wav</url></Content>
+						<float name="Volume">0.5</float>
+					</Properties>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="LocalScript" referent="RBXBAA5EF89BD154485B038C7C4EF748A28">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">LocalScript</string>
+				<ProtectedString name="Source"><![CDATA[-----------------
+--| Constants |--
+-----------------
+
+local Tool = script.Parent
+while Tool:FindFirstChild('Handle') == nil do wait() end 
+local ToolHandle = Tool.Handle
+
+local MOUSE_ICON = 'rbxasset://textures/GunCursor.png'
+local RELOADING_ICON = 'rbxasset://textures/GunWaitCursor.png'
+
+local COOLDOWN = 6 -- Seconds until tool can be used again
+
+-----------------
+--| Variables |--
+-----------------
+
+local MyPlayer = game:GetService'Players'.LocalPlayer
+
+local Mouse = nil
+local ClickTime = 0
+
+local SoundTable = {}
+local Holding = false
+
+-----------------
+--| Functions |--
+-----------------
+
+local function StartInfiniteChargeSound()
+	local chargeSound = ToolHandle:FindFirstChild('Charge')
+	local lastPlayTime = 0
+	repeat -- Start a new charge sound every second
+		if chargeSound and time() - lastPlayTime >= 1 then
+			local chargeSoundClone = chargeSound:Clone()
+			chargeSoundClone.Parent = ToolHandle
+			chargeSoundClone:Play()
+			lastPlayTime = time()
+			table.insert(SoundTable, chargeSoundClone)
+		end
+		wait(1/30)
+	until not Holding
+
+	-- Play fire sound
+	local fireSound = ToolHandle:FindFirstChild('Fire')
+	if fireSound then
+		fireSound:Play()
+	end
+
+	-- Stop all charge sounds
+	for _, sound in pairs(SoundTable) do
+		sound:Stop()
+		sound:Destroy()
+	end
+	SoundTable = {}
+end
+
+local function OnButton1Down()
+	local myModel = MyPlayer.Character
+	if Tool.Enabled and myModel and myModel:FindFirstChild('Humanoid') and myModel.Humanoid.Health > 0 then
+		ClickTime = time()
+		Holding = true
+		
+		Tool.MouseButton1Down:FireServer(Mouse.Hit.p)
+		StartInfiniteChargeSound()
+	end
+end
+
+local function OnButton1Up()
+	Tool.MouseButton1Up:FireServer(Mouse.Hit)
+	
+	Holding = false
+end
+
+local function OnEquipped(mouse)
+	Mouse = mouse
+	if Tool.Enabled then
+		Mouse.Icon = MOUSE_ICON
+	else
+		Mouse.Icon = RELOADING_ICON
+	end
+	Mouse.Button1Down:connect(OnButton1Down)
+	Mouse.Button1Up:connect(OnButton1Up)
+end
+
+--------------------
+--| Script Logic |--
+--------------------
+
+Tool.Equipped:connect(OnEquipped)
+
+
+Tool.Changed:connect(function(prop)
+	if prop == 'Enabled' then
+		if Mouse then
+			Mouse.Icon = Tool.Enabled and MOUSE_ICON or RELOADING_ICON
+		end
+	end
+end)
+]]></ProtectedString>
+			</Properties>
+		</Item>
+		<Item class="RemoteEvent" referent="RBXD5C848003B6841C1BAC5799303AA3ED8">
+			<Properties>
+				<string name="Name">MouseButton1Down</string>
+			</Properties>
+		</Item>
+		<Item class="RemoteEvent" referent="RBXED1A5871787041BCB9152F32AC391282">
+			<Properties>
+				<string name="Name">MouseButton1Up</string>
+			</Properties>
+		</Item>
+		<Item class="Camera" referent="RBX0503E9B303074856AD5248F4142D53F9">
+			<Properties>
+				<Ref name="CameraSubject">null</Ref>
+				<token name="CameraType">0</token>
+				<CoordinateFrame name="CoordinateFrame">
+					<X>-2.81724381</X>
+					<Y>3.08615851</Y>
+					<Z>3.64935446</Z>
+					<R00>0.759822845</R00>
+					<R01>0.17787385</R01>
+					<R02>-0.625324011</R02>
+					<R10>-0</R10>
+					<R11>0.961844325</R11>
+					<R12>0.2735973</R12>
+					<R20>0.650130153</R20>
+					<R21>-0.207885474</R21>
+					<R22>0.730831325</R22>
+				</CoordinateFrame>
+				<float name="FieldOfView">29.9999981</float>
+				<CoordinateFrame name="Focus">
+					<X>0.334425032</X>
+					<Y>1.70721257</Y>
+					<Z>-0.0340772569</Z>
+					<R00>1</R00>
+					<R01>0</R01>
+					<R02>0</R02>
+					<R10>0</R10>
+					<R11>1</R11>
+					<R12>0</R12>
+					<R20>0</R20>
+					<R21>0</R21>
+					<R22>1</R22>
+				</CoordinateFrame>
+				<string name="Name">ThumbnailCamera</string>
+			</Properties>
+		</Item>
+	</Item>
+</roblox>

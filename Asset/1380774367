@@ -1,0 +1,687 @@
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mulrbx.com/roblox.xsd" version="4">
+	<External>null</External>
+	<External>nil</External>
+	<Item class="Tool" referent="RBXB71671569E3E449EA10064D62873B07C">
+		<Properties>
+			<bool name="CanBeDropped">true</bool>
+			<bool name="Enabled">true</bool>
+			<CoordinateFrame name="Grip">
+				<X>0.600000024</X>
+				<Y>-0.200000003</Y>
+				<Z>0</Z>
+				<R00>-0.000408172607</R00>
+				<R01>0.408248276</R01>
+				<R02>0.912870824</R02>
+				<R10>-0.894345462</R10>
+				<R11>0.408248276</R11>
+				<R12>-0.1829741</R12>
+				<R20>-0.447376817</R20>
+				<R21>-0.816496551</R21>
+				<R22>0.364948362</R22>
+			</CoordinateFrame>
+			<bool name="ManualActivationOnly">false</bool>
+			<string name="Name">SteampunkHoverboard</string>
+			<bool name="RequiresHandle">true</bool>
+			<BinaryString name="Tags"></BinaryString>
+			<Content name="TextureId"><url>rbxassetid://1380646133</url></Content>
+			<string name="ToolTip"></string>
+		</Properties>
+		<Item class="Part" referent="RBX4D2B6E2031C14B05B3E45B3018733428">
+			<Properties>
+				<bool name="Anchored">false</bool>
+				<float name="BackParamA">-0.5</float>
+				<float name="BackParamB">0.5</float>
+				<token name="BackSurface">0</token>
+				<token name="BackSurfaceInput">0</token>
+				<float name="BottomParamA">-0.5</float>
+				<float name="BottomParamB">0.5</float>
+				<token name="BottomSurface">0</token>
+				<token name="BottomSurfaceInput">0</token>
+				<CoordinateFrame name="CFrame">
+					<X>0</X>
+					<Y>0.300000012</Y>
+					<Z>0</Z>
+					<R00>0</R00>
+					<R01>0</R01>
+					<R02>-1</R02>
+					<R10>0</R10>
+					<R11>1</R11>
+					<R12>0</R12>
+					<R20>1</R20>
+					<R21>0</R21>
+					<R22>0</R22>
+				</CoordinateFrame>
+				<bool name="CanCollide">true</bool>
+				<int name="CollisionGroupId">0</int>
+				<Color3uint8 name="Color3uint8">4288914085</Color3uint8>
+				<PhysicalProperties name="CustomPhysicalProperties">
+					<CustomPhysics>false</CustomPhysics>
+				</PhysicalProperties>
+				<float name="Elasticity">0.5</float>
+				<float name="Friction">0.300000012</float>
+				<float name="FrontParamA">-0.5</float>
+				<float name="FrontParamB">0.5</float>
+				<token name="FrontSurface">0</token>
+				<token name="FrontSurfaceInput">0</token>
+				<float name="LeftParamA">-0.5</float>
+				<float name="LeftParamB">0.5</float>
+				<token name="LeftSurface">0</token>
+				<token name="LeftSurfaceInput">0</token>
+				<bool name="Locked">true</bool>
+				<token name="Material">256</token>
+				<string name="Name">Handle</string>
+				<float name="Reflectance">0</float>
+				<float name="RightParamA">-0.5</float>
+				<float name="RightParamB">0.5</float>
+				<token name="RightSurface">0</token>
+				<token name="RightSurfaceInput">0</token>
+				<Vector3 name="RotVelocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<BinaryString name="Tags"></BinaryString>
+				<float name="TopParamA">-0.5</float>
+				<float name="TopParamB">0.5</float>
+				<token name="TopSurface">0</token>
+				<token name="TopSurfaceInput">0</token>
+				<float name="Transparency">0</float>
+				<Vector3 name="Velocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<token name="formFactorRaw">3</token>
+				<token name="shape">1</token>
+				<Vector3 name="size">
+					<X>2</X>
+					<Y>0.400000006</Y>
+					<Z>6</Z>
+				</Vector3>
+			</Properties>
+			<Item class="Sound" referent="RBX9840064348A54910924647C950ECF6AB">
+				<Properties>
+					<float name="EmitterSize">10</float>
+					<bool name="Looped">false</bool>
+					<string name="Name">Drop</string>
+					<bool name="PlayOnRemove">false</bool>
+					<float name="PlaybackSpeed">1</float>
+					<bool name="Playing">false</bool>
+					<token name="RollOffMode">0</token>
+					<Ref name="SoundGroup">null</Ref>
+					<Content name="SoundId"><url>http://www.mulrbx.com/asset/?id=10548108</url></Content>
+					<BinaryString name="Tags"></BinaryString>
+					<double name="TimePosition">0</double>
+					<float name="Volume">1</float>
+					<float name="xmlRead_MaxDistance_3">10000</float>
+				</Properties>
+			</Item>
+			<Item class="SpecialMesh" referent="RBXF7D7A721DCBA4C0094232A05F386AAC0">
+				<Properties>
+					<token name="LODX">2</token>
+					<token name="LODY">2</token>
+					<Content name="MeshId"><url>rbxassetid://1383548416</url></Content>
+					<token name="MeshType">5</token>
+					<string name="Name">Mesh</string>
+					<Vector3 name="Offset">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+					<Vector3 name="Scale">
+						<X>1</X>
+						<Y>1</Y>
+						<Z>1</Z>
+					</Vector3>
+					<BinaryString name="Tags"></BinaryString>
+					<Content name="TextureId"><url>rbxassetid://1380645557</url></Content>
+					<Vector3 name="VertexColor">
+						<X>1</X>
+						<Y>1</Y>
+						<Z>1</Z>
+					</Vector3>
+				</Properties>
+			</Item>
+			<Item class="Attachment" referent="RBXDAC2155339F94844B4C9D2D128BE567F">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0.600000024</X>
+						<Y>-0.200000003</Y>
+						<Z>0</Z>
+						<R00>-0.000408172607</R00>
+						<R01>0.408248276</R01>
+						<R02>0.912870765</R02>
+						<R10>-0.894345462</R10>
+						<R11>0.408248305</R11>
+						<R12>-0.182974085</R12>
+						<R20>-0.447376817</R20>
+						<R21>-0.816496551</R21>
+						<R22>0.364948362</R22>
+					</CoordinateFrame>
+					<string name="Name">RightGripAttachment</string>
+					<BinaryString name="Tags"></BinaryString>
+					<bool name="Visible">false</bool>
+				</Properties>
+			</Item>
+			<Item class="Attachment" referent="RBXEE61A2372CCE4FB2A9A8817466A0EADB">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>-0.123162389</X>
+						<Y>-0.0672587752</Y>
+						<Z>-1.92940509</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<string name="Name">FrontFanAttachment</string>
+					<BinaryString name="Tags"></BinaryString>
+					<bool name="Visible">false</bool>
+				</Properties>
+			</Item>
+			<Item class="Attachment" referent="RBXDD35524D363F430C85F099059F32857F">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>-0.131801128</X>
+						<Y>0.169298247</Y>
+						<Z>1.99039125</Z>
+						<R00>1</R00>
+						<R01>-2.16215454e-08</R01>
+						<R02>-7.12995387e-08</R02>
+						<R10>4.47034836e-08</R10>
+						<R11>0.939692676</R11>
+						<R12>0.342020154</R12>
+						<R20>5.96046448e-08</R20>
+						<R21>-0.342020154</R21>
+						<R22>0.939692676</R22>
+					</CoordinateFrame>
+					<string name="Name">BackFanAttachment</string>
+					<BinaryString name="Tags"></BinaryString>
+					<bool name="Visible">false</bool>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="LocalScript" referent="RBX828AD26F21D04BFE92671DBF089D68CC">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">MouseIcon</string>
+				<string name="ScriptGuid">{814E67DC-CB81-4FF9-871C-C02234B7830B}</string>
+				<ProtectedString name="Source"><![CDATA[--Made by Luckymaxer
+
+Mouse_Icon = "rbxasset://textures/GunCursor.png"
+Reloading_Icon = "rbxasset://textures/GunWaitCursor.png"
+
+Tool = script.Parent
+
+Mouse = nil
+
+function UpdateIcon()
+	if Mouse then
+		Mouse.Icon = Tool.Enabled and Mouse_Icon or Reloading_Icon
+	end
+end
+
+function OnEquipped(ToolMouse)
+	Mouse = ToolMouse
+	UpdateIcon()
+end
+
+function OnChanged(Property)
+	if Property == "Enabled" then
+		UpdateIcon()
+	end
+end
+
+Tool.Equipped:connect(OnEquipped)
+Tool.Changed:connect(OnChanged)]]></ProtectedString>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+		<Item class="LocalScript" referent="RBX416E76C4D80546C99B1F6A359D6530E6">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">LocalScript</string>
+				<string name="ScriptGuid">{777CA45E-6FB8-4607-A671-C612FE01A526}</string>
+				<ProtectedString name="Source"><![CDATA[--Made by Luckymaxer
+
+Tool = script.Parent
+Handle = Tool:WaitForChild("Handle")
+
+Players = game:GetService("Players")
+
+RemoteControl = Tool:WaitForChild("RemoteControl")
+
+ServerControl = RemoteControl:WaitForChild("ServerControl")
+ClientControl = RemoteControl:WaitForChild("ClientControl")
+
+ToolEquipped = false
+MouseControls = {}
+
+ClientControl.OnClientInvoke = (function(Mode, Value)
+	if Mode == "PlaySound" and Value then
+		Value:Play()
+	elseif Mode == "PlaySound" and Value then
+		Value:Play()
+	elseif Mode == "MousePosition" then
+		return PlayerMouse.Hit.p
+	end
+end)
+
+function InvokeServer(Mode, Value)
+	local ServerReturn = nil
+	pcall(function()
+		ServerReturn = ServerControl:InvokeServer(Mode, Value)
+	end)
+	return ServerReturn
+end
+
+function CheckIfAlive()
+	return (((Player and Player.Parent and Humanoid and Humanoid.Parent and Humanoid.Health > 0) and true) or false)
+end
+
+function Equipped(Mouse)
+	Character = Tool.Parent
+	Player = Players:GetPlayerFromCharacter(Character)
+	Humanoid = Character:FindFirstChild("Humanoid")
+	ToolEquipped = true
+	if not CheckIfAlive() then
+		return
+	end
+	PlayerMouse = Mouse
+	for i, v in pairs(MouseControls) do
+		if v then
+			v:disconnect()
+		end
+	end
+	MouseControls = {}
+	MouseDown = PlayerMouse.Button1Down:connect(function()
+		InvokeServer("MouseClick", {Down = true})
+	end)
+	MouseUp = PlayerMouse.Button1Up:connect(function()
+		InvokeServer("MouseClick", {Down = false})
+	end)
+end
+
+function Unequipped()
+	ToolEquipped = false
+	for i, v in pairs(MouseControls) do
+		if v then
+			v:disconnect()
+		end
+	end
+	MouseControls = {}
+end
+
+Tool.Equipped:connect(Equipped)
+Tool.Unequipped:connect(Unequipped)]]></ProtectedString>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+		<Item class="Script" referent="RBX28251ED38CAA43DF94139680B0B64BC9">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">Script</string>
+				<string name="ScriptGuid">{3938C5D4-C07C-4FE5-AB95-5023C23C3086}</string>
+				<ProtectedString name="Source"><![CDATA[Tool = script.Parent
+Handle = Tool:WaitForChild("Handle")
+Mesh = Handle:WaitForChild("Mesh")
+Mesh.MeshId = "rbxassetid://1383568584"
+
+local BaseFanPart = Instance.new("Part")
+BaseFanPart.Size = Vector3.new(0.05, 0.05, 0.05)
+BaseFanPart.CanCollide = false
+local BaseFanMesh = Instance.new("SpecialMesh")
+BaseFanMesh.MeshId = "rbxassetid://1384100498" 
+BaseFanMesh.TextureId = "rbxassetid://1380645557"
+BaseFanMesh.Parent = BaseFanPart
+
+RunService = game:GetService("RunService")
+Players = game:GetService("Players")
+Debris = game:GetService("Debris")
+
+RemoteControl = Tool:WaitForChild("RemoteControl")
+
+ServerControl = (RemoteControl:FindFirstChild("ServerControl") or Instance.new("RemoteFunction"))
+ServerControl.Name = "ServerControl"
+ServerControl.Parent = RemoteControl
+
+ClientControl = (RemoteControl:FindFirstChild("ClientControl") or Instance.new("RemoteFunction"))
+ClientControl.Name = "ClientControl"
+ClientControl.Parent = RemoteControl
+
+SkateboardModule = require(199238756)
+SkateboardFunctions = SkateboardModule.SkateboardFunctions
+Functions = SkateboardModule.Functions
+
+Skateboard = SkateboardFunctions.GetSkateboard("Hoverboard")
+SkateboardFunctions.CreateConfiguration(Tool, Skateboard)
+SkateboardPlatform = SkateboardFunctions.GetSkateboardPlatform(Skateboard)
+
+Mesh.MeshId = "rbxassetid://1383548416"
+
+Sounds = {
+	Drop = Handle:WaitForChild("Drop")
+}
+
+ToolEquipped = false
+ToolEnabled = true
+
+Tool.Enabled = true
+
+ServerControl.OnServerInvoke = (function(player, Mode, Value)
+end)
+
+function InvokeClient(Mode, Value)
+	local ClientReturn = nil
+	pcall(function()
+		ClientReturn = ClientControl:InvokeClient(Player, Mode, Value)
+	end)
+	return ClientReturn
+end
+
+function DropSkateboard()
+	print("What")
+	local MousePosition = InvokeClient("MousePosition")
+	
+	local DesiredAngle = (math.acos((MousePosition - Handle.Position).unit:Dot(Torso.CFrame.lookVector)))
+	if DesiredAngle > (math.pi / 2) then --Prevents spawning behind character.
+		--return
+	end
+	
+	local SkateboardSize = Skateboard:GetModelSize()
+	
+	local FrontMotor
+	local BackMotor
+	
+	local Part = Skateboard:FindFirstChildWhichIsA("SkateboardPlatform", true)
+	if Part then
+		for _, Attachment in next, Handle:GetChildren() do
+			if Attachment:IsA("Attachment") and (Attachment.Name == "FrontFanAttachment" or Attachment.Name == "BackFanAttachment") then
+				Attachment:Clone().Parent = Part
+			end
+		end
+		local BackFan = BaseFanPart:Clone()
+		local FrontFan = BaseFanPart:Clone()
+		
+		BackFan.Parent = Part.Parent
+		FrontFan.Parent = Part.Parent		
+		
+		FrontMotor = Instance.new("Motor6D")
+		FrontMotor.Part0 = FrontFan
+		FrontMotor.Part1 = Part
+		FrontMotor.C0 = CFrame.new()
+		FrontMotor.C1 = Part.FrontFanAttachment.CFrame
+		FrontMotor.Parent = Part.FrontFanAttachment
+		
+		BackMotor = Instance.new("Motor6D")
+		BackMotor.Part0 = BackFan
+		BackMotor.Part1 = Part
+		BackMotor.C0 = CFrame.new()
+		BackMotor.C1 = Part.BackFanAttachment.CFrame	
+		BackMotor.Parent = BackFan	
+	end	
+	
+	local Direction = CFrame.new(Torso.Position, Vector3.new(MousePosition.X, Torso.Position.Y, MousePosition.Z))
+	local SkateboardCFrame = Direction + Direction.lookVector * (((Torso.Size.Z / 2) + (SkateboardSize.Z / 2)) * 1.5)
+	local SkateboardAngle = CFrame.Angles(0, 0, 0)
+	
+	local RayOffset = Vector3.new(-1.5, 0, -1.5)
+	
+	local RayPoints = { --Border points and center of skateboard used for casting rays.
+		Center = Functions.PositionPart(SkateboardCFrame, 0, 0, 0),
+		BackLeft = Functions.PositionPart(SkateboardCFrame, -((SkateboardSize.X / 2) + RayOffset.X), RayOffset.Y, -((SkateboardSize.Z / 2) + RayOffset.Z)),
+		BackRight = Functions.PositionPart(SkateboardCFrame, ((SkateboardSize.X / 2) + RayOffset.X), RayOffset.Y, -((SkateboardSize.Z / 2) + RayOffset.Z)),
+		FrontLeft = Functions.PositionPart(SkateboardCFrame, -((SkateboardSize.X / 2) + RayOffset.X), RayOffset.Y, ((SkateboardSize.Z / 2) + RayOffset.Z)),
+		FrontRight = Functions.PositionPart(SkateboardCFrame, ((SkateboardSize.X / 2) + RayOffset.X), RayOffset.Y, ((SkateboardSize.Z / 2) + RayOffset.Z)),
+	}
+	
+	local RayData = {
+		Area = { --Cast ray to determine if skateboard will spawn inside something.
+			Offset = Vector3.new(0, (SkateboardSize.Y / 2), 0),
+			Direction = Vector3.new(0, 1, 0),
+			Distance = SkateboardSize.Y
+		},
+		Ground = { --Cast ray to determine if the skateboard can spawn on the ground.
+			Direction = Vector3.new(0, -1, 0),
+			Distance = (SkateboardSize.Y * 8)
+		}
+	}
+	
+	local Ignore = {Character, Skateboard}
+	
+	local HighestGroundRayHit, HighestGroundRayPos --Get the highest point of elevation to spawn the skateboard.
+	for i, v in pairs(RayPoints) do
+		local GroundRayHit, GroundRayPos = Functions.RayCast(v.p, RayData.Ground.Direction, RayData.Ground.Distance, Ignore)
+		if not HighestGroundRayPos or GroundRayPos.Y > HighestGroundRayPos.Y then
+			HighestGroundRayHit, HighestGroundRayPos = GroundRayHit, GroundRayPos
+		end
+	end	
+	
+	local FullAreaIsEmpty = true --Ensure entire area is empty.
+	for i, v in pairs(RayPoints) do
+		local AreaIsEmpty = Functions.RegionEmpty((v.p - RayData.Area.Offset), {Min = Vector3.new(0, 0, 0), Max = (RayData.Area.Direction * RayData.Area.Distance)}, Ignore)
+		if not AreaIsEmpty then
+			FullAreaIsEmpty = false
+		end
+	end
+	
+	if not FullAreaIsEmpty or not HighestGroundRayHit then
+		return
+	end
+	
+	ToolEnabled = false
+	
+	local PosX, PosY, PosZ, R00, R01, R02, R10, R11, R12, R20, R21, R22 = SkateboardCFrame:components()
+	SkateboardCFrame = CFrame.new(PosX, (HighestGroundRayPos.Y + (SkateboardSize.Y / 2)), PosZ, R00, R01, R02, R10, R11, R12, R20, R21, R22)
+	
+	InvokeClient("PlaySound", Sounds.Drop)
+	
+	Tool.Parent = nil
+	
+	SkateboardFunctions.SpawnSkateboard(Skateboard, (SkateboardCFrame * SkateboardAngle))
+	local SteppedConn 
+	local Angle = 0
+	SteppedConn = RunService.Stepped:Connect(function(Time, Delta)
+		if Skateboard and Skateboard.Parent then
+			if FrontMotor then
+				FrontMotor.Transform = CFrame.Angles(0, math.rad(Angle), 0)
+			end
+			
+			if BackMotor then
+				BackMotor.Transform = CFrame.Angles(0, math.rad(Angle), 0)
+			end
+			
+			Angle = (Angle + (Delta * 1000)) % 360
+		else
+			if SteppedConn then
+				SteppedConn:Disconnect()
+			end
+		end
+	end)
+
+	Debris:AddItem(Tool, 0)	
+	Tool:Destroy()
+	
+end
+
+function CheckIfAlive()
+	return (((Player and Player.Parent and Character and Character.Parent and Humanoid and Humanoid.Parent and Humanoid.Health > 0 and Torso and Torso.Parent) and true) or false)
+end
+
+function Activated()
+	if not ToolEquipped or not ToolEnabled or not CheckIfAlive() then
+		return
+	end
+	DropSkateboard()
+end
+
+function Equipped()
+	Character = Tool.Parent
+	Player = Players:GetPlayerFromCharacter(Character)
+	Humanoid = Character:FindFirstChild("Humanoid")
+	Torso = Character:FindFirstChild("HumanoidRootPart")
+	if not CheckIfAlive() then
+		return
+	end
+	
+	Mesh.MeshId = "rbxassetid://1383548416"
+	ToolEquipped = true
+end
+
+function Unequipped()
+	ToolEquipped = false
+end
+
+Tool.Activated:connect(Activated)
+Tool.Equipped:connect(Equipped)
+Tool.Unequipped:connect(Unequipped)]]></ProtectedString>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+		<Item class="Configuration" referent="RBX4348E03CBFDD477A8E57794E4A570641">
+			<Properties>
+				<string name="Name">RemoteControl</string>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+			<Item class="RemoteFunction" referent="RBXEA66F974C8C24D558BA4A8A19E188A78">
+				<Properties>
+					<string name="Name">ServerControl</string>
+					<BinaryString name="Tags"></BinaryString>
+				</Properties>
+			</Item>
+			<Item class="RemoteFunction" referent="RBX1EA3533717A546248569D07C8049BEB8">
+				<Properties>
+					<string name="Name">ClientControl</string>
+					<BinaryString name="Tags"></BinaryString>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="Configuration" referent="RBXD4F9C821E71D480F815D4339E6AFDCF0">
+			<Properties>
+				<string name="Name">AddOns</string>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+			<Item class="Color3Value" referent="RBX1D0B3543209B4DA78FD48970E2737868">
+				<Properties>
+					<string name="Name">DisplayColor</string>
+					<BinaryString name="Tags"></BinaryString>
+					<Color3 name="Value">4283804415</Color3>
+				</Properties>
+			</Item>
+			<Item class="BoolValue" referent="RBX6310A4B8E7274FB9819E9950821685AB">
+				<Properties>
+					<string name="Name">SparklesEnabled</string>
+					<BinaryString name="Tags"></BinaryString>
+					<bool name="Value">false</bool>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="Keyframe" referent="RBX7B20253CF4B84CFCAAAB935EF1A8CDA6">
+			<Properties>
+				<string name="Name">ThumbnailPose</string>
+				<BinaryString name="Tags"></BinaryString>
+				<float name="Time">0</float>
+			</Properties>
+			<Item class="Pose" referent="RBXACF75A1FE9E94AA2ACDD46206DE7C53B">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<token name="EasingDirection">1</token>
+					<token name="EasingStyle">0</token>
+					<string name="Name">UpperTorso</string>
+					<BinaryString name="Tags"></BinaryString>
+					<float name="Weight">0</float>
+				</Properties>
+				<Item class="Pose" referent="RBXF33994F5C8314010A62DFFFD961163C2">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0</X>
+							<Y>-6.70552254e-08</Y>
+							<Z>-5.96046448e-08</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0.173648193</R11>
+							<R12>-0.98480773</R12>
+							<R20>0</R20>
+							<R21>0.98480773</R21>
+							<R22>0.173648193</R22>
+						</CoordinateFrame>
+						<token name="EasingDirection">1</token>
+						<token name="EasingStyle">0</token>
+						<string name="Name">RightUpperArm</string>
+						<BinaryString name="Tags"></BinaryString>
+						<float name="Weight">1</float>
+					</Properties>
+					<Item class="Pose" referent="RBXE4A032FFDED8484DAB4E4F7E019C7880">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>0</X>
+								<Y>-1.49011612e-08</Y>
+								<Z>3.7252903e-09</Z>
+								<R00>1</R00>
+								<R01>0</R01>
+								<R02>0</R02>
+								<R10>0</R10>
+								<R11>0.98480773</R11>
+								<R12>-0.173648179</R12>
+								<R20>0</R20>
+								<R21>0.173648179</R21>
+								<R22>0.98480773</R22>
+							</CoordinateFrame>
+							<token name="EasingDirection">1</token>
+							<token name="EasingStyle">0</token>
+							<string name="Name">RightLowerArm</string>
+							<BinaryString name="Tags"></BinaryString>
+							<float name="Weight">1</float>
+						</Properties>
+						<Item class="Pose" referent="RBXCB83AA248265484FB5E106BE4AAF92B3">
+							<Properties>
+								<CoordinateFrame name="CFrame">
+									<X>0</X>
+									<Y>0</Y>
+									<Z>0</Z>
+									<R00>1</R00>
+									<R01>0</R01>
+									<R02>0</R02>
+									<R10>0</R10>
+									<R11>1</R11>
+									<R12>0</R12>
+									<R20>0</R20>
+									<R21>0</R21>
+									<R22>1</R22>
+								</CoordinateFrame>
+								<token name="EasingDirection">1</token>
+								<token name="EasingStyle">0</token>
+								<string name="Name">RightHand</string>
+								<BinaryString name="Tags"></BinaryString>
+								<float name="Weight">1</float>
+							</Properties>
+						</Item>
+					</Item>
+				</Item>
+			</Item>
+		</Item>
+	</Item>
+</roblox>

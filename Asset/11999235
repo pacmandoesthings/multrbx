@@ -1,0 +1,466 @@
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mulrbx.com/roblox.xsd" version="4">
+	<External>null</External>
+	<External>nil</External>
+	<Item class="Tool" referent="RBXA9FCE03CC6334D0A94FE414FBE0EC5A1">
+		<Properties>
+			<bool name="CanBeDropped">true</bool>
+			<bool name="Enabled">true</bool>
+			<CoordinateFrame name="Grip">
+				<X>0</X>
+				<Y>0</Y>
+				<Z>-2</Z>
+				<R00>0</R00>
+				<R01>-1</R01>
+				<R02>-0</R02>
+				<R10>-1</R10>
+				<R11>0</R11>
+				<R12>-0</R12>
+				<R20>0</R20>
+				<R21>0</R21>
+				<R22>-1</R22>
+			</CoordinateFrame>
+			<bool name="ManualActivationOnly">false</bool>
+			<string name="Name">SpecAlphaBiograftEnergySword</string>
+			<Content name="TextureId"><url>http://www.mulrbx.com/asset/?id=11998311</url></Content>
+			<string name="ToolTip"></string>
+		</Properties>
+		<Item class="Script" referent="RBXC43DCDFC0D7E4A5CBABC72B4940D7595">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">SwordScript</string>
+				<ProtectedString name="Source"><![CDATA[--Fixed by Luckymaxer
+
+-------- OMG HAX
+
+Tool = script.Parent
+Handle = Tool:WaitForChild("Handle")
+
+Players = game:GetService("Players")
+Debris = game:GetService("Debris")
+RunService = game:GetService("RunService")
+
+DamageValues = {
+	BaseDamage = 10,
+	SlashDamage = 10,
+	LungeDamage = 20
+}
+
+Damage = DamageValues.BaseDamage
+
+Sounds = {
+	Slash = Handle:WaitForChild("SwordSlash"),
+	Lunge = Handle:WaitForChild("SwordLunge"),
+	Unsheath = Handle:WaitForChild("Unsheath")
+}
+
+Animations = {
+	Slash = Tool:WaitForChild("Slash")
+}
+
+ClientControl = (Tool:FindFirstChild("ClientControl") or Instance.new("RemoteFunction"))
+ClientControl.Name = "ClientControl"
+ClientControl.Parent = Tool
+
+function InvokeClient(Mode, Value)
+	pcall(function()
+		ClientControl:InvokeClient(Player, Mode, Value)
+	end)
+end
+
+function TagHumanoid(humanoid, player)
+	local Creator_Tag = Instance.new("ObjectValue")
+	Creator_Tag.Name = "creator"
+	Creator_Tag.Value = player
+	Debris:AddItem(Creator_Tag, 2)
+	Creator_Tag.Parent = humanoid
+end
+
+function UntagHumanoid(humanoid)
+	for i, v in pairs(humanoid:GetChildren()) do
+		if v:IsA("ObjectValue") and v.Name == "creator" then
+			v:Destroy()
+		end
+	end
+end
+
+function Blow(Hit)
+	if not Hit or not Hit.Parent or not Character or not Humanoid or Humanoid.Health == 0 then
+		return
+	end
+	local humanoid = Hit.Parent:FindFirstChild("Humanoid")
+	if humanoid and humanoid ~= Humanoid and humanoid.Health > 0 then
+		local RightArm = Character:FindFirstChild("Right Arm")
+		if not RightArm then
+			return
+		end
+		local RightGrip = RightArm:FindFirstChild("RightGrip")
+		if (RightGrip and (RightGrip.Part0 == Handle or RightGrip.Part1 == Handle)) then
+			UntagHumanoid(humanoid)
+			TagHumanoid(humanoid, Player)
+			humanoid:TakeDamage(Damage)	
+		end
+	end
+end
+
+function Attack()
+	Damage = DamageValues.SlashDamage
+	Sounds.Slash:Play()
+	InvokeClient("PlayAnimation", {Animation = Animations.Slash, Speed = 1.5})
+end
+
+function Lunge()
+	Damage = DamageValues.LungeDamage
+
+	Sounds.Lunge:Play()
+
+	local Anim = Instance.new("StringValue")
+	Anim.Name = "toolanim"
+	Anim.Value = "Lunge"
+	Anim.Parent = Tool
+	
+	local Force = Instance.new("BodyVelocity")
+	if Torso and Torso.Parent then
+		Force.velocity = Vector3.new(0, 80, 0)
+		Force.maxForce = Vector3.new(0, 4000, 0)
+		Debris:AddItem(Force, 0.75)
+		Force.Parent = Torso
+	end
+	
+	wait(0.25)
+	
+	if Torso and Torso.Parent then
+		Force.velocity = (Torso.CFrame.lookVector * 120)  + Vector3.new(0, 60, 0)
+	end
+	
+	wait(0.5)
+	
+	if Force and Force.Parent then
+		Force:Destroy()
+	end
+	
+	wait(0.5)
+
+	Damage = DamageValues.SlashDamage
+end
+
+Tool.Enabled = true
+LastAttack = 0
+
+function Activated()
+
+	if not Tool.Enabled then
+		return
+	end
+
+	Tool.Enabled = false
+
+	Tick = RunService.Stepped:wait()
+
+	if (Tick - LastAttack < 0.2) then
+		Lunge()
+	else
+		Attack()
+	end
+
+	LastAttack = Tick
+
+	--wait(0.5)
+
+	Tool.Enabled = true
+end
+
+function Equipped()
+	Character = Tool.Parent
+	Player = Players:GetPlayerFromCharacter(Character)
+	Humanoid = Character:FindFirstChild("Humanoid")
+	Torso = Character:FindFirstChild("Torso")
+	if not Player or not Humanoid or Humanoid.Health == 0 or not Torso then
+		return
+	end
+	Sounds.Unsheath:Play()
+end
+
+function Unequipped()
+end
+
+Tool.Activated:connect(Activated)
+Tool.Equipped:connect(Equipped)
+Tool.Unequipped:connect(Unequipped)
+
+Connection = Handle.Touched:connect(Blow)]]></ProtectedString>
+			</Properties>
+		</Item>
+		<Item class="Part" referent="RBX86BD9428319140C78C82F726A5409154">
+			<Properties>
+				<bool name="Anchored">false</bool>
+				<float name="BackParamA">-0.5</float>
+				<float name="BackParamB">0.5</float>
+				<token name="BackSurface">0</token>
+				<token name="BackSurfaceInput">0</token>
+				<float name="BottomParamA">-0.5</float>
+				<float name="BottomParamB">0.5</float>
+				<token name="BottomSurface">0</token>
+				<token name="BottomSurfaceInput">0</token>
+				<int name="BrickColor">1020</int>
+				<CoordinateFrame name="CFrame">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+					<R00>1</R00>
+					<R01>-2.57519908e-008</R01>
+					<R02>-1.07066384e-007</R02>
+					<R10>-1.07066384e-007</R10>
+					<R11>0</R11>
+					<R12>-0.99999994</R12>
+					<R20>2.57519766e-008</R20>
+					<R21>0.99999994</R21>
+					<R22>0</R22>
+				</CoordinateFrame>
+				<bool name="CanCollide">true</bool>
+				<float name="Elasticity">0.5</float>
+				<float name="Friction">0.300000012</float>
+				<float name="FrontParamA">-0.5</float>
+				<float name="FrontParamB">0.5</float>
+				<token name="FrontSurface">0</token>
+				<token name="FrontSurfaceInput">0</token>
+				<float name="LeftParamA">-0.5</float>
+				<float name="LeftParamB">0.5</float>
+				<token name="LeftSurface">0</token>
+				<token name="LeftSurfaceInput">0</token>
+				<bool name="Locked">true</bool>
+				<token name="Material">256</token>
+				<string name="Name">Handle</string>
+				<float name="Reflectance">0</float>
+				<float name="RightParamA">-0.5</float>
+				<float name="RightParamB">0.5</float>
+				<token name="RightSurface">0</token>
+				<token name="RightSurfaceInput">0</token>
+				<Vector3 name="RotVelocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<float name="TopParamA">-0.5</float>
+				<float name="TopParamB">0.5</float>
+				<token name="TopSurface">0</token>
+				<token name="TopSurfaceInput">0</token>
+				<float name="Transparency">0</float>
+				<Vector3 name="Velocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<token name="formFactorRaw">2</token>
+				<token name="shape">1</token>
+				<Vector3 name="size">
+					<X>1</X>
+					<Y>0.800000012</Y>
+					<Z>4</Z>
+				</Vector3>
+			</Properties>
+			<Item class="SpecialMesh" referent="RBXC69ACFA7576B433BB4D164119A58D764">
+				<Properties>
+					<token name="LODX">2</token>
+					<token name="LODY">2</token>
+					<Content name="MeshId"><url>http://www.mulrbx.com/asset/?id=11996935</url></Content>
+					<token name="MeshType">5</token>
+					<string name="Name">Mesh</string>
+					<Vector3 name="Offset">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+					<Vector3 name="Scale">
+						<X>1.39999998</X>
+						<Y>1.39999998</Y>
+						<Z>1.39999998</Z>
+					</Vector3>
+					<Content name="TextureId"><url>http://www.mulrbx.com/asset/?id=11996882</url></Content>
+					<Vector3 name="VertexColor">
+						<X>1</X>
+						<Y>1</Y>
+						<Z>0</Z>
+					</Vector3>
+				</Properties>
+			</Item>
+			<Item class="Sparkles" referent="RBX4C956F2D9B1D4A32BEFF66D01246122B">
+				<Properties>
+					<bool name="Enabled">true</bool>
+					<string name="Name">Sparkles</string>
+					<Color3 name="SparkleColor">4278196480</Color3>
+				</Properties>
+			</Item>
+			<Item class="Sound" referent="RBXC83C9F547A7E4F7C8CF692DA84A9DC43">
+				<Properties>
+					<bool name="Looped">false</bool>
+					<string name="Name">Unsheath</string>
+					<float name="Pitch">1</float>
+					<bool name="PlayOnRemove">false</bool>
+					<Content name="SoundId"><url>http://www.mulrbx.com/asset/?id=11998770</url></Content>
+					<float name="Volume">0.5</float>
+				</Properties>
+			</Item>
+			<Item class="Sound" referent="RBX1AED02A5BED74970BB6B0615B09B61A5">
+				<Properties>
+					<bool name="Looped">false</bool>
+					<string name="Name">SwordSlash</string>
+					<float name="Pitch">0.699999988</float>
+					<bool name="PlayOnRemove">false</bool>
+					<Content name="SoundId"><url>http://www.mulrbx.com/asset/?id=11998777</url></Content>
+					<float name="Volume">0.5</float>
+				</Properties>
+			</Item>
+			<Item class="Sound" referent="RBXBF72ABC10B3E41B1AD05A15818AB4671">
+				<Properties>
+					<bool name="Looped">false</bool>
+					<string name="Name">SwordLunge</string>
+					<float name="Pitch">0.699999988</float>
+					<bool name="PlayOnRemove">false</bool>
+					<Content name="SoundId"><url>http://www.mulrbx.com/asset/?id=11998796</url></Content>
+					<float name="Volume">0.5</float>
+				</Properties>
+			</Item>
+			<Item class="PointLight" referent="RBXEAE4B768165445FB9236946F449F45C9">
+				<Properties>
+					<float name="Brightness">5</float>
+					<Color3 name="Color">4278255360</Color3>
+					<bool name="Enabled">true</bool>
+					<string name="Name">PointLight</string>
+					<float name="Range">5</float>
+					<bool name="Shadows">false</bool>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="LocalScript" referent="RBX5F9B10C264034F8CAE49D0F523BE7D0E">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">ClientScript</string>
+				<ProtectedString name="Source"><![CDATA[--Rescripted by Luckymaxer
+
+Tool = script.Parent
+Handle = Tool:WaitForChild("Handle")
+
+Players = game:GetService("Players")
+
+Animations = {}
+
+ClientControl = Tool:WaitForChild("ClientControl")
+
+ClientControl.OnClientInvoke = (function(Mode, Value)
+	if Mode == "PlayAnimation" then
+		for i, v in pairs(Animations) do
+			if v.Animation == Value then
+				v.AnimationTrack:Stop()
+				table.remove(Animations, i)
+			end
+		end
+		local AnimationTrack = Humanoid:LoadAnimation(Value.Animation)
+		table.insert(Animations, {Animation = Value.Animation, AnimationTrack = AnimationTrack})
+		AnimationTrack:Play(nil, nil, Value.Speed)
+	end
+end)
+
+function Equipped(Mouse)
+	Character = Tool.Parent
+	Player = Players:GetPlayerFromCharacter(Character)
+	Humanoid = Character:FindFirstChild("Humanoid")
+	if not Player or not Humanoid or Humanoid.Health == 0 then
+		return
+	end
+end
+
+function Unequipped()
+	for i, v in pairs(Animations) do
+		if v and v.AnimationTrack then
+			v.AnimationTrack:Stop()
+		end
+	end
+	Animations = {}
+end
+
+Tool.Equipped:connect(Equipped)
+Tool.Unequipped:connect(Unequipped)]]></ProtectedString>
+			</Properties>
+		</Item>
+		<Item class="LocalScript" referent="RBX133425C429F04342B42E365D298AB541">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">MouseIcon</string>
+				<ProtectedString name="Source"><![CDATA[--Made by Luckymaxer
+
+Mouse_Icon = "rbxasset://textures/GunCursor.png"
+Reloading_Icon = "rbxasset://textures/GunWaitCursor.png"
+
+Tool = script.Parent
+
+Mouse = nil
+
+function UpdateIcon()
+	if Mouse then
+		Mouse.Icon = Tool.Enabled and Mouse_Icon or Reloading_Icon
+	end
+end
+
+function OnEquipped(ToolMouse)
+	Mouse = ToolMouse
+	UpdateIcon()
+end
+
+function OnChanged(Property)
+	if Property == "Enabled" then
+		UpdateIcon()
+	end
+end
+
+Tool.Equipped:connect(OnEquipped)
+Tool.Changed:connect(OnChanged)
+]]></ProtectedString>
+			</Properties>
+		</Item>
+		<Item class="Animation" referent="RBX667BD459D6A64E8EB7AD9F2B0F67AA73">
+			<Properties>
+				<Content name="AnimationId"><url>http://www.mulrbx.com/asset/?id=177443776</url></Content>
+				<string name="Name">Slash</string>
+			</Properties>
+		</Item>
+		<Item class="Camera" referent="RBX3D8D080FC5EB489799ED3CFD4FE0CEC3">
+			<Properties>
+				<Ref name="CameraSubject">null</Ref>
+				<token name="CameraType">0</token>
+				<CoordinateFrame name="CoordinateFrame">
+					<X>-0.088268891</X>
+					<Y>0.983884633</Y>
+					<Z>2.92017937</Z>
+					<R00>0.999986887</R00>
+					<R01>0.00123112369</R01>
+					<R02>-0.004974999</R02>
+					<R10>-0</R10>
+					<R11>0.970719397</R11>
+					<R12>0.240216255</R12>
+					<R20>0.00512506394</R20>
+					<R21>-0.240213111</R21>
+					<R22>0.970706642</R22>
+				</CoordinateFrame>
+				<float name="FieldOfView">70</float>
+				<CoordinateFrame name="Focus">
+					<X>-0.0731449723</X>
+					<Y>0.253630996</Y>
+					<Z>-0.0307536125</Z>
+					<R00>1</R00>
+					<R01>0</R01>
+					<R02>0</R02>
+					<R10>0</R10>
+					<R11>1</R11>
+					<R12>0</R12>
+					<R20>0</R20>
+					<R21>0</R21>
+					<R22>1</R22>
+				</CoordinateFrame>
+				<string name="Name">ThumbnailCamera</string>
+			</Properties>
+		</Item>
+	</Item>
+</roblox>

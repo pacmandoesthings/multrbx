@@ -1,0 +1,3740 @@
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mulrbx.com/roblox.xsd" version="4">
+	<Meta name="ExplicitAutoJoints">true</Meta>
+	<External>null</External>
+	<External>nil</External>
+	<Item class="Tool" referent="RBXA4F38C90BF36420D8CF534479889EAF5">
+		<Properties>
+			<bool name="CanBeDropped">true</bool>
+			<bool name="Enabled">true</bool>
+			<CoordinateFrame name="Grip">
+				<X>0</X>
+				<Y>0</Y>
+				<Z>1</Z>
+				<R00>1</R00>
+				<R01>0</R01>
+				<R02>0</R02>
+				<R10>0</R10>
+				<R11>1</R11>
+				<R12>0</R12>
+				<R20>0</R20>
+				<R21>0</R21>
+				<R22>1</R22>
+			</CoordinateFrame>
+			<bool name="ManualActivationOnly">false</bool>
+			<string name="Name">TicTacToe</string>
+			<bool name="RequiresHandle">true</bool>
+			<BinaryString name="Tags"></BinaryString>
+			<Content name="TextureId"><url>http://www.mulrbx.com/asset/?id=16923382</url></Content>
+			<string name="ToolTip">Xs and Os!</string>
+		</Properties>
+		<Item class="ObjectValue" referent="RBX0A7FFA0F827B4CE88944025D09819C99">
+			<Properties>
+				<string name="Name">Opponent</string>
+				<BinaryString name="Tags"></BinaryString>
+				<Ref name="Value">null</Ref>
+			</Properties>
+		</Item>
+		<Item class="LocalScript" referent="RBXEDABD53F0B844115AD02DFB91697EA08">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">TicTac_LocalMain</string>
+				<string name="ScriptGuid">{514E1AB6-DBA8-4FBE-A3EE-9F174570406D}</string>
+				<ProtectedString name="Source"><![CDATA[local clicks = 0
+local con = nil
+
+local ChooseOpponent = script.Parent:WaitForChild("ChooseOpponent")
+
+script.Parent.Equipped:Connect(function(mouse)
+	script.Name = "TicTac_LocalMain_Selected"
+	--when clicked look for an opponent
+	con = mouse.Button1Down:Connect(function()
+		--check for a humanoid
+		--OR hack for quick elimination of possible "no mouse.Target" condition
+		--print(mouse.Target)
+		local humanoid = mouse.Target and mouse.Target.Parent:FindFirstChildOfClass("Humanoid")
+		local torso = humanoid and (humanoid.Parent:FindFirstChild("Torso") or humanoid.Parent:FindFirstChild("UpperTorso"))
+		if torso and (torso.Position - script.Parent.Handle.Position).Magnitude < 16 then
+			if humanoid then
+				--check if the humanoid belongs to a player
+				local player = game.Players:GetPlayerFromCharacter(humanoid.Parent)
+				if player then
+					--replicate the opponent value to the server sided script
+					--script.Parent.Opponent.Value = player
+					ChooseOpponent:FireServer(player)
+					
+					--
+					clicks = clicks + 1
+					script.Name = tostring(clicks)
+				end
+			end
+		end
+	end)
+end)
+
+script.Parent.Unequipped:Connect(function()
+	if con then
+		con:Disconnect()
+		con = nil
+	end
+	script.Name = "TicTac_LocalMain_NotSelected"
+end)
+]]></ProtectedString>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+		<Item class="Part" referent="RBX2D08B29505964B3D849D6A3C37E0C396">
+			<Properties>
+				<bool name="Anchored">false</bool>
+				<float name="BackParamA">-0.5</float>
+				<float name="BackParamB">0.5</float>
+				<token name="BackSurface">0</token>
+				<token name="BackSurfaceInput">0</token>
+				<float name="BottomParamA">-0.5</float>
+				<float name="BottomParamB">0.5</float>
+				<token name="BottomSurface">0</token>
+				<token name="BottomSurfaceInput">0</token>
+				<CoordinateFrame name="CFrame">
+					<X>0</X>
+					<Y>7.2000041</Y>
+					<Z>8</Z>
+					<R00>0.99999994</R00>
+					<R01>0</R01>
+					<R02>0</R02>
+					<R10>0</R10>
+					<R11>1</R11>
+					<R12>-4.37113883e-08</R12>
+					<R20>0</R20>
+					<R21>4.37113883e-08</R21>
+					<R22>1</R22>
+				</CoordinateFrame>
+				<bool name="CanCollide">true</bool>
+				<bool name="CastShadow">true</bool>
+				<int name="CollisionGroupId">0</int>
+				<Color3uint8 name="Color3uint8">4288700213</Color3uint8>
+				<PhysicalProperties name="CustomPhysicalProperties">
+					<CustomPhysics>false</CustomPhysics>
+				</PhysicalProperties>
+				<float name="FrontParamA">-0.5</float>
+				<float name="FrontParamB">0.5</float>
+				<token name="FrontSurface">0</token>
+				<token name="FrontSurfaceInput">0</token>
+				<float name="LeftParamA">-0.5</float>
+				<float name="LeftParamB">0.5</float>
+				<token name="LeftSurface">0</token>
+				<token name="LeftSurfaceInput">0</token>
+				<bool name="Locked">true</bool>
+				<bool name="Massless">false</bool>
+				<token name="Material">512</token>
+				<string name="Name">Handle</string>
+				<float name="Reflectance">0</float>
+				<float name="RightParamA">-0.5</float>
+				<float name="RightParamB">0.5</float>
+				<token name="RightSurface">0</token>
+				<token name="RightSurfaceInput">0</token>
+				<int name="RootPriority">0</int>
+				<Vector3 name="RotVelocity">
+					<X>1</X>
+					<Y>1</Y>
+					<Z>1</Z>
+				</Vector3>
+				<BinaryString name="Tags"></BinaryString>
+				<float name="TopParamA">-0.5</float>
+				<float name="TopParamB">0.5</float>
+				<token name="TopSurface">0</token>
+				<token name="TopSurfaceInput">0</token>
+				<float name="Transparency">0</float>
+				<Vector3 name="Velocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<token name="formFactorRaw">2</token>
+				<token name="shape">1</token>
+				<Vector3 name="size">
+					<X>2</X>
+					<Y>0.400000006</Y>
+					<Z>2</Z>
+				</Vector3>
+			</Properties>
+			<Item class="Decal" referent="RBXE316A182180E40988B249E0FB3B38AB5">
+				<Properties>
+					<Color3 name="Color3">
+						<R>1</R>
+						<G>1</G>
+						<B>1</B>
+					</Color3>
+					<token name="Face">1</token>
+					<string name="Name">Decal</string>
+					<BinaryString name="Tags"></BinaryString>
+					<Content name="Texture"><url>http://www.mulrbx.com/asset/?id=16922886</url></Content>
+					<float name="Transparency">0</float>
+				</Properties>
+			</Item>
+			<Item class="Attachment" referent="RBX4BD1AF692B82479F9163CB1509C5705D">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>1.00000012</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<string name="Name">RightGripAttachment</string>
+					<BinaryString name="Tags"></BinaryString>
+					<bool name="Visible">false</bool>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="Script" referent="RBX092794FA04EF4F64928A855A10C7D84A">
+			<Properties>
+				<bool name="Disabled">true</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">TicTac_OpponentCleanup</string>
+				<string name="ScriptGuid">{849A3178-5C6C-4F2A-A8A3-B7E8D57AB512}</string>
+				<ProtectedString name="Source"><![CDATA[----------------------------------------------------------------------------
+-------- cleans up the opponent's stuff if the player leaves
+
+game.Players.PlayerRemoving:Connect(function(p)
+	if p == script.Challenger.Value then
+		script.Cleanup.Value:Destroy()
+		script:Destroy()
+	end
+end)
+		]]></ProtectedString>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+			<Item class="ObjectValue" referent="RBX694A8DF7881F460D9D434E0CFAE2F10F">
+				<Properties>
+					<string name="Name">Challenger</string>
+					<BinaryString name="Tags"></BinaryString>
+					<Ref name="Value">null</Ref>
+				</Properties>
+			</Item>
+			<Item class="ObjectValue" referent="RBX3D924D3993814B74A9D01B8700572F2A">
+				<Properties>
+					<string name="Name">Cleanup</string>
+					<BinaryString name="Tags"></BinaryString>
+					<Ref name="Value">null</Ref>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="Script" referent="RBX893EAB3C2FA343898C101847B65C5FE0">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">TicTac_ToolMain</string>
+				<string name="ScriptGuid">{398E4C5D-1859-49A4-9361-4357FC0952D0}</string>
+				<ProtectedString name="Source"><![CDATA[local gameState = 0 --[[
+0 = no game
+1 = waiting for opponent to accept or decline
+2 = game running
+3 = game over message pending
+]]
+
+local gameTurn = true --[[
+true = your turn
+false = opponents turn
+
+acts as a spinlock for the main loop
+]]
+
+local resourceGui = script.Parent.TicTacGui
+resourceGui.Parent = nil
+local opponentGui = nil
+local playerGui = nil --[[
+the guis for your and the opponent
+]]
+
+local opponentCleanupScript = nil --[[
+script to clean up the opponent's gui if I leave
+]]
+
+local gameBoard = {{},{},{}} --[[
+the gameboard, values := [0 = empty, 1 = player, 2 = opponent] 
+]]
+
+local player = nil
+local opponent = nil --[[
+me and the opponent, (and possibly other players / viewers in other games)
+]]
+
+local opponentChangedSignal = nil --[[
+signal must be connected when the tool is deselected, unlike mouse ones which expire automatically
+]]
+
+local RunService = (game:FindService("RunService") or game:GetService("RunService"))
+
+function hasWon(num)
+	---- debugging ----
+	print("--- Checking for win of", num, "---")
+	for x = 1, 3 do
+		local str = ""
+		for y = 1, 3 do	
+			str = str..gameBoard[x][y].."  "
+		end
+		print(str)
+	end
+	print("--------------------------------------")
+	-----------------------
+	--cols
+	for x = 1, 3 do
+		local col = true
+		for y = 1, 3 do
+			if gameBoard[x][y] ~= num then 
+				col = false
+				break
+			end
+		end
+		if col then return true end
+	end
+	--rows
+	for y = 1, 3 do
+		local row = true
+		for x = 1, 3 do
+			if gameBoard[x][y] ~= num then
+				row = false
+				break;
+			end
+		end
+		if row then return true end
+	end
+	--diagonal x = y
+	local diag = true
+	for i = 1, 3 do
+		if gameBoard[i][i] ~= num then
+			diag = false
+			break
+		end
+	end
+	if diag then return true end
+	--diagonal x = -y
+	diag = true
+	for i = 1, 3 do
+		if gameBoard[i][4-i] ~= num then
+			diag = false
+			break
+		end
+	end
+	if diag then return true end
+end
+
+function boardFull()
+	for x = 1, 3 do
+	for y = 1, 3 do
+		if gameBoard[x][y] == 0 then
+			return false
+		end
+	end
+	end
+	return true
+end
+
+function setupPlayerBoard()
+	for x = 1, 3 do
+	for y = 1, 3 do
+		local coordStr = x..y
+		playerGui.MainFrame.BoardFrame[coordStr].MouseButton1Down:Connect(function()
+			if gameTurn and gameBoard[x][y] == 0 then
+				gameBoard[x][y] = 1
+				playerGui.MainFrame.BoardFrame[coordStr].Image = "http://www.mulrbx.com/asset/?id=16417305"
+				opponentGui.MainFrame.BoardFrame[coordStr].Image = "http://www.mulrbx.com/asset/?id=16417305"
+			end
+			gameTurn = false
+		end)
+	end
+	end
+end
+
+function setupOpponentBoard()
+	for x = 1, 3 do
+	for y = 1, 3 do
+		local coordStr = x..y
+		opponentGui.MainFrame.BoardFrame[coordStr].MouseButton1Down:Connect(function()
+			if not gameTurn and gameBoard[x][y] == 0 then
+				gameBoard[x][y] = 2
+				playerGui.MainFrame.BoardFrame[coordStr].Image = "http://www.mulrbx.com/asset/?id=16417300"
+				opponentGui.MainFrame.BoardFrame[coordStr].Image = "http://www.mulrbx.com/asset/?id=16417300"
+			end
+			gameTurn = true
+		end)
+	end
+	end
+end
+
+function createPlayerGui()
+	--remove the old gui
+	if playerGui then
+		playerGui:Destroy()
+	end
+	--set up the player's GUI
+	playerGui = resourceGui:Clone()
+	playerGui.Parent = player.PlayerGui
+	playerGui.SideFrame.Visible = true
+	setupPlayerBoard()
+	--make the popupframe hide on ok pressed
+	playerGui.PopupFrame.Accept.MouseButton1Down:Connect(function()
+		--hack, this must be the gameover message if gameState is 3, reset game state
+		if gameState == 3 then
+			playerGui.MainFrame.Visible = false
+			playerGui.SideFrame.TXT1.Text = "Click on a player to"
+			playerGui.SideFrame.TXT2.Text = "challenge them"
+			playerGui.SideFrame.Visible = true
+			spawn(function()
+				for i = -128, 0, 4 do
+					playerGui.SideFrame.Position = UDim2.new(0, i, 0.5, -16)
+					RunService.Heartbeat:Wait()
+					--wait()
+				end	
+			end)			
+			gameState = 0
+		end
+		--hide me
+		playerGui.PopupFrame.Visible = false
+	end)
+end
+
+function playGame()
+	--== create a new board for the player (reusing old one causes some rendering bugs with the x and o images)
+	createPlayerGui()
+	--==set up the opponent's gui connections (the player's are setup on tool selection)
+	setupOpponentBoard()
+	--==hide the player's sideframe
+	spawn(function()
+		for i = 0, -128, -4 do
+			playerGui.SideFrame.Position = UDim2.new(0, i, 0.5, -16)
+			wait()
+		end	
+	end)
+	--==set turn and gamestate
+	local gameRunning = true
+	gameTurn = true
+	gameState = 2
+	--reset the board, and the player's board gui
+	for x = 1, 3 do
+	for y = 1, 3 do
+		gameBoard[x][y] = 0
+		playerGui.MainFrame.BoardFrame[x..y].Image = ""
+	end
+	end
+	--==connection for if the opponent leaves
+	local opponentLeftSignal = game.Players.ChildRemoved:Connect(function(p)
+		if p == opponent then
+			gameState = 3
+			playerGui.MainFrame.Visible = false
+			playerGui.PopupFrame.TXT.Text = "Opponent has left"
+			playerGui.PopupFrame.Visible = true
+		end
+	end)
+	--==connection to put back the gui if the opponent dies
+	local opponentDiedSignal = opponent.Changed:Connect(function(property)
+		if property == "Character" then
+			opponentGui.Parent = opponent.PlayerGui
+		end
+	end)
+	--==player died, panic and trash the game
+	local playerDiedSignal = player.Character.Humanoid.Died:Connect(function()
+		--clean up connections to opponent
+		opponentLeftSignal:Disconnect()
+		opponentDiedSignal:Disconnect()
+		--clean up opponentcleanup
+		opponentCleanupScript:Disconnect()
+		--clean up guis
+		opponentGui:Disconnect()
+		opponentGui = nil
+		--player's is going to get cleaned up right anyways, TODO : maybe show a popup message
+		--playerGui:Destroy()
+		--playerGui = nil
+	end)
+	--=="quit" button pressed connections
+	local playerQuitSignal = playerGui.MainFrame.InfoFrame.BN_Quit.MouseButton1Down:Connect(function()
+		playerGui.MainFrame.Visible = false
+		playerGui.PopupFrame.TXT.Text = "You have quit the game"
+		playerGui.PopupFrame.Visible = true
+		--
+		opponentGui.MainFrame.Visible = false
+		opponentGui.PopupFrame.TXT.Text = player.Name.." has quit, you win!"
+		opponentGui.PopupFrame.Visible = true		
+		--
+		gameRunning = false
+		gameTurn = not gameTurn
+	end)
+	local opponentQuitSignal = opponentGui.MainFrame.InfoFrame.BN_Quit.MouseButton1Down:Connect(function()
+		playerGui.MainFrame.Visible = false
+		playerGui.PopupFrame.TXT.Text = opponent.Name.." has quit, you win!"
+		playerGui.PopupFrame.Visible = true
+		--
+		opponentGui:Destroy()
+		opponentGui = nil
+		--
+		gameRunning = false
+		gameTurn = not gameTurn
+	end)
+	--
+	local piframe = playerGui.MainFrame.InfoFrame
+	playerGui.MainFrame.Visible = true
+	piframe.Opponent.TXT.Text = opponent.Name
+	piframe.Turn.TXT.Text = "Your turn"
+	piframe.PlayAs.IMG.Image = "http://www.mulrbx.com/asset/?id=16417305"
+	local oiframe = opponentGui.MainFrame.InfoFrame
+	opponentGui.MainFrame.Visible = true
+	oiframe.Opponent.TXT.Text = player.Name
+	oiframe.Turn.TXT.Text = "Opponent's turn"
+	oiframe.PlayAs.IMG.Image = "http://www.mulrbx.com/asset/?id=16417300"
+	--==enter the main gameloop
+	while gameRunning do
+		--wait for the spinlock, for a player to make a move
+		local tmp = gameTurn
+		while gameTurn == tmp do
+			wait()
+		end
+		if not gameRunning then
+			break
+		end
+		--change turn displays
+		if gameTurn then
+			piframe.Turn.TXT.Text = "Your turn"
+			oiframe.Turn.TXT.Text = "Opponent's turn"
+		else
+			piframe.Turn.TXT.Text = "Opponent's turn"
+			oiframe.Turn.TXT.Text = "Your turn"
+		end
+		--check for a win
+		if hasWon(1) then
+			playerGui.MainFrame.Visible = false
+			playerGui.PopupFrame.TXT.Text = "You have won!"
+			playerGui.PopupFrame.Visible = true
+			--
+			opponentGui.MainFrame.Visible = false
+			opponentGui.PopupFrame.TXT.Text = "You have lost =("
+			opponentGui.PopupFrame.Visible = true
+			--
+			break
+		elseif hasWon(2) then
+			playerGui.MainFrame.Visible = false
+			playerGui.PopupFrame.TXT.Text = "You have lost =("
+			playerGui.PopupFrame.Visible = true
+			--
+			opponentGui.MainFrame.Visible = false
+			opponentGui.PopupFrame.TXT.Text = "You have won!"
+			opponentGui.PopupFrame.Visible = true	
+			--
+			break
+		elseif boardFull() then
+			playerGui.MainFrame.Visible = false
+			playerGui.PopupFrame.TXT.Text = "It's a tie!"
+			playerGui.PopupFrame.Visible = true
+			--
+			opponentGui.MainFrame.Visible = false
+			opponentGui.PopupFrame.TXT.Text = "It's a tie!"
+			opponentGui.PopupFrame.Visible = true	
+			--
+			break			
+		end
+	end
+	--==disconnect the signals made
+	opponentDiedSignal:Disconnect()
+	opponentLeftSignal:Disconnect()
+	playerQuitSignal:Disconnect()
+	opponentQuitSignal:Disconnect()
+	--==set the gamestate to gameover message pending
+	gameState = 3
+end
+
+script.Parent.Equipped:Connect(function()
+	print("TicTacTool Equipped")
+	gameState = 0
+	gameTurn = true
+	player = game.Players:GetPlayerFromCharacter(script.Parent.Parent)
+	--listen for a player clicked notification sent from the localscript
+	opponentChangedSignal = script.Parent.Opponent.Changed:Connect(function()
+		--was set to nil, ignore change
+		if not script.Parent.Opponent.Value then 
+			print("Opponent value set back to nil") 
+			return 
+		end
+		print("Clicked an opponent")
+		--if there's no game, challenge this player
+		if gameState == 0 then
+			print("Starting game")
+			--if they're allready playing tictactoe then return
+			if script.Parent.Opponent.Value.PlayerGui:FindFirstChild("TicTacGui") then 
+				print("Opponent is already playing a game")
+				if script.Parent.Opponent.Value.Character:FindFirstChild(script.Parent.Name) then
+					playerGui.PopupFrame.TXT.Text = "Can't play a player with TicTacToe equipped"
+					playerGui.PopupFrame.Visible = true
+				else
+					playerGui.PopupFrame.TXT.Text = "Player is already playing a game"
+					playerGui.PopupFrame.Visible = true
+				end
+				wait(0.1)
+				script.Parent.Opponent.Value = nil
+				return 
+			end
+			--set the gamestate
+			gameState = 1
+			opponent = script.Parent.Opponent.Value
+			wait(0.1)
+			script.Parent.Opponent.Value = nil
+			--set up the opponent's GUI
+			opponentGui = resourceGui:Clone()
+			opponentGui.SideFrame.Visible = false
+			opponentGui.AcceptFrame.Visible = true
+			opponentGui.AcceptFrame.TXT.Text = player.Name.." wants to play TicTacToe with you!"
+			--==set up the opponent's cleanup if this player leaves
+			opponentCleanupScript = script.Parent.TicTac_OpponentCleanup:Clone()
+			opponentCleanupScript.Challenger.Value = player
+			opponentCleanupScript.Cleanup.Value = opponentGui
+			opponentCleanupScript.Disabled = false
+			--should I put it straight in workspace or is that considered namespace pollution? that will work for now at least
+			opponentCleanupScript.Parent = game.Workspace
+			--on accept
+			opponentGui.AcceptFrame.Accept.MouseButton1Down:Connect(function()
+				warn("Accepted!!!")
+				opponentGui.AcceptFrame.Visible = false
+				playGame()
+			end)
+			--on decline
+			opponentGui.AcceptFrame.Decline.MouseButton1Down:Connect(function()
+				--reset player's sideframes' text
+				playerGui.SideFrame.TXT1.Text = "Click on a player to"
+				playerGui.SideFrame.TXT2.Text = "challenge them"
+				--show me a popup stating player declined
+				playerGui.PopupFrame.TXT.Text = "Opponent Declined =("
+				playerGui.PopupFrame.Visible = true	
+				--reset the game state
+				gameState = 0
+				--remove opponent gui
+				opponentGui:Destroy()
+				opponentGui = nil
+				--remove opponent cleanup script
+				opponentCleanupScript:Destroy()
+				opponentCleanupScript = nil
+			end)
+			--hide popup on OK pressed
+			opponentGui.PopupFrame.Accept.MouseButton1Down:Connect(function()
+				--only called on game waiting for over, delete this gui and "this player left" script if it exists
+				if opponentCleanupScript then
+					opponentCleanupScript:Destroy()
+					opponentCleanupScript = nil
+				end
+				opponentGui:Destroy()
+				opponentGui = nil
+			end)
+			--gui set up, add it
+			opponentGui.Parent = opponent.PlayerGui
+			--set the player's GUI
+			playerGui.SideFrame.TXT1.Text = "Sending Challenge"
+			playerGui.SideFrame.TXT2.Text = "Please wait..."
+		else
+			print("Game already started")
+			wait(0.1)
+			script.Parent.Opponent.Value = nil
+		end
+	end)
+	--create the player's gui
+	createPlayerGui()
+	--pretty effects, scroll out the side frame
+	for i = -128, 0, 4 do
+		playerGui.SideFrame.Position = UDim2.new(0, i, 0.5, -16)
+		wait()
+	end
+	print("TicTacTool finished setup")
+end)
+
+function doCleanUp()
+	--clean up the guis if they exist
+	if opponentGui then
+		opponentGui:Destroy()
+		opponentGui = nil
+	end
+	if playerGui then
+		playerGui:Destroy()
+		playerGui = nil
+	end	
+	--remove the connection to opponentchanged
+	opponentChangedSignal:Disconnect()
+end
+
+script.Parent.Unequipped:Connect(function()
+	print("Tool unequipped, clean up...")
+	doCleanUp()
+	--TODO: send some friendly notification to a possible
+	--opponent that the player exited the map or deselected
+	--the tool. As the player will have exited a separate
+	--script is required for this
+end)
+
+
+
+
+
+
+]]></ProtectedString>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+		<Item class="GuiMain" referent="RBXA459D59A3358449E802810D2E85ADE5C">
+			<Properties>
+				<bool name="AutoLocalize">true</bool>
+				<int name="DisplayOrder">0</int>
+				<bool name="Enabled">true</bool>
+				<bool name="IgnoreGuiInset">false</bool>
+				<string name="Name">TicTacGui</string>
+				<bool name="ResetOnSpawn">true</bool>
+				<Ref name="RootLocalizationTable">null</Ref>
+				<BinaryString name="Tags"></BinaryString>
+				<token name="ZIndexBehavior">0</token>
+			</Properties>
+			<Item class="Frame" referent="RBX0D9ADA3F6F8448CD9675DF1B9576A44D">
+				<Properties>
+					<bool name="Active">false</bool>
+					<Vector2 name="AnchorPoint">
+						<X>0</X>
+						<Y>0</Y>
+					</Vector2>
+					<bool name="AutoLocalize">true</bool>
+					<Color3 name="BackgroundColor3">
+						<R>0.870588303</R>
+						<G>0.800000072</G>
+						<B>0.631372571</B>
+					</Color3>
+					<float name="BackgroundTransparency">0.5</float>
+					<Color3 name="BorderColor3">
+						<R>0.0666666701</R>
+						<G>0.0666666701</G>
+						<B>0.0666666701</B>
+					</Color3>
+					<token name="BorderMode">0</token>
+					<int name="BorderSizePixel">1</int>
+					<bool name="ClipsDescendants">false</bool>
+					<bool name="Draggable">false</bool>
+					<int name="LayoutOrder">0</int>
+					<string name="Name">MainFrame</string>
+					<Ref name="NextSelectionDown">null</Ref>
+					<Ref name="NextSelectionLeft">null</Ref>
+					<Ref name="NextSelectionRight">null</Ref>
+					<Ref name="NextSelectionUp">null</Ref>
+					<UDim2 name="Position">
+						<XS>0.5</XS>
+						<XO>-207</XO>
+						<YS>0.5</YS>
+						<YO>-167</YO>
+					</UDim2>
+					<Ref name="RootLocalizationTable">null</Ref>
+					<float name="Rotation">0</float>
+					<bool name="Selectable">false</bool>
+					<Ref name="SelectionImageObject">null</Ref>
+					<UDim2 name="Size">
+						<XS>0</XS>
+						<XO>414</XO>
+						<YS>0</YS>
+						<YO>336</YO>
+					</UDim2>
+					<token name="SizeConstraint">0</token>
+					<token name="Style">0</token>
+					<BinaryString name="Tags"></BinaryString>
+					<bool name="Visible">false</bool>
+					<int name="ZIndex">1</int>
+				</Properties>
+				<Item class="Frame" referent="RBXB6C6184BEA764D8AB0EC167CFF5AFE01">
+					<Properties>
+						<bool name="Active">false</bool>
+						<Vector2 name="AnchorPoint">
+							<X>0</X>
+							<Y>0</Y>
+						</Vector2>
+						<bool name="AutoLocalize">true</bool>
+						<Color3 name="BackgroundColor3">
+							<R>0.0666666701</R>
+							<G>0.0666666701</G>
+							<B>0.0666666701</B>
+						</Color3>
+						<float name="BackgroundTransparency">0.699999988</float>
+						<Color3 name="BorderColor3">
+							<R>0.0666666701</R>
+							<G>0.0666666701</G>
+							<B>0.0666666701</B>
+						</Color3>
+						<token name="BorderMode">0</token>
+						<int name="BorderSizePixel">1</int>
+						<bool name="ClipsDescendants">false</bool>
+						<bool name="Draggable">false</bool>
+						<int name="LayoutOrder">0</int>
+						<string name="Name">BoardFrame</string>
+						<Ref name="NextSelectionDown">null</Ref>
+						<Ref name="NextSelectionLeft">null</Ref>
+						<Ref name="NextSelectionRight">null</Ref>
+						<Ref name="NextSelectionUp">null</Ref>
+						<UDim2 name="Position">
+							<XS>0</XS>
+							<XO>2</XO>
+							<YS>0</YS>
+							<YO>26</YO>
+						</UDim2>
+						<Ref name="RootLocalizationTable">null</Ref>
+						<float name="Rotation">0</float>
+						<bool name="Selectable">false</bool>
+						<Ref name="SelectionImageObject">null</Ref>
+						<UDim2 name="Size">
+							<XS>0</XS>
+							<XO>308</XO>
+							<YS>0</YS>
+							<YO>308</YO>
+						</UDim2>
+						<token name="SizeConstraint">0</token>
+						<token name="Style">0</token>
+						<BinaryString name="Tags"></BinaryString>
+						<bool name="Visible">true</bool>
+						<int name="ZIndex">1</int>
+					</Properties>
+					<Item class="ImageButton" referent="RBX3DEA592671A845C59F87947F708854F7">
+						<Properties>
+							<bool name="Active">true</bool>
+							<Vector2 name="AnchorPoint">
+								<X>0</X>
+								<Y>0</Y>
+							</Vector2>
+							<bool name="AutoButtonColor">true</bool>
+							<bool name="AutoLocalize">true</bool>
+							<Color3 name="BackgroundColor3">
+								<R>1</R>
+								<G>0.82745105</G>
+								<B>0.627451003</B>
+							</Color3>
+							<float name="BackgroundTransparency">0.699999988</float>
+							<Color3 name="BorderColor3">
+								<R>0.0666666701</R>
+								<G>0.0666666701</G>
+								<B>0.0666666701</B>
+							</Color3>
+							<token name="BorderMode">0</token>
+							<int name="BorderSizePixel">1</int>
+							<bool name="ClipsDescendants">false</bool>
+							<bool name="Draggable">false</bool>
+							<Content name="HoverImage"><null></null></Content>
+							<Content name="Image"><null></null></Content>
+							<Color3 name="ImageColor3">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
+							<Vector2 name="ImageRectOffset">
+								<X>0</X>
+								<Y>0</Y>
+							</Vector2>
+							<Vector2 name="ImageRectSize">
+								<X>0</X>
+								<Y>0</Y>
+							</Vector2>
+							<float name="ImageTransparency">0</float>
+							<int name="LayoutOrder">0</int>
+							<bool name="Modal">false</bool>
+							<string name="Name">11</string>
+							<Ref name="NextSelectionDown">null</Ref>
+							<Ref name="NextSelectionLeft">null</Ref>
+							<Ref name="NextSelectionRight">null</Ref>
+							<Ref name="NextSelectionUp">null</Ref>
+							<UDim2 name="Position">
+								<XS>0</XS>
+								<XO>2</XO>
+								<YS>0</YS>
+								<YO>2</YO>
+							</UDim2>
+							<Content name="PressedImage"><null></null></Content>
+							<Ref name="RootLocalizationTable">null</Ref>
+							<float name="Rotation">0</float>
+							<token name="ScaleType">0</token>
+							<bool name="Selectable">true</bool>
+							<bool name="Selected">false</bool>
+							<Ref name="SelectionImageObject">null</Ref>
+							<UDim2 name="Size">
+								<XS>0</XS>
+								<XO>100</XO>
+								<YS>0</YS>
+								<YO>100</YO>
+							</UDim2>
+							<token name="SizeConstraint">0</token>
+							<Rect2D name="SliceCenter">
+								<min>
+									<X>0</X>
+									<Y>0</Y>
+								</min>
+								<max>
+									<X>0</X>
+									<Y>0</Y>
+								</max>
+							</Rect2D>
+							<float name="SliceScale">1</float>
+							<token name="Style">0</token>
+							<BinaryString name="Tags"></BinaryString>
+							<UDim2 name="TileSize">
+								<XS>1</XS>
+								<XO>0</XO>
+								<YS>1</YS>
+								<YO>0</YO>
+							</UDim2>
+							<bool name="Visible">true</bool>
+							<int name="ZIndex">1</int>
+						</Properties>
+					</Item>
+					<Item class="ImageButton" referent="RBX1A0F0B21309849CC89C8266E486FCADA">
+						<Properties>
+							<bool name="Active">true</bool>
+							<Vector2 name="AnchorPoint">
+								<X>0</X>
+								<Y>0</Y>
+							</Vector2>
+							<bool name="AutoButtonColor">true</bool>
+							<bool name="AutoLocalize">true</bool>
+							<Color3 name="BackgroundColor3">
+								<R>1</R>
+								<G>0.82745105</G>
+								<B>0.627451003</B>
+							</Color3>
+							<float name="BackgroundTransparency">0.699999988</float>
+							<Color3 name="BorderColor3">
+								<R>0.0666666701</R>
+								<G>0.0666666701</G>
+								<B>0.0666666701</B>
+							</Color3>
+							<token name="BorderMode">0</token>
+							<int name="BorderSizePixel">1</int>
+							<bool name="ClipsDescendants">false</bool>
+							<bool name="Draggable">false</bool>
+							<Content name="HoverImage"><null></null></Content>
+							<Content name="Image"><null></null></Content>
+							<Color3 name="ImageColor3">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
+							<Vector2 name="ImageRectOffset">
+								<X>0</X>
+								<Y>0</Y>
+							</Vector2>
+							<Vector2 name="ImageRectSize">
+								<X>0</X>
+								<Y>0</Y>
+							</Vector2>
+							<float name="ImageTransparency">0</float>
+							<int name="LayoutOrder">0</int>
+							<bool name="Modal">false</bool>
+							<string name="Name">12</string>
+							<Ref name="NextSelectionDown">null</Ref>
+							<Ref name="NextSelectionLeft">null</Ref>
+							<Ref name="NextSelectionRight">null</Ref>
+							<Ref name="NextSelectionUp">null</Ref>
+							<UDim2 name="Position">
+								<XS>0</XS>
+								<XO>104</XO>
+								<YS>0</YS>
+								<YO>2</YO>
+							</UDim2>
+							<Content name="PressedImage"><null></null></Content>
+							<Ref name="RootLocalizationTable">null</Ref>
+							<float name="Rotation">0</float>
+							<token name="ScaleType">0</token>
+							<bool name="Selectable">true</bool>
+							<bool name="Selected">false</bool>
+							<Ref name="SelectionImageObject">null</Ref>
+							<UDim2 name="Size">
+								<XS>0</XS>
+								<XO>100</XO>
+								<YS>0</YS>
+								<YO>100</YO>
+							</UDim2>
+							<token name="SizeConstraint">0</token>
+							<Rect2D name="SliceCenter">
+								<min>
+									<X>0</X>
+									<Y>0</Y>
+								</min>
+								<max>
+									<X>0</X>
+									<Y>0</Y>
+								</max>
+							</Rect2D>
+							<float name="SliceScale">1</float>
+							<token name="Style">0</token>
+							<BinaryString name="Tags"></BinaryString>
+							<UDim2 name="TileSize">
+								<XS>1</XS>
+								<XO>0</XO>
+								<YS>1</YS>
+								<YO>0</YO>
+							</UDim2>
+							<bool name="Visible">true</bool>
+							<int name="ZIndex">1</int>
+						</Properties>
+					</Item>
+					<Item class="ImageButton" referent="RBXF0135FDF5F68499484E3601F4A08A22A">
+						<Properties>
+							<bool name="Active">true</bool>
+							<Vector2 name="AnchorPoint">
+								<X>0</X>
+								<Y>0</Y>
+							</Vector2>
+							<bool name="AutoButtonColor">true</bool>
+							<bool name="AutoLocalize">true</bool>
+							<Color3 name="BackgroundColor3">
+								<R>1</R>
+								<G>0.82745105</G>
+								<B>0.627451003</B>
+							</Color3>
+							<float name="BackgroundTransparency">0.699999988</float>
+							<Color3 name="BorderColor3">
+								<R>0.0666666701</R>
+								<G>0.0666666701</G>
+								<B>0.0666666701</B>
+							</Color3>
+							<token name="BorderMode">0</token>
+							<int name="BorderSizePixel">1</int>
+							<bool name="ClipsDescendants">false</bool>
+							<bool name="Draggable">false</bool>
+							<Content name="HoverImage"><null></null></Content>
+							<Content name="Image"><null></null></Content>
+							<Color3 name="ImageColor3">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
+							<Vector2 name="ImageRectOffset">
+								<X>0</X>
+								<Y>0</Y>
+							</Vector2>
+							<Vector2 name="ImageRectSize">
+								<X>0</X>
+								<Y>0</Y>
+							</Vector2>
+							<float name="ImageTransparency">0</float>
+							<int name="LayoutOrder">0</int>
+							<bool name="Modal">false</bool>
+							<string name="Name">13</string>
+							<Ref name="NextSelectionDown">null</Ref>
+							<Ref name="NextSelectionLeft">null</Ref>
+							<Ref name="NextSelectionRight">null</Ref>
+							<Ref name="NextSelectionUp">null</Ref>
+							<UDim2 name="Position">
+								<XS>0</XS>
+								<XO>206</XO>
+								<YS>0</YS>
+								<YO>2</YO>
+							</UDim2>
+							<Content name="PressedImage"><null></null></Content>
+							<Ref name="RootLocalizationTable">null</Ref>
+							<float name="Rotation">0</float>
+							<token name="ScaleType">0</token>
+							<bool name="Selectable">true</bool>
+							<bool name="Selected">false</bool>
+							<Ref name="SelectionImageObject">null</Ref>
+							<UDim2 name="Size">
+								<XS>0</XS>
+								<XO>100</XO>
+								<YS>0</YS>
+								<YO>100</YO>
+							</UDim2>
+							<token name="SizeConstraint">0</token>
+							<Rect2D name="SliceCenter">
+								<min>
+									<X>0</X>
+									<Y>0</Y>
+								</min>
+								<max>
+									<X>0</X>
+									<Y>0</Y>
+								</max>
+							</Rect2D>
+							<float name="SliceScale">1</float>
+							<token name="Style">0</token>
+							<BinaryString name="Tags"></BinaryString>
+							<UDim2 name="TileSize">
+								<XS>1</XS>
+								<XO>0</XO>
+								<YS>1</YS>
+								<YO>0</YO>
+							</UDim2>
+							<bool name="Visible">true</bool>
+							<int name="ZIndex">1</int>
+						</Properties>
+					</Item>
+					<Item class="ImageButton" referent="RBX4CC96D2B2B234DBEA470B6D95E1579DE">
+						<Properties>
+							<bool name="Active">true</bool>
+							<Vector2 name="AnchorPoint">
+								<X>0</X>
+								<Y>0</Y>
+							</Vector2>
+							<bool name="AutoButtonColor">true</bool>
+							<bool name="AutoLocalize">true</bool>
+							<Color3 name="BackgroundColor3">
+								<R>1</R>
+								<G>0.82745105</G>
+								<B>0.627451003</B>
+							</Color3>
+							<float name="BackgroundTransparency">0.699999988</float>
+							<Color3 name="BorderColor3">
+								<R>0.0666666701</R>
+								<G>0.0666666701</G>
+								<B>0.0666666701</B>
+							</Color3>
+							<token name="BorderMode">0</token>
+							<int name="BorderSizePixel">1</int>
+							<bool name="ClipsDescendants">false</bool>
+							<bool name="Draggable">false</bool>
+							<Content name="HoverImage"><null></null></Content>
+							<Content name="Image"><null></null></Content>
+							<Color3 name="ImageColor3">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
+							<Vector2 name="ImageRectOffset">
+								<X>0</X>
+								<Y>0</Y>
+							</Vector2>
+							<Vector2 name="ImageRectSize">
+								<X>0</X>
+								<Y>0</Y>
+							</Vector2>
+							<float name="ImageTransparency">0</float>
+							<int name="LayoutOrder">0</int>
+							<bool name="Modal">false</bool>
+							<string name="Name">21</string>
+							<Ref name="NextSelectionDown">null</Ref>
+							<Ref name="NextSelectionLeft">null</Ref>
+							<Ref name="NextSelectionRight">null</Ref>
+							<Ref name="NextSelectionUp">null</Ref>
+							<UDim2 name="Position">
+								<XS>0</XS>
+								<XO>2</XO>
+								<YS>0</YS>
+								<YO>104</YO>
+							</UDim2>
+							<Content name="PressedImage"><null></null></Content>
+							<Ref name="RootLocalizationTable">null</Ref>
+							<float name="Rotation">0</float>
+							<token name="ScaleType">0</token>
+							<bool name="Selectable">true</bool>
+							<bool name="Selected">false</bool>
+							<Ref name="SelectionImageObject">null</Ref>
+							<UDim2 name="Size">
+								<XS>0</XS>
+								<XO>100</XO>
+								<YS>0</YS>
+								<YO>100</YO>
+							</UDim2>
+							<token name="SizeConstraint">0</token>
+							<Rect2D name="SliceCenter">
+								<min>
+									<X>0</X>
+									<Y>0</Y>
+								</min>
+								<max>
+									<X>0</X>
+									<Y>0</Y>
+								</max>
+							</Rect2D>
+							<float name="SliceScale">1</float>
+							<token name="Style">0</token>
+							<BinaryString name="Tags"></BinaryString>
+							<UDim2 name="TileSize">
+								<XS>1</XS>
+								<XO>0</XO>
+								<YS>1</YS>
+								<YO>0</YO>
+							</UDim2>
+							<bool name="Visible">true</bool>
+							<int name="ZIndex">1</int>
+						</Properties>
+					</Item>
+					<Item class="ImageButton" referent="RBX124BCE4F94F844A8A038CD563ED4C2B1">
+						<Properties>
+							<bool name="Active">true</bool>
+							<Vector2 name="AnchorPoint">
+								<X>0</X>
+								<Y>0</Y>
+							</Vector2>
+							<bool name="AutoButtonColor">true</bool>
+							<bool name="AutoLocalize">true</bool>
+							<Color3 name="BackgroundColor3">
+								<R>1</R>
+								<G>0.82745105</G>
+								<B>0.627451003</B>
+							</Color3>
+							<float name="BackgroundTransparency">0.699999988</float>
+							<Color3 name="BorderColor3">
+								<R>0.0666666701</R>
+								<G>0.0666666701</G>
+								<B>0.0666666701</B>
+							</Color3>
+							<token name="BorderMode">0</token>
+							<int name="BorderSizePixel">1</int>
+							<bool name="ClipsDescendants">false</bool>
+							<bool name="Draggable">false</bool>
+							<Content name="HoverImage"><null></null></Content>
+							<Content name="Image"><null></null></Content>
+							<Color3 name="ImageColor3">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
+							<Vector2 name="ImageRectOffset">
+								<X>0</X>
+								<Y>0</Y>
+							</Vector2>
+							<Vector2 name="ImageRectSize">
+								<X>0</X>
+								<Y>0</Y>
+							</Vector2>
+							<float name="ImageTransparency">0</float>
+							<int name="LayoutOrder">0</int>
+							<bool name="Modal">false</bool>
+							<string name="Name">23</string>
+							<Ref name="NextSelectionDown">null</Ref>
+							<Ref name="NextSelectionLeft">null</Ref>
+							<Ref name="NextSelectionRight">null</Ref>
+							<Ref name="NextSelectionUp">null</Ref>
+							<UDim2 name="Position">
+								<XS>0</XS>
+								<XO>206</XO>
+								<YS>0</YS>
+								<YO>104</YO>
+							</UDim2>
+							<Content name="PressedImage"><null></null></Content>
+							<Ref name="RootLocalizationTable">null</Ref>
+							<float name="Rotation">0</float>
+							<token name="ScaleType">0</token>
+							<bool name="Selectable">true</bool>
+							<bool name="Selected">false</bool>
+							<Ref name="SelectionImageObject">null</Ref>
+							<UDim2 name="Size">
+								<XS>0</XS>
+								<XO>100</XO>
+								<YS>0</YS>
+								<YO>100</YO>
+							</UDim2>
+							<token name="SizeConstraint">0</token>
+							<Rect2D name="SliceCenter">
+								<min>
+									<X>0</X>
+									<Y>0</Y>
+								</min>
+								<max>
+									<X>0</X>
+									<Y>0</Y>
+								</max>
+							</Rect2D>
+							<float name="SliceScale">1</float>
+							<token name="Style">0</token>
+							<BinaryString name="Tags"></BinaryString>
+							<UDim2 name="TileSize">
+								<XS>1</XS>
+								<XO>0</XO>
+								<YS>1</YS>
+								<YO>0</YO>
+							</UDim2>
+							<bool name="Visible">true</bool>
+							<int name="ZIndex">1</int>
+						</Properties>
+					</Item>
+					<Item class="ImageButton" referent="RBX6E619646A1AE405C9546608AA18C09AA">
+						<Properties>
+							<bool name="Active">true</bool>
+							<Vector2 name="AnchorPoint">
+								<X>0</X>
+								<Y>0</Y>
+							</Vector2>
+							<bool name="AutoButtonColor">true</bool>
+							<bool name="AutoLocalize">true</bool>
+							<Color3 name="BackgroundColor3">
+								<R>1</R>
+								<G>0.82745105</G>
+								<B>0.627451003</B>
+							</Color3>
+							<float name="BackgroundTransparency">0.699999988</float>
+							<Color3 name="BorderColor3">
+								<R>0.0666666701</R>
+								<G>0.0666666701</G>
+								<B>0.0666666701</B>
+							</Color3>
+							<token name="BorderMode">0</token>
+							<int name="BorderSizePixel">1</int>
+							<bool name="ClipsDescendants">false</bool>
+							<bool name="Draggable">false</bool>
+							<Content name="HoverImage"><null></null></Content>
+							<Content name="Image"><null></null></Content>
+							<Color3 name="ImageColor3">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
+							<Vector2 name="ImageRectOffset">
+								<X>0</X>
+								<Y>0</Y>
+							</Vector2>
+							<Vector2 name="ImageRectSize">
+								<X>0</X>
+								<Y>0</Y>
+							</Vector2>
+							<float name="ImageTransparency">0</float>
+							<int name="LayoutOrder">0</int>
+							<bool name="Modal">false</bool>
+							<string name="Name">22</string>
+							<Ref name="NextSelectionDown">null</Ref>
+							<Ref name="NextSelectionLeft">null</Ref>
+							<Ref name="NextSelectionRight">null</Ref>
+							<Ref name="NextSelectionUp">null</Ref>
+							<UDim2 name="Position">
+								<XS>0</XS>
+								<XO>104</XO>
+								<YS>0</YS>
+								<YO>104</YO>
+							</UDim2>
+							<Content name="PressedImage"><null></null></Content>
+							<Ref name="RootLocalizationTable">null</Ref>
+							<float name="Rotation">0</float>
+							<token name="ScaleType">0</token>
+							<bool name="Selectable">true</bool>
+							<bool name="Selected">false</bool>
+							<Ref name="SelectionImageObject">null</Ref>
+							<UDim2 name="Size">
+								<XS>0</XS>
+								<XO>100</XO>
+								<YS>0</YS>
+								<YO>100</YO>
+							</UDim2>
+							<token name="SizeConstraint">0</token>
+							<Rect2D name="SliceCenter">
+								<min>
+									<X>0</X>
+									<Y>0</Y>
+								</min>
+								<max>
+									<X>0</X>
+									<Y>0</Y>
+								</max>
+							</Rect2D>
+							<float name="SliceScale">1</float>
+							<token name="Style">0</token>
+							<BinaryString name="Tags"></BinaryString>
+							<UDim2 name="TileSize">
+								<XS>1</XS>
+								<XO>0</XO>
+								<YS>1</YS>
+								<YO>0</YO>
+							</UDim2>
+							<bool name="Visible">true</bool>
+							<int name="ZIndex">1</int>
+						</Properties>
+					</Item>
+					<Item class="ImageButton" referent="RBX12B3E89EADB74CA1BA54AADAAABD4EE3">
+						<Properties>
+							<bool name="Active">true</bool>
+							<Vector2 name="AnchorPoint">
+								<X>0</X>
+								<Y>0</Y>
+							</Vector2>
+							<bool name="AutoButtonColor">true</bool>
+							<bool name="AutoLocalize">true</bool>
+							<Color3 name="BackgroundColor3">
+								<R>1</R>
+								<G>0.82745105</G>
+								<B>0.627451003</B>
+							</Color3>
+							<float name="BackgroundTransparency">0.699999988</float>
+							<Color3 name="BorderColor3">
+								<R>0.0666666701</R>
+								<G>0.0666666701</G>
+								<B>0.0666666701</B>
+							</Color3>
+							<token name="BorderMode">0</token>
+							<int name="BorderSizePixel">1</int>
+							<bool name="ClipsDescendants">false</bool>
+							<bool name="Draggable">false</bool>
+							<Content name="HoverImage"><null></null></Content>
+							<Content name="Image"><null></null></Content>
+							<Color3 name="ImageColor3">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
+							<Vector2 name="ImageRectOffset">
+								<X>0</X>
+								<Y>0</Y>
+							</Vector2>
+							<Vector2 name="ImageRectSize">
+								<X>0</X>
+								<Y>0</Y>
+							</Vector2>
+							<float name="ImageTransparency">0</float>
+							<int name="LayoutOrder">0</int>
+							<bool name="Modal">false</bool>
+							<string name="Name">31</string>
+							<Ref name="NextSelectionDown">null</Ref>
+							<Ref name="NextSelectionLeft">null</Ref>
+							<Ref name="NextSelectionRight">null</Ref>
+							<Ref name="NextSelectionUp">null</Ref>
+							<UDim2 name="Position">
+								<XS>0</XS>
+								<XO>2</XO>
+								<YS>0</YS>
+								<YO>206</YO>
+							</UDim2>
+							<Content name="PressedImage"><null></null></Content>
+							<Ref name="RootLocalizationTable">null</Ref>
+							<float name="Rotation">0</float>
+							<token name="ScaleType">0</token>
+							<bool name="Selectable">true</bool>
+							<bool name="Selected">false</bool>
+							<Ref name="SelectionImageObject">null</Ref>
+							<UDim2 name="Size">
+								<XS>0</XS>
+								<XO>100</XO>
+								<YS>0</YS>
+								<YO>100</YO>
+							</UDim2>
+							<token name="SizeConstraint">0</token>
+							<Rect2D name="SliceCenter">
+								<min>
+									<X>0</X>
+									<Y>0</Y>
+								</min>
+								<max>
+									<X>0</X>
+									<Y>0</Y>
+								</max>
+							</Rect2D>
+							<float name="SliceScale">1</float>
+							<token name="Style">0</token>
+							<BinaryString name="Tags"></BinaryString>
+							<UDim2 name="TileSize">
+								<XS>1</XS>
+								<XO>0</XO>
+								<YS>1</YS>
+								<YO>0</YO>
+							</UDim2>
+							<bool name="Visible">true</bool>
+							<int name="ZIndex">1</int>
+						</Properties>
+					</Item>
+					<Item class="ImageButton" referent="RBX8C6961DAF58C4F83BDB026AD02804247">
+						<Properties>
+							<bool name="Active">true</bool>
+							<Vector2 name="AnchorPoint">
+								<X>0</X>
+								<Y>0</Y>
+							</Vector2>
+							<bool name="AutoButtonColor">true</bool>
+							<bool name="AutoLocalize">true</bool>
+							<Color3 name="BackgroundColor3">
+								<R>1</R>
+								<G>0.82745105</G>
+								<B>0.627451003</B>
+							</Color3>
+							<float name="BackgroundTransparency">0.699999988</float>
+							<Color3 name="BorderColor3">
+								<R>0.0666666701</R>
+								<G>0.0666666701</G>
+								<B>0.0666666701</B>
+							</Color3>
+							<token name="BorderMode">0</token>
+							<int name="BorderSizePixel">1</int>
+							<bool name="ClipsDescendants">false</bool>
+							<bool name="Draggable">false</bool>
+							<Content name="HoverImage"><null></null></Content>
+							<Content name="Image"><null></null></Content>
+							<Color3 name="ImageColor3">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
+							<Vector2 name="ImageRectOffset">
+								<X>0</X>
+								<Y>0</Y>
+							</Vector2>
+							<Vector2 name="ImageRectSize">
+								<X>0</X>
+								<Y>0</Y>
+							</Vector2>
+							<float name="ImageTransparency">0</float>
+							<int name="LayoutOrder">0</int>
+							<bool name="Modal">false</bool>
+							<string name="Name">33</string>
+							<Ref name="NextSelectionDown">null</Ref>
+							<Ref name="NextSelectionLeft">null</Ref>
+							<Ref name="NextSelectionRight">null</Ref>
+							<Ref name="NextSelectionUp">null</Ref>
+							<UDim2 name="Position">
+								<XS>0</XS>
+								<XO>206</XO>
+								<YS>0</YS>
+								<YO>206</YO>
+							</UDim2>
+							<Content name="PressedImage"><null></null></Content>
+							<Ref name="RootLocalizationTable">null</Ref>
+							<float name="Rotation">0</float>
+							<token name="ScaleType">0</token>
+							<bool name="Selectable">true</bool>
+							<bool name="Selected">false</bool>
+							<Ref name="SelectionImageObject">null</Ref>
+							<UDim2 name="Size">
+								<XS>0</XS>
+								<XO>100</XO>
+								<YS>0</YS>
+								<YO>100</YO>
+							</UDim2>
+							<token name="SizeConstraint">0</token>
+							<Rect2D name="SliceCenter">
+								<min>
+									<X>0</X>
+									<Y>0</Y>
+								</min>
+								<max>
+									<X>0</X>
+									<Y>0</Y>
+								</max>
+							</Rect2D>
+							<float name="SliceScale">1</float>
+							<token name="Style">0</token>
+							<BinaryString name="Tags"></BinaryString>
+							<UDim2 name="TileSize">
+								<XS>1</XS>
+								<XO>0</XO>
+								<YS>1</YS>
+								<YO>0</YO>
+							</UDim2>
+							<bool name="Visible">true</bool>
+							<int name="ZIndex">1</int>
+						</Properties>
+					</Item>
+					<Item class="ImageButton" referent="RBXA2C1F9035CD94545A3B79DA0B50B7046">
+						<Properties>
+							<bool name="Active">true</bool>
+							<Vector2 name="AnchorPoint">
+								<X>0</X>
+								<Y>0</Y>
+							</Vector2>
+							<bool name="AutoButtonColor">true</bool>
+							<bool name="AutoLocalize">true</bool>
+							<Color3 name="BackgroundColor3">
+								<R>1</R>
+								<G>0.82745105</G>
+								<B>0.627451003</B>
+							</Color3>
+							<float name="BackgroundTransparency">0.699999988</float>
+							<Color3 name="BorderColor3">
+								<R>0.0666666701</R>
+								<G>0.0666666701</G>
+								<B>0.0666666701</B>
+							</Color3>
+							<token name="BorderMode">0</token>
+							<int name="BorderSizePixel">1</int>
+							<bool name="ClipsDescendants">false</bool>
+							<bool name="Draggable">false</bool>
+							<Content name="HoverImage"><null></null></Content>
+							<Content name="Image"><null></null></Content>
+							<Color3 name="ImageColor3">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
+							<Vector2 name="ImageRectOffset">
+								<X>0</X>
+								<Y>0</Y>
+							</Vector2>
+							<Vector2 name="ImageRectSize">
+								<X>0</X>
+								<Y>0</Y>
+							</Vector2>
+							<float name="ImageTransparency">0</float>
+							<int name="LayoutOrder">0</int>
+							<bool name="Modal">false</bool>
+							<string name="Name">32</string>
+							<Ref name="NextSelectionDown">null</Ref>
+							<Ref name="NextSelectionLeft">null</Ref>
+							<Ref name="NextSelectionRight">null</Ref>
+							<Ref name="NextSelectionUp">null</Ref>
+							<UDim2 name="Position">
+								<XS>0</XS>
+								<XO>104</XO>
+								<YS>0</YS>
+								<YO>206</YO>
+							</UDim2>
+							<Content name="PressedImage"><null></null></Content>
+							<Ref name="RootLocalizationTable">null</Ref>
+							<float name="Rotation">0</float>
+							<token name="ScaleType">0</token>
+							<bool name="Selectable">true</bool>
+							<bool name="Selected">false</bool>
+							<Ref name="SelectionImageObject">null</Ref>
+							<UDim2 name="Size">
+								<XS>0</XS>
+								<XO>100</XO>
+								<YS>0</YS>
+								<YO>100</YO>
+							</UDim2>
+							<token name="SizeConstraint">0</token>
+							<Rect2D name="SliceCenter">
+								<min>
+									<X>0</X>
+									<Y>0</Y>
+								</min>
+								<max>
+									<X>0</X>
+									<Y>0</Y>
+								</max>
+							</Rect2D>
+							<float name="SliceScale">1</float>
+							<token name="Style">0</token>
+							<BinaryString name="Tags"></BinaryString>
+							<UDim2 name="TileSize">
+								<XS>1</XS>
+								<XO>0</XO>
+								<YS>1</YS>
+								<YO>0</YO>
+							</UDim2>
+							<bool name="Visible">true</bool>
+							<int name="ZIndex">1</int>
+						</Properties>
+					</Item>
+				</Item>
+				<Item class="TextLabel" referent="RBX2852BCEEBC8346ECB6D76AE721AEB654">
+					<Properties>
+						<bool name="Active">false</bool>
+						<Vector2 name="AnchorPoint">
+							<X>0</X>
+							<Y>0</Y>
+						</Vector2>
+						<bool name="AutoLocalize">true</bool>
+						<Color3 name="BackgroundColor3">
+							<R>1</R>
+							<G>0.945098102</G>
+							<B>0.580392182</B>
+						</Color3>
+						<float name="BackgroundTransparency">0</float>
+						<Color3 name="BorderColor3">
+							<R>0.0666666701</R>
+							<G>0.0666666701</G>
+							<B>0.0666666701</B>
+						</Color3>
+						<token name="BorderMode">0</token>
+						<int name="BorderSizePixel">1</int>
+						<bool name="ClipsDescendants">false</bool>
+						<bool name="Draggable">false</bool>
+						<token name="Font">0</token>
+						<int name="LayoutOrder">0</int>
+						<float name="LineHeight">1</float>
+						<string name="Name">TitleBar</string>
+						<Ref name="NextSelectionDown">null</Ref>
+						<Ref name="NextSelectionLeft">null</Ref>
+						<Ref name="NextSelectionRight">null</Ref>
+						<Ref name="NextSelectionUp">null</Ref>
+						<UDim2 name="Position">
+							<XS>0</XS>
+							<XO>0</XO>
+							<YS>0</YS>
+							<YO>0</YO>
+						</UDim2>
+						<Ref name="RootLocalizationTable">null</Ref>
+						<float name="Rotation">0</float>
+						<bool name="Selectable">false</bool>
+						<Ref name="SelectionImageObject">null</Ref>
+						<UDim2 name="Size">
+							<XS>1</XS>
+							<XO>0</XO>
+							<YS>0</YS>
+							<YO>24</YO>
+						</UDim2>
+						<token name="SizeConstraint">0</token>
+						<BinaryString name="Tags"></BinaryString>
+						<string name="Text">TicTacToe</string>
+						<Color3 name="TextColor3">
+							<R>0.105882362</R>
+							<G>0.164705887</G>
+							<B>0.207843155</B>
+						</Color3>
+						<bool name="TextScaled">false</bool>
+						<float name="TextSize">8</float>
+						<Color3 name="TextStrokeColor3">
+							<R>0</R>
+							<G>0</G>
+							<B>0</B>
+						</Color3>
+						<float name="TextStrokeTransparency">1</float>
+						<float name="TextTransparency">0</float>
+						<token name="TextTruncate">0</token>
+						<bool name="TextWrapped">false</bool>
+						<token name="TextXAlignment">2</token>
+						<token name="TextYAlignment">1</token>
+						<bool name="Visible">true</bool>
+						<int name="ZIndex">1</int>
+					</Properties>
+				</Item>
+				<Item class="Frame" referent="RBX08BC0A412F0049B59599AE08F227D7ED">
+					<Properties>
+						<bool name="Active">false</bool>
+						<Vector2 name="AnchorPoint">
+							<X>0</X>
+							<Y>0</Y>
+						</Vector2>
+						<bool name="AutoLocalize">true</bool>
+						<Color3 name="BackgroundColor3">
+							<R>0.870588303</R>
+							<G>0.800000072</G>
+							<B>0.631372571</B>
+						</Color3>
+						<float name="BackgroundTransparency">0.5</float>
+						<Color3 name="BorderColor3">
+							<R>0.0666666701</R>
+							<G>0.0666666701</G>
+							<B>0.0666666701</B>
+						</Color3>
+						<token name="BorderMode">0</token>
+						<int name="BorderSizePixel">1</int>
+						<bool name="ClipsDescendants">false</bool>
+						<bool name="Draggable">false</bool>
+						<int name="LayoutOrder">0</int>
+						<string name="Name">InfoFrame</string>
+						<Ref name="NextSelectionDown">null</Ref>
+						<Ref name="NextSelectionLeft">null</Ref>
+						<Ref name="NextSelectionRight">null</Ref>
+						<Ref name="NextSelectionUp">null</Ref>
+						<UDim2 name="Position">
+							<XS>0</XS>
+							<XO>312</XO>
+							<YS>0</YS>
+							<YO>26</YO>
+						</UDim2>
+						<Ref name="RootLocalizationTable">null</Ref>
+						<float name="Rotation">0</float>
+						<bool name="Selectable">false</bool>
+						<Ref name="SelectionImageObject">null</Ref>
+						<UDim2 name="Size">
+							<XS>0</XS>
+							<XO>100</XO>
+							<YS>0</YS>
+							<YO>308</YO>
+						</UDim2>
+						<token name="SizeConstraint">0</token>
+						<token name="Style">0</token>
+						<BinaryString name="Tags"></BinaryString>
+						<bool name="Visible">true</bool>
+						<int name="ZIndex">1</int>
+					</Properties>
+					<Item class="Frame" referent="RBX2551204495E84903907528BA261B7F9A">
+						<Properties>
+							<bool name="Active">false</bool>
+							<Vector2 name="AnchorPoint">
+								<X>0</X>
+								<Y>0</Y>
+							</Vector2>
+							<bool name="AutoLocalize">true</bool>
+							<Color3 name="BackgroundColor3">
+								<R>0.666666687</R>
+								<G>0.662745118</G>
+								<B>0.674509823</B>
+							</Color3>
+							<float name="BackgroundTransparency">1</float>
+							<Color3 name="BorderColor3">
+								<R>0.105882362</R>
+								<G>0.164705887</G>
+								<B>0.207843155</B>
+							</Color3>
+							<token name="BorderMode">0</token>
+							<int name="BorderSizePixel">1</int>
+							<bool name="ClipsDescendants">false</bool>
+							<bool name="Draggable">false</bool>
+							<int name="LayoutOrder">0</int>
+							<string name="Name">Opponent</string>
+							<Ref name="NextSelectionDown">null</Ref>
+							<Ref name="NextSelectionLeft">null</Ref>
+							<Ref name="NextSelectionRight">null</Ref>
+							<Ref name="NextSelectionUp">null</Ref>
+							<UDim2 name="Position">
+								<XS>0</XS>
+								<XO>3</XO>
+								<YS>0</YS>
+								<YO>3</YO>
+							</UDim2>
+							<Ref name="RootLocalizationTable">null</Ref>
+							<float name="Rotation">0</float>
+							<bool name="Selectable">false</bool>
+							<Ref name="SelectionImageObject">null</Ref>
+							<UDim2 name="Size">
+								<XS>1</XS>
+								<XO>-6</XO>
+								<YS>0</YS>
+								<YO>0</YO>
+							</UDim2>
+							<token name="SizeConstraint">0</token>
+							<token name="Style">0</token>
+							<BinaryString name="Tags"></BinaryString>
+							<bool name="Visible">true</bool>
+							<int name="ZIndex">1</int>
+						</Properties>
+						<Item class="TextLabel" referent="RBXBCEEAB38E7054D60AFBD495492DCC9E9">
+							<Properties>
+								<bool name="Active">false</bool>
+								<Vector2 name="AnchorPoint">
+									<X>0</X>
+									<Y>0</Y>
+								</Vector2>
+								<bool name="AutoLocalize">true</bool>
+								<Color3 name="BackgroundColor3">
+									<R>1</R>
+									<G>0.82745105</G>
+									<B>0.627451003</B>
+								</Color3>
+								<float name="BackgroundTransparency">0</float>
+								<Color3 name="BorderColor3">
+									<R>0.0666666701</R>
+									<G>0.0666666701</G>
+									<B>0.0666666701</B>
+								</Color3>
+								<token name="BorderMode">0</token>
+								<int name="BorderSizePixel">1</int>
+								<bool name="ClipsDescendants">false</bool>
+								<bool name="Draggable">false</bool>
+								<token name="Font">0</token>
+								<int name="LayoutOrder">0</int>
+								<float name="LineHeight">1</float>
+								<string name="Name">Header</string>
+								<Ref name="NextSelectionDown">null</Ref>
+								<Ref name="NextSelectionLeft">null</Ref>
+								<Ref name="NextSelectionRight">null</Ref>
+								<Ref name="NextSelectionUp">null</Ref>
+								<UDim2 name="Position">
+									<XS>0</XS>
+									<XO>0</XO>
+									<YS>0</YS>
+									<YO>0</YO>
+								</UDim2>
+								<Ref name="RootLocalizationTable">null</Ref>
+								<float name="Rotation">0</float>
+								<bool name="Selectable">false</bool>
+								<Ref name="SelectionImageObject">null</Ref>
+								<UDim2 name="Size">
+									<XS>1</XS>
+									<XO>0</XO>
+									<YS>0</YS>
+									<YO>16</YO>
+								</UDim2>
+								<token name="SizeConstraint">0</token>
+								<BinaryString name="Tags"></BinaryString>
+								<string name="Text">Opponent :</string>
+								<Color3 name="TextColor3">
+									<R>0.105882362</R>
+									<G>0.164705887</G>
+									<B>0.207843155</B>
+								</Color3>
+								<bool name="TextScaled">false</bool>
+								<float name="TextSize">8</float>
+								<Color3 name="TextStrokeColor3">
+									<R>0</R>
+									<G>0</G>
+									<B>0</B>
+								</Color3>
+								<float name="TextStrokeTransparency">1</float>
+								<float name="TextTransparency">0</float>
+								<token name="TextTruncate">0</token>
+								<bool name="TextWrapped">false</bool>
+								<token name="TextXAlignment">2</token>
+								<token name="TextYAlignment">1</token>
+								<bool name="Visible">true</bool>
+								<int name="ZIndex">1</int>
+							</Properties>
+						</Item>
+						<Item class="TextLabel" referent="RBXC067F6D795664A2CBAE699F07BA5D027">
+							<Properties>
+								<bool name="Active">false</bool>
+								<Vector2 name="AnchorPoint">
+									<X>0</X>
+									<Y>0</Y>
+								</Vector2>
+								<bool name="AutoLocalize">true</bool>
+								<Color3 name="BackgroundColor3">
+									<R>0.870588303</R>
+									<G>0.800000072</G>
+									<B>0.631372571</B>
+								</Color3>
+								<float name="BackgroundTransparency">0</float>
+								<Color3 name="BorderColor3">
+									<R>0.0666666701</R>
+									<G>0.0666666701</G>
+									<B>0.0666666701</B>
+								</Color3>
+								<token name="BorderMode">0</token>
+								<int name="BorderSizePixel">1</int>
+								<bool name="ClipsDescendants">false</bool>
+								<bool name="Draggable">false</bool>
+								<token name="Font">0</token>
+								<int name="LayoutOrder">0</int>
+								<float name="LineHeight">1</float>
+								<string name="Name">TXT</string>
+								<Ref name="NextSelectionDown">null</Ref>
+								<Ref name="NextSelectionLeft">null</Ref>
+								<Ref name="NextSelectionRight">null</Ref>
+								<Ref name="NextSelectionUp">null</Ref>
+								<UDim2 name="Position">
+									<XS>0</XS>
+									<XO>0</XO>
+									<YS>0</YS>
+									<YO>16</YO>
+								</UDim2>
+								<Ref name="RootLocalizationTable">null</Ref>
+								<float name="Rotation">0</float>
+								<bool name="Selectable">false</bool>
+								<Ref name="SelectionImageObject">null</Ref>
+								<UDim2 name="Size">
+									<XS>1</XS>
+									<XO>0</XO>
+									<YS>0</YS>
+									<YO>16</YO>
+								</UDim2>
+								<token name="SizeConstraint">0</token>
+								<BinaryString name="Tags"></BinaryString>
+								<string name="Text">None</string>
+								<Color3 name="TextColor3">
+									<R>0.105882362</R>
+									<G>0.164705887</G>
+									<B>0.207843155</B>
+								</Color3>
+								<bool name="TextScaled">false</bool>
+								<float name="TextSize">8</float>
+								<Color3 name="TextStrokeColor3">
+									<R>0</R>
+									<G>0</G>
+									<B>0</B>
+								</Color3>
+								<float name="TextStrokeTransparency">1</float>
+								<float name="TextTransparency">0</float>
+								<token name="TextTruncate">0</token>
+								<bool name="TextWrapped">false</bool>
+								<token name="TextXAlignment">2</token>
+								<token name="TextYAlignment">1</token>
+								<bool name="Visible">true</bool>
+								<int name="ZIndex">1</int>
+							</Properties>
+						</Item>
+					</Item>
+					<Item class="Frame" referent="RBXA9277890401A4D76ACB2ADA3B7BC537B">
+						<Properties>
+							<bool name="Active">false</bool>
+							<Vector2 name="AnchorPoint">
+								<X>0</X>
+								<Y>0</Y>
+							</Vector2>
+							<bool name="AutoLocalize">true</bool>
+							<Color3 name="BackgroundColor3">
+								<R>0.666666687</R>
+								<G>0.662745118</G>
+								<B>0.674509823</B>
+							</Color3>
+							<float name="BackgroundTransparency">1</float>
+							<Color3 name="BorderColor3">
+								<R>0.105882362</R>
+								<G>0.164705887</G>
+								<B>0.207843155</B>
+							</Color3>
+							<token name="BorderMode">0</token>
+							<int name="BorderSizePixel">1</int>
+							<bool name="ClipsDescendants">false</bool>
+							<bool name="Draggable">false</bool>
+							<int name="LayoutOrder">0</int>
+							<string name="Name">Turn</string>
+							<Ref name="NextSelectionDown">null</Ref>
+							<Ref name="NextSelectionLeft">null</Ref>
+							<Ref name="NextSelectionRight">null</Ref>
+							<Ref name="NextSelectionUp">null</Ref>
+							<UDim2 name="Position">
+								<XS>0</XS>
+								<XO>3</XO>
+								<YS>0</YS>
+								<YO>38</YO>
+							</UDim2>
+							<Ref name="RootLocalizationTable">null</Ref>
+							<float name="Rotation">0</float>
+							<bool name="Selectable">false</bool>
+							<Ref name="SelectionImageObject">null</Ref>
+							<UDim2 name="Size">
+								<XS>1</XS>
+								<XO>-6</XO>
+								<YS>0</YS>
+								<YO>0</YO>
+							</UDim2>
+							<token name="SizeConstraint">0</token>
+							<token name="Style">0</token>
+							<BinaryString name="Tags"></BinaryString>
+							<bool name="Visible">true</bool>
+							<int name="ZIndex">1</int>
+						</Properties>
+						<Item class="TextLabel" referent="RBX57AD64D7D9D849D7A3E9D58DEFE8BF92">
+							<Properties>
+								<bool name="Active">false</bool>
+								<Vector2 name="AnchorPoint">
+									<X>0</X>
+									<Y>0</Y>
+								</Vector2>
+								<bool name="AutoLocalize">true</bool>
+								<Color3 name="BackgroundColor3">
+									<R>1</R>
+									<G>0.82745105</G>
+									<B>0.627451003</B>
+								</Color3>
+								<float name="BackgroundTransparency">0</float>
+								<Color3 name="BorderColor3">
+									<R>0.0666666701</R>
+									<G>0.0666666701</G>
+									<B>0.0666666701</B>
+								</Color3>
+								<token name="BorderMode">0</token>
+								<int name="BorderSizePixel">1</int>
+								<bool name="ClipsDescendants">false</bool>
+								<bool name="Draggable">false</bool>
+								<token name="Font">0</token>
+								<int name="LayoutOrder">0</int>
+								<float name="LineHeight">1</float>
+								<string name="Name">Header</string>
+								<Ref name="NextSelectionDown">null</Ref>
+								<Ref name="NextSelectionLeft">null</Ref>
+								<Ref name="NextSelectionRight">null</Ref>
+								<Ref name="NextSelectionUp">null</Ref>
+								<UDim2 name="Position">
+									<XS>0</XS>
+									<XO>0</XO>
+									<YS>0</YS>
+									<YO>0</YO>
+								</UDim2>
+								<Ref name="RootLocalizationTable">null</Ref>
+								<float name="Rotation">0</float>
+								<bool name="Selectable">false</bool>
+								<Ref name="SelectionImageObject">null</Ref>
+								<UDim2 name="Size">
+									<XS>1</XS>
+									<XO>0</XO>
+									<YS>0</YS>
+									<YO>16</YO>
+								</UDim2>
+								<token name="SizeConstraint">0</token>
+								<BinaryString name="Tags"></BinaryString>
+								<string name="Text">Turn :</string>
+								<Color3 name="TextColor3">
+									<R>0.105882362</R>
+									<G>0.164705887</G>
+									<B>0.207843155</B>
+								</Color3>
+								<bool name="TextScaled">false</bool>
+								<float name="TextSize">8</float>
+								<Color3 name="TextStrokeColor3">
+									<R>0</R>
+									<G>0</G>
+									<B>0</B>
+								</Color3>
+								<float name="TextStrokeTransparency">1</float>
+								<float name="TextTransparency">0</float>
+								<token name="TextTruncate">0</token>
+								<bool name="TextWrapped">false</bool>
+								<token name="TextXAlignment">2</token>
+								<token name="TextYAlignment">1</token>
+								<bool name="Visible">true</bool>
+								<int name="ZIndex">1</int>
+							</Properties>
+						</Item>
+						<Item class="TextLabel" referent="RBX5AFD76F40FAA4C0986F28F4A9E137359">
+							<Properties>
+								<bool name="Active">false</bool>
+								<Vector2 name="AnchorPoint">
+									<X>0</X>
+									<Y>0</Y>
+								</Vector2>
+								<bool name="AutoLocalize">true</bool>
+								<Color3 name="BackgroundColor3">
+									<R>0.870588303</R>
+									<G>0.800000072</G>
+									<B>0.631372571</B>
+								</Color3>
+								<float name="BackgroundTransparency">0</float>
+								<Color3 name="BorderColor3">
+									<R>0.0666666701</R>
+									<G>0.0666666701</G>
+									<B>0.0666666701</B>
+								</Color3>
+								<token name="BorderMode">0</token>
+								<int name="BorderSizePixel">1</int>
+								<bool name="ClipsDescendants">false</bool>
+								<bool name="Draggable">false</bool>
+								<token name="Font">0</token>
+								<int name="LayoutOrder">0</int>
+								<float name="LineHeight">1</float>
+								<string name="Name">TXT</string>
+								<Ref name="NextSelectionDown">null</Ref>
+								<Ref name="NextSelectionLeft">null</Ref>
+								<Ref name="NextSelectionRight">null</Ref>
+								<Ref name="NextSelectionUp">null</Ref>
+								<UDim2 name="Position">
+									<XS>0</XS>
+									<XO>0</XO>
+									<YS>0</YS>
+									<YO>16</YO>
+								</UDim2>
+								<Ref name="RootLocalizationTable">null</Ref>
+								<float name="Rotation">0</float>
+								<bool name="Selectable">false</bool>
+								<Ref name="SelectionImageObject">null</Ref>
+								<UDim2 name="Size">
+									<XS>1</XS>
+									<XO>0</XO>
+									<YS>0</YS>
+									<YO>16</YO>
+								</UDim2>
+								<token name="SizeConstraint">0</token>
+								<BinaryString name="Tags"></BinaryString>
+								<string name="Text">Yours</string>
+								<Color3 name="TextColor3">
+									<R>0.105882362</R>
+									<G>0.164705887</G>
+									<B>0.207843155</B>
+								</Color3>
+								<bool name="TextScaled">false</bool>
+								<float name="TextSize">8</float>
+								<Color3 name="TextStrokeColor3">
+									<R>0</R>
+									<G>0</G>
+									<B>0</B>
+								</Color3>
+								<float name="TextStrokeTransparency">1</float>
+								<float name="TextTransparency">0</float>
+								<token name="TextTruncate">0</token>
+								<bool name="TextWrapped">false</bool>
+								<token name="TextXAlignment">2</token>
+								<token name="TextYAlignment">1</token>
+								<bool name="Visible">true</bool>
+								<int name="ZIndex">1</int>
+							</Properties>
+						</Item>
+					</Item>
+					<Item class="ImageButton" referent="RBX8C3C763C8DFF4EC0A54B685F9ECADD1A">
+						<Properties>
+							<bool name="Active">true</bool>
+							<Vector2 name="AnchorPoint">
+								<X>0</X>
+								<Y>0</Y>
+							</Vector2>
+							<bool name="AutoButtonColor">false</bool>
+							<bool name="AutoLocalize">true</bool>
+							<Color3 name="BackgroundColor3">
+								<R>1</R>
+								<G>0.945098102</G>
+								<B>0.580392182</B>
+							</Color3>
+							<float name="BackgroundTransparency">0</float>
+							<Color3 name="BorderColor3">
+								<R>0.0666666701</R>
+								<G>0.0666666701</G>
+								<B>0.0666666701</B>
+							</Color3>
+							<token name="BorderMode">0</token>
+							<int name="BorderSizePixel">1</int>
+							<bool name="ClipsDescendants">false</bool>
+							<bool name="Draggable">false</bool>
+							<Content name="HoverImage"><null></null></Content>
+							<Content name="Image"><null></null></Content>
+							<Color3 name="ImageColor3">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
+							<Vector2 name="ImageRectOffset">
+								<X>0</X>
+								<Y>0</Y>
+							</Vector2>
+							<Vector2 name="ImageRectSize">
+								<X>0</X>
+								<Y>0</Y>
+							</Vector2>
+							<float name="ImageTransparency">0</float>
+							<int name="LayoutOrder">0</int>
+							<bool name="Modal">false</bool>
+							<string name="Name">BN_Quit</string>
+							<Ref name="NextSelectionDown">null</Ref>
+							<Ref name="NextSelectionLeft">null</Ref>
+							<Ref name="NextSelectionRight">null</Ref>
+							<Ref name="NextSelectionUp">null</Ref>
+							<UDim2 name="Position">
+								<XS>0</XS>
+								<XO>3</XO>
+								<YS>1</YS>
+								<YO>-27</YO>
+							</UDim2>
+							<Content name="PressedImage"><null></null></Content>
+							<Ref name="RootLocalizationTable">null</Ref>
+							<float name="Rotation">0</float>
+							<token name="ScaleType">0</token>
+							<bool name="Selectable">true</bool>
+							<bool name="Selected">false</bool>
+							<Ref name="SelectionImageObject">null</Ref>
+							<UDim2 name="Size">
+								<XS>1</XS>
+								<XO>-6</XO>
+								<YS>0</YS>
+								<YO>24</YO>
+							</UDim2>
+							<token name="SizeConstraint">0</token>
+							<Rect2D name="SliceCenter">
+								<min>
+									<X>0</X>
+									<Y>0</Y>
+								</min>
+								<max>
+									<X>0</X>
+									<Y>0</Y>
+								</max>
+							</Rect2D>
+							<float name="SliceScale">1</float>
+							<token name="Style">0</token>
+							<BinaryString name="Tags"></BinaryString>
+							<UDim2 name="TileSize">
+								<XS>1</XS>
+								<XO>0</XO>
+								<YS>1</YS>
+								<YO>0</YO>
+							</UDim2>
+							<bool name="Visible">true</bool>
+							<int name="ZIndex">1</int>
+						</Properties>
+						<Item class="TextLabel" referent="RBX94169DE3486B4721AF06DD8BFC8B0DEF">
+							<Properties>
+								<bool name="Active">false</bool>
+								<Vector2 name="AnchorPoint">
+									<X>0</X>
+									<Y>0</Y>
+								</Vector2>
+								<bool name="AutoLocalize">true</bool>
+								<Color3 name="BackgroundColor3">
+									<R>0.666666687</R>
+									<G>0.662745118</G>
+									<B>0.674509823</B>
+								</Color3>
+								<float name="BackgroundTransparency">1</float>
+								<Color3 name="BorderColor3">
+									<R>0.105882362</R>
+									<G>0.164705887</G>
+									<B>0.207843155</B>
+								</Color3>
+								<token name="BorderMode">0</token>
+								<int name="BorderSizePixel">1</int>
+								<bool name="ClipsDescendants">false</bool>
+								<bool name="Draggable">false</bool>
+								<token name="Font">0</token>
+								<int name="LayoutOrder">0</int>
+								<float name="LineHeight">1</float>
+								<string name="Name">Text</string>
+								<Ref name="NextSelectionDown">null</Ref>
+								<Ref name="NextSelectionLeft">null</Ref>
+								<Ref name="NextSelectionRight">null</Ref>
+								<Ref name="NextSelectionUp">null</Ref>
+								<UDim2 name="Position">
+									<XS>0</XS>
+									<XO>0</XO>
+									<YS>0</YS>
+									<YO>0</YO>
+								</UDim2>
+								<Ref name="RootLocalizationTable">null</Ref>
+								<float name="Rotation">0</float>
+								<bool name="Selectable">false</bool>
+								<Ref name="SelectionImageObject">null</Ref>
+								<UDim2 name="Size">
+									<XS>1</XS>
+									<XO>0</XO>
+									<YS>1</YS>
+									<YO>0</YO>
+								</UDim2>
+								<token name="SizeConstraint">0</token>
+								<BinaryString name="Tags"></BinaryString>
+								<string name="Text">Quit Game</string>
+								<Color3 name="TextColor3">
+									<R>0.105882362</R>
+									<G>0.164705887</G>
+									<B>0.207843155</B>
+								</Color3>
+								<bool name="TextScaled">false</bool>
+								<float name="TextSize">8</float>
+								<Color3 name="TextStrokeColor3">
+									<R>0</R>
+									<G>0</G>
+									<B>0</B>
+								</Color3>
+								<float name="TextStrokeTransparency">1</float>
+								<float name="TextTransparency">0</float>
+								<token name="TextTruncate">0</token>
+								<bool name="TextWrapped">false</bool>
+								<token name="TextXAlignment">2</token>
+								<token name="TextYAlignment">1</token>
+								<bool name="Visible">true</bool>
+								<int name="ZIndex">1</int>
+							</Properties>
+						</Item>
+					</Item>
+					<Item class="Frame" referent="RBX6229C470448349428BC89FCB2A722301">
+						<Properties>
+							<bool name="Active">false</bool>
+							<Vector2 name="AnchorPoint">
+								<X>0</X>
+								<Y>0</Y>
+							</Vector2>
+							<bool name="AutoLocalize">true</bool>
+							<Color3 name="BackgroundColor3">
+								<R>0.666666687</R>
+								<G>0.662745118</G>
+								<B>0.674509823</B>
+							</Color3>
+							<float name="BackgroundTransparency">1</float>
+							<Color3 name="BorderColor3">
+								<R>0.105882362</R>
+								<G>0.164705887</G>
+								<B>0.207843155</B>
+							</Color3>
+							<token name="BorderMode">0</token>
+							<int name="BorderSizePixel">1</int>
+							<bool name="ClipsDescendants">false</bool>
+							<bool name="Draggable">false</bool>
+							<int name="LayoutOrder">0</int>
+							<string name="Name">PlayAs</string>
+							<Ref name="NextSelectionDown">null</Ref>
+							<Ref name="NextSelectionLeft">null</Ref>
+							<Ref name="NextSelectionRight">null</Ref>
+							<Ref name="NextSelectionUp">null</Ref>
+							<UDim2 name="Position">
+								<XS>0</XS>
+								<XO>3</XO>
+								<YS>0</YS>
+								<YO>73</YO>
+							</UDim2>
+							<Ref name="RootLocalizationTable">null</Ref>
+							<float name="Rotation">0</float>
+							<bool name="Selectable">false</bool>
+							<Ref name="SelectionImageObject">null</Ref>
+							<UDim2 name="Size">
+								<XS>1</XS>
+								<XO>-6</XO>
+								<YS>0</YS>
+								<YO>0</YO>
+							</UDim2>
+							<token name="SizeConstraint">0</token>
+							<token name="Style">0</token>
+							<BinaryString name="Tags"></BinaryString>
+							<bool name="Visible">true</bool>
+							<int name="ZIndex">1</int>
+						</Properties>
+						<Item class="TextLabel" referent="RBXEC85A057559A494BB760CA2122CD612F">
+							<Properties>
+								<bool name="Active">false</bool>
+								<Vector2 name="AnchorPoint">
+									<X>0</X>
+									<Y>0</Y>
+								</Vector2>
+								<bool name="AutoLocalize">true</bool>
+								<Color3 name="BackgroundColor3">
+									<R>1</R>
+									<G>0.82745105</G>
+									<B>0.627451003</B>
+								</Color3>
+								<float name="BackgroundTransparency">0</float>
+								<Color3 name="BorderColor3">
+									<R>0.0666666701</R>
+									<G>0.0666666701</G>
+									<B>0.0666666701</B>
+								</Color3>
+								<token name="BorderMode">0</token>
+								<int name="BorderSizePixel">1</int>
+								<bool name="ClipsDescendants">false</bool>
+								<bool name="Draggable">false</bool>
+								<token name="Font">0</token>
+								<int name="LayoutOrder">0</int>
+								<float name="LineHeight">1</float>
+								<string name="Name">Header</string>
+								<Ref name="NextSelectionDown">null</Ref>
+								<Ref name="NextSelectionLeft">null</Ref>
+								<Ref name="NextSelectionRight">null</Ref>
+								<Ref name="NextSelectionUp">null</Ref>
+								<UDim2 name="Position">
+									<XS>0</XS>
+									<XO>0</XO>
+									<YS>0</YS>
+									<YO>0</YO>
+								</UDim2>
+								<Ref name="RootLocalizationTable">null</Ref>
+								<float name="Rotation">0</float>
+								<bool name="Selectable">false</bool>
+								<Ref name="SelectionImageObject">null</Ref>
+								<UDim2 name="Size">
+									<XS>1</XS>
+									<XO>0</XO>
+									<YS>0</YS>
+									<YO>16</YO>
+								</UDim2>
+								<token name="SizeConstraint">0</token>
+								<BinaryString name="Tags"></BinaryString>
+								<string name="Text">Playing as :</string>
+								<Color3 name="TextColor3">
+									<R>0.105882362</R>
+									<G>0.164705887</G>
+									<B>0.207843155</B>
+								</Color3>
+								<bool name="TextScaled">false</bool>
+								<float name="TextSize">8</float>
+								<Color3 name="TextStrokeColor3">
+									<R>0</R>
+									<G>0</G>
+									<B>0</B>
+								</Color3>
+								<float name="TextStrokeTransparency">1</float>
+								<float name="TextTransparency">0</float>
+								<token name="TextTruncate">0</token>
+								<bool name="TextWrapped">false</bool>
+								<token name="TextXAlignment">2</token>
+								<token name="TextYAlignment">1</token>
+								<bool name="Visible">true</bool>
+								<int name="ZIndex">1</int>
+							</Properties>
+						</Item>
+						<Item class="ImageLabel" referent="RBXFC25CC8120194F579B1C64495AEBA723">
+							<Properties>
+								<bool name="Active">false</bool>
+								<Vector2 name="AnchorPoint">
+									<X>0</X>
+									<Y>0</Y>
+								</Vector2>
+								<bool name="AutoLocalize">true</bool>
+								<Color3 name="BackgroundColor3">
+									<R>0.870588303</R>
+									<G>0.800000072</G>
+									<B>0.631372571</B>
+								</Color3>
+								<float name="BackgroundTransparency">0</float>
+								<Color3 name="BorderColor3">
+									<R>0.0666666701</R>
+									<G>0.0666666701</G>
+									<B>0.0666666701</B>
+								</Color3>
+								<token name="BorderMode">0</token>
+								<int name="BorderSizePixel">1</int>
+								<bool name="ClipsDescendants">false</bool>
+								<bool name="Draggable">false</bool>
+								<Content name="Image"><null></null></Content>
+								<Color3 name="ImageColor3">
+									<R>1</R>
+									<G>1</G>
+									<B>1</B>
+								</Color3>
+								<Vector2 name="ImageRectOffset">
+									<X>0</X>
+									<Y>0</Y>
+								</Vector2>
+								<Vector2 name="ImageRectSize">
+									<X>0</X>
+									<Y>0</Y>
+								</Vector2>
+								<float name="ImageTransparency">0</float>
+								<int name="LayoutOrder">0</int>
+								<string name="Name">IMG</string>
+								<Ref name="NextSelectionDown">null</Ref>
+								<Ref name="NextSelectionLeft">null</Ref>
+								<Ref name="NextSelectionRight">null</Ref>
+								<Ref name="NextSelectionUp">null</Ref>
+								<UDim2 name="Position">
+									<XS>0</XS>
+									<XO>0</XO>
+									<YS>0</YS>
+									<YO>16</YO>
+								</UDim2>
+								<Ref name="RootLocalizationTable">null</Ref>
+								<float name="Rotation">0</float>
+								<token name="ScaleType">0</token>
+								<bool name="Selectable">false</bool>
+								<Ref name="SelectionImageObject">null</Ref>
+								<UDim2 name="Size">
+									<XS>1</XS>
+									<XO>0</XO>
+									<YS>0</YS>
+									<YO>94</YO>
+								</UDim2>
+								<token name="SizeConstraint">0</token>
+								<Rect2D name="SliceCenter">
+									<min>
+										<X>0</X>
+										<Y>0</Y>
+									</min>
+									<max>
+										<X>0</X>
+										<Y>0</Y>
+									</max>
+								</Rect2D>
+								<float name="SliceScale">1</float>
+								<BinaryString name="Tags"></BinaryString>
+								<UDim2 name="TileSize">
+									<XS>1</XS>
+									<XO>0</XO>
+									<YS>1</YS>
+									<YO>0</YO>
+								</UDim2>
+								<bool name="Visible">true</bool>
+								<int name="ZIndex">1</int>
+							</Properties>
+						</Item>
+					</Item>
+				</Item>
+			</Item>
+			<Item class="Frame" referent="RBXA548B67862674D4FBC4EFEA6E9B91C76">
+				<Properties>
+					<bool name="Active">false</bool>
+					<Vector2 name="AnchorPoint">
+						<X>0</X>
+						<Y>0</Y>
+					</Vector2>
+					<bool name="AutoLocalize">true</bool>
+					<Color3 name="BackgroundColor3">
+						<R>0.870588303</R>
+						<G>0.800000072</G>
+						<B>0.631372571</B>
+					</Color3>
+					<float name="BackgroundTransparency">0.300000012</float>
+					<Color3 name="BorderColor3">
+						<R>0.105882362</R>
+						<G>0.164705887</G>
+						<B>0.207843155</B>
+					</Color3>
+					<token name="BorderMode">0</token>
+					<int name="BorderSizePixel">1</int>
+					<bool name="ClipsDescendants">false</bool>
+					<bool name="Draggable">false</bool>
+					<int name="LayoutOrder">0</int>
+					<string name="Name">AcceptFrame</string>
+					<Ref name="NextSelectionDown">null</Ref>
+					<Ref name="NextSelectionLeft">null</Ref>
+					<Ref name="NextSelectionRight">null</Ref>
+					<Ref name="NextSelectionUp">null</Ref>
+					<UDim2 name="Position">
+						<XS>0.5</XS>
+						<XO>-128</XO>
+						<YS>0.5</YS>
+						<YO>-50</YO>
+					</UDim2>
+					<Ref name="RootLocalizationTable">null</Ref>
+					<float name="Rotation">0</float>
+					<bool name="Selectable">false</bool>
+					<Ref name="SelectionImageObject">null</Ref>
+					<UDim2 name="Size">
+						<XS>0</XS>
+						<XO>256</XO>
+						<YS>0</YS>
+						<YO>100</YO>
+					</UDim2>
+					<token name="SizeConstraint">0</token>
+					<token name="Style">0</token>
+					<BinaryString name="Tags"></BinaryString>
+					<bool name="Visible">false</bool>
+					<int name="ZIndex">1</int>
+				</Properties>
+				<Item class="TextLabel" referent="RBX403BB0FB0828462E8E86C6986C208FE5">
+					<Properties>
+						<bool name="Active">false</bool>
+						<Vector2 name="AnchorPoint">
+							<X>0</X>
+							<Y>0</Y>
+						</Vector2>
+						<bool name="AutoLocalize">true</bool>
+						<Color3 name="BackgroundColor3">
+							<R>1</R>
+							<G>0.945098102</G>
+							<B>0.580392182</B>
+						</Color3>
+						<float name="BackgroundTransparency">0</float>
+						<Color3 name="BorderColor3">
+							<R>0.0666666701</R>
+							<G>0.0666666701</G>
+							<B>0.0666666701</B>
+						</Color3>
+						<token name="BorderMode">0</token>
+						<int name="BorderSizePixel">1</int>
+						<bool name="ClipsDescendants">false</bool>
+						<bool name="Draggable">false</bool>
+						<token name="Font">0</token>
+						<int name="LayoutOrder">0</int>
+						<float name="LineHeight">1</float>
+						<string name="Name">TitleBar</string>
+						<Ref name="NextSelectionDown">null</Ref>
+						<Ref name="NextSelectionLeft">null</Ref>
+						<Ref name="NextSelectionRight">null</Ref>
+						<Ref name="NextSelectionUp">null</Ref>
+						<UDim2 name="Position">
+							<XS>0</XS>
+							<XO>0</XO>
+							<YS>0</YS>
+							<YO>0</YO>
+						</UDim2>
+						<Ref name="RootLocalizationTable">null</Ref>
+						<float name="Rotation">0</float>
+						<bool name="Selectable">false</bool>
+						<Ref name="SelectionImageObject">null</Ref>
+						<UDim2 name="Size">
+							<XS>1</XS>
+							<XO>0</XO>
+							<YS>0</YS>
+							<YO>24</YO>
+						</UDim2>
+						<token name="SizeConstraint">0</token>
+						<BinaryString name="Tags"></BinaryString>
+						<string name="Text">TicTacToe Challenge</string>
+						<Color3 name="TextColor3">
+							<R>0.105882362</R>
+							<G>0.164705887</G>
+							<B>0.207843155</B>
+						</Color3>
+						<bool name="TextScaled">false</bool>
+						<float name="TextSize">8</float>
+						<Color3 name="TextStrokeColor3">
+							<R>0</R>
+							<G>0</G>
+							<B>0</B>
+						</Color3>
+						<float name="TextStrokeTransparency">1</float>
+						<float name="TextTransparency">0</float>
+						<token name="TextTruncate">0</token>
+						<bool name="TextWrapped">false</bool>
+						<token name="TextXAlignment">2</token>
+						<token name="TextYAlignment">1</token>
+						<bool name="Visible">true</bool>
+						<int name="ZIndex">1</int>
+					</Properties>
+				</Item>
+				<Item class="TextLabel" referent="RBX7C065072BCA04BDE91415E7B6F22CDA3">
+					<Properties>
+						<bool name="Active">false</bool>
+						<Vector2 name="AnchorPoint">
+							<X>0</X>
+							<Y>0</Y>
+						</Vector2>
+						<bool name="AutoLocalize">true</bool>
+						<Color3 name="BackgroundColor3">
+							<R>1</R>
+							<G>0.945098102</G>
+							<B>0.580392182</B>
+						</Color3>
+						<float name="BackgroundTransparency">1</float>
+						<Color3 name="BorderColor3">
+							<R>0.0666666701</R>
+							<G>0.0666666701</G>
+							<B>0.0666666701</B>
+						</Color3>
+						<token name="BorderMode">0</token>
+						<int name="BorderSizePixel">1</int>
+						<bool name="ClipsDescendants">false</bool>
+						<bool name="Draggable">false</bool>
+						<token name="Font">0</token>
+						<int name="LayoutOrder">0</int>
+						<float name="LineHeight">1</float>
+						<string name="Name">TXT</string>
+						<Ref name="NextSelectionDown">null</Ref>
+						<Ref name="NextSelectionLeft">null</Ref>
+						<Ref name="NextSelectionRight">null</Ref>
+						<Ref name="NextSelectionUp">null</Ref>
+						<UDim2 name="Position">
+							<XS>0</XS>
+							<XO>0</XO>
+							<YS>0</YS>
+							<YO>24</YO>
+						</UDim2>
+						<Ref name="RootLocalizationTable">null</Ref>
+						<float name="Rotation">0</float>
+						<bool name="Selectable">false</bool>
+						<Ref name="SelectionImageObject">null</Ref>
+						<UDim2 name="Size">
+							<XS>1</XS>
+							<XO>0</XO>
+							<YS>0</YS>
+							<YO>16</YO>
+						</UDim2>
+						<token name="SizeConstraint">0</token>
+						<BinaryString name="Tags"></BinaryString>
+						<string name="Text">[player] wants to play TicTacToe with you!</string>
+						<Color3 name="TextColor3">
+							<R>0.105882362</R>
+							<G>0.164705887</G>
+							<B>0.207843155</B>
+						</Color3>
+						<bool name="TextScaled">false</bool>
+						<float name="TextSize">8</float>
+						<Color3 name="TextStrokeColor3">
+							<R>0</R>
+							<G>0</G>
+							<B>0</B>
+						</Color3>
+						<float name="TextStrokeTransparency">1</float>
+						<float name="TextTransparency">0</float>
+						<token name="TextTruncate">0</token>
+						<bool name="TextWrapped">false</bool>
+						<token name="TextXAlignment">2</token>
+						<token name="TextYAlignment">1</token>
+						<bool name="Visible">true</bool>
+						<int name="ZIndex">1</int>
+					</Properties>
+				</Item>
+				<Item class="ImageButton" referent="RBX92E08CB638BA44D3B1E7C9DB7C4A89DA">
+					<Properties>
+						<bool name="Active">true</bool>
+						<Vector2 name="AnchorPoint">
+							<X>0</X>
+							<Y>0</Y>
+						</Vector2>
+						<bool name="AutoButtonColor">true</bool>
+						<bool name="AutoLocalize">true</bool>
+						<Color3 name="BackgroundColor3">
+							<R>1</R>
+							<G>0.945098102</G>
+							<B>0.580392182</B>
+						</Color3>
+						<float name="BackgroundTransparency">0</float>
+						<Color3 name="BorderColor3">
+							<R>0.105882362</R>
+							<G>0.164705887</G>
+							<B>0.207843155</B>
+						</Color3>
+						<token name="BorderMode">0</token>
+						<int name="BorderSizePixel">1</int>
+						<bool name="ClipsDescendants">false</bool>
+						<bool name="Draggable">false</bool>
+						<Content name="HoverImage"><null></null></Content>
+						<Content name="Image"><null></null></Content>
+						<Color3 name="ImageColor3">
+							<R>1</R>
+							<G>1</G>
+							<B>1</B>
+						</Color3>
+						<Vector2 name="ImageRectOffset">
+							<X>0</X>
+							<Y>0</Y>
+						</Vector2>
+						<Vector2 name="ImageRectSize">
+							<X>0</X>
+							<Y>0</Y>
+						</Vector2>
+						<float name="ImageTransparency">0</float>
+						<int name="LayoutOrder">0</int>
+						<bool name="Modal">false</bool>
+						<string name="Name">Accept</string>
+						<Ref name="NextSelectionDown">null</Ref>
+						<Ref name="NextSelectionLeft">null</Ref>
+						<Ref name="NextSelectionRight">null</Ref>
+						<Ref name="NextSelectionUp">null</Ref>
+						<UDim2 name="Position">
+							<XS>0.100000001</XS>
+							<XO>0</XO>
+							<YS>1</YS>
+							<YO>-24</YO>
+						</UDim2>
+						<Content name="PressedImage"><null></null></Content>
+						<Ref name="RootLocalizationTable">null</Ref>
+						<float name="Rotation">0</float>
+						<token name="ScaleType">0</token>
+						<bool name="Selectable">true</bool>
+						<bool name="Selected">false</bool>
+						<Ref name="SelectionImageObject">null</Ref>
+						<UDim2 name="Size">
+							<XS>0.300000012</XS>
+							<XO>0</XO>
+							<YS>0</YS>
+							<YO>16</YO>
+						</UDim2>
+						<token name="SizeConstraint">0</token>
+						<Rect2D name="SliceCenter">
+							<min>
+								<X>0</X>
+								<Y>0</Y>
+							</min>
+							<max>
+								<X>0</X>
+								<Y>0</Y>
+							</max>
+						</Rect2D>
+						<float name="SliceScale">1</float>
+						<token name="Style">0</token>
+						<BinaryString name="Tags"></BinaryString>
+						<UDim2 name="TileSize">
+							<XS>1</XS>
+							<XO>0</XO>
+							<YS>1</YS>
+							<YO>0</YO>
+						</UDim2>
+						<bool name="Visible">true</bool>
+						<int name="ZIndex">1</int>
+					</Properties>
+					<Item class="TextLabel" referent="RBX4FEBF7A5B5C64F1DB78ABD6F0C1CEB62">
+						<Properties>
+							<bool name="Active">false</bool>
+							<Vector2 name="AnchorPoint">
+								<X>0</X>
+								<Y>0</Y>
+							</Vector2>
+							<bool name="AutoLocalize">true</bool>
+							<Color3 name="BackgroundColor3">
+								<R>1</R>
+								<G>0.945098102</G>
+								<B>0.580392182</B>
+							</Color3>
+							<float name="BackgroundTransparency">1</float>
+							<Color3 name="BorderColor3">
+								<R>0.0666666701</R>
+								<G>0.0666666701</G>
+								<B>0.0666666701</B>
+							</Color3>
+							<token name="BorderMode">0</token>
+							<int name="BorderSizePixel">1</int>
+							<bool name="ClipsDescendants">false</bool>
+							<bool name="Draggable">false</bool>
+							<token name="Font">0</token>
+							<int name="LayoutOrder">0</int>
+							<float name="LineHeight">1</float>
+							<string name="Name">TXT</string>
+							<Ref name="NextSelectionDown">null</Ref>
+							<Ref name="NextSelectionLeft">null</Ref>
+							<Ref name="NextSelectionRight">null</Ref>
+							<Ref name="NextSelectionUp">null</Ref>
+							<UDim2 name="Position">
+								<XS>0</XS>
+								<XO>0</XO>
+								<YS>0</YS>
+								<YO>0</YO>
+							</UDim2>
+							<Ref name="RootLocalizationTable">null</Ref>
+							<float name="Rotation">0</float>
+							<bool name="Selectable">false</bool>
+							<Ref name="SelectionImageObject">null</Ref>
+							<UDim2 name="Size">
+								<XS>1</XS>
+								<XO>0</XO>
+								<YS>0</YS>
+								<YO>16</YO>
+							</UDim2>
+							<token name="SizeConstraint">0</token>
+							<BinaryString name="Tags"></BinaryString>
+							<string name="Text">Accept</string>
+							<Color3 name="TextColor3">
+								<R>0.105882362</R>
+								<G>0.164705887</G>
+								<B>0.207843155</B>
+							</Color3>
+							<bool name="TextScaled">false</bool>
+							<float name="TextSize">8</float>
+							<Color3 name="TextStrokeColor3">
+								<R>0</R>
+								<G>0</G>
+								<B>0</B>
+							</Color3>
+							<float name="TextStrokeTransparency">1</float>
+							<float name="TextTransparency">0</float>
+							<token name="TextTruncate">0</token>
+							<bool name="TextWrapped">false</bool>
+							<token name="TextXAlignment">2</token>
+							<token name="TextYAlignment">1</token>
+							<bool name="Visible">true</bool>
+							<int name="ZIndex">1</int>
+						</Properties>
+					</Item>
+				</Item>
+				<Item class="ImageButton" referent="RBX667A615F7CC648089CD5A1DA53BCFF6E">
+					<Properties>
+						<bool name="Active">true</bool>
+						<Vector2 name="AnchorPoint">
+							<X>0</X>
+							<Y>0</Y>
+						</Vector2>
+						<bool name="AutoButtonColor">true</bool>
+						<bool name="AutoLocalize">true</bool>
+						<Color3 name="BackgroundColor3">
+							<R>1</R>
+							<G>0.945098102</G>
+							<B>0.580392182</B>
+						</Color3>
+						<float name="BackgroundTransparency">0</float>
+						<Color3 name="BorderColor3">
+							<R>0.105882362</R>
+							<G>0.164705887</G>
+							<B>0.207843155</B>
+						</Color3>
+						<token name="BorderMode">0</token>
+						<int name="BorderSizePixel">1</int>
+						<bool name="ClipsDescendants">false</bool>
+						<bool name="Draggable">false</bool>
+						<Content name="HoverImage"><null></null></Content>
+						<Content name="Image"><null></null></Content>
+						<Color3 name="ImageColor3">
+							<R>1</R>
+							<G>1</G>
+							<B>1</B>
+						</Color3>
+						<Vector2 name="ImageRectOffset">
+							<X>0</X>
+							<Y>0</Y>
+						</Vector2>
+						<Vector2 name="ImageRectSize">
+							<X>0</X>
+							<Y>0</Y>
+						</Vector2>
+						<float name="ImageTransparency">0</float>
+						<int name="LayoutOrder">0</int>
+						<bool name="Modal">false</bool>
+						<string name="Name">Decline</string>
+						<Ref name="NextSelectionDown">null</Ref>
+						<Ref name="NextSelectionLeft">null</Ref>
+						<Ref name="NextSelectionRight">null</Ref>
+						<Ref name="NextSelectionUp">null</Ref>
+						<UDim2 name="Position">
+							<XS>0.600000024</XS>
+							<XO>0</XO>
+							<YS>1</YS>
+							<YO>-24</YO>
+						</UDim2>
+						<Content name="PressedImage"><null></null></Content>
+						<Ref name="RootLocalizationTable">null</Ref>
+						<float name="Rotation">0</float>
+						<token name="ScaleType">0</token>
+						<bool name="Selectable">true</bool>
+						<bool name="Selected">false</bool>
+						<Ref name="SelectionImageObject">null</Ref>
+						<UDim2 name="Size">
+							<XS>0.300000012</XS>
+							<XO>0</XO>
+							<YS>0</YS>
+							<YO>16</YO>
+						</UDim2>
+						<token name="SizeConstraint">0</token>
+						<Rect2D name="SliceCenter">
+							<min>
+								<X>0</X>
+								<Y>0</Y>
+							</min>
+							<max>
+								<X>0</X>
+								<Y>0</Y>
+							</max>
+						</Rect2D>
+						<float name="SliceScale">1</float>
+						<token name="Style">0</token>
+						<BinaryString name="Tags"></BinaryString>
+						<UDim2 name="TileSize">
+							<XS>1</XS>
+							<XO>0</XO>
+							<YS>1</YS>
+							<YO>0</YO>
+						</UDim2>
+						<bool name="Visible">true</bool>
+						<int name="ZIndex">1</int>
+					</Properties>
+					<Item class="TextLabel" referent="RBXD67A006109B4428986EEACC6317A4886">
+						<Properties>
+							<bool name="Active">false</bool>
+							<Vector2 name="AnchorPoint">
+								<X>0</X>
+								<Y>0</Y>
+							</Vector2>
+							<bool name="AutoLocalize">true</bool>
+							<Color3 name="BackgroundColor3">
+								<R>1</R>
+								<G>0.945098102</G>
+								<B>0.580392182</B>
+							</Color3>
+							<float name="BackgroundTransparency">1</float>
+							<Color3 name="BorderColor3">
+								<R>0.0666666701</R>
+								<G>0.0666666701</G>
+								<B>0.0666666701</B>
+							</Color3>
+							<token name="BorderMode">0</token>
+							<int name="BorderSizePixel">1</int>
+							<bool name="ClipsDescendants">false</bool>
+							<bool name="Draggable">false</bool>
+							<token name="Font">0</token>
+							<int name="LayoutOrder">0</int>
+							<float name="LineHeight">1</float>
+							<string name="Name">TXT</string>
+							<Ref name="NextSelectionDown">null</Ref>
+							<Ref name="NextSelectionLeft">null</Ref>
+							<Ref name="NextSelectionRight">null</Ref>
+							<Ref name="NextSelectionUp">null</Ref>
+							<UDim2 name="Position">
+								<XS>0</XS>
+								<XO>0</XO>
+								<YS>0</YS>
+								<YO>0</YO>
+							</UDim2>
+							<Ref name="RootLocalizationTable">null</Ref>
+							<float name="Rotation">0</float>
+							<bool name="Selectable">false</bool>
+							<Ref name="SelectionImageObject">null</Ref>
+							<UDim2 name="Size">
+								<XS>1</XS>
+								<XO>0</XO>
+								<YS>0</YS>
+								<YO>16</YO>
+							</UDim2>
+							<token name="SizeConstraint">0</token>
+							<BinaryString name="Tags"></BinaryString>
+							<string name="Text">Decline</string>
+							<Color3 name="TextColor3">
+								<R>0.105882362</R>
+								<G>0.164705887</G>
+								<B>0.207843155</B>
+							</Color3>
+							<bool name="TextScaled">false</bool>
+							<float name="TextSize">8</float>
+							<Color3 name="TextStrokeColor3">
+								<R>0</R>
+								<G>0</G>
+								<B>0</B>
+							</Color3>
+							<float name="TextStrokeTransparency">1</float>
+							<float name="TextTransparency">0</float>
+							<token name="TextTruncate">0</token>
+							<bool name="TextWrapped">false</bool>
+							<token name="TextXAlignment">2</token>
+							<token name="TextYAlignment">1</token>
+							<bool name="Visible">true</bool>
+							<int name="ZIndex">1</int>
+						</Properties>
+					</Item>
+				</Item>
+			</Item>
+			<Item class="Frame" referent="RBX055F7C94E2674CCEBD3BE4BDE00D02D6">
+				<Properties>
+					<bool name="Active">false</bool>
+					<Vector2 name="AnchorPoint">
+						<X>0</X>
+						<Y>0</Y>
+					</Vector2>
+					<bool name="AutoLocalize">true</bool>
+					<Color3 name="BackgroundColor3">
+						<R>0.870588303</R>
+						<G>0.800000072</G>
+						<B>0.631372571</B>
+					</Color3>
+					<float name="BackgroundTransparency">0.300000012</float>
+					<Color3 name="BorderColor3">
+						<R>0.105882362</R>
+						<G>0.164705887</G>
+						<B>0.207843155</B>
+					</Color3>
+					<token name="BorderMode">0</token>
+					<int name="BorderSizePixel">1</int>
+					<bool name="ClipsDescendants">false</bool>
+					<bool name="Draggable">false</bool>
+					<int name="LayoutOrder">0</int>
+					<string name="Name">PopupFrame</string>
+					<Ref name="NextSelectionDown">null</Ref>
+					<Ref name="NextSelectionLeft">null</Ref>
+					<Ref name="NextSelectionRight">null</Ref>
+					<Ref name="NextSelectionUp">null</Ref>
+					<UDim2 name="Position">
+						<XS>0.5</XS>
+						<XO>-128</XO>
+						<YS>0.5</YS>
+						<YO>-50</YO>
+					</UDim2>
+					<Ref name="RootLocalizationTable">null</Ref>
+					<float name="Rotation">0</float>
+					<bool name="Selectable">false</bool>
+					<Ref name="SelectionImageObject">null</Ref>
+					<UDim2 name="Size">
+						<XS>0</XS>
+						<XO>256</XO>
+						<YS>0</YS>
+						<YO>100</YO>
+					</UDim2>
+					<token name="SizeConstraint">0</token>
+					<token name="Style">0</token>
+					<BinaryString name="Tags"></BinaryString>
+					<bool name="Visible">false</bool>
+					<int name="ZIndex">1</int>
+				</Properties>
+				<Item class="TextLabel" referent="RBX92DC25EDF2114F1D8C3222598A7AEFC8">
+					<Properties>
+						<bool name="Active">false</bool>
+						<Vector2 name="AnchorPoint">
+							<X>0</X>
+							<Y>0</Y>
+						</Vector2>
+						<bool name="AutoLocalize">true</bool>
+						<Color3 name="BackgroundColor3">
+							<R>1</R>
+							<G>0.945098102</G>
+							<B>0.580392182</B>
+						</Color3>
+						<float name="BackgroundTransparency">0</float>
+						<Color3 name="BorderColor3">
+							<R>0.0666666701</R>
+							<G>0.0666666701</G>
+							<B>0.0666666701</B>
+						</Color3>
+						<token name="BorderMode">0</token>
+						<int name="BorderSizePixel">1</int>
+						<bool name="ClipsDescendants">false</bool>
+						<bool name="Draggable">false</bool>
+						<token name="Font">0</token>
+						<int name="LayoutOrder">0</int>
+						<float name="LineHeight">1</float>
+						<string name="Name">TitleBar</string>
+						<Ref name="NextSelectionDown">null</Ref>
+						<Ref name="NextSelectionLeft">null</Ref>
+						<Ref name="NextSelectionRight">null</Ref>
+						<Ref name="NextSelectionUp">null</Ref>
+						<UDim2 name="Position">
+							<XS>0</XS>
+							<XO>0</XO>
+							<YS>0</YS>
+							<YO>0</YO>
+						</UDim2>
+						<Ref name="RootLocalizationTable">null</Ref>
+						<float name="Rotation">0</float>
+						<bool name="Selectable">false</bool>
+						<Ref name="SelectionImageObject">null</Ref>
+						<UDim2 name="Size">
+							<XS>1</XS>
+							<XO>0</XO>
+							<YS>0</YS>
+							<YO>24</YO>
+						</UDim2>
+						<token name="SizeConstraint">0</token>
+						<BinaryString name="Tags"></BinaryString>
+						<string name="Text">TicTacToe</string>
+						<Color3 name="TextColor3">
+							<R>0.105882362</R>
+							<G>0.164705887</G>
+							<B>0.207843155</B>
+						</Color3>
+						<bool name="TextScaled">false</bool>
+						<float name="TextSize">8</float>
+						<Color3 name="TextStrokeColor3">
+							<R>0</R>
+							<G>0</G>
+							<B>0</B>
+						</Color3>
+						<float name="TextStrokeTransparency">1</float>
+						<float name="TextTransparency">0</float>
+						<token name="TextTruncate">0</token>
+						<bool name="TextWrapped">false</bool>
+						<token name="TextXAlignment">2</token>
+						<token name="TextYAlignment">1</token>
+						<bool name="Visible">true</bool>
+						<int name="ZIndex">1</int>
+					</Properties>
+				</Item>
+				<Item class="TextLabel" referent="RBX038BF06FB78D4D82BDBE631DF3BE16E7">
+					<Properties>
+						<bool name="Active">false</bool>
+						<Vector2 name="AnchorPoint">
+							<X>0</X>
+							<Y>0</Y>
+						</Vector2>
+						<bool name="AutoLocalize">true</bool>
+						<Color3 name="BackgroundColor3">
+							<R>1</R>
+							<G>0.945098102</G>
+							<B>0.580392182</B>
+						</Color3>
+						<float name="BackgroundTransparency">1</float>
+						<Color3 name="BorderColor3">
+							<R>0.0666666701</R>
+							<G>0.0666666701</G>
+							<B>0.0666666701</B>
+						</Color3>
+						<token name="BorderMode">0</token>
+						<int name="BorderSizePixel">1</int>
+						<bool name="ClipsDescendants">false</bool>
+						<bool name="Draggable">false</bool>
+						<token name="Font">0</token>
+						<int name="LayoutOrder">0</int>
+						<float name="LineHeight">1</float>
+						<string name="Name">TXT</string>
+						<Ref name="NextSelectionDown">null</Ref>
+						<Ref name="NextSelectionLeft">null</Ref>
+						<Ref name="NextSelectionRight">null</Ref>
+						<Ref name="NextSelectionUp">null</Ref>
+						<UDim2 name="Position">
+							<XS>0</XS>
+							<XO>0</XO>
+							<YS>0</YS>
+							<YO>24</YO>
+						</UDim2>
+						<Ref name="RootLocalizationTable">null</Ref>
+						<float name="Rotation">0</float>
+						<bool name="Selectable">false</bool>
+						<Ref name="SelectionImageObject">null</Ref>
+						<UDim2 name="Size">
+							<XS>1</XS>
+							<XO>0</XO>
+							<YS>0</YS>
+							<YO>16</YO>
+						</UDim2>
+						<token name="SizeConstraint">0</token>
+						<BinaryString name="Tags"></BinaryString>
+						<string name="Text">[message]</string>
+						<Color3 name="TextColor3">
+							<R>0.105882362</R>
+							<G>0.164705887</G>
+							<B>0.207843155</B>
+						</Color3>
+						<bool name="TextScaled">false</bool>
+						<float name="TextSize">8</float>
+						<Color3 name="TextStrokeColor3">
+							<R>0</R>
+							<G>0</G>
+							<B>0</B>
+						</Color3>
+						<float name="TextStrokeTransparency">1</float>
+						<float name="TextTransparency">0</float>
+						<token name="TextTruncate">0</token>
+						<bool name="TextWrapped">false</bool>
+						<token name="TextXAlignment">2</token>
+						<token name="TextYAlignment">1</token>
+						<bool name="Visible">true</bool>
+						<int name="ZIndex">1</int>
+					</Properties>
+				</Item>
+				<Item class="ImageButton" referent="RBX6CD11AAC33D0447091D975096A2F10D7">
+					<Properties>
+						<bool name="Active">true</bool>
+						<Vector2 name="AnchorPoint">
+							<X>0</X>
+							<Y>0</Y>
+						</Vector2>
+						<bool name="AutoButtonColor">true</bool>
+						<bool name="AutoLocalize">true</bool>
+						<Color3 name="BackgroundColor3">
+							<R>1</R>
+							<G>0.945098102</G>
+							<B>0.580392182</B>
+						</Color3>
+						<float name="BackgroundTransparency">0</float>
+						<Color3 name="BorderColor3">
+							<R>0.105882362</R>
+							<G>0.164705887</G>
+							<B>0.207843155</B>
+						</Color3>
+						<token name="BorderMode">0</token>
+						<int name="BorderSizePixel">1</int>
+						<bool name="ClipsDescendants">false</bool>
+						<bool name="Draggable">false</bool>
+						<Content name="HoverImage"><null></null></Content>
+						<Content name="Image"><null></null></Content>
+						<Color3 name="ImageColor3">
+							<R>1</R>
+							<G>1</G>
+							<B>1</B>
+						</Color3>
+						<Vector2 name="ImageRectOffset">
+							<X>0</X>
+							<Y>0</Y>
+						</Vector2>
+						<Vector2 name="ImageRectSize">
+							<X>0</X>
+							<Y>0</Y>
+						</Vector2>
+						<float name="ImageTransparency">0</float>
+						<int name="LayoutOrder">0</int>
+						<bool name="Modal">false</bool>
+						<string name="Name">Accept</string>
+						<Ref name="NextSelectionDown">null</Ref>
+						<Ref name="NextSelectionLeft">null</Ref>
+						<Ref name="NextSelectionRight">null</Ref>
+						<Ref name="NextSelectionUp">null</Ref>
+						<UDim2 name="Position">
+							<XS>0.300000012</XS>
+							<XO>0</XO>
+							<YS>1</YS>
+							<YO>-24</YO>
+						</UDim2>
+						<Content name="PressedImage"><null></null></Content>
+						<Ref name="RootLocalizationTable">null</Ref>
+						<float name="Rotation">0</float>
+						<token name="ScaleType">0</token>
+						<bool name="Selectable">true</bool>
+						<bool name="Selected">false</bool>
+						<Ref name="SelectionImageObject">null</Ref>
+						<UDim2 name="Size">
+							<XS>0.400000006</XS>
+							<XO>0</XO>
+							<YS>0</YS>
+							<YO>16</YO>
+						</UDim2>
+						<token name="SizeConstraint">0</token>
+						<Rect2D name="SliceCenter">
+							<min>
+								<X>0</X>
+								<Y>0</Y>
+							</min>
+							<max>
+								<X>0</X>
+								<Y>0</Y>
+							</max>
+						</Rect2D>
+						<float name="SliceScale">1</float>
+						<token name="Style">0</token>
+						<BinaryString name="Tags"></BinaryString>
+						<UDim2 name="TileSize">
+							<XS>1</XS>
+							<XO>0</XO>
+							<YS>1</YS>
+							<YO>0</YO>
+						</UDim2>
+						<bool name="Visible">true</bool>
+						<int name="ZIndex">1</int>
+					</Properties>
+					<Item class="TextLabel" referent="RBX51494EC05D85411493E6D9828EB61999">
+						<Properties>
+							<bool name="Active">false</bool>
+							<Vector2 name="AnchorPoint">
+								<X>0</X>
+								<Y>0</Y>
+							</Vector2>
+							<bool name="AutoLocalize">true</bool>
+							<Color3 name="BackgroundColor3">
+								<R>1</R>
+								<G>0.945098102</G>
+								<B>0.580392182</B>
+							</Color3>
+							<float name="BackgroundTransparency">1</float>
+							<Color3 name="BorderColor3">
+								<R>0.0666666701</R>
+								<G>0.0666666701</G>
+								<B>0.0666666701</B>
+							</Color3>
+							<token name="BorderMode">0</token>
+							<int name="BorderSizePixel">1</int>
+							<bool name="ClipsDescendants">false</bool>
+							<bool name="Draggable">false</bool>
+							<token name="Font">0</token>
+							<int name="LayoutOrder">0</int>
+							<float name="LineHeight">1</float>
+							<string name="Name">TXT</string>
+							<Ref name="NextSelectionDown">null</Ref>
+							<Ref name="NextSelectionLeft">null</Ref>
+							<Ref name="NextSelectionRight">null</Ref>
+							<Ref name="NextSelectionUp">null</Ref>
+							<UDim2 name="Position">
+								<XS>0</XS>
+								<XO>0</XO>
+								<YS>0</YS>
+								<YO>0</YO>
+							</UDim2>
+							<Ref name="RootLocalizationTable">null</Ref>
+							<float name="Rotation">0</float>
+							<bool name="Selectable">false</bool>
+							<Ref name="SelectionImageObject">null</Ref>
+							<UDim2 name="Size">
+								<XS>1</XS>
+								<XO>0</XO>
+								<YS>0</YS>
+								<YO>16</YO>
+							</UDim2>
+							<token name="SizeConstraint">0</token>
+							<BinaryString name="Tags"></BinaryString>
+							<string name="Text">OK</string>
+							<Color3 name="TextColor3">
+								<R>0.105882362</R>
+								<G>0.164705887</G>
+								<B>0.207843155</B>
+							</Color3>
+							<bool name="TextScaled">false</bool>
+							<float name="TextSize">8</float>
+							<Color3 name="TextStrokeColor3">
+								<R>0</R>
+								<G>0</G>
+								<B>0</B>
+							</Color3>
+							<float name="TextStrokeTransparency">1</float>
+							<float name="TextTransparency">0</float>
+							<token name="TextTruncate">0</token>
+							<bool name="TextWrapped">false</bool>
+							<token name="TextXAlignment">2</token>
+							<token name="TextYAlignment">1</token>
+							<bool name="Visible">true</bool>
+							<int name="ZIndex">1</int>
+						</Properties>
+					</Item>
+				</Item>
+			</Item>
+			<Item class="Frame" referent="RBX0A08DD3C611D42BB89CE943051BAD597">
+				<Properties>
+					<bool name="Active">false</bool>
+					<Vector2 name="AnchorPoint">
+						<X>0</X>
+						<Y>0</Y>
+					</Vector2>
+					<bool name="AutoLocalize">true</bool>
+					<Color3 name="BackgroundColor3">
+						<R>1</R>
+						<G>0.937254965</G>
+						<B>0.572549045</B>
+					</Color3>
+					<float name="BackgroundTransparency">0</float>
+					<Color3 name="BorderColor3">
+						<R>0.0666666701</R>
+						<G>0.0666666701</G>
+						<B>0.0666666701</B>
+					</Color3>
+					<token name="BorderMode">0</token>
+					<int name="BorderSizePixel">1</int>
+					<bool name="ClipsDescendants">false</bool>
+					<bool name="Draggable">false</bool>
+					<int name="LayoutOrder">0</int>
+					<string name="Name">SideFrame</string>
+					<Ref name="NextSelectionDown">null</Ref>
+					<Ref name="NextSelectionLeft">null</Ref>
+					<Ref name="NextSelectionRight">null</Ref>
+					<Ref name="NextSelectionUp">null</Ref>
+					<UDim2 name="Position">
+						<XS>0</XS>
+						<XO>0</XO>
+						<YS>0.5</YS>
+						<YO>-16</YO>
+					</UDim2>
+					<Ref name="RootLocalizationTable">null</Ref>
+					<float name="Rotation">0</float>
+					<bool name="Selectable">false</bool>
+					<Ref name="SelectionImageObject">null</Ref>
+					<UDim2 name="Size">
+						<XS>0</XS>
+						<XO>128</XO>
+						<YS>0</YS>
+						<YO>32</YO>
+					</UDim2>
+					<token name="SizeConstraint">0</token>
+					<token name="Style">0</token>
+					<BinaryString name="Tags"></BinaryString>
+					<bool name="Visible">true</bool>
+					<int name="ZIndex">1</int>
+				</Properties>
+				<Item class="TextLabel" referent="RBXB1B1A07EC7924D158531A24D1081B209">
+					<Properties>
+						<bool name="Active">false</bool>
+						<Vector2 name="AnchorPoint">
+							<X>0</X>
+							<Y>0</Y>
+						</Vector2>
+						<bool name="AutoLocalize">true</bool>
+						<Color3 name="BackgroundColor3">
+							<R>0.65882355</R>
+							<G>0.654901981</G>
+							<B>0.666666687</B>
+						</Color3>
+						<float name="BackgroundTransparency">1</float>
+						<Color3 name="BorderColor3">
+							<R>0.105882362</R>
+							<G>0.164705887</G>
+							<B>0.207843155</B>
+						</Color3>
+						<token name="BorderMode">0</token>
+						<int name="BorderSizePixel">1</int>
+						<bool name="ClipsDescendants">false</bool>
+						<bool name="Draggable">false</bool>
+						<token name="Font">0</token>
+						<int name="LayoutOrder">0</int>
+						<float name="LineHeight">1</float>
+						<string name="Name">TXT1</string>
+						<Ref name="NextSelectionDown">null</Ref>
+						<Ref name="NextSelectionLeft">null</Ref>
+						<Ref name="NextSelectionRight">null</Ref>
+						<Ref name="NextSelectionUp">null</Ref>
+						<UDim2 name="Position">
+							<XS>0</XS>
+							<XO>0</XO>
+							<YS>0</YS>
+							<YO>0</YO>
+						</UDim2>
+						<Ref name="RootLocalizationTable">null</Ref>
+						<float name="Rotation">0</float>
+						<bool name="Selectable">false</bool>
+						<Ref name="SelectionImageObject">null</Ref>
+						<UDim2 name="Size">
+							<XS>1</XS>
+							<XO>0</XO>
+							<YS>0.5</YS>
+							<YO>0</YO>
+						</UDim2>
+						<token name="SizeConstraint">0</token>
+						<BinaryString name="Tags"></BinaryString>
+						<string name="Text">Click on a player to</string>
+						<Color3 name="TextColor3">
+							<R>0.105882362</R>
+							<G>0.164705887</G>
+							<B>0.207843155</B>
+						</Color3>
+						<bool name="TextScaled">false</bool>
+						<float name="TextSize">8</float>
+						<Color3 name="TextStrokeColor3">
+							<R>0</R>
+							<G>0</G>
+							<B>0</B>
+						</Color3>
+						<float name="TextStrokeTransparency">1</float>
+						<float name="TextTransparency">0</float>
+						<token name="TextTruncate">0</token>
+						<bool name="TextWrapped">false</bool>
+						<token name="TextXAlignment">2</token>
+						<token name="TextYAlignment">1</token>
+						<bool name="Visible">true</bool>
+						<int name="ZIndex">1</int>
+					</Properties>
+				</Item>
+				<Item class="TextLabel" referent="RBXFB8EEEC7B8674648A89123ED99F59773">
+					<Properties>
+						<bool name="Active">false</bool>
+						<Vector2 name="AnchorPoint">
+							<X>0</X>
+							<Y>0</Y>
+						</Vector2>
+						<bool name="AutoLocalize">true</bool>
+						<Color3 name="BackgroundColor3">
+							<R>0.662745118</R>
+							<G>0.65882355</G>
+							<B>0.670588255</B>
+						</Color3>
+						<float name="BackgroundTransparency">1</float>
+						<Color3 name="BorderColor3">
+							<R>0.105882362</R>
+							<G>0.164705887</G>
+							<B>0.207843155</B>
+						</Color3>
+						<token name="BorderMode">0</token>
+						<int name="BorderSizePixel">1</int>
+						<bool name="ClipsDescendants">false</bool>
+						<bool name="Draggable">false</bool>
+						<token name="Font">0</token>
+						<int name="LayoutOrder">0</int>
+						<float name="LineHeight">1</float>
+						<string name="Name">TXT2</string>
+						<Ref name="NextSelectionDown">null</Ref>
+						<Ref name="NextSelectionLeft">null</Ref>
+						<Ref name="NextSelectionRight">null</Ref>
+						<Ref name="NextSelectionUp">null</Ref>
+						<UDim2 name="Position">
+							<XS>0</XS>
+							<XO>0</XO>
+							<YS>0</YS>
+							<YO>12</YO>
+						</UDim2>
+						<Ref name="RootLocalizationTable">null</Ref>
+						<float name="Rotation">0</float>
+						<bool name="Selectable">false</bool>
+						<Ref name="SelectionImageObject">null</Ref>
+						<UDim2 name="Size">
+							<XS>1</XS>
+							<XO>0</XO>
+							<YS>0.5</YS>
+							<YO>0</YO>
+						</UDim2>
+						<token name="SizeConstraint">0</token>
+						<BinaryString name="Tags"></BinaryString>
+						<string name="Text">challenge them</string>
+						<Color3 name="TextColor3">
+							<R>0.105882362</R>
+							<G>0.164705887</G>
+							<B>0.207843155</B>
+						</Color3>
+						<bool name="TextScaled">false</bool>
+						<float name="TextSize">8</float>
+						<Color3 name="TextStrokeColor3">
+							<R>0</R>
+							<G>0</G>
+							<B>0</B>
+						</Color3>
+						<float name="TextStrokeTransparency">1</float>
+						<float name="TextTransparency">0</float>
+						<token name="TextTruncate">0</token>
+						<bool name="TextWrapped">false</bool>
+						<token name="TextXAlignment">2</token>
+						<token name="TextYAlignment">1</token>
+						<bool name="Visible">true</bool>
+						<int name="ZIndex">1</int>
+					</Properties>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="Script" referent="RBX9E6F4063FA4C40A48930442DF727309D">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">OpponentChoose</string>
+				<string name="ScriptGuid">{E0DD49E0-C6D3-4F42-82B6-3D626084BF01}</string>
+				<ProtectedString name="Source"><![CDATA[local Tool = script.Parent
+local Handle = Tool:WaitForChild("Handle")
+
+local ChooseOpponent = Tool:FindFirstChild("ChooseOpponent") or Instance.new("RemoteEvent")
+ChooseOpponent.Name = "ChooseOpponent"
+ChooseOpponent.Parent = Tool
+
+local Players = (game:FindService("Players") or game:GetService("Players"))
+
+ChooseOpponent.OnServerEvent:Connect(function(client,TargetPlayer)
+	local Player = Players:GetPlayerFromCharacter(Tool.Parent)
+	if client ~= Player or not TargetPlayer or not TargetPlayer:IsA("Player") or not TargetPlayer.Character then return end
+	
+	if Tool:FindFirstChild("Opponent") then
+		local Torso = (TargetPlayer.Character:FindFirstChild("Torso") or TargetPlayer.Character:FindFirstChild("UpperTorso"))
+		if Torso and (Handle.Position-Torso.Position).Magnitude < 16 then
+			Tool.Opponent.Value = TargetPlayer
+		end
+	end
+	
+end)]]></ProtectedString>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+		<Item class="Keyframe" referent="RBX9AAC80E654E147F893701EADE8FD62A6">
+			<Properties>
+				<string name="Name">ThumbnailPose</string>
+				<BinaryString name="Tags"></BinaryString>
+				<float name="Time">0</float>
+			</Properties>
+			<Item class="Pose" referent="RBX3CC6C0FB97F84C64AD5703E7B078652E">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<token name="EasingDirection">1</token>
+					<token name="EasingStyle">0</token>
+					<string name="Name">UpperTorso</string>
+					<BinaryString name="Tags"></BinaryString>
+					<float name="Weight">0</float>
+				</Properties>
+				<Item class="Pose" referent="RBX208C3528C7C444C99A9B5408E9F2B833">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0</X>
+							<Y>-6.70552254e-08</Y>
+							<Z>-5.96046448e-08</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0.173624337</R11>
+							<R12>-0.984811902</R12>
+							<R20>0</R20>
+							<R21>0.984811902</R21>
+							<R22>0.173624337</R22>
+						</CoordinateFrame>
+						<token name="EasingDirection">1</token>
+						<token name="EasingStyle">0</token>
+						<string name="Name">RightUpperArm</string>
+						<BinaryString name="Tags"></BinaryString>
+						<float name="Weight">1</float>
+					</Properties>
+					<Item class="Pose" referent="RBXDE62440E64144DD39283860F60F864F4">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>0</X>
+								<Y>-1.49011612e-08</Y>
+								<Z>3.7252903e-09</Z>
+								<R00>1</R00>
+								<R01>0</R01>
+								<R02>0</R02>
+								<R10>0</R10>
+								<R11>0.984812498</R11>
+								<R12>-0.173621148</R12>
+								<R20>0</R20>
+								<R21>0.173621148</R21>
+								<R22>0.984812498</R22>
+							</CoordinateFrame>
+							<token name="EasingDirection">1</token>
+							<token name="EasingStyle">0</token>
+							<string name="Name">RightLowerArm</string>
+							<BinaryString name="Tags"></BinaryString>
+							<float name="Weight">1</float>
+						</Properties>
+						<Item class="Pose" referent="RBXC82691F65826450AA4845C2B57647317">
+							<Properties>
+								<CoordinateFrame name="CFrame">
+									<X>0</X>
+									<Y>0</Y>
+									<Z>0</Z>
+									<R00>1</R00>
+									<R01>0</R01>
+									<R02>0</R02>
+									<R10>0</R10>
+									<R11>1</R11>
+									<R12>0</R12>
+									<R20>0</R20>
+									<R21>0</R21>
+									<R22>1</R22>
+								</CoordinateFrame>
+								<token name="EasingDirection">1</token>
+								<token name="EasingStyle">0</token>
+								<string name="Name">RightHand</string>
+								<BinaryString name="Tags"></BinaryString>
+								<float name="Weight">1</float>
+							</Properties>
+						</Item>
+					</Item>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="Camera" referent="RBXD42662CC7D36402BA0D436A91ED89E37">
+			<Properties>
+				<CoordinateFrame name="CFrame">
+					<X>5.80809356e-05</X>
+					<Y>9.17537785</Y>
+					<Z>7.68713236</Z>
+					<R00>-1</R00>
+					<R01>-0.000183355049</R01>
+					<R02>2.90405133e-05</R02>
+					<R10>-0</R10>
+					<R11>0.156434059</R11>
+					<R12>0.987688422</R12>
+					<R20>-0.000185640572</R20>
+					<R21>0.987688422</R21>
+					<R22>-0.156434059</R22>
+				</CoordinateFrame>
+				<Ref name="CameraSubject">null</Ref>
+				<token name="CameraType">0</token>
+				<float name="FieldOfView">70</float>
+				<CoordinateFrame name="Focus">
+					<X>0</X>
+					<Y>7.2000041</Y>
+					<Z>8</Z>
+					<R00>1</R00>
+					<R01>0</R01>
+					<R02>0</R02>
+					<R10>0</R10>
+					<R11>1</R11>
+					<R12>0</R12>
+					<R20>0</R20>
+					<R21>0</R21>
+					<R22>1</R22>
+				</CoordinateFrame>
+				<bool name="HeadLocked">true</bool>
+				<float name="HeadScale">1</float>
+				<string name="Name">ThumbnailCamera</string>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+	</Item>
+</roblox>

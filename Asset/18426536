@@ -1,0 +1,573 @@
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mulrbx.com/roblox.xsd" version="4">
+	<External>null</External>
+	<External>nil</External>
+	<Item class="Tool" referent="RBX912EDC7478B94E54B1109F55E9184864">
+		<Properties>
+			<bool name="CanBeDropped">true</bool>
+			<bool name="Enabled">true</bool>
+			<CoordinateFrame name="Grip">
+				<X>-0.5</X>
+				<Y>0</Y>
+				<Z>0.300000012</Z>
+				<R00>-0.00347340619</R00>
+				<R01>0.928545654</R01>
+				<R02>0.371201903</R02>
+				<R10>-0.99995625</R10>
+				<R11>0</R11>
+				<R12>-0.00935677905</R12>
+				<R20>-0.00868819654</R20>
+				<R21>-0.371218145</R21>
+				<R22>0.928505063</R22>
+			</CoordinateFrame>
+			<bool name="ManualActivationOnly">false</bool>
+			<string name="Name">ApplePie</string>
+			<bool name="RequiresHandle">true</bool>
+			<Content name="TextureId"><url>http://www.mulrbx.com/asset/?id=18425037</url></Content>
+			<string name="ToolTip"></string>
+		</Properties>
+		<Item class="Part" referent="RBX9F735286E1A84985AFC79460CD0453CB">
+			<Properties>
+				<bool name="Anchored">false</bool>
+				<float name="BackParamA">-0.5</float>
+				<float name="BackParamB">0.5</float>
+				<token name="BackSurface">0</token>
+				<token name="BackSurfaceInput">0</token>
+				<float name="BottomParamA">-0.5</float>
+				<float name="BottomParamB">0.5</float>
+				<token name="BottomSurface">0</token>
+				<token name="BottomSurfaceInput">0</token>
+				<int name="BrickColor">105</int>
+				<CoordinateFrame name="CFrame">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+					<R00>0.999999881</R00>
+					<R01>0</R01>
+					<R02>-5.96046448e-008</R02>
+					<R10>0</R10>
+					<R11>-0.999999702</R11>
+					<R12>0</R12>
+					<R20>-5.96046448e-008</R20>
+					<R21>0</R21>
+					<R22>-0.999999881</R22>
+				</CoordinateFrame>
+				<bool name="CanCollide">true</bool>
+				<PhysicalProperties name="CustomPhysicalProperties">
+					<CustomPhysics>false</CustomPhysics>
+				</PhysicalProperties>
+				<float name="Elasticity">0.5</float>
+				<float name="Friction">0.300000012</float>
+				<float name="FrontParamA">-0.5</float>
+				<float name="FrontParamB">0.5</float>
+				<token name="FrontSurface">0</token>
+				<token name="FrontSurfaceInput">0</token>
+				<float name="LeftParamA">-0.5</float>
+				<float name="LeftParamB">0.5</float>
+				<token name="LeftSurface">0</token>
+				<token name="LeftSurfaceInput">0</token>
+				<bool name="Locked">true</bool>
+				<token name="Material">256</token>
+				<string name="Name">Handle</string>
+				<float name="Reflectance">0</float>
+				<float name="RightParamA">-0.5</float>
+				<float name="RightParamB">0.5</float>
+				<token name="RightSurface">0</token>
+				<token name="RightSurfaceInput">0</token>
+				<Vector3 name="RotVelocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<float name="TopParamA">-0.5</float>
+				<float name="TopParamB">0.5</float>
+				<token name="TopSurface">0</token>
+				<token name="TopSurfaceInput">0</token>
+				<float name="Transparency">0</float>
+				<Vector3 name="Velocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<token name="formFactorRaw">3</token>
+				<token name="shape">1</token>
+				<Vector3 name="size">
+					<X>2</X>
+					<Y>2</Y>
+					<Z>1</Z>
+				</Vector3>
+			</Properties>
+			<Item class="Sound" referent="RBXBE08A832EB6B408E9EA0E216CF29150E">
+				<Properties>
+					<float name="EmitterSize">10</float>
+					<bool name="Looped">false</bool>
+					<string name="Name">Fire</string>
+					<bool name="PlayOnRemove">false</bool>
+					<float name="PlaybackSpeed">1</float>
+					<bool name="Playing">false</bool>
+					<token name="RollOffMode">0</token>
+					<Ref name="SoundGroup">null</Ref>
+					<Content name="SoundId"><url>http://www.mulrbx.com/asset/?id=18426149</url></Content>
+					<double name="TimePosition">0</double>
+					<float name="Volume">0.699999988</float>
+					<float name="xmlRead_MaxDistance_3">10000</float>
+				</Properties>
+			</Item>
+			<Item class="SpecialMesh" referent="RBX54280F6BBADE406EBAA37EAE2C6AB246">
+				<Properties>
+					<token name="LODX">2</token>
+					<token name="LODY">2</token>
+					<Content name="MeshId"><url>http://www.mulrbx.com/asset/?id=18417911</url></Content>
+					<token name="MeshType">5</token>
+					<string name="Name">Mesh</string>
+					<Vector3 name="Offset">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+					<Vector3 name="Scale">
+						<X>0.800000012</X>
+						<Y>0.800000012</Y>
+						<Z>0.800000012</Z>
+					</Vector3>
+					<Content name="TextureId"><url>http://www.mulrbx.com/asset/?id=18417918</url></Content>
+					<Vector3 name="VertexColor">
+						<X>1</X>
+						<Y>1</Y>
+						<Z>1</Z>
+					</Vector3>
+				</Properties>
+			</Item>
+			<Item class="Sound" referent="RBX535498EF4F984216AD5CF8412D2723B0">
+				<Properties>
+					<float name="EmitterSize">10</float>
+					<bool name="Looped">false</bool>
+					<string name="Name">Hit</string>
+					<bool name="PlayOnRemove">false</bool>
+					<float name="PlaybackSpeed">1</float>
+					<bool name="Playing">false</bool>
+					<token name="RollOffMode">0</token>
+					<Ref name="SoundGroup">null</Ref>
+					<Content name="SoundId"><url>http://www.mulrbx.com/asset/?id=18424769</url></Content>
+					<double name="TimePosition">0</double>
+					<float name="Volume">0.5</float>
+					<float name="xmlRead_MaxDistance_3">10000</float>
+				</Properties>
+			</Item>
+			<Item class="Attachment" referent="RBX7F43FA2967C448AEABA3D13FD99F9CAB">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0.5</Z>
+						<R00>0</R00>
+						<R01>0</R01>
+						<R02>-1</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>1</R20>
+						<R21>0</R21>
+						<R22>0</R22>
+					</CoordinateFrame>
+					<string name="Name">RightGripAttachment</string>
+					<bool name="Visible">false</bool>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="Script" referent="RBX85B717A9370C4832BE63E302557EA498">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">Script</string>
+				<string name="ScriptGuid">{4FDE5F5B-2452-443F-AA02-771E0FB96F23}</string>
+				<ProtectedString name="Source"><![CDATA[--Rescripted by Luckymaxer
+
+Tool = script.Parent
+Handle = Tool:WaitForChild("Handle")
+Mesh = Handle:WaitForChild("Mesh")
+
+Players = game:GetService("Players")
+Debris = game:GetService("Debris")
+
+PieScript = script:WaitForChild("PieScript")
+
+Sounds = {
+	Fire = Handle:WaitForChild("Fire"),
+	Hit = Handle:WaitForChild("Hit")
+}
+
+Pie = Instance.new("Part")
+Pie.Name = "ApplePie"
+Pie.Shape = Enum.PartType.Block
+Pie.Material = Enum.Material.Plastic
+Pie.TopSurface = Enum.SurfaceType.Smooth
+Pie.BottomSurface = Enum.SurfaceType.Smooth
+Pie.FormFactor = Enum.FormFactor.Custom
+Pie.Size = Vector3.new(2, 2, 1)
+Pie.CanCollide = true
+Pie.Locked = true
+Pie.Anchored = false
+Mesh:Clone().Parent = Pie
+PieScript:Clone().Parent = Pie
+Sounds.Hit:Clone().Parent = Pie
+
+Loaded = true
+ToolEquipped = false
+
+ServerControl = (Tool:FindFirstChild("ServerControl") or Instance.new("RemoteFunction"))
+ServerControl.Name = "ServerControl"
+ServerControl.Parent = Tool
+
+ClientControl = (Tool:FindFirstChild("ClientControl") or Instance.new("RemoteFunction"))
+ClientControl.Name = "ClientControl"
+ClientControl.Parent = Tool
+
+Handle.Transparency = 0
+Tool.Enabled = true
+
+function Fire(TargetPosition)
+	
+	Handle.Transparency = 1
+	
+	Sounds.Fire:Play()
+
+	local Direction = CFrame.new(Handle.Position, TargetPosition)
+	
+	local StartPosition = (Handle.CFrame + Direction.lookVector * 10)
+
+	local pie = Pie:clone()
+	pie.CFrame = CFrame.new(StartPosition.p)
+	pie.CFrame = CFrame.new(pie.Position, TargetPosition)
+	pie.Velocity = (Direction.lookVector * 50)
+
+	local force = Instance.new("BodyForce")
+	force.force = Vector3.new(0, 240, 0)
+	force.Parent = pie
+	
+	local gyro = Instance.new("BodyGyro")
+	gyro.D = 5000
+	gyro.maxTorque = Vector3.new(0, 0, 0)
+	gyro.P = 3000
+	gyro.cframe = pie.CFrame
+	gyro.Parent = pie
+
+	pie.PieScript.Disabled = false
+
+	local CreatorTag = Instance.new("ObjectValue")
+	CreatorTag.Value = Player
+	CreatorTag.Name = "creator"
+	CreatorTag.Parent = pie
+	
+	Debris:AddItem(pie, 12)
+	
+	pie.Parent = game:GetService("Workspace")
+
+end
+
+
+function Activated()
+	if not Tool.Enabled or not CheckIfAlive() or not ToolEquipped then
+		return
+	end
+	Tool.Enabled = false
+	if Loaded then
+		Loaded = false
+		Fire(InvokeClient("MousePosition").Position)
+		wait(0.3)
+	else
+		Handle.Transparency = 0
+		wait(0.3)
+		Loaded = true
+	end
+	Tool.Enabled = true
+end
+
+function CheckIfAlive()
+	return (((Character and Character.Parent and Humanoid and Humanoid.Parent and Humanoid.Health > 0 and Player and Player.Parent) and true) or false)
+end
+
+function Equipped(Mouse)
+	Character = Tool.Parent
+	Humanoid = Character:FindFirstChild("Humanoid")
+	Player = Players:GetPlayerFromCharacter(Character)
+	if not CheckIfAlive() then
+		return
+	end
+	ToolEquipped = true
+end
+
+function Unequipped()
+	ToolEquipped = false
+end
+
+function InvokeClient(Mode, Value)
+	local ClientReturn = nil
+	pcall(function()
+		ClientReturn = ClientControl:InvokeClient(Player, Mode, Value)
+	end)
+	return ClientReturn
+end
+
+Tool.Activated:connect(Activated)
+Tool.Equipped:connect(Equipped)
+Tool.Unequipped:connect(Unequipped)]]></ProtectedString>
+			</Properties>
+			<Item class="Script" referent="RBX4AE4CC1311434E209E457CA830D30F40">
+				<Properties>
+					<bool name="Disabled">true</bool>
+					<Content name="LinkedSource"><null></null></Content>
+					<string name="Name">PieScript</string>
+					<string name="ScriptGuid">{AE4C4649-5854-47E3-824C-DB0264211D15}</string>
+					<ProtectedString name="Source"><![CDATA[--Rescripted by Luckymaxer
+
+Pie = script.Parent
+
+Players = game:GetService("Players")
+Debris = game:GetService("Debris")
+
+Creator = Pie:FindFirstChild("creator")
+
+BodyForce = Pie:FindFirstChild("BodyForce")
+BodyGyro = Pie:FindFirstChild("BodyGyro")
+
+HitSound = Pie:FindFirstChild("Hit")
+
+Stuck = false
+
+Damage = 0
+
+function TagHumanoid(humanoid, player)
+	local Creator_Tag = Instance.new("ObjectValue")
+	Creator_Tag.Name = "creator"
+	Creator_Tag.Value = player
+	Debris:AddItem(Creator_Tag, 2)
+	Creator_Tag.Parent = humanoid
+end
+
+function UntagHumanoid(humanoid)
+	for i, v in pairs(humanoid:GetChildren()) do
+		if v:IsA("ObjectValue") and v.Name == "creator" then
+			v:Destroy()
+		end
+	end
+end
+
+function Stick(Object, Hit)
+	local Weld = Instance.new("Weld")
+	Weld.Part0 = Pie
+	Weld.Part1 = Hit
+	local HitPos = Pie.Position
+	local CJ = CFrame.new(HitPos)
+	Weld.C0 = Pie.CFrame:inverse() * CJ
+	Weld.C1 = Hit.CFrame:inverse() * CJ
+	Weld.Parent = Object
+	return Weld
+end
+
+function IsTeamMate(Player1, Player2)
+	return (Player1 and Player2 and not Player1.Neutral and not Player2.Neutral and Player1.TeamColor == Player2.TeamColor)
+end
+
+function Touched(Hit)
+	if not Hit or not Hit.Parent or Stuck then
+		return
+	end
+	local character = Hit.Parent
+	if character:IsA("Hat") or character:IsA("Tool") then
+		character = character.Parent
+	end
+	local CreatorPlayer
+	if Creator and Creator.Value and Creator.Value:IsA("Player") then
+		CreatorPlayer = Creator.Value
+	end
+	if CreatorPlayer and CreatorPlayer.Character == character then
+		return
+	end
+	local player = Players:GetPlayerFromCharacter(character)
+	if CreatorPlayer and player and IsTeamMate(CreatorPlayer, player) then
+		return
+	end
+	Stuck = true
+	PieWeld = Stick(Pie, Hit)
+	if HitSound then
+		HitSound:Play()
+	end
+	for i, v in pairs({BodyForce, BodyGyro}) do
+		if v and v.Parent then
+			v:Destroy()
+		end
+	end
+	local humanoid = character:FindFirstChild("Humanoid")
+	if humanoid and humanoid.Health > 0 then
+		UntagHumanoid(humanoid)
+		if CreatorPlayer then
+			TagHumanoid(humanoid, CreatorPlayer)
+		end
+		humanoid:TakeDamage(Damage)
+	end
+end
+
+Pie.Touched:connect(Touched)
+
+for i = 1, 10 do
+	wait(0.1 * i)
+	if BodyGyro and BodyGyro.Parent then
+		local Direction = Pie.Velocity.unit
+		BodyGyro.maxTorque = Vector3.new(1e4, 1e4, 1e4)
+		BodyGyro.cframe = CFrame.new(Vector3.new(0, 0, 0), -Direction)
+	end
+end
+
+wait(2)
+
+if PieWeld and PieWeld.Parent then
+	PieWeld:Destroy()
+end
+
+wait(8)
+
+Debris:AddItem(Pie, 0)]]></ProtectedString>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="LocalScript" referent="RBXA104EF5F859E4AD582AF468AF166F913">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">LocalScript</string>
+				<string name="ScriptGuid"></string>
+				<ProtectedString name="Source"><![CDATA[--Made by Luckymaxer
+
+Tool = script.Parent
+Handle = Tool:WaitForChild("Handle")
+
+Players = game:GetService("Players")
+
+Animations = {}
+
+ServerControl = Tool:WaitForChild("ServerControl")
+ClientControl = Tool:WaitForChild("ClientControl")
+
+ToolEquipped = false
+
+function SetAnimation(mode, value)
+	if mode == "PlayAnimation" and value and ToolEquipped and Humanoid then
+		for i, v in pairs(Animations) do
+			if v.Animation == value.Animation then
+				v.AnimationTrack:Stop()
+				table.remove(Animations, i)
+			end
+		end
+		local AnimationTrack = Humanoid:LoadAnimation(value.Animation)
+		table.insert(Animations, {Animation = value.Animation, AnimationTrack = AnimationTrack})
+		AnimationTrack:Play(value.FadeTime, value.Weight, value.Speed)
+	elseif mode == "StopAnimation" and value then
+		for i, v in pairs(Animations) do
+			if v.Animation == value.Animation then
+				v.AnimationTrack:Stop()
+				table.remove(Animations, i)
+			end
+		end
+	end
+end
+
+function CheckIfAlive()
+	return (((Character and Character.Parent and Humanoid and Humanoid.Parent and Humanoid.Health > 0 and Player and Player.Parent) and true) or false)
+end
+
+function Equipped(Mouse)
+	Character = Tool.Parent
+	Player = Players:GetPlayerFromCharacter(Character)
+	Humanoid = Character:FindFirstChild("Humanoid")
+	ToolEquipped = true
+	if not CheckIfAlive() then
+		return
+	end
+	PlayerMouse = Player:GetMouse()
+	Mouse.Button1Down:connect(function()
+		InvokeServer("MouseClick", {Down = true})
+	end)
+	Mouse.Button1Up:connect(function()
+		InvokeServer("MouseClick", {Down = false})
+	end)
+	Mouse.KeyDown:connect(function(Key)
+		InvokeServer("KeyPress", {Key = Key, Down = true})
+	end)
+	Mouse.KeyUp:connect(function(Key)
+		InvokeServer("KeyPress", {Key = Key, Down = false})
+	end)
+	Mouse.Move:connect(function()
+		InvokeServer("MouseMove", {Position = Mouse.Hit.p, Target = Mouse.Target})
+	end)
+end
+
+function Unequipped()
+	Animations = {}
+	ToolEquipped = false
+end
+
+function InvokeServer(mode, value)
+	pcall(function()
+		local ServerReturn = ServerControl:InvokeServer(mode, value)
+		return ServerReturn
+	end)
+end
+
+function OnClientInvoke(mode, value)
+	if mode == "PlayAnimation" and value and ToolEquipped and Humanoid then
+		SetAnimation("PlayAnimation", value)
+	elseif mode == "StopAnimation" and value then
+		SetAnimation("StopAnimation", value)
+	elseif mode == "PlaySound" and value then
+		value:Play()
+	elseif mode == "StopSound" and value then
+		value:Stop()
+	elseif mode == "MousePosition" then
+		return {Position = PlayerMouse.Hit.p, Target = PlayerMouse.Target}
+	end
+end
+
+ClientControl.OnClientInvoke = OnClientInvoke
+Tool.Equipped:connect(Equipped)
+Tool.Unequipped:connect(Unequipped)]]></ProtectedString>
+			</Properties>
+		</Item>
+		<Item class="LocalScript" referent="RBX4A3AEC5A814E490288DEF0713CC46EC6">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">MouseIcon</string>
+				<string name="ScriptGuid"></string>
+				<ProtectedString name="Source"><![CDATA[--Made by Luckymaxer
+
+Mouse_Icon = "rbxasset://textures/GunCursor.png"
+Reloading_Icon = "rbxasset://textures/GunWaitCursor.png"
+
+Tool = script.Parent
+
+Mouse = nil
+
+function UpdateIcon()
+	if Mouse then
+		Mouse.Icon = Tool.Enabled and Mouse_Icon or Reloading_Icon
+	end
+end
+
+function OnEquipped(ToolMouse)
+	Mouse = ToolMouse
+	UpdateIcon()
+end
+
+function OnChanged(Property)
+	if Property == "Enabled" then
+		UpdateIcon()
+	end
+end
+
+Tool.Equipped:connect(OnEquipped)
+Tool.Changed:connect(OnChanged)
+]]></ProtectedString>
+			</Properties>
+		</Item>
+	</Item>
+</roblox>

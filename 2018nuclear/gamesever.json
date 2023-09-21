@@ -1,0 +1,32 @@
+{
+   "Mode":"GameServer",
+   "GameId":13058,
+   "Settings":{
+    "Type":"Avatar",
+    "PlaceId":1818,
+    "CreatorId":1,
+    "GameId":"13058",
+    "MachineAddress":"127.0.0.1",
+    "GsmInterval":99999999999995,
+    "MaxPlayers":30,
+    "MaxGameInstances":999999999,
+    "ApiKey":"idiot",
+    "PreferredPlayerCapacity":30,
+    "PlaceVisitAccessKey":"",
+    "UniverseId":13058,
+    "PlaceFetchUrl":"https://assetdelivery.roblox.com/v1/asset?id=1818",
+    "MatchmakingContextId":1,
+    "CreatorId":1,
+    "CreatorType":"User",
+    "PlaceVersion":1,
+    "BaseUrl":"mulrbx.com",
+    "JobId":"Test",
+    "Arguments":[1]
+
+   },
+   "Arguments":{
+    "PreferredPort":"7447",
+    "MachineAddress":"localhost",
+    "DataCenterId":"1"
+   }
+}

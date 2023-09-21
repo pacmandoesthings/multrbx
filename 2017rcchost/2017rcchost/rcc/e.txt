@@ -1,0 +1,19 @@
+
+
+
+local plr = game.Players:CreateLocalPlayer(0)
+plr.CharacterAppearance ="http://www.vrblxxd.ga/Tools/FetchCharacterAppeareance.aspx?id=463"
+plr:LoadCharacter(false)
+for i,v in pairs(plr.Character:GetChildren()) do
+   print(v)
+   if v:IsA("Tool") then
+       plr.Character.Torso["Right Shoulder"].CurrentAngle = math.pi / 2
+   end
+end
+print(game:GetService("ThumbnailGenerator"):Click("PNG", 1920, 1920, true))
+
+
+
+
+
+wait(10)

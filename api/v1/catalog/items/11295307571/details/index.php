@@ -1,0 +1,4 @@
+<?php
+header("content-type:text/plain");
+?>
+{"TargetId":11295307571,"ProductType":"User Product","AssetId":11295307571,"ProductId":1326679441,"Name":"Test","Description":"New clothing asset","AssetTypeId":2,"Creator":{"Id":244947750,"Name":"MichelleBeard17","CreatorType":"User","CreatorTargetId":244947750},"IconImageAssetId":0,"Created":"2022-10-16T15:51:56.357Z","Updated":"2022-10-16T15:51:56.38Z","PriceInRobux":100000000,"PriceInTickets":null,"Sales":0,"IsNew":false,"IsForSale":true,"IsPublicDomain":false,"IsLimited":false,"IsLimitedUnique":false,"Remaining":null,"MinimumMembershipLevel":0,"ContentRatingTypeId":0,"SaleAvailabilityLocations":null}

@@ -1,0 +1,592 @@
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mulrbx.com/roblox.xsd" version="4">
+	<External>null</External>
+	<External>nil</External>
+	<Item class="Tool" referent="RBX183C8CA28F204AAD9CC31E12E54A1F56">
+		<Properties>
+			<bool name="CanBeDropped">true</bool>
+			<bool name="Enabled">true</bool>
+			<CoordinateFrame name="Grip">
+				<X>0.100000001</X>
+				<Y>-0.600000024</Y>
+				<Z>0.400000006</Z>
+				<R00>1</R00>
+				<R01>0</R01>
+				<R02>0</R02>
+				<R10>0</R10>
+				<R11>0</R11>
+				<R12>-1</R12>
+				<R20>0</R20>
+				<R21>1</R21>
+				<R22>0</R22>
+			</CoordinateFrame>
+			<bool name="ManualActivationOnly">false</bool>
+			<string name="Name">KOSSGustHorn</string>
+			<bool name="RequiresHandle">true</bool>
+			<BinaryString name="Tags"></BinaryString>
+			<Content name="TextureId"><url>http://www.mulrbx.com/asset?id=127398046</url></Content>
+			<string name="ToolTip">Sunder the sky.</string>
+		</Properties>
+		<Item class="Part" referent="RBXC7CBE76FADA84E9B840FD1A150F78E30">
+			<Properties>
+				<bool name="Anchored">false</bool>
+				<float name="BackParamA">-0.5</float>
+				<float name="BackParamB">0.5</float>
+				<token name="BackSurface">0</token>
+				<token name="BackSurfaceInput">0</token>
+				<float name="BottomParamA">-0.5</float>
+				<float name="BottomParamB">0.5</float>
+				<token name="BottomSurface">4</token>
+				<token name="BottomSurfaceInput">0</token>
+				<CoordinateFrame name="CFrame">
+					<X>-1.62</X>
+					<Y>0.700001001</Y>
+					<Z>-0.319999993</Z>
+					<R00>1</R00>
+					<R01>0</R01>
+					<R02>0</R02>
+					<R10>0</R10>
+					<R11>1</R11>
+					<R12>0</R12>
+					<R20>0</R20>
+					<R21>0</R21>
+					<R22>1</R22>
+				</CoordinateFrame>
+				<bool name="CanCollide">true</bool>
+				<int name="CollisionGroupId">0</int>
+				<Color3uint8 name="Color3uint8">4288914085</Color3uint8>
+				<PhysicalProperties name="CustomPhysicalProperties">
+					<CustomPhysics>false</CustomPhysics>
+				</PhysicalProperties>
+				<float name="Elasticity">0.5</float>
+				<float name="Friction">0.300000012</float>
+				<float name="FrontParamA">-0.5</float>
+				<float name="FrontParamB">0.5</float>
+				<token name="FrontSurface">0</token>
+				<token name="FrontSurfaceInput">0</token>
+				<float name="LeftParamA">-0.5</float>
+				<float name="LeftParamB">0.5</float>
+				<token name="LeftSurface">0</token>
+				<token name="LeftSurfaceInput">0</token>
+				<bool name="Locked">false</bool>
+				<token name="Material">256</token>
+				<string name="Name">Handle</string>
+				<float name="Reflectance">0</float>
+				<float name="RightParamA">-0.5</float>
+				<float name="RightParamB">0.5</float>
+				<token name="RightSurface">0</token>
+				<token name="RightSurfaceInput">0</token>
+				<Vector3 name="RotVelocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<BinaryString name="Tags"></BinaryString>
+				<float name="TopParamA">-0.5</float>
+				<float name="TopParamB">0.5</float>
+				<token name="TopSurface">3</token>
+				<token name="TopSurfaceInput">0</token>
+				<float name="Transparency">0</float>
+				<Vector3 name="Velocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<token name="formFactorRaw">3</token>
+				<token name="shape">1</token>
+				<Vector3 name="size">
+					<X>2.18000174</X>
+					<Y>2.08999944</Y>
+					<Z>3.93999815</Z>
+				</Vector3>
+			</Properties>
+			<Item class="SpecialMesh" referent="RBX9423F9DF8C834AB8A303909E5E183F0F">
+				<Properties>
+					<token name="LODX">2</token>
+					<token name="LODY">2</token>
+					<Content name="MeshId"><url>http://www.mulrbx.com/asset?id=127397719</url></Content>
+					<token name="MeshType">5</token>
+					<string name="Name">Mesh</string>
+					<Vector3 name="Offset">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+					<Vector3 name="Scale">
+						<X>1</X>
+						<Y>1</Y>
+						<Z>1</Z>
+					</Vector3>
+					<BinaryString name="Tags"></BinaryString>
+					<Content name="TextureId"><url>http://www.mulrbx.com/asset?id=127397916</url></Content>
+					<Vector3 name="VertexColor">
+						<X>1</X>
+						<Y>1</Y>
+						<Z>1</Z>
+					</Vector3>
+				</Properties>
+			</Item>
+			<Item class="Sound" referent="RBX0BA4AC9D4A0A446E978203A43130EDE2">
+				<Properties>
+					<float name="EmitterSize">10</float>
+					<bool name="Looped">false</bool>
+					<string name="Name">BlowSound</string>
+					<bool name="PlayOnRemove">false</bool>
+					<float name="PlaybackSpeed">1</float>
+					<bool name="Playing">false</bool>
+					<token name="RollOffMode">0</token>
+					<Ref name="SoundGroup">null</Ref>
+					<Content name="SoundId"><url>http://www.mulrbx.com/asset?id=127403796</url></Content>
+					<BinaryString name="Tags"></BinaryString>
+					<double name="TimePosition">0</double>
+					<float name="Volume">0.5</float>
+					<float name="xmlRead_MaxDistance_3">10000</float>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="LocalScript" referent="RBX2B6A1C56858A4567B48A2C1F667495A6">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">EventsAndAnims</string>
+				<string name="ScriptGuid">{4903A09C-5CDB-4C3B-98C6-84861A104814}</string>
+				<ProtectedString name="Source"><![CDATA[local Tool = script.Parent
+local Handle = Tool:WaitForChild('Handle')
+local TornadoScript = Tool:WaitForChild('TornadoScript')
+
+local Anims = {}
+local BlowSound
+
+local Debris = game:GetService('Debris')
+
+local TIME_BEFORE_SOUND = 0.5
+local TIME_AFTER_SOUND = 4.5
+local TIME_BETWEEN_USES = 20
+local TORNADO_RADIUS = 15
+local TORNADO_HEIGHT = 200
+local TORNADO_SPEED = 10
+local TORNADO_TIME = 10
+local SPACE_BETWEEN_TORNADOES = 5
+local NUM_TORNADOES = 6
+local GRAVITY = 196.2
+
+local TORSO_HEIGHT = 3
+
+local Tornado = Instance.new('Part')
+Tornado.Name = "Tornado"
+Tornado.FormFactor = Enum.FormFactor.Symmetric
+Tornado.CanCollide = false
+Tornado.Size = Vector3.new(TORNADO_RADIUS, TORNADO_HEIGHT, TORNADO_RADIUS)
+Tornado.BrickColor = BrickColor.new('Pastel Blue')
+Tornado.Transparency = 0.4
+local CylinderMesh = Instance.new('CylinderMesh')
+CylinderMesh.Parent = Tornado
+local BodyVelocity = Instance.new('BodyVelocity')
+BodyVelocity.Parent = Tornado
+BodyVelocity.maxForce = Vector3.new(1E6,0,1E6)
+BodyVelocity.P = 1E6
+local BodyForce = Instance.new('BodyForce')
+BodyForce.force = Vector3.new(0, GRAVITY * Tornado:GetMass(), 0)
+BodyForce.Parent = Tornado
+local Ignore = Instance.new('ObjectValue')
+Ignore.Name = 'Ignore'
+Ignore.Parent = Tornado
+local TornadoScriptClone = TornadoScript:Clone()
+TornadoScriptClone.Disabled = false
+TornadoScriptClone.Parent = Tornado
+
+
+local function Play(animationName)
+	if not Anims[animationName] then
+		local humanoid = Tool.Parent:FindFirstChild('Humanoid')
+		if humanoid and humanoid:IsA('Humanoid') then
+			local unloadedAnim = Tool:FindFirstChild(animationName)
+			if unloadedAnim then
+				Anims[animationName] = humanoid:LoadAnimation(unloadedAnim)
+			end
+		end
+	end
+	if Anims[animationName] then
+		Anims[animationName]:Play()
+	end
+end
+
+local function Stop(animationName)
+	if Anims[animationName] then 
+		Anims[animationName]:Stop()
+	end
+end
+	
+function OnActivated()
+	if Tool.Enabled then
+		Tool.Enabled = false
+		delay(20,function()
+			Tool.Enabled = true
+		end)
+		
+		local character = Tool.Parent
+		local torso = character:FindFirstChild('HumanoidRootPart')
+		if character and character:FindFirstChild('Humanoid') then
+			Play('BlowAnim')
+			wait(TIME_BEFORE_SOUND)
+			BlowSound = Handle:FindFirstChild('BlowSound')
+			if BlowSound then BlowSound:Play() end
+			script.Parent:WaitForChild('RemoteEvent'):FireServer("DO THE THING!!!")
+		end
+	end
+end
+
+function OnEquipped()
+end
+
+function OnUnequipped()
+	Stop('BlowAnim')
+	if BlowSound then BlowSound:Stop() end
+end
+
+
+Tool.Equipped:connect(OnEquipped)
+Tool.Activated:connect(OnActivated)
+Tool.Unequipped:connect(OnUnequipped)
+
+]]></ProtectedString>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+			<Item class="Script" referent="RBX2B3B879FBDD14E62912B259BECD28EFF">
+				<Properties>
+					<bool name="Disabled">false</bool>
+					<Content name="LinkedSource"><null></null></Content>
+					<string name="Name">MotorizeRightGrip</string>
+					<string name="ScriptGuid">{660FD536-9016-4DE6-804D-1EE38E2C12C8}</string>
+					<ProtectedString name="Source"><![CDATA[-- stravant's AnimEdit helper, to make sure tools actually animate.
+
+function Create(ty)
+	return function(data)
+		local obj = Instance.new(ty)
+		for k, v in pairs(data) do
+			if type(k) == 'number' then
+				v.Parent = obj
+			else
+				obj[k] = v
+			end
+		end
+		return obj
+	end
+end
+
+local Tool = script.Parent.Parent
+
+local armChildRemovedConn = nil
+local Motor6DGrip = nil
+local EquippedNum = 0
+
+Tool.Equipped:connect(function()
+	EquippedNum = EquippedNum + 1
+	local myEquip = EquippedNum
+	--some vars
+	local Player = game.Players:GetPlayerFromCharacter(Tool.Parent)
+	local Character = Player.Character
+
+	local rightarm = Character:FindFirstChild('Right Arm')
+	if rightarm and rightarm:FindFirstChild('RightGrip') then
+		local rightGrip = rightarm['RightGrip']
+		local handle = rightGrip.Part1
+
+		--kill my joint when the normal joint is removed
+		--this must be done here so that the joint is removed 
+		--_right away_ after unequipping and the character doesn't 
+		--glitch up.
+		local armChildRemovedConn = rightarm.ChildRemoved:connect(function(ch)
+			if ch == rightGrip then
+				Motor6DGrip:Remove()
+				Motor6DGrip = nil
+				--
+				if handle and Character:FindFirstChild('Torso') then
+					if Tool.Parent.Parent:IsA('Player') then
+						--the sword has been deselected
+						--put the sword far away so the user doesn't notice that the handle doesn't
+						--update for about 0.1 seconds after selecting the tool.
+						handle.CFrame = CFrame.new(100000, 100000, 100000)
+					else
+						--if in the workspace, position the handle where it should be dropped
+						--use the size of the handle to make sure it's dropped far enough away
+						handle.CFrame = Character.Torso.CFrame * CFrame.new(0, 0, -(handle.Size.magnitude+2))
+					end
+				end
+			end
+		end)
+
+		--make my new joint
+		Motor6DGrip = Create'Motor6D'{
+			Name = 'RightGrip_Motor';
+			Part0 = rightarm;
+			Part1 = handle;
+			C0 = CFrame.new(0, -1, 0, 1, 0, -0, 0, 0, 1, 0, -1, -0);	-- from original right grip
+			C1 = CFrame.new(0.1, -0.6, 0.4, 1, 0, 0, 0, 0, -1, 0, 1, 0);
+		}
+		--kill the old weld
+		rightGrip.Part1 = nil
+		rightGrip.Part0 = nil
+		Motor6DGrip.Parent = rightGrip.Parent
+	end
+end)
+
+Tool.Unequipped:connect(function()
+	EquippedNum = EquippedNum + 1
+	if armChildRemovedConn then
+		armChildRemovedConn:disconnect()
+		armChildRemovedConn = nil
+	end
+end)
+]]></ProtectedString>
+					<BinaryString name="Tags"></BinaryString>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="Animation" referent="RBX8CA3037E527C4FC6BA6EAEFF84E242CB">
+			<Properties>
+				<Content name="AnimationId"><url>http://www.mulrbx.com/asset?id=127405384</url></Content>
+				<string name="Name">BlowAnim</string>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+		<Item class="Script" referent="RBXE418E12769C84E0EAEBC8B5B29219394">
+			<Properties>
+				<bool name="Disabled">true</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">TornadoScript</string>
+				<string name="ScriptGuid">{55D493D0-A783-4C2F-B2CF-0BD46571AE7F}</string>
+				<ProtectedString name="Source"><![CDATA[--
+local Tornado = script.Parent
+local IgnoreChar = Tornado:WaitForChild('Ignore').Value
+
+local PartInfo = {}
+local StuffToDestroy = {}
+
+local bpTable = {}
+local startRadTable = {}
+
+local NUM_STEPS = 100
+local STEP_TIME = 0.1
+
+-- Copied from HotThoth's code for the Tornade. SECRET RETEXTURE MUWAHAHAHA
+Tornado.Touched:connect(function(part)
+	if part.Parent and part.Parent ~= IgnoreChar then
+		if part.Parent.Parent and part.Parent.Parent == IgnoreChar then 	-- check for initiating character's hat
+			return 
+		end		
+
+		if part.Parent:FindFirstChildOfClass('ForceField') then
+			return
+		end
+
+		part:BreakJoints()		
+		
+		local spinForce = part:FindFirstChild('KOSSGustTornadoSpin')
+		if spinForce == nil then 
+			local spinForce = Instance.new('BodyAngularVelocity')
+			spinForce.P = 1000000
+			spinForce.angularvelocity = Vector3.new(0,50,0)
+			spinForce.maxTorque = Vector3.new(spinForce.P,spinForce.P,spinForce.P)
+			spinForce.Name = 'KOSSGustTornadoSpin'
+			spinForce.Parent = part
+			table.insert(StuffToDestroy, spinForce)
+		end
+		
+		local newBV = part:FindFirstChild('KOSSGustTornadoLift')
+		if newBV == nil then
+			newBV = Instance.new("BodyVelocity")
+			newBV.Name = 'KOSSGustTornadoLift'
+			newBV.P = 100000
+			newBV.maxForce = Vector3.new(0, newBV.P, 0)
+			newBV.velocity = Vector3.new(0, 16, 0)
+			newBV.Parent = part
+			table.insert(StuffToDestroy, newBV)
+		end
+		
+		local newBP = part:FindFirstChild('KOSSGustTornadoPos')
+		if newBP == nil then
+			newBP = Instance.new("BodyPosition")
+			newBP.Name = 'KOSSGustTornadoPos'
+			newBP.P = 100000
+			newBP.maxForce = Vector3.new(newBP.P, 0, newBP.P)
+			newBP.position = part.Position
+			newBP.Parent = part
+			table.insert(bpTable, newBP)
+			table.insert(startRadTable, (part.Position - Tornado.Position)*Vector3.new(1, 0, 1))
+			table.insert(StuffToDestroy, newBP)
+		end
+	end
+end)
+
+for i = 1, NUM_STEPS do
+	for i = 1, #bpTable do
+		bpTable[i].position = Tornado.Position + startRadTable[i]
+		startRadTable[i] = CFrame.Angles(0, .7, 0)*startRadTable[i]
+	end
+	wait(STEP_TIME)
+end
+for _, thing in pairs(StuffToDestroy) do
+	thing:Destroy()
+end
+Tornado:Destroy()
+--]]></ProtectedString>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+		<Item class="LocalScript" referent="RBX7E77038C6AEE4F978694ECD49F70D15D">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">Local Gui</string>
+				<string name="ScriptGuid">{A42C76BB-25DB-4B58-A0D9-726D371474BB}</string>
+				<ProtectedString name="Source"><![CDATA[Tool = script.Parent 
+
+local stillEquipped = false 
+
+function onEquippedLocal(mouse) 
+     stillEquipped = true 
+     if mouse == nil then 
+          print("Mouse not found") 
+          return 
+     end 
+     while stillEquipped do 
+          print("Setting Mouse to go") 
+          mouse.Icon = "rbxasset://textures\\GunCursor.png" 
+          while Tool.Enabled and stillEquipped do 
+               wait(0.01) 
+          end 
+          print("Setting Mouse to wait") 
+          mouse.Icon = "rbxasset://textures\\GunWaitCursor.png" 
+          while not Tool.Enabled and stillEquipped do 
+               wait(0.01) 
+          end      
+     end 
+end 
+
+
+function onUnequippedLocal() 
+     stillEquipped = false 
+end 
+
+Tool.Equipped:connect(onEquippedLocal) 
+Tool.Unequipped:connect(onUnequippedLocal)
+]]></ProtectedString>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+		<Item class="RemoteEvent" referent="RBX30E3C5FE1E6241968CAB59D404FC0711">
+			<Properties>
+				<string name="Name">RemoteEvent</string>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+		<Item class="Script" referent="RBX62F47965651A482CB3CD86900EFDF24A">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">GustHornServerScript</string>
+				<string name="ScriptGuid">{A2B45B5A-8C48-42A4-9302-C8C2B8D68BEB}</string>
+				<ProtectedString name="Source"><![CDATA[
+
+local TornadoScript = script.Parent:WaitForChild('TornadoScript')
+
+local TIME_BEFORE_SOUND = 0.5
+local TIME_AFTER_SOUND = 4.5
+local TIME_BETWEEN_USES = 20
+local TORNADO_RADIUS = 15
+local TORNADO_HEIGHT = 200
+local TORNADO_SPEED = 10
+local TORNADO_TIME = 10
+local SPACE_BETWEEN_TORNADOES = 5
+local NUM_TORNADOES = 6
+local GRAVITY = 196.2
+
+local TORSO_HEIGHT = 3
+
+local Tornado = Instance.new('Part')
+Tornado.Name = "Tornado"
+Tornado.FormFactor = Enum.FormFactor.Symmetric
+Tornado.CanCollide = false
+Tornado.Size = Vector3.new(TORNADO_RADIUS, TORNADO_HEIGHT, TORNADO_RADIUS)
+Tornado.BrickColor = BrickColor.new('Pastel Blue')
+Tornado.Transparency = 0.4
+local CylinderMesh = Instance.new('CylinderMesh')
+CylinderMesh.Parent = Tornado
+local BodyVelocity = Instance.new('BodyVelocity')
+BodyVelocity.Parent = Tornado
+BodyVelocity.maxForce = Vector3.new(1E6,0,1E6)
+BodyVelocity.P = 1E6
+local BodyForce = Instance.new('BodyForce')
+BodyForce.force = Vector3.new(0, GRAVITY * Tornado:GetMass(), 0)
+BodyForce.Parent = Tornado
+local Ignore = Instance.new('ObjectValue')
+Ignore.Name = 'Ignore'
+Ignore.Parent = Tornado
+local TornadoScriptClone = TornadoScript:Clone()
+TornadoScriptClone.Disabled = false
+TornadoScriptClone.Parent = Tornado
+
+
+
+script.Parent:WaitForChild('RemoteEvent').OnServerEvent:connect(function()
+	if script.Parent and script.Parent.Parent then
+		local character = script.Parent.Parent
+		local humanoid = character:FindFirstChild('Humanoid')
+		local hrp = character:FindFirstChild('HumanoidRootPart')
+		if humanoid and hrp and humanoid.Health > 0 then
+			local rightVector = hrp.CFrame.lookVector:Cross(Vector3.new(0,1,0))
+			for i = 1, NUM_TORNADOES do
+				local tornadoClone = Tornado:Clone()
+				tornadoClone:WaitForChild('Ignore').Value = character
+				tornadoClone.Parent = workspace
+				local position = hrp.Position + Vector3.new(0, TORNADO_HEIGHT/2 - TORSO_HEIGHT, 0) + (i - (NUM_TORNADOES + 1) / 2) * (TORNADO_RADIUS + SPACE_BETWEEN_TORNADOES) * rightVector
+				tornadoClone.CFrame = CFrame.new(position)
+				tornadoClone:WaitForChild('BodyVelocity').velocity = TORNADO_SPEED * hrp.CFrame.lookVector
+			end
+		end
+	end
+end)]]></ProtectedString>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+		<Item class="Camera" referent="RBX4B51498F80534213926AE57C64C45CF1">
+			<Properties>
+				<CoordinateFrame name="CFrame">
+					<X>-5.64901304</X>
+					<Y>1.10899949</Y>
+					<Z>0.96597302</Z>
+					<R00>0.304078698</R00>
+					<R01>0.092109248</R01>
+					<R02>-0.948183537</R02>
+					<R10>-0</R10>
+					<R11>0.995314837</R11>
+					<R12>0.0966877043</R12>
+					<R20>0.952646971</R20>
+					<R21>-0.0294006709</R21>
+					<R22>0.302653998</R22>
+				</CoordinateFrame>
+				<Ref name="CameraSubject">null</Ref>
+				<token name="CameraType">0</token>
+				<float name="FieldOfView">70</float>
+				<CoordinateFrame name="Focus">
+					<X>-3.75264597</X>
+					<Y>0.915624082</Y>
+					<Z>0.360665023</Z>
+					<R00>1</R00>
+					<R01>0</R01>
+					<R02>0</R02>
+					<R10>0</R10>
+					<R11>1</R11>
+					<R12>0</R12>
+					<R20>0</R20>
+					<R21>0</R21>
+					<R22>1</R22>
+				</CoordinateFrame>
+				<bool name="HeadLocked">true</bool>
+				<float name="HeadScale">1</float>
+				<string name="Name">ThumbnailCamera</string>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+	</Item>
+</roblox>

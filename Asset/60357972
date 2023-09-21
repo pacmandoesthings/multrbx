@@ -1,0 +1,1137 @@
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mulrbx.com/roblox.xsd" version="4">
+	<Meta name="ExplicitAutoJoints">true</Meta>
+	<External>null</External>
+	<External>nil</External>
+	<Item class="Tool" referent="RBX9B1709187D53458A82B223E39133B85F">
+		<Properties>
+			<bool name="CanBeDropped">true</bool>
+			<bool name="Enabled">true</bool>
+			<CoordinateFrame name="Grip">
+				<X>-0.5</X>
+				<Y>-0.5</Y>
+				<Z>0</Z>
+				<R00>0</R00>
+				<R01>1</R01>
+				<R02>0</R02>
+				<R10>0</R10>
+				<R11>0</R11>
+				<R12>-1</R12>
+				<R20>-1</R20>
+				<R21>0</R21>
+				<R22>0</R22>
+			</CoordinateFrame>
+			<bool name="ManualActivationOnly">false</bool>
+			<string name="Name">FlamingHedgehogCannon</string>
+			<bool name="RequiresHandle">true</bool>
+			<BinaryString name="Tags"></BinaryString>
+			<Content name="TextureId"><url>http://www.mulrbx.com/asset/?id=60262180 </url></Content>
+			<string name="ToolTip">2Fast4U</string>
+		</Properties>
+		<Item class="Part" referent="RBX49E86588A7654DC9A753855F9C2C6C77">
+			<Properties>
+				<bool name="Anchored">false</bool>
+				<float name="BackParamA">-0.5</float>
+				<float name="BackParamB">0.5</float>
+				<token name="BackSurface">0</token>
+				<token name="BackSurfaceInput">0</token>
+				<float name="BottomParamA">-0.5</float>
+				<float name="BottomParamB">0.5</float>
+				<token name="BottomSurface">4</token>
+				<token name="BottomSurfaceInput">0</token>
+				<CoordinateFrame name="CFrame">
+					<X>1.50000095</X>
+					<Y>5.10000801</Y>
+					<Z>-0.499998003</Z>
+					<R00>0</R00>
+					<R01>0</R01>
+					<R02>-1</R02>
+					<R10>0.866025388</R10>
+					<R11>0.500000238</R11>
+					<R12>0</R12>
+					<R20>0.500000238</R20>
+					<R21>-0.866025388</R21>
+					<R22>0</R22>
+				</CoordinateFrame>
+				<bool name="CanCollide">true</bool>
+				<bool name="CastShadow">true</bool>
+				<int name="CollisionGroupId">0</int>
+				<Color3uint8 name="Color3uint8">4288914085</Color3uint8>
+				<PhysicalProperties name="CustomPhysicalProperties">
+					<CustomPhysics>false</CustomPhysics>
+				</PhysicalProperties>
+				<float name="FrontParamA">-0.5</float>
+				<float name="FrontParamB">0.5</float>
+				<token name="FrontSurface">0</token>
+				<token name="FrontSurfaceInput">0</token>
+				<float name="LeftParamA">-0.5</float>
+				<float name="LeftParamB">0.5</float>
+				<token name="LeftSurface">0</token>
+				<token name="LeftSurfaceInput">0</token>
+				<bool name="Locked">true</bool>
+				<bool name="Massless">false</bool>
+				<token name="Material">256</token>
+				<string name="Name">Handle</string>
+				<float name="Reflectance">0</float>
+				<float name="RightParamA">-0.5</float>
+				<float name="RightParamB">0.5</float>
+				<token name="RightSurface">0</token>
+				<token name="RightSurfaceInput">0</token>
+				<int name="RootPriority">0</int>
+				<Vector3 name="RotVelocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<BinaryString name="Tags"></BinaryString>
+				<float name="TopParamA">-0.5</float>
+				<float name="TopParamB">0.5</float>
+				<token name="TopSurface">3</token>
+				<token name="TopSurfaceInput">0</token>
+				<float name="Transparency">0</float>
+				<Vector3 name="Velocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<token name="formFactorRaw">3</token>
+				<token name="shape">1</token>
+				<Vector3 name="size">
+					<X>1.8399992</X>
+					<Y>3.21999907</Y>
+					<Z>1.15000224</Z>
+				</Vector3>
+			</Properties>
+			<Item class="SpecialMesh" referent="RBXDAC9DB39B0954CBCADA84F607EF7EEBC">
+				<Properties>
+					<token name="LODX">2</token>
+					<token name="LODY">2</token>
+					<Content name="MeshId"><url>http://www.mulrbx.com/asset/?id=60262041 </url></Content>
+					<token name="MeshType">5</token>
+					<string name="Name">Mesh</string>
+					<Vector3 name="Offset">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+					<Vector3 name="Scale">
+						<X>1.5</X>
+						<Y>1.5</Y>
+						<Z>1.5</Z>
+					</Vector3>
+					<BinaryString name="Tags"></BinaryString>
+					<Content name="TextureId"><url>rbxassetid://60262165</url></Content>
+					<Vector3 name="VertexColor">
+						<X>1</X>
+						<Y>1</Y>
+						<Z>1</Z>
+					</Vector3>
+				</Properties>
+			</Item>
+			<Item class="Attachment" referent="RBX3AC92E746CF74082AB0CB9A06721436D">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>-0.49999997</X>
+						<Y>-0.5</Y>
+						<Z>0</Z>
+						<R00>0</R00>
+						<R01>1</R01>
+						<R02>0</R02>
+						<R10>6.31088724e-30</R10>
+						<R11>0</R11>
+						<R12>-1</R12>
+						<R20>-1</R20>
+						<R21>0</R21>
+						<R22>-6.31088724e-30</R22>
+					</CoordinateFrame>
+					<string name="Name">RightGripAttachment</string>
+					<BinaryString name="Tags"></BinaryString>
+					<bool name="Visible">false</bool>
+				</Properties>
+			</Item>
+			<Item class="Attachment" referent="RBXBE7F52B719B8424A9D96C17A15B218DA">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0.400000185</X>
+						<Y>1.60000014</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<string name="Name">Tip</string>
+					<BinaryString name="Tags"></BinaryString>
+					<bool name="Visible">false</bool>
+				</Properties>
+				<Item class="ParticleEmitter" referent="RBX3738B2F0AC074CC1BDE1F749D2A57D29">
+					<Properties>
+						<Vector3 name="Acceleration">
+							<X>0</X>
+							<Y>0</Y>
+							<Z>0</Z>
+						</Vector3>
+						<ColorSequence name="Color">0 0.345098 0.345098 0.345098 0 1 0.345098 0.345098 0.345098 0 </ColorSequence>
+						<float name="Drag">0</float>
+						<token name="EmissionDirection">1</token>
+						<bool name="Enabled">false</bool>
+						<NumberRange name="Lifetime">1 3 </NumberRange>
+						<float name="LightEmission">0</float>
+						<float name="LightInfluence">0</float>
+						<bool name="LockedToPart">false</bool>
+						<string name="Name">Smoke</string>
+						<float name="Rate">100</float>
+						<NumberRange name="RotSpeed">0 0 </NumberRange>
+						<NumberRange name="Rotation">-180 180 </NumberRange>
+						<NumberSequence name="Size">0 1.25 1.25 1 0.3125 0.3125 </NumberSequence>
+						<NumberRange name="Speed">5 10 </NumberRange>
+						<Vector2 name="SpreadAngle">
+							<X>-180</X>
+							<Y>180</Y>
+						</Vector2>
+						<BinaryString name="Tags"></BinaryString>
+						<Content name="Texture"><url>http://www.mulrbx.com/asset/?id=254711773</url></Content>
+						<NumberSequence name="Transparency">0 1 0 0.102823 0.238095 0.0465 0.703629 0.272727 0.143 1 1 0 </NumberSequence>
+						<float name="VelocityInheritance">0.5</float>
+						<float name="ZOffset">0.5</float>
+					</Properties>
+				</Item>
+			</Item>
+			<Item class="Sound" referent="RBX766B72E147C44BC2880DDECFA8E8D8BE">
+				<Properties>
+					<float name="EmitterSize">10</float>
+					<bool name="Looped">false</bool>
+					<string name="Name">Fire</string>
+					<bool name="PlayOnRemove">false</bool>
+					<float name="PlaybackSpeed">1</float>
+					<bool name="Playing">false</bool>
+					<token name="RollOffMode">0</token>
+					<Ref name="SoundGroup">null</Ref>
+					<Content name="SoundId"><url>rbxassetid://3149249837</url></Content>
+					<BinaryString name="Tags"></BinaryString>
+					<double name="TimePosition">0</double>
+					<float name="Volume">1</float>
+					<float name="xmlRead_MaxDistance_3">10000</float>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="Script" referent="RBXA05B6A44E17A458194576C5D0F2FF176">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">Server</string>
+				<string name="ScriptGuid">{F5A0BD55-5804-4C6D-B1D7-B4A846D1D8B7}</string>
+				<ProtectedString name="Source"><![CDATA[--Flaming hedgehog cannon
+--Now featuring the blue blur at a 20% chance!
+
+function Create(ty)
+	return function(data)
+		local obj = Instance.new(ty)
+		for k, v in pairs(data) do
+			if type(k) == 'number' then
+				v.Parent = obj
+			else
+				obj[k] = v
+			end
+		end
+		return obj
+	end
+end
+
+local Services = {
+	Players = (game:FindService("Players") or game:GetService("Players")),
+	RunService = (game:FindService("RunService") or game:GetService("RunService")),
+	Debris = (game:FindService("Debris") or game:GetService("Debris")),
+	ServerScriptService = (game:FindService("ServerScriptService") or game:GetService("ServerScriptService"))
+}
+
+local Tool = script.Parent
+
+local Handle = Tool:WaitForChild("Handle")
+
+local Cannon = Tool.Handle
+
+Tool.Enabled = true 
+
+local Components = {
+	Tip = Handle:WaitForChild("Tip"),
+	Smoke = Handle:WaitForChild("Tip"):WaitForChild("Smoke"),
+	MouseInput = (Tool:FindFirstChild("MouseInput") or Create("RemoteFunction"){
+		Name = "MouseInput",
+		Parent = Tool
+	})
+}
+
+local Sounds = {
+	Fire = Handle:WaitForChild("Fire")
+}
+
+local Properties = {
+	HedgehogSpeed = 40,
+	HedgehogAOE = 30,
+	ReloadTime = 5
+}
+
+local Player,Character,Humanoid
+
+local hedgehog = Create("Part"){
+	Shape = "Block",
+	Size = Vector3.new(1,1,1) * 2,
+	Name = "Hedgehog",
+	Locked = true,
+	CanCollide = false,
+	Anchored = false,
+	
+}
+
+local hedgehogMesh = Create("SpecialMesh"){
+	Parent = hedgehog,
+	MeshId = "http://www.mulrbx.com/asset/?id=75931575",
+	--TextureId = "http://www.mulrbx.com/asset/?id=60262165",
+	Scale = Vector3.new(1,1,1) * 3.5
+}
+
+function Equipped()
+	Character = Tool.Parent
+	Humanoid = Character:FindFirstChildOfClass("Humanoid")
+	Player = Services.Players:GetPlayerFromCharacter(Character)
+end
+
+
+function Activated()
+	if not Tool.Enabled or not Humanoid or Humanoid.Health <= 0 then return end
+	Tool.Enabled = false
+	local sucess,MousePosition = pcall(function() return Components.MouseInput:InvokeClient(Player) end)
+	MousePosition = (sucess and MousePosition) or Vector3.new(0,0,0)
+	local RNG = Random.new(tick())
+	if RNG:NextInteger(1,5) == 5 then
+		--You're too slow!
+		local Hedgie = hedgehog:Clone()
+		Hedgie.Name = "BlueBlur"
+		if Hedgie:FindFirstChildOfClass("SpecialMesh") then
+			Hedgie:FindFirstChildOfClass("SpecialMesh").TextureId = "rbxassetid://3149144093"
+		end
+		local HedgieScript = script:WaitForChild("BlueHedgehogScript"):Clone()
+		HedgieScript.Parent = Hedgie
+		
+		Create("BodyVelocity"){
+			Name = "HedgieVelocity",
+			MaxForce = Vector3.new(1,1,1)*math.huge,
+			Velocity = (MousePosition-Components.Tip.WorldPosition).Unit*(Properties.HedgehogSpeed*3),--Make em SUPER FAST!
+			Parent = Hedgie
+		}
+		Create("ObjectValue"){
+			Value = Player,
+			Name = "Creator",
+			Parent = HedgieScript
+		}
+		Hedgie.CFrame = CFrame.new(Components.Tip.WorldPosition) * CFrame.Angles(math.rad(RNG:NextNumber(0,360)),math.rad(RNG:NextNumber(0,360)),math.rad(RNG:NextNumber(0,360)))
+		Hedgie.RotVelocity = Vector3.new(RNG:NextNumber(0,10),RNG:NextNumber(0,10),RNG:NextNumber(0,10))
+		Hedgie.Parent = workspace
+		Hedgie:SetNetworkOwner(nil)
+		HedgieScript.Disabled = false
+	else
+		--Launch regular hedgehog
+		
+		local Hedgie = hedgehog:Clone()
+		if Hedgie:FindFirstChildOfClass("SpecialMesh") then
+			Hedgie:FindFirstChildOfClass("SpecialMesh").TextureId = "rbxassetid://75931783"
+		end
+		local HedgieScript = script:WaitForChild("HedgehogScript"):Clone()
+		HedgieScript.Parent = Hedgie
+		
+		Create("BodyVelocity"){
+			Name = "HedgieVelocity",
+			MaxForce = Vector3.new(1,1,1)*math.huge,
+			Velocity = (MousePosition-Components.Tip.WorldPosition).Unit*(Properties.HedgehogSpeed),
+			Parent = Hedgie
+		}
+		Create("ObjectValue"){
+			Value = Player,
+			Name = "Creator",
+			Parent = HedgieScript
+		}
+		Hedgie.CFrame = CFrame.new(Components.Tip.WorldPosition) * CFrame.Angles(math.rad(RNG:NextNumber(0,360)),math.rad(RNG:NextNumber(0,360)),math.rad(RNG:NextNumber(0,360)))
+		Hedgie.RotVelocity = Vector3.new(RNG:NextNumber(0,10),RNG:NextNumber(0,10),RNG:NextNumber(0,10))
+		Hedgie.Parent = workspace
+		Hedgie:SetNetworkOwner(nil)
+		HedgieScript.Disabled = false
+	end
+	Components.Smoke:Emit(Components.Smoke.Rate)
+	Sounds.Fire:Play()
+	wait(Properties.ReloadTime)
+	Tool.Enabled = true
+end
+
+Tool.Equipped:Connect(Equipped)
+Tool.Activated:Connect(Activated)
+
+]]></ProtectedString>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+			<Item class="Script" referent="RBX645922E3592940C6915FCB77E3358615">
+				<Properties>
+					<bool name="Disabled">true</bool>
+					<Content name="LinkedSource"><null></null></Content>
+					<string name="Name">BlueHedgehogScript</string>
+					<string name="ScriptGuid">{5BADC00F-6A68-453C-A0AF-BFC0F53D1656}</string>
+					<ProtectedString name="Source"><![CDATA[function Create(ty)
+	return function(data)
+		local obj = Instance.new(ty)
+		for k, v in pairs(data) do
+			if type(k) == 'number' then
+				v.Parent = obj
+			else
+				obj[k] = v
+			end
+		end
+		return obj
+	end
+end
+
+local Services = {
+	Players = (game:FindService("Players") or game:GetService("Players")),
+	RunService = (game:FindService("RunService") or game:GetService("RunService")),
+	Debris = (game:FindService("Debris") or game:GetService("Debris")),
+	ServerScriptService = (game:FindService("ServerScriptService") or game:GetService("ServerScriptService"))
+}
+
+local Hedgehog = script.Parent
+
+local Creator = script:WaitForChild("Creator")
+
+local Fire = script:WaitForChild("Fire")
+
+Fire.Parent = Hedgehog
+Fire.Enabled = true
+
+local Properties = {
+	HedgehogAOE = 75,
+	HedgehogSpeed = 120,
+	BounceCount = 0,
+}
+
+local RNG = Random.new()
+
+local RandomSound = script:WaitForChild("Sounds"):GetChildren()
+
+if #RandomSound > 0 then
+	RandomSound = RandomSound[RNG:NextInteger(1,#RandomSound)]
+end
+
+
+if RandomSound and RandomSound:IsA("Sound") then
+	RandomSound.Parent = Hedgehog
+	RandomSound:Play()
+end
+
+function IsTeamMate(Player1, Player2)
+	return (Player1 and Player2 and not Player1.Neutral and not Player2.Neutral and Player1.TeamColor == Player2.TeamColor)
+end
+
+function TagHumanoid(humanoid, player)
+	local Creator_Tag = Instance.new("ObjectValue")
+	Creator_Tag.Name = "creator"
+	Creator_Tag.Value = player
+	Services.Debris:AddItem(Creator_Tag, 2)
+	Creator_Tag.Parent = humanoid
+end
+
+function UntagHumanoid(humanoid)
+	for i, v in pairs(humanoid:GetChildren()) do
+		if v:IsA("ObjectValue") and v.Name == "creator" then
+			v:Destroy()
+		end
+	end
+end
+
+local function GetNearestTorso(MarkedPosition,TorsoPopulationTable)
+	local ClosestDistance = math.huge
+	local ClosestTorso
+	for i=1,#TorsoPopulationTable do
+		local distance = (TorsoPopulationTable[i].CFrame.p-MarkedPosition).Magnitude
+		if TorsoPopulationTable[i] and  distance < ClosestDistance then
+			ClosestDistance = distance
+			ClosestTorso = TorsoPopulationTable[i]
+		end
+	end
+	--warn("The Closest Person is: "..ClosestTorso.Parent.Name)
+	return ClosestTorso
+end
+
+function IsInTable(Table,Value)
+	for _,v in pairs(Table) do
+		if v == Value then
+			return true
+		end
+	end
+	return false
+end
+local RingList = {}
+function onPlayerBlownUp(part, distance, position, explosionpressure)
+	if not part or not part.Parent or part == Hedgehog or part.Parent:IsA("Accoutrement") or part:IsDescendantOf(Creator.Value.Character) or IsInTable(RingList,part) then return end
+	local humanoid = part.Parent:FindFirstChildOfClass("Humanoid")
+	if humanoid then
+		local Character = humanoid.Parent
+		if Character and Character ~= Creator.Value.Character and not Character:FindFirstChildOfClass("ForceField") and not IsTeamMate(Creator.Value,Services.Players:GetPlayerFromCharacter(Character)) then
+			UntagHumanoid(humanoid)
+			TagHumanoid(humanoid, Creator.Value)
+			for _,joints in pairs(part:GetJoints()) do
+				joints:Destroy()
+			end
+			part.Velocity = (part.CFrame.p-position).unit*(explosionpressure/1000)
+		end
+	else
+		--part:BreakJoints()
+		for _,joints in pairs(part:GetJoints()) do
+			joints:Destroy()
+		end
+		if not part.Anchored then
+			part.Velocity = (part.CFrame.p-position).unit*(explosionpressure/100)
+		end
+	end
+end
+
+Services.Debris:AddItem(Hedgehog,10)
+
+local Exploded = false
+local ExplodedHum = {}
+Hedgehog.Touched:Connect(function(hit)
+	if not hit or not hit.Parent then return end
+	Properties.BounceCount = Properties.BounceCount + 1
+	
+	if Hedgehog:FindFirstChildOfClass("BodyVelocity") then
+		Hedgehog:FindFirstChildOfClass("BodyVelocity").Velocity = (Hedgehog:FindFirstChildOfClass("BodyVelocity").Velocity).Unit*(Properties.HedgehogSpeed + (Properties.BounceCount*4))
+	end
+	
+	local Hum,FF,Torso = hit.Parent:FindFirstChildOfClass("Humanoid"),hit.Parent:FindFirstChildOfClass("ForceField"),hit.Parent:FindFirstChild("Torso") or hit.Parent:FindFirstChild("UpperTorso")
+	
+	if not Hum or Hum.Health <= 0 or FF or not Torso then return end
+	
+	if IsTeamMate(Creator.Value,Services.Players:GetPlayerFromCharacter(Hum.Parent)) or Creator.Value == Services.Players:GetPlayerFromCharacter(Hum.Parent) then return end
+	
+	UntagHumanoid(Hum)
+	TagHumanoid(Hum,Creator.Value)
+	if Properties.BounceCount > 5 and not Exploded and not IsInTable(ExplodedHum,Hum) then
+		--Exploded = true
+		ExplodedHum[#ExplodedHum+1] = Hum
+		local e = Create("Explosion"){
+			BlastRadius = 5,
+			BlastPressure = 0,
+			DestroyJointRadiusPercent = 0,
+			ExplosionType = Enum.ExplosionType.NoCraters,
+			Position = Hedgehog.Position,
+			Parent = workspace,
+		}
+		e.Hit:Connect(function(part,distance)
+			onPlayerBlownUp(part,distance,e.Position,600000)
+		end)
+	else
+		Hum:TakeDamage(25)
+	end
+	if Hum.Health <= 0 then
+		local Ring = Create("Part"){
+			Locked = true,
+			Anchored = false,
+			Name = "Ring",
+			CanCollide = true,
+			TopSurface = Enum.SurfaceType.Smooth,
+			BottomSurface = Enum.SurfaceType.Smooth,
+			Transparency = 0,
+			Size = Vector3.new(1.7,1.7,.3)
+		}
+		Create("SpecialMesh"){
+			MeshId = "rbxassetid://3270017",
+			TextureId = "rbxassetid://3270066",
+			Scale = Vector3.new(1,1,1)*1.5,
+			VertexColor = Vector3.new(1,1,1)*2,
+			Parent = Ring
+		}
+		for i=1,RNG:NextInteger(7,20),1 do
+			local RingClone = Ring:Clone()
+			RingList[#RingList+1] = RingClone
+			RingClone.CFrame = Torso.CFrame
+			RingClone.Velocity = Vector3.new(RNG:NextNumber(5,25),RNG:NextNumber(5,25),RNG:NextNumber(5,25))
+			RingClone.RotVelocity = Vector3.new(RNG:NextNumber(20,40),RNG:NextNumber(20,40),RNG:NextNumber(20,40))
+			RingClone.Parent = workspace
+			RingClone:SetNetworkOwner(nil)
+			Services.Debris:AddItem(RingClone,7)
+		end
+		--print("Dead")
+	end
+		
+end)
+
+
+Services.RunService.Heartbeat:Connect(function()
+	local Neg,Pos = Hedgehog.Position - Vector3.new(1,1,1)* Properties.HedgehogAOE, Hedgehog.Position + Vector3.new(1,1,1)*Properties.HedgehogAOE
+	local AOE = Region3.new(Neg,Pos)
+	local Parts = workspace:FindPartsInRegion3WithIgnoreList(AOE,{Creator.Value.Character},math.huge)
+	local PlayerTorsos,NPCTorsos = {},{}
+	for i=1,#Parts,1 do
+		if Parts[i] and Parts[i].Parent and (Parts[i].Position-Hedgehog.Position).Magnitude <= Properties.HedgehogAOE then
+			local Hum, FF, Torso = Parts[i].Parent:FindFirstChildOfClass("Humanoid"), Parts[i].Parent:FindFirstChildOfClass("ForceField"),(Parts[i].Parent:FindFirstChild("Torso") or Parts[i].Parent:FindFirstChild("UpperTorso"))
+			if Hum and Hum.Health ~= 0 and not FF and Torso and not IsTeamMate(Creator.Value,Services.Players:GetPlayerFromCharacter(Hum.Parent)) then
+				if Services.Players:GetPlayerFromCharacter(Hum.Parent) then
+					PlayerTorsos[#PlayerTorsos+1] = Torso
+				else
+					NPCTorsos[#NPCTorsos+1] = Torso
+				end
+			end
+		end
+	end
+	
+	local TargetTorso = GetNearestTorso(Hedgehog.Position,(#PlayerTorsos > 0 and PlayerTorsos) or (#NPCTorsos > 0 and NPCTorsos) or {})
+	
+	if TargetTorso then
+		if Hedgehog:FindFirstChildOfClass("BodyVelocity") then
+			Hedgehog:FindFirstChildOfClass("BodyVelocity").Velocity = (TargetTorso.Position-Hedgehog.Position).Unit*(Properties.HedgehogSpeed + (Properties.BounceCount*4))
+		end
+	end
+
+end)
+
+
+
+]]></ProtectedString>
+					<BinaryString name="Tags"></BinaryString>
+				</Properties>
+				<Item class="Folder" referent="RBX1FCEEF9BC61A4294ACEEF32ECEDEF12A">
+					<Properties>
+						<string name="Name">Sounds</string>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+					<Item class="Sound" referent="RBX37DA6544EA5440B4AE7B224D4FAD4D08">
+						<Properties>
+							<float name="EmitterSize">10</float>
+							<bool name="Looped">false</bool>
+							<string name="Name">GottaGoFast</string>
+							<bool name="PlayOnRemove">false</bool>
+							<float name="PlaybackSpeed">1</float>
+							<bool name="Playing">false</bool>
+							<token name="RollOffMode">0</token>
+							<Ref name="SoundGroup">null</Ref>
+							<Content name="SoundId"><url>rbxassetid://76115411</url></Content>
+							<BinaryString name="Tags"></BinaryString>
+							<double name="TimePosition">0</double>
+							<float name="Volume">5</float>
+							<float name="xmlRead_MaxDistance_3">10000</float>
+						</Properties>
+					</Item>
+					<Item class="Sound" referent="RBX983DCF1030AE4B8B86CD92E67C104428">
+						<Properties>
+							<float name="EmitterSize">10</float>
+							<bool name="Looped">false</bool>
+							<string name="Name">YoureTooSlow</string>
+							<bool name="PlayOnRemove">false</bool>
+							<float name="PlaybackSpeed">1</float>
+							<bool name="Playing">false</bool>
+							<token name="RollOffMode">0</token>
+							<Ref name="SoundGroup">null</Ref>
+							<Content name="SoundId"><url>rbxassetid://76115450</url></Content>
+							<BinaryString name="Tags"></BinaryString>
+							<double name="TimePosition">0</double>
+							<float name="Volume">5</float>
+							<float name="xmlRead_MaxDistance_3">10000</float>
+						</Properties>
+					</Item>
+				</Item>
+				<Item class="ParticleEmitter" referent="RBX082D5F3A52284D3B8DA561007B0F7D28">
+					<Properties>
+						<Vector3 name="Acceleration">
+							<X>0</X>
+							<Y>25</Y>
+							<Z>0</Z>
+						</Vector3>
+						<ColorSequence name="Color">0 0 0 1 0 1 0 0.666667 1 0 </ColorSequence>
+						<float name="Drag">0</float>
+						<token name="EmissionDirection">4</token>
+						<bool name="Enabled">false</bool>
+						<NumberRange name="Lifetime">0 0.7 </NumberRange>
+						<float name="LightEmission">0.860000014</float>
+						<float name="LightInfluence">0</float>
+						<bool name="LockedToPart">false</bool>
+						<string name="Name">Fire</string>
+						<float name="Rate">200</float>
+						<NumberRange name="RotSpeed">25 50 </NumberRange>
+						<NumberRange name="Rotation">-180 180 </NumberRange>
+						<NumberSequence name="Size">0 0.75 0 0.702454 0.9375 0 0.812883 0.6875 0 0.904908 0.375 0 1 0 0 </NumberSequence>
+						<NumberRange name="Speed">15 20 </NumberRange>
+						<Vector2 name="SpreadAngle">
+							<X>10</X>
+							<Y>10</Y>
+						</Vector2>
+						<BinaryString name="Tags"></BinaryString>
+						<Content name="Texture"><url>http://www.mulrbx.com/asset/?id=248625108</url></Content>
+						<NumberSequence name="Transparency">0 0 0 0.13253 0.54375 0 0.32092 0.7375 0 0.387733 0 0 0.468784 0.725 0 0.522453 0.45625 0 0.615553 0.6375 0 0.63965 0 0 0.744797 0.525 0 1 0 0 </NumberSequence>
+						<float name="VelocityInheritance">0</float>
+						<float name="ZOffset">0</float>
+					</Properties>
+				</Item>
+			</Item>
+			<Item class="Script" referent="RBX8C3C1387E1EE40C99F3838212D9F3324">
+				<Properties>
+					<bool name="Disabled">true</bool>
+					<Content name="LinkedSource"><null></null></Content>
+					<string name="Name">HedgehogScript</string>
+					<string name="ScriptGuid">{D9979004-5371-4AD9-AF25-87A47FE472BC}</string>
+					<ProtectedString name="Source"><![CDATA[function Create(ty)
+	return function(data)
+		local obj = Instance.new(ty)
+		for k, v in pairs(data) do
+			if type(k) == 'number' then
+				v.Parent = obj
+			else
+				obj[k] = v
+			end
+		end
+		return obj
+	end
+end
+
+local Services = {
+	Players = (game:FindService("Players") or game:GetService("Players")),
+	RunService = (game:FindService("RunService") or game:GetService("RunService")),
+	Debris = (game:FindService("Debris") or game:GetService("Debris")),
+	ServerScriptService = (game:FindService("ServerScriptService") or game:GetService("ServerScriptService"))
+}
+
+local Hedgehog = script.Parent
+
+local Creator = script:WaitForChild("Creator")
+
+local Fire = script:WaitForChild("Fire")
+
+Fire.Parent = Hedgehog
+Fire.Enabled = true
+
+local Properties = {
+	HedgehogAOE = 30,
+	HedgehogSpeed = 40,
+	BounceCount = 0,
+}
+
+local RNG = Random.new()
+
+local RandomSound = script:WaitForChild("Sounds"):GetChildren()
+
+if #RandomSound > 0 then
+	RandomSound = RandomSound[RNG:NextInteger(1,#RandomSound)]
+end
+
+
+if RandomSound and RandomSound:IsA("Sound") then
+	RandomSound.Parent = Hedgehog
+	RandomSound:Play()
+end
+
+function IsTeamMate(Player1, Player2)
+	return (Player1 and Player2 and not Player1.Neutral and not Player2.Neutral and Player1.TeamColor == Player2.TeamColor)
+end
+
+function TagHumanoid(humanoid, player)
+	local Creator_Tag = Instance.new("ObjectValue")
+	Creator_Tag.Name = "creator"
+	Creator_Tag.Value = player
+	Services.Debris:AddItem(Creator_Tag, 2)
+	Creator_Tag.Parent = humanoid
+end
+
+function UntagHumanoid(humanoid)
+	for i, v in pairs(humanoid:GetChildren()) do
+		if v:IsA("ObjectValue") and v.Name == "creator" then
+			v:Destroy()
+		end
+	end
+end
+
+local function GetNearestTorso(MarkedPosition,TorsoPopulationTable)
+	local ClosestDistance = math.huge
+	local ClosestTorso
+	for i=1,#TorsoPopulationTable do
+		local distance = (TorsoPopulationTable[i].CFrame.p-MarkedPosition).Magnitude
+		if TorsoPopulationTable[i] and  distance < ClosestDistance then
+			ClosestDistance = distance
+			ClosestTorso = TorsoPopulationTable[i]
+		end
+	end
+	--warn("The Closest Person is: "..ClosestTorso.Parent.Name)
+	return ClosestTorso
+end
+
+
+function onPlayerBlownUp(part, distance, position, explosionpressure)
+	if not part or not part.Parent or part.Parent:IsA("Accoutrement") or part:IsDescendantOf(Creator.Value.Character) then return end
+	local humanoid = part.Parent:FindFirstChildOfClass("Humanoid")
+	if humanoid then
+		local Character = humanoid.Parent
+		if Character and Character ~= Creator.Value.Character and not Character:FindFirstChildOfClass("ForceField") and not IsTeamMate(Creator.Value,Services.Players:GetPlayerFromCharacter(Character)) then
+			UntagHumanoid(humanoid)
+			TagHumanoid(humanoid, Creator.Value)
+			for _,joints in pairs(part:GetJoints()) do
+				joints:Destroy()
+			end
+			part.Velocity = (part.CFrame.p-position).unit*(explosionpressure/1000)
+		end
+	else
+		--part:BreakJoints()
+		for _,joints in pairs(part:GetJoints()) do
+			joints:Destroy()
+		end
+		if not part.Anchored then
+			part.Velocity = (part.CFrame.p-position).unit*(explosionpressure/100)
+		end
+	end
+end
+
+Services.Debris:AddItem(Hedgehog,10)
+local Exploded = false
+local Touch,Run
+Touch = Hedgehog.Touched:Connect(function(hit)
+	if not hit or not hit.Parent then return end
+	Properties.BounceCount = Properties.BounceCount + 1
+	
+	if Hedgehog:FindFirstChildOfClass("BodyVelocity") then
+		Hedgehog:FindFirstChildOfClass("BodyVelocity").Velocity = (Hedgehog:FindFirstChildOfClass("BodyVelocity").Velocity).Unit*(Properties.HedgehogSpeed + (Properties.BounceCount*4))
+	end
+	
+	local Hum,FF = hit.Parent:FindFirstChildOfClass("Humanoid"),hit.Parent:FindFirstChildOfClass("ForceField")
+	
+	if not Hum  or Hum.Health <= 0 or FF then return end
+	
+	if IsTeamMate(Creator.Value,Services.Players:GetPlayerFromCharacter(Hum.Parent)) or Creator.Value == Services.Players:GetPlayerFromCharacter(Hum.Parent) then return end
+	
+	UntagHumanoid(Hum)
+	TagHumanoid(Hum,Creator.Value)
+	if Properties.BounceCount > 5 and not Exploded then
+		Exploded = true
+		Hedgehog.Anchored = true
+		Hedgehog.Transparency = 1
+		Fire.Enabled = false
+		if Touch then Touch:Disconnect(); Touch = nil end
+		if Run then Run:Disconnect(); Run = nil end
+		
+		local e = Create("Explosion"){
+			BlastRadius = 5,
+			BlastPressure = 0,
+			DestroyJointRadiusPercent = 0,
+			ExplosionType = Enum.ExplosionType.NoCraters,
+			Position = Hedgehog.Position,
+			Parent = workspace,
+		}
+		e.Hit:Connect(function(part,distance)
+			onPlayerBlownUp(part,distance,e.Position,600000)
+		end)
+	else
+		Hum:TakeDamage(25)
+	end
+	
+		
+end)
+
+
+Run = Services.RunService.Heartbeat:Connect(function()
+	local Neg,Pos = Hedgehog.Position - Vector3.new(1,1,1)* Properties.HedgehogAOE, Hedgehog.Position + Vector3.new(1,1,1)*Properties.HedgehogAOE
+	local AOE = Region3.new(Neg,Pos)
+	local Parts = workspace:FindPartsInRegion3WithIgnoreList(AOE,{Creator.Value.Character},math.huge)
+	local PlayerTorsos,NPCTorsos = {},{}
+	for i=1,#Parts,1 do
+		if Parts[i] and Parts[i].Parent and (Parts[i].Position-Hedgehog.Position).Magnitude <= Properties.HedgehogAOE then
+			local Hum, FF, Torso = Parts[i].Parent:FindFirstChildOfClass("Humanoid"), Parts[i].Parent:FindFirstChildOfClass("ForceField"),(Parts[i].Parent:FindFirstChild("Torso") or Parts[i].Parent:FindFirstChild("UpperTorso"))
+			if Hum and Hum.Health ~= 0 and not FF and Torso and not IsTeamMate(Creator.Value,Services.Players:GetPlayerFromCharacter(Hum.Parent)) then
+				if Services.Players:GetPlayerFromCharacter(Hum.Parent) then
+					PlayerTorsos[#PlayerTorsos+1] = Torso
+				else
+					NPCTorsos[#NPCTorsos+1] = Torso
+				end
+			end
+		end
+	end
+	
+	local TargetTorso = GetNearestTorso(Hedgehog.Position,(#PlayerTorsos > 0 and PlayerTorsos) or (#NPCTorsos > 0 and NPCTorsos) or {})
+	
+	if TargetTorso then
+		if Hedgehog:FindFirstChildOfClass("BodyVelocity") then
+			Hedgehog:FindFirstChildOfClass("BodyVelocity").Velocity = (TargetTorso.Position-Hedgehog.Position).Unit*(Properties.HedgehogSpeed + (Properties.BounceCount*4))
+		end
+	end
+
+end)
+
+
+
+]]></ProtectedString>
+					<BinaryString name="Tags"></BinaryString>
+				</Properties>
+				<Item class="ParticleEmitter" referent="RBXA5B39F49A94A44598693C51C0E8B1F1F">
+					<Properties>
+						<Vector3 name="Acceleration">
+							<X>0</X>
+							<Y>25</Y>
+							<Z>0</Z>
+						</Vector3>
+						<ColorSequence name="Color">0 0.666667 1 1 0 1 1 1 1 0 </ColorSequence>
+						<float name="Drag">0</float>
+						<token name="EmissionDirection">4</token>
+						<bool name="Enabled">false</bool>
+						<NumberRange name="Lifetime">0 0.7 </NumberRange>
+						<float name="LightEmission">0.860000014</float>
+						<float name="LightInfluence">0</float>
+						<bool name="LockedToPart">false</bool>
+						<string name="Name">Fire</string>
+						<float name="Rate">200</float>
+						<NumberRange name="RotSpeed">25 50 </NumberRange>
+						<NumberRange name="Rotation">-180 180 </NumberRange>
+						<NumberSequence name="Size">0 0.75 0 0.702454 0.9375 0 0.812883 0.6875 0 0.904908 0.375 0 1 0 0 </NumberSequence>
+						<NumberRange name="Speed">7 9 </NumberRange>
+						<Vector2 name="SpreadAngle">
+							<X>10</X>
+							<Y>10</Y>
+						</Vector2>
+						<BinaryString name="Tags"></BinaryString>
+						<Content name="Texture"><url>http://www.mulrbx.com/asset/?id=248625108</url></Content>
+						<NumberSequence name="Transparency">0 0 0 0.13253 0.54375 0 0.32092 0.7375 0 0.387733 0 0 0.468784 0.725 0 0.522453 0.45625 0 0.615553 0.6375 0 0.63965 0 0 0.744797 0.525 0 1 0 0 </NumberSequence>
+						<float name="VelocityInheritance">0</float>
+						<float name="ZOffset">0</float>
+					</Properties>
+				</Item>
+				<Item class="Folder" referent="RBXEE29C2CF6DC945E8A20CC8C07A36F1DC">
+					<Properties>
+						<string name="Name">Sounds</string>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+					<Item class="Sound" referent="RBX69C04BBFFB994D3895CDAC6894E0B1B5">
+						<Properties>
+							<float name="EmitterSize">10</float>
+							<bool name="Looped">false</bool>
+							<string name="Name">ItsMyHedge</string>
+							<bool name="PlayOnRemove">false</bool>
+							<float name="PlaybackSpeed">1</float>
+							<bool name="Playing">false</bool>
+							<token name="RollOffMode">0</token>
+							<Ref name="SoundGroup">null</Ref>
+							<Content name="SoundId"><url>rbxassetid://76115431</url></Content>
+							<BinaryString name="Tags"></BinaryString>
+							<double name="TimePosition">0</double>
+							<float name="Volume">5</float>
+							<float name="xmlRead_MaxDistance_3">10000</float>
+						</Properties>
+					</Item>
+					<Item class="Sound" referent="RBXCBBF06BFE55340FD8FC1E18EB45D501F">
+						<Properties>
+							<float name="EmitterSize">10</float>
+							<bool name="Looped">false</bool>
+							<string name="Name">LookinSharpToday</string>
+							<bool name="PlayOnRemove">false</bool>
+							<float name="PlaybackSpeed">1</float>
+							<bool name="Playing">false</bool>
+							<token name="RollOffMode">0</token>
+							<Ref name="SoundGroup">null</Ref>
+							<Content name="SoundId"><url>rbxassetid://76115441</url></Content>
+							<BinaryString name="Tags"></BinaryString>
+							<double name="TimePosition">0</double>
+							<float name="Volume">5</float>
+							<float name="xmlRead_MaxDistance_3">10000</float>
+						</Properties>
+					</Item>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="Keyframe" referent="RBXCFF43DDE9C674A2C9F10CA909E341D34">
+			<Properties>
+				<string name="Name">ThumbnailPose</string>
+				<BinaryString name="Tags"></BinaryString>
+				<float name="Time">0</float>
+			</Properties>
+			<Item class="Pose" referent="RBX4BB5CC36B7AF4C9E9B8B27395E9149C5">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<token name="EasingDirection">1</token>
+					<token name="EasingStyle">0</token>
+					<string name="Name">UpperTorso</string>
+					<BinaryString name="Tags"></BinaryString>
+					<float name="Weight">0</float>
+				</Properties>
+				<Item class="Pose" referent="RBX8F14B3DDA4E94C28BD7D0027ED0430F7">
+					<Properties>
+						<CoordinateFrame name="CFrame">
+							<X>0</X>
+							<Y>-6.70552254e-08</Y>
+							<Z>-5.96046448e-08</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0.173648193</R11>
+							<R12>-0.98480773</R12>
+							<R20>0</R20>
+							<R21>0.98480773</R21>
+							<R22>0.173648193</R22>
+						</CoordinateFrame>
+						<token name="EasingDirection">1</token>
+						<token name="EasingStyle">0</token>
+						<string name="Name">RightUpperArm</string>
+						<BinaryString name="Tags"></BinaryString>
+						<float name="Weight">1</float>
+					</Properties>
+					<Item class="Pose" referent="RBX0680102CE0C6490381370A25C2EE5F6E">
+						<Properties>
+							<CoordinateFrame name="CFrame">
+								<X>0</X>
+								<Y>-1.49011612e-08</Y>
+								<Z>3.7252903e-09</Z>
+								<R00>1</R00>
+								<R01>0</R01>
+								<R02>0</R02>
+								<R10>0</R10>
+								<R11>0.98480773</R11>
+								<R12>-0.173648179</R12>
+								<R20>0</R20>
+								<R21>0.173648179</R21>
+								<R22>0.98480773</R22>
+							</CoordinateFrame>
+							<token name="EasingDirection">1</token>
+							<token name="EasingStyle">0</token>
+							<string name="Name">RightLowerArm</string>
+							<BinaryString name="Tags"></BinaryString>
+							<float name="Weight">1</float>
+						</Properties>
+						<Item class="Pose" referent="RBX1403C4BF12AF4F4AA00B64415326ABD9">
+							<Properties>
+								<CoordinateFrame name="CFrame">
+									<X>0</X>
+									<Y>0</Y>
+									<Z>0</Z>
+									<R00>1</R00>
+									<R01>0</R01>
+									<R02>0</R02>
+									<R10>0</R10>
+									<R11>1</R11>
+									<R12>0</R12>
+									<R20>0</R20>
+									<R21>0</R21>
+									<R22>1</R22>
+								</CoordinateFrame>
+								<token name="EasingDirection">1</token>
+								<token name="EasingStyle">0</token>
+								<string name="Name">RightHand</string>
+								<BinaryString name="Tags"></BinaryString>
+								<float name="Weight">1</float>
+							</Properties>
+						</Item>
+					</Item>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="LocalScript" referent="RBXE5756D739BD84478A7B13496B1B1B48D">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">MouseIcon</string>
+				<string name="ScriptGuid">{D99A6B3F-05BD-4A88-82C1-A3DE52D44D80}</string>
+				<ProtectedString name="Source"><![CDATA[--Rescripted by Luckymaxer
+
+Mouse_Icon = "rbxasset://textures/GunCursor.png"
+Reloading_Icon = "rbxasset://textures/GunWaitCursor.png"
+
+Tool = script.Parent
+
+Mouse = nil
+
+function UpdateIcon()
+	if Mouse then
+		Mouse.Icon = Tool.Enabled and Mouse_Icon or Reloading_Icon
+	end
+end
+
+function OnEquipped(ToolMouse)
+	Mouse = ToolMouse
+	UpdateIcon()
+end
+
+function OnChanged(Property)
+	if Property == "Enabled" then
+		UpdateIcon()
+	end
+end
+
+Tool.Equipped:Connect(OnEquipped)
+Tool.Changed:Connect(OnChanged)
+]]></ProtectedString>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+		<Item class="LocalScript" referent="RBXE966A57711DF4400A06905AF27C39453">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">Client</string>
+				<string name="ScriptGuid">{23D91E5E-BF33-41D9-8DE2-E83D8205CD03}</string>
+				<ProtectedString name="Source"><![CDATA[local Tool = script.Parent
+
+local MouseInput = Tool:WaitForChild("MouseInput",10)
+
+function MouseInput.OnClientInvoke()
+	return game.Players.LocalPlayer:GetMouse().Hit.p
+end]]></ProtectedString>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+		<Item class="Camera" referent="RBX478C2160F19946C0AD1D6F5E1C258B6D">
+			<Properties>
+				<CoordinateFrame name="CFrame">
+					<X>-1.4288795</X>
+					<Y>5.5429616</Y>
+					<Z>-0.566324592</Z>
+					<R00>-0.02263988</R00>
+					<R01>0.0958616585</R01>
+					<R02>-0.995137155</R02>
+					<R10>-0</R10>
+					<R11>0.995392382</R11>
+					<R12>0.0958862305</R12>
+					<R20>0.99974376</R20>
+					<R21>0.00217085285</R21>
+					<R22>-0.0225355625</R22>
+				</CoordinateFrame>
+				<Ref name="CameraSubject">null</Ref>
+				<token name="CameraType">0</token>
+				<float name="FieldOfView">70</float>
+				<CoordinateFrame name="Focus">
+					<X>0.561394811</X>
+					<Y>5.35118914</Y>
+					<Z>-0.521253467</Z>
+					<R00>1</R00>
+					<R01>0</R01>
+					<R02>0</R02>
+					<R10>0</R10>
+					<R11>1</R11>
+					<R12>0</R12>
+					<R20>0</R20>
+					<R21>0</R21>
+					<R22>1</R22>
+				</CoordinateFrame>
+				<bool name="HeadLocked">true</bool>
+				<float name="HeadScale">1</float>
+				<string name="Name">ThumbnailCamera</string>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+	</Item>
+</roblox>

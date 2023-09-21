@@ -1,0 +1,7 @@
+RewriteEngine On
+RewriteBase /users/
+
+
+RewriteRule ^currency/balance/?$ index.php?endpoint=balance [QSA,L]
+RewriteRule ^(\d+)/currency/balance/?$ index.php?endpoint=balance&id=$1 [QSA,L]
+RewriteRule ^(\d+)$ index.php?endpoint=user&id=$1 [QSA,L]

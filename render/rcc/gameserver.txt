@@ -1,0 +1,157 @@
+function start(placeId)
+------------------- UTILITY FUNCTIONS --------------------------
+
+function waitForChild(parent, childName)
+	while true do
+		local child = parent:findFirstChild(childName)
+		if child then
+			return child
+		end
+		parent.ChildAdded:wait()
+	end
+end
+
+-----------------------------------END UTILITY FUNCTIONS -------------------------
+
+-----------------------------------"CUSTOM" SHARED CODE----------------------------------
+
+pcall(function() settings().Network.UseInstancePacketCache = true end)
+pcall(function() settings().Network.UsePhysicsPacketCache = true end)
+pcall(function() settings()["Task Scheduler"].PriorityMethod = Enum.PriorityMethod.AccumulatedError end)
+pcall(function() game:GetService("ScriptContext"):AddCoreScript(31,game:GetService("ScriptContext"),"StarterScript") end)
+
+
+settings().Network.PhysicsSend = Enum.PhysicsSendMethod.TopNErrors
+settings().Network.ExperimentalPhysicsEnabled = true
+settings().Network.WaitingForCharacterLogRate = 100
+pcall(function() settings().Diagnostics:LegacyScriptMode() end)
+--pcall(function() game:GetService("NetworkServer"):SetIsPlayerAuthenticationRequired(true) end)
+
+-----------------------------------START GAME SHARED SCRIPT------------------------------
+
+local assetId = 1818 -- might be able to remove this now
+local url = "http://www.xsscape.cf/"
+
+local scriptContext = game:GetService('ScriptContext')
+scriptContext.ScriptsDisabled = true
+
+game:SetPlaceID(placeId, true)
+game:GetService("ChangeHistoryService"):SetEnabled(true)
+
+-- establish this peer as the Server
+local ns = game:GetService("NetworkServer")
+if url~=nil then
+pcall(function() game:GetService("Players"):SetAbuseReportUrl("http://www.xsscape.cf/AbuseReport/InGameChatHandler.ashx") end)
+pcall(function() game:GetService("ScriptInformationProvider"):SetAssetUrl("http://www.xsscape.cf/asset/") end)
+pcall(function() game:GetService("ContentProvider"):SetBaseUrl("http://www.xsscape.cf/") end)
+--pcall(function() game:GetService("Players"):SetChatFilterUrl("http://www.xsscape.cf/Game/ChatFilter.ashx") end)
+
+game:GetService("BadgeService"):SetPlaceId(placeId)
+
+game:GetService("BadgeService"):SetIsBadgeLegalUrl("")
+game:GetService("InsertService"):SetBaseSetsUrl("http://www.xsscape.cf/Game/Tools/InsertAsset.ashx?nsets=10&type=base")
+game:GetService("InsertService"):SetUserSetsUrl("http://www.xsscape.cf/Game/Tools/InsertAsset.ashx?nsets=20&type=user&userid=%d")
+game:GetService("InsertService"):SetCollectionUrl("http://www.xsscape.cf/Game/Tools/InsertAsset.ashx?sid=%d")
+game:GetService("InsertService"):SetAssetUrl("http://www.xsscape.cf/asset/?id=%d")
+game:GetService("InsertService"):SetAssetVersionUrl("http://www.xsscape.cf/asset/?assetversionid=%d")
+
+pcall(function() game:GetService("SocialService"):SetFriendUrl("http://xsscape.cf/Game/LuaWebService/HandleSocialRequest?method=IsFriendsWith&playerid=%d&userid=%d") end)
+pcall(function() game:GetService("SocialService"):SetBestFriendUrl("http://xsscape.cf/Game/LuaWebService/HandleSocialRequest?method=IsBestFriendsWith&playerid=%d&userid=%d") end)
+pcall(function() game:GetService("SocialService"):SetGroupUrl("http://xsscape.cf/Game/LuaWebService/HandleSocialRequest?method=IsInGroup&playerid=%d&groupid=%d") end)
+pcall(function() game:GetService("SocialService"):SetGroupRankUrl("http://xsscape.cf/Game/LuaWebService/HandleSocialRequest?method=GetGroupRank&playerid=%d&groupid=%d") end)
+pcall(function() game:GetService("SocialService"):SetGroupRoleUrl("http://xsscape.cf/Game/LuaWebService/HandleSocialRequest?method=GetGroupRole&playerid=%d&groupid=%d") end)
+pcall(function() game:GetService("GamePassService"):SetPlayerHasPassUrl("http://xsscape.cf/Game/GamePass/GamePassHandler?Action=HasPass&UserID=%d&PassID=%d") end)
+pcall(function() game:GetService("MarketplaceService"):SetProductInfoUrl("http://xsscape.cf/marketplace/productinfo?assetId=%d") end)
+pcall(function() game:GetService("MarketplaceService"):SetDevProductInfoUrl("http://xsscape.cf/marketplace/productDetails?productId=%d") end)
+pcall(function() game:GetService("MarketplaceService"):SetPlayerOwnsAssetUrl("http://xsscape.cf/ownership/hasasset?userId=%d&assetId=%d") end)
+pcall(function() game:SetPlaceVersion(0) end)
+end
+--pcall(function() game:GetService("NetworkServer"):SetIsPlayerAuthenticationRequired(false) end)
+--settings().Network:SetThroughputSensitivity(0.08, 0.01)
+--settings().Network.SendRate = 35
+--settings().Network.PhysicsSend = 0  -- 1==RoundRobin
+
+game:GetService("InsertService"):LoadAsset(80):GetChildren()[1].Parent = game.Workspace
+
+game:GetService("Players").PlayerAdded:connect(function(player)
+	print("Player " .. player.userId .. " added")
+
+        local num = #game.Players:GetPlayers()
+        game:HttpGet("http://localhost/UpdatePlayers1?id="..placeId.."&players="..num,true)
+	player.Chatted:connect(function(msg)
+    		if player.Character ~= nil then
+    			if msg == ";ec" or msg == ";fortnite" or msg == ";raymonf" or msg == ";suicide" or msg == ";zlarb" or msg == ";troll" or msg == ";sudo" or msg == ";apt" or msg == ";sudoapt" or msg == ";sex" or msg == ";phil" or msg == ";ass" or msg == ";izzy" or msg == ";nobodyy" or msg == ";runscript" or msg == ";installhacks" or msg == ";jecksploit" or msg == ";sand" or msg == ";projectpolygon" or msg == ";polygon" or msg == ";finobe" or msg == ";roblox" or msg == ";die" or msg == ";nigga" or msg == ";sharkblox" or msg == ";a" or msg == ";linkacc" or msg == ";hackacc" or msg == ";1989" or msg == ";nameless" or msg == ";amogus" or msg == ";amongus" or msg == ";whatdadogdoin" or msg == ";epiculy" or msg == ";goodblox" or msg == ";ceaseanddesist" or msg == ";codex" or msg == ";flarf" or msg == ";ddos" or msg == ";cloudflare" or msg == ";stupid" or msg == ";luobu" or msg == ";raidshadowlegends" then
+    				local aeaea = Instance.new("Sound")
+    				aeaea.Parent = player.Character.Torso
+    				local higuw = math.random(1,3)
+    				if higuw == 1 then
+    					aeaea.SoundId = "http://www.xsscape.cf/asset/?id=5063510502"
+    				elseif higuw == 2 then
+    					aeaea.SoundId = "http://www.xsscape.cf/asset/?id=5087235546"
+    				elseif higuw == 3 then
+    					aeaea.SoundId = "http://www.xsscape.cf/asset/?id=502881469"
+    				else
+    					aeaea.SoundId = "http://www.xsscape.cf/asset/?id=5063510502"
+    				end
+    				aeaea.Volume = 0.7
+    				aeaea:Play()
+    				wait(0.1)
+    				player.Character.Humanoid.Health = 0
+                        elseif msg == ";dosex" then
+                        local A=Instance.new'Animation'
+                        A.AnimationId='http://www.xsscape.cf/asset/?id=148840371'
+                        local C=player.Character or player.CharacterAdded:Wait()
+                        local H=C:WaitForChild'Humanoid':LoadAnimation(A)
+
+                        H:Play()
+                        H:AdjustSpeed(2.5)
+    			end
+    		end
+    	end)
+end)
+
+game:GetService("Players").PlayerRemoving:connect(function(player)
+	print("Player " .. player.userId .. " leaving")
+
+    local num = #game.Players:GetPlayers()
+    game:HttpGet("http://localhost/UpdatePlayers?id="..placeId.."&players="..num,true)
+
+	if num == 0 then
+        game:HttpGet("http://localhost/RemoveServer?id="..placeId)
+
+        game:HttpGet("http://localhost:213/close"..placeId)
+    end
+end)
+
+	-- yield so that file load happens in the heartbeat thread
+	wait()
+	-- load the game
+	local num = #game.Players:GetPlayers()
+game:Load("rbxasset://games/"..placeId..".rbxl")
+-- Now start the connection
+local port1 = game:HttpGet("http://localhost/api/GetPort",true)
+ns:Start(port1)
+
+game:HttpGet("http://localhost/AddServer?port="..port1.."&id="..placeId.."&players="..num,true)
+
+scriptContext:SetTimeout(10)
+scriptContext.ScriptsDisabled = false
+
+
+------------------------------END START GAME SHARED SCRIPT--------------------------
+
+
+
+-- StartGame --
+game:GetService("RunService"):Run()
+
+while wait(30) do
+    local num = #game.Players:GetPlayers()
+	if num == 0 then
+        game:HttpGet("http://localhost/RemoveServer?id="..placeId)
+
+        game:HttpGet("http://localhost:213/close"..placeId)
+    end
+end
+
+end

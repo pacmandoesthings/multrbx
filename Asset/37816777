@@ -1,0 +1,675 @@
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mulrbx.com/roblox.xsd" version="4">
+	<External>null</External>
+	<External>nil</External>
+	<Item class="Tool" referent="RBX51C2000A6C214606A4DC883A631D2ACC">
+		<Properties>
+			<bool name="CanBeDropped">true</bool>
+			<bool name="Enabled">true</bool>
+			<CoordinateFrame name="Grip">
+				<X>0</X>
+				<Y>0</Y>
+				<Z>-1.5</Z>
+				<R00>0</R00>
+				<R01>0</R01>
+				<R02>1</R02>
+				<R10>1</R10>
+				<R11>0</R11>
+				<R12>0</R12>
+				<R20>0</R20>
+				<R21>1</R21>
+				<R22>0</R22>
+			</CoordinateFrame>
+			<bool name="ManualActivationOnly">false</bool>
+			<string name="Name">Ghostwalker</string>
+			<bool name="RequiresHandle">true</bool>
+			<BinaryString name="Tags"></BinaryString>
+			<Content name="TextureId"><url>http://www.mulrbx.com/asset/?id=89722223</url></Content>
+			<string name="ToolTip"></string>
+		</Properties>
+		<Item class="Part" referent="RBXD843F397324E48DF809988F226A816AE">
+			<Properties>
+				<bool name="Anchored">false</bool>
+				<float name="BackParamA">-0.5</float>
+				<float name="BackParamB">0.5</float>
+				<token name="BackSurface">0</token>
+				<token name="BackSurfaceInput">0</token>
+				<float name="BottomParamA">-0.5</float>
+				<float name="BottomParamB">0.5</float>
+				<token name="BottomSurface">0</token>
+				<token name="BottomSurfaceInput">0</token>
+				<CoordinateFrame name="CFrame">
+					<X>1.50000203</X>
+					<Y>5.60000801</Y>
+					<Z>-1.49999797</Z>
+					<R00>0</R00>
+					<R01>1</R01>
+					<R02>0</R02>
+					<R10>0.707106352</R10>
+					<R11>0</R11>
+					<R12>0.707107365</R12>
+					<R20>0.707107365</R20>
+					<R21>0</R21>
+					<R22>-0.707106352</R22>
+				</CoordinateFrame>
+				<bool name="CanCollide">true</bool>
+				<int name="CollisionGroupId">0</int>
+				<Color3uint8 name="Color3uint8">4294112243</Color3uint8>
+				<PhysicalProperties name="CustomPhysicalProperties">
+					<CustomPhysics>false</CustomPhysics>
+				</PhysicalProperties>
+				<float name="Elasticity">0.5</float>
+				<float name="Friction">0.300000012</float>
+				<float name="FrontParamA">-0.5</float>
+				<float name="FrontParamB">0.5</float>
+				<token name="FrontSurface">0</token>
+				<token name="FrontSurfaceInput">0</token>
+				<float name="LeftParamA">-0.5</float>
+				<float name="LeftParamB">0.5</float>
+				<token name="LeftSurface">0</token>
+				<token name="LeftSurfaceInput">0</token>
+				<bool name="Locked">true</bool>
+				<token name="Material">256</token>
+				<string name="Name">Handle</string>
+				<float name="Reflectance">0</float>
+				<float name="RightParamA">-0.5</float>
+				<float name="RightParamB">0.5</float>
+				<token name="RightSurface">0</token>
+				<token name="RightSurfaceInput">0</token>
+				<Vector3 name="RotVelocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<BinaryString name="Tags"></BinaryString>
+				<float name="TopParamA">-0.5</float>
+				<float name="TopParamB">0.5</float>
+				<token name="TopSurface">0</token>
+				<token name="TopSurfaceInput">0</token>
+				<float name="Transparency">0</float>
+				<Vector3 name="Velocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<token name="formFactorRaw">2</token>
+				<token name="shape">1</token>
+				<Vector3 name="size">
+					<X>1</X>
+					<Y>0.800000012</Y>
+					<Z>4</Z>
+				</Vector3>
+			</Properties>
+			<Item class="SpecialMesh" referent="RBXDCEFE54594FA4FB985D560585B1190BB">
+				<Properties>
+					<token name="LODX">2</token>
+					<token name="LODY">2</token>
+					<Content name="MeshId"><url>rbxasset://fonts/sword.mesh</url></Content>
+					<token name="MeshType">5</token>
+					<string name="Name">Mesh</string>
+					<Vector3 name="Offset">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+					<Vector3 name="Scale">
+						<X>1</X>
+						<Y>1</Y>
+						<Z>1</Z>
+					</Vector3>
+					<BinaryString name="Tags"></BinaryString>
+					<Content name="TextureId"><url>http://www.mulrbx.com/asset?id=64857463</url></Content>
+					<Vector3 name="VertexColor">
+						<X>1</X>
+						<Y>1</Y>
+						<Z>1</Z>
+					</Vector3>
+				</Properties>
+			</Item>
+			<Item class="Fire" referent="RBXE1B29D91F75049A3A32443EB2C03FE39">
+				<Properties>
+					<Color3 name="Color">4281584895</Color3>
+					<bool name="Enabled">false</bool>
+					<string name="Name">GhostFire</string>
+					<Color3 name="SecondaryColor">4278190233</Color3>
+					<BinaryString name="Tags"></BinaryString>
+					<float name="heat_xml">25</float>
+					<float name="size_xml">8</float>
+				</Properties>
+			</Item>
+			<Item class="Sound" referent="RBX03344783FD6745A0AE9F7CA5C894AECA">
+				<Properties>
+					<float name="EmitterSize">10</float>
+					<bool name="Looped">false</bool>
+					<string name="Name">Lunge</string>
+					<bool name="PlayOnRemove">false</bool>
+					<float name="PlaybackSpeed">1</float>
+					<bool name="Playing">false</bool>
+					<token name="RollOffMode">0</token>
+					<Ref name="SoundGroup">null</Ref>
+					<Content name="SoundId"><url>http://www.mulrbx.com/asset/?id=12222208</url></Content>
+					<BinaryString name="Tags"></BinaryString>
+					<double name="TimePosition">0</double>
+					<float name="Volume">0.600000024</float>
+					<float name="xmlRead_MaxDistance_3">10000</float>
+				</Properties>
+			</Item>
+			<Item class="Sound" referent="RBX732E80157C3044368A9B4219B5BAE4D6">
+				<Properties>
+					<float name="EmitterSize">10</float>
+					<bool name="Looped">false</bool>
+					<string name="Name">Slash</string>
+					<bool name="PlayOnRemove">false</bool>
+					<float name="PlaybackSpeed">1</float>
+					<bool name="Playing">false</bool>
+					<token name="RollOffMode">0</token>
+					<Ref name="SoundGroup">null</Ref>
+					<Content name="SoundId"><url>http://www.mulrbx.com/asset/?id=12222216</url></Content>
+					<BinaryString name="Tags"></BinaryString>
+					<double name="TimePosition">0</double>
+					<float name="Volume">0.699999988</float>
+					<float name="xmlRead_MaxDistance_3">10000</float>
+				</Properties>
+			</Item>
+			<Item class="Sound" referent="RBX348A745D9E164281B6050712DEB476EA">
+				<Properties>
+					<float name="EmitterSize">10</float>
+					<bool name="Looped">false</bool>
+					<string name="Name">Unsheath</string>
+					<bool name="PlayOnRemove">false</bool>
+					<float name="PlaybackSpeed">1</float>
+					<bool name="Playing">false</bool>
+					<token name="RollOffMode">0</token>
+					<Ref name="SoundGroup">null</Ref>
+					<Content name="SoundId"><url>http://www.mulrbx.com/asset/?id=12222225</url></Content>
+					<BinaryString name="Tags"></BinaryString>
+					<double name="TimePosition">0</double>
+					<float name="Volume">1</float>
+					<float name="xmlRead_MaxDistance_3">10000</float>
+				</Properties>
+			</Item>
+			<Item class="Sound" referent="RBX22FFAAF92D65440185079785ADC1F16C">
+				<Properties>
+					<float name="EmitterSize">10</float>
+					<bool name="Looped">false</bool>
+					<string name="Name">Ghost</string>
+					<bool name="PlayOnRemove">false</bool>
+					<float name="PlaybackSpeed">1</float>
+					<bool name="Playing">false</bool>
+					<token name="RollOffMode">0</token>
+					<Ref name="SoundGroup">null</Ref>
+					<Content name="SoundId"><url>http://www.mulrbx.com/asset/?id=12229501</url></Content>
+					<BinaryString name="Tags"></BinaryString>
+					<double name="TimePosition">0</double>
+					<float name="Volume">0.5</float>
+					<float name="xmlRead_MaxDistance_3">10000</float>
+				</Properties>
+			</Item>
+			<Item class="Attachment" referent="RBX1E7A803B332F4B0C8B227A3FEFEB8F16">
+				<Properties>
+					<CoordinateFrame name="CFrame">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>-1.49999988</Z>
+						<R00>-6.31088724e-30</R00>
+						<R01>0</R01>
+						<R02>1</R02>
+						<R10>1</R10>
+						<R11>0</R11>
+						<R12>6.31088724e-30</R12>
+						<R20>0</R20>
+						<R21>1</R21>
+						<R22>-0</R22>
+					</CoordinateFrame>
+					<string name="Name">RightGripAttachment</string>
+					<BinaryString name="Tags"></BinaryString>
+					<bool name="Visible">false</bool>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="LocalScript" referent="RBXA25CCC8570C14DF5B599CDD7DC6588C6">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">PreloadBackpackIcons</string>
+				<string name="ScriptGuid">{CA4F5229-FB5C-405B-B737-F9051F4581D0}</string>
+				<ProtectedString name="Source"><![CDATA[--Rescripted by Luckymaxer
+
+ContentProvider = game:GetService("ContentProvider")
+
+BaseUrl = "http://www.mulrbx.com/asset/?id="
+
+function LoadAssets(AssetList)
+	for i, v in pairs(AssetList) do
+		ContentProvider:Preload(BaseUrl .. v)
+	end
+end
+ 
+LoadAssets({89722223, 37755007, 37755011, 37755016, 37755024, 37755034, 37755036, 37755042, 37755045, 37755047, 37755054})]]></ProtectedString>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+		<Item class="LocalScript" referent="RBX22BAFA4AA5B648ECA197D5DE66D4C186">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">MouseIcon</string>
+				<string name="ScriptGuid">{013D0AAA-F184-4753-97BC-2DB3DE0BAB8F}</string>
+				<ProtectedString name="Source"><![CDATA[Mouse_Icon = "rbxasset://textures/GunCursor.png"
+Reloading_Icon = "rbxasset://textures/GunWaitCursor.png"
+
+Tool = script.Parent
+
+Mouse = nil
+
+function UpdateIcon()
+	if Mouse then
+		Mouse.Icon = Tool.Enabled and Mouse_Icon or Reloading_Icon
+	end
+end
+
+function OnEquipped(ToolMouse)
+	Mouse = ToolMouse
+	UpdateIcon()
+end
+
+Tool:GetPropertyChangedSignal("Enabled"):Connect(UpdateIcon)
+Tool.Equipped:connect(OnEquipped)]]></ProtectedString>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+		<Item class="Script" referent="RBX8B5561169FC6408791C0E4A5FF49CB51">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">SwordScript</string>
+				<string name="ScriptGuid">{DD14C5B2-FFCE-432F-8077-932D3083117A}</string>
+				<ProtectedString name="Source"><![CDATA[--Rescripted by Luckymaxer
+
+Tool = script.Parent
+Handle = Tool:WaitForChild("Handle")
+Mesh = Handle:WaitForChild("Mesh")
+GhostFire = Handle:WaitForChild("GhostFire")
+
+Players = game:GetService("Players")
+Debris = game:GetService("Debris")
+RunService = game:GetService("RunService")
+
+Kills = Tool:WaitForChild("Kills")
+
+
+BaseUrl = "http://www.mulrbx.com/asset/?id="
+
+IconImages = {37755007, 37755011, 37755016, 37755024, 37755034, 37755036, 37755042, 37755045, 37755047, 37755054}
+
+Grips = {
+	Up = CFrame.new(0, 0, -1.5, 0, 0, 1, 1, 0, 0, 0, 1, 0),
+	Out = CFrame.new(0, 0, -1.5, 0, -1, -0, -1, 0, -0, 0, 0, -1),
+}
+
+DamageValues = {
+	BaseDamage = 10,
+	SlashDamage = 10,
+	LungeDamage = 20,
+	Upgrade = {
+		Min = 15,
+		Max = 25,
+	},
+}
+
+Damage = DamageValues.BaseDamage
+
+Sounds = {
+	Slash = Handle:WaitForChild("Slash"),
+	Lunge = Handle:WaitForChild("Lunge"),
+	Unsheath = Handle:WaitForChild("Unsheath"),
+	Ghost = Handle:WaitForChild("Ghost")
+}
+
+LastAttack = 0
+TransparentParts = {}
+ToolEquipped = false
+
+Kills.Value = 0
+Handle.Transparency = 0.7
+Tool.Name = "Ghostwalker"
+Tool.TextureId = (BaseUrl .. "89722223")
+Tool.Enabled = true
+
+function SwordUp()
+	Tool.Grip = Grips.Up
+end
+
+function SwordOut()
+	Tool.Grip = Grips.Out
+end
+
+function IsTeamMate(Player1, Player2)
+	return (Player1 and Player2 and not Player1.Neutral and not Player2.Neutral and Player1.TeamColor == Player2.TeamColor)
+end
+
+function TagHumanoid(humanoid, player)
+	local Creator_Tag = Instance.new("ObjectValue")
+	Creator_Tag.Name = "creator"
+	Creator_Tag.Value = player
+	Debris:AddItem(Creator_Tag, 2)
+	Creator_Tag.Parent = humanoid
+end
+
+function UntagHumanoid(humanoid)
+	for i, v in pairs(humanoid:GetChildren()) do
+		if v:IsA("ObjectValue") and v.Name == "creator" then
+			v:Destroy()
+		end
+	end
+end
+
+function GetAllConnectedParts(Object)
+	local Parts = {}
+	local function GetConnectedParts(Object)
+		for i, v in pairs(Object:GetConnectedParts()) do
+			local Ignore = false
+			for ii, vv in pairs(Parts) do
+				if v == vv then
+					Ignore = true
+				end
+			end
+			if not Ignore then
+				table.insert(Parts, v)
+				GetConnectedParts(v)
+			end
+		end
+	end
+	GetConnectedParts(Object)
+	return Parts
+end
+
+function SetTransparency(PrimaryParent, Transparency)
+	local Parts = {}
+	local function SetParentTransparency(Parent)
+		for i, v in pairs(Parent:GetChildren()) do
+			if v ~= Tool then
+				if v ~= RootPart then
+					local ItemTransparency = nil
+					for ii, vv in pairs(TransparentParts) do
+						if vv and vv.Part and vv.Part == v then
+							ItemTransparency = vv.Transparency
+						end
+					end
+					pcall(function()
+						table.insert(Parts, {Part = v, Transparency = (ItemTransparency or v.Transparency)})
+						v.Transparency = Transparency
+					end)
+				end
+				SetParentTransparency(v, Transparency)
+			end
+		end
+	end
+	SetParentTransparency(PrimaryParent)
+	return Parts
+end
+
+function MakeGhostly(Transparency)
+	for i, v in pairs({GhostlyItemAdded, GhostlyItemRemoved}) do
+		if v then
+			v:disconnect()
+		end
+	end
+	if Transparency <= 0 then
+		for i, v in pairs(TransparentParts) do
+			if v and v.Part and v.Part.Parent then
+				v.Part.Transparency = v.Transparency
+			end
+		end
+		TransparentParts = {}
+			return
+	end
+	TransparentParts = SetTransparency(Character, Transparency)
+	GhostlyItemAdded = Character.DescendantAdded:connect(function(Child)
+		if Child:IsA("BasePart") then
+			if Child == Handle then
+				return
+			end
+			for i, v in pairs(SetTransparency(Child, Transparency)) do
+				table.insert(TransparentParts, v)
+			end
+		end
+	end)
+	GhostlyItemRemoved = Character.DescendantRemoving:connect(function(Child)
+		if Child:IsA("BasePart") then
+			for ii, vv in pairs(TransparentParts) do
+				if vv.Part == Child then
+					vv.Part.Transparency = vv.Transparency
+					table.remove(TransparentParts, ii)
+				end
+			end
+		end
+	end)
+end
+
+function ManagePower()
+	local Power = Kills.Value
+	Tool.Name = "Ghostwalker (" .. Power .. ")"
+	if (Power >= 0 and Power <= Kills.MaxValue) then
+		Tool.TextureId = (BaseUrl .. IconImages[Power + 1])
+	end
+	local DmgInc = (DamageValues.Upgrade.Min + (DamageValues.Upgrade.Max - DamageValues.Upgrade.Min) * (Power / Kills.MaxValue))
+	DamageValues.SlashDamage = DmgInc
+	DamageValues.LungeDamage = (2 * DmgInc)
+	print(DamageValues.SlashDamage)
+	MakeGhostly(0.2 + ((Power / Kills.MaxValue) * 0.8))
+end
+
+function UpdateGhostState(Enabled)
+	if GhostEffect and GhostEffect.Parent then
+		GhostEffect:Destroy()
+	end
+	for i, v in pairs({ItemAdded, ItemRemoved}) do
+		if v then
+			v:disconnect()
+		end
+	end
+	if not Enabled then
+		MakeGhostly(0)
+	else
+		
+		local Gravity = game:GetService("Workspace").Gravity
+		
+		local function CalcWeight(Mass)
+			return (Mass * Gravity * 0.85)
+		end
+		
+		local Mass = 0
+		for i, v in pairs(GetAllConnectedParts(RootPart)) do
+			Mass = (Mass + v:GetMass())
+		end
+		GhostEffect = Instance.new("BodyForce")
+		GhostEffect.Name = "GhostEffect"
+		GhostEffect.force = Vector3.new(0, CalcWeight(Mass), 0)
+		GhostEffect.Parent = RootPart
+		
+		ManagePower()
+		
+		ItemAdded = Character.DescendantAdded:connect(function(Child)
+			if Child:IsA("BasePart") then
+				GhostEffect.force = (GhostEffect.force + Vector3.new(0, CalcWeight(Child:GetMass()), 0))
+			end
+		end)
+		ItemRemoved = Character.DescendantRemoving:connect(function(Child)
+			if Child:IsA("BasePart") then
+				GhostEffect.force = (GhostEffect.force - Vector3.new(0, CalcWeight(Child:GetMass()), 0))
+			end
+		end)
+	end
+	
+end
+
+function Attack()
+	Damage = DamageValues.SlashDamage
+	Sounds.Slash:Play()
+	local Anim = Instance.new("StringValue")
+	Anim.Name = "toolanim"
+	Anim.Value = "Slash"
+	Anim.Parent = Tool
+end
+
+function Lunge()
+	Damage = DamageValues.LungeDamage
+	Sounds.Lunge:Play()
+	local Anim = Instance.new("StringValue")
+	Anim.Name = "toolanim"
+	Anim.Value = "Lunge"
+	Anim.Parent = Tool	
+	local Force = Instance.new("BodyVelocity")
+	Force.velocity = Vector3.new(0, 10, 0) 
+	Force.maxForce = Vector3.new(0, 4000, 0)
+	Debris:AddItem(Force, 0.5)
+	Force.Parent = RootPart
+	wait(0.25)
+	SwordOut()
+	wait(0.25)
+	if Force and Force.Parent then
+		Force:Destroy()
+	end
+	wait(0.5)
+	SwordUp()
+end
+
+function Blow(Hit)
+	if not Hit or not Hit.Parent or not CheckIfAlive() then
+		return
+	end
+	local RightArm = (Character:FindFirstChild("Right Arm") or Character:FindFirstChild("RightHand"))
+	if not RightArm then
+		return
+	end
+	local RightGrip = RightArm:FindFirstChild("RightGrip")
+	if not RightGrip or (RightGrip.Part0 ~= RightArm and RightGrip.Part1 ~= RightArm) or (RightGrip.Part0 ~= Handle and RightGrip.Part1 ~= Handle) then
+		return
+	end
+	local character = Hit.Parent
+	local humanoid = character:FindFirstChild("Humanoid")
+	if not humanoid or humanoid.Health == 0 then
+		return
+	end
+	local player = Players:GetPlayerFromCharacter(character)
+	if player and (player == Player or IsTeamMate(Player, player)) then
+		return
+	end
+	UntagHumanoid(humanoid)
+	TagHumanoid(humanoid, Player)
+	humanoid:TakeDamage(Damage)
+	print(Damage)
+	if humanoid.Health <= 0 then
+		Kills.Value = (Kills.Value + 1)
+		ManagePower()
+		Sounds.Ghost:Play()
+		Delay(0.01, (function()
+			GhostFire.Enabled = true
+			wait(0.3)
+			GhostFire.Enabled = false
+		end))
+	end
+end
+
+function Activated()
+	if not Tool.Enabled or not ToolEquipped or not CheckIfAlive() then
+		return
+	end
+	Tool.Enabled = false
+	local Tick = RunService.Stepped:wait()
+	if (Tick - LastAttack) < 0.2 then
+		Lunge()
+	else
+		Attack()
+	end
+	Damage = DamageValues.BaseDamage
+	LastAttack = Tick
+	Tool.Enabled = true
+end
+
+function CheckIfAlive()
+	return (((Character and Character.Parent and Humanoid and Humanoid.Parent and Humanoid.Health > 0 and RootPart and RootPart.Parent and Player and Player.Parent) and true) or false)
+end
+
+function Equipped()
+	Character = Tool.Parent
+	Player = Players:GetPlayerFromCharacter(Character)
+	Humanoid = Character:FindFirstChild("Humanoid")
+	RootPart = Character:FindFirstChild("HumanoidRootPart")
+	if not CheckIfAlive() then
+		return
+	end
+	ToolEquipped = true
+	Spawn(function()
+		UpdateGhostState(true)
+	end)
+	Sounds.Unsheath:Play()
+end
+
+function Unequipped()
+	Spawn(function()
+		UpdateGhostState(false)
+	end)
+	ToolEquipped = false
+end
+
+SwordUp()
+
+Handle.Touched:connect(Blow)
+
+Tool.Activated:connect(Activated)
+Tool.Equipped:connect(Equipped)
+Tool.Unequipped:connect(Unequipped)]]></ProtectedString>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+		<Item class="IntConstrainedValue" referent="RBX98B2143C33BA4495BC86AFF7C54FB5BD">
+			<Properties>
+				<int name="MaxValue">9</int>
+				<int name="MinValue">0</int>
+				<string name="Name">Kills</string>
+				<BinaryString name="Tags"></BinaryString>
+				<int name="value">0</int>
+			</Properties>
+		</Item>
+		<Item class="Camera" referent="RBX954EFABDDAEB4C8692D5CDA543EF2F42">
+			<Properties>
+				<CoordinateFrame name="CFrame">
+					<X>6.30670595</X>
+					<Y>5.8100214</Y>
+					<Z>-1.81597066</Z>
+					<R00>-0.0419152416</R00>
+					<R01>-0.0157256089</R01>
+					<R02>0.99899745</R02>
+					<R10>5.82076609e-11</R10>
+					<R11>0.999876201</R11>
+					<R12>0.0157394409</R12>
+					<R20>-0.999121189</R20>
+					<R21>0.000659722544</R21>
+					<R22>-0.0419100523</R22>
+				</CoordinateFrame>
+				<Ref name="CameraSubject">null</Ref>
+				<token name="CameraType">0</token>
+				<float name="FieldOfView">70</float>
+				<CoordinateFrame name="Focus">
+					<X>4.30871105</X>
+					<Y>5.77854252</Y>
+					<Z>-1.73215055</Z>
+					<R00>1</R00>
+					<R01>0</R01>
+					<R02>0</R02>
+					<R10>0</R10>
+					<R11>1</R11>
+					<R12>0</R12>
+					<R20>0</R20>
+					<R21>0</R21>
+					<R22>1</R22>
+				</CoordinateFrame>
+				<bool name="HeadLocked">true</bool>
+				<float name="HeadScale">1</float>
+				<string name="Name">ThumbnailCamera</string>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+	</Item>
+</roblox>
